@@ -1,0 +1,72 @@
+#include "ModuleRender.h"
+#include "ModuleWindow.h"
+#include "Application.h"
+#include "Globals.h"
+bool ModuleRender::Init() {
+	renderer = SDL_CreateRenderer(App->window->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	if (renderer == NULL) {
+		LOG("Renderer has not been created.\n");
+		LOG(SDL_GetError());
+		LOG("\n");
+		return false;
+	}
+	SDL_RenderSetScale(renderer, 1, 1); 
+	SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+	App->imatges->loadIMGs();
+	return true;
+}
+update_status ModuleRender::PreUpdate() {
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_RenderClear(renderer);
+	return update_status::UPDATE_CONTINUE;
+}
+update_status ModuleRender::Update() {
+	if (App->input->keyboard[SDL_SCANCODE_UP]) /* if (camera.y < 0) */ camera.y -= cameraSpeed;
+	if (App->input->keyboard[SDL_SCANCODE_DOWN]) camera.y += cameraSpeed;
+	if (App->input->keyboard[SDL_SCANCODE_LEFT]) camera.x -= cameraSpeed; 
+	//if (camera.x < 0) camera.x = 0;
+	if (App->input->keyboard[SDL_SCANCODE_RIGHT]) camera.x += cameraSpeed;
+	return update_status::UPDATE_CONTINUE;
+}
+update_status ModuleRender::PostUpdate() {
+	SDL_RenderPresent(renderer);
+	return update_status::UPDATE_CONTINUE;
+}
+bool ModuleRender::CleanUp() {
+	SDL_DestroyRenderer(renderer);
+	return true;
+}
+bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed) {
+	SDL_Rect rect{ (int)(-camera.x * speed) + x * SCREEN_SIZE, (int)(-camera.y * speed) + y * SCREEN_SIZE, 0, 0 };
+	if (section != nullptr)	{
+		rect.w = section->w;
+		rect.h = section->h;
+	} else SDL_QueryTexture(texture, nullptr, nullptr, &rect.w, &rect.h);
+	rect.w *= SCREEN_SIZE;
+	rect.h *= SCREEN_SIZE;
+	if (SDL_RenderCopyEx(renderer, texture, section, &rect, 0, NULL, SDL_FLIP_NONE) != 0) {
+		LOG("Cannot blit to screen. SDL_RenderCopyEx error: %s", SDL_GetError());
+		return false;
+	}
+	return true;
+}
+bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed) {
+	bool ret = true;
+
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+	SDL_SetRenderDrawColor(renderer, r, g, b, a);
+
+	SDL_Rect dstRect{
+		(int)(-camera.x * speed) + rect.x * SCREEN_SIZE,
+		(int)(-camera.y * speed) + rect.y * SCREEN_SIZE,
+		rect.w * SCREEN_SIZE, rect.h * SCREEN_SIZE };
+
+	if (SDL_RenderFillRect(renderer, &dstRect) != 0)
+	{
+		LOG("Cannot draw quad to screen. SDL_RenderFillRect error: %s", SDL_GetError());
+		ret = false;
+	}
+
+	return ret;
+}
