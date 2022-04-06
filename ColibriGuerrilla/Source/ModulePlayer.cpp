@@ -23,11 +23,12 @@ ModulePlayer::ModulePlayer() {
 ModulePlayer::~ModulePlayer() {}
 
 bool ModulePlayer::Start() {
-	texture = App->imatges->get("ship");
+	bool ret = false;
+	ret = App->imatges->get("ship", texture);
 	currentAnimation = &idleAnim;
 	position.x = 150;
 	position.y = 120;
-	return true;
+	return ret;
 }
 
 void ModulePlayer::ShootLasers() {

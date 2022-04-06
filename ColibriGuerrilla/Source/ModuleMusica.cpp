@@ -63,7 +63,7 @@ bool ModuleMusica::loadSFX(std::filesystem::directory_entry file) {
 bool ModuleMusica::playMusic(std::string name, float fade_time)
 {
 	bool ret = true;
-	if (mapaMusic[name] != NULL) {
+	if (mapaMusic[name] != nullptr) {
 		if (fade_time > 0.0f) {
 			// Warning: This call blocks the execution until fade out is done
 			Mix_FadeOutMusic((int)(fade_time * 1000.0f));
@@ -71,8 +71,8 @@ bool ModuleMusica::playMusic(std::string name, float fade_time)
 			Mix_HaltMusic();
 		}
 	}
-	if (mapaMusic[name] == NULL) {
-		LOG("Cannot play music %s. Mix_GetError(): %s\n", name, Mix_GetError());
+	if (mapaMusic[name] == nullptr) {
+		LOG("Cannot play music %s. Mix_GetError(): %s\n", name.c_str(), Mix_GetError());
 		ret = false;
 	}
 	else {

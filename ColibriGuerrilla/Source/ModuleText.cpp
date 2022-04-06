@@ -29,6 +29,7 @@ update_status ModuleText::PostUpdate() {
 	return update_status::UPDATE_CONTINUE;
 }
 bool ModuleText::CleanUp() {
+	
 	for (int i = 12; i <= 240; i += 12) {
 		TTF_CloseFont(fonts["name"][i]);
 	}

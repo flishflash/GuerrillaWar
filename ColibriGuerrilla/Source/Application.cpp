@@ -33,6 +33,7 @@ Application::~Application() {
 bool Application::Init() {
 	bool ret = true;
 	for (int i = 0; i < NUM_MODULES && ret; ++i) ret = modules[i]->Init();
+	LOG("INITED CORRECTLY\n");
 	for (int i = 0; i < NUM_MODULES&& ret; ++i) ret = modules[i]->Start();
 	return ret;
 }

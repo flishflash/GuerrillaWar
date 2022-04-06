@@ -21,8 +21,9 @@ ModuleParticles::~ModuleParticles()
 
 bool ModuleParticles::Start()
 {
+	bool ret = false;
 	LOG("Loading particles");
-	texture = App->imatges->get("particles");
+	ret = App->imatges->get("particles", texture);
 
 	// Explosion particle
 	explosion.anim.PushBack({ 274, 296, 33, 30 });
