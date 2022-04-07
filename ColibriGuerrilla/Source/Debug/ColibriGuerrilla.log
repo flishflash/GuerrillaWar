@@ -1,21 +1,2 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Project_2_Handout.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Application.cpp
-  Collider.cpp
-  Globals.cpp
-  ModuleCollisions.cpp
-  ModuleImatges.cpp
-  ModuleInput.cpp
-  ModuleMusica.cpp
-  ModuleParticles.cpp
-  ModulePlayer.cpp
-  ModuleRender.cpp
-  ModuleScene.cpp
-  ModuleText.cpp
-  ModuleWindow.cpp
-  Main.cpp
-  Module.cpp
-  Particle.cpp
-C:\Users\joseti1.TR12-AL\Documents\dfsf\GuerrillaWar\ColibriGuerrilla\Source\Particle.cpp(19,38): warning C4018: '>=': signed/unsigned mismatch
-  Text.cpp
-  Generating Code...
   ColibriGuerrilla.vcxproj -> C:\Users\joseti1.TR12-AL\Documents\dfsf\GuerrillaWar\Debug\ColibriGuerrilla.exe
