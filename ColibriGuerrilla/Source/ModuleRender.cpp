@@ -10,8 +10,8 @@ bool ModuleRender::Init() {
 		LOG("\n");
 		return false;
 	}
-	SDL_RenderSetScale(renderer, 1, 1); 
-	SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+	SDL_RenderSetScale(renderer, 1, 1);
+	SDL_RenderSetLogicalSize(renderer, RES_WIDTH, RES_HEIGHT);
 	App->imatges->loadIMGs();
 	return true;
 }
@@ -19,12 +19,13 @@ update_status ModuleRender::PreUpdate() {
 	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
+	SDL_RenderSetViewport(renderer, new SDL_Rect({ (int)(RES_WIDTH * 0.9) , 0, RES_WIDTH, RES_HEIGHT }));
 	return update_status::UPDATE_CONTINUE;
 }
 update_status ModuleRender::Update() {
 	if (App->input->keyboard[SDL_SCANCODE_UP]) /* if (camera.y < 0) */ camera.y -= cameraSpeed;
 	if (App->input->keyboard[SDL_SCANCODE_DOWN]) camera.y += cameraSpeed;
-	if (App->input->keyboard[SDL_SCANCODE_LEFT]) camera.x -= cameraSpeed; 
+	if (App->input->keyboard[SDL_SCANCODE_LEFT]) camera.x -= cameraSpeed;
 	//if (camera.x < 0) camera.x = 0;
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT]) camera.x += cameraSpeed;
 	return update_status::UPDATE_CONTINUE;
@@ -38,13 +39,13 @@ bool ModuleRender::CleanUp() {
 	return true;
 }
 bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed) {
-	SDL_Rect rect{ (int)(-camera.x * speed) + x * SCREEN_SIZE, (int)(-camera.y * speed) + y * SCREEN_SIZE, 0, 0 };
-	if (section != nullptr)	{
+	SDL_Rect rect{ (int)(-camera.x * speed) + x , (int)(-camera.y * speed) + y , 0, 0 };
+	if (section != nullptr) {
 		rect.w = section->w;
 		rect.h = section->h;
-	} else SDL_QueryTexture(texture, nullptr, nullptr, &rect.w, &rect.h);
-	rect.w *= SCREEN_SIZE;
-	rect.h *= SCREEN_SIZE;
+	}
+	else SDL_QueryTexture(texture, nullptr, nullptr, &rect.w, &rect.h);
+
 	if (SDL_RenderCopyEx(renderer, texture, section, &rect, 0, NULL, SDL_FLIP_NONE) != 0) {
 		LOG("Cannot blit to screen. SDL_RenderCopyEx error: %s", SDL_GetError());
 		return false;
@@ -58,9 +59,9 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	SDL_SetRenderDrawColor(renderer, r, g, b, a);
 
 	SDL_Rect dstRect{
-		(int)(-camera.x * speed) + rect.x * SCREEN_SIZE,
-		(int)(-camera.y * speed) + rect.y * SCREEN_SIZE,
-		rect.w * SCREEN_SIZE, rect.h * SCREEN_SIZE };
+		(int)(-camera.x * speed) + rect.x,
+		(int)(-camera.y * speed) + rect.y,
+		rect.w, rect.h };
 
 	if (SDL_RenderFillRect(renderer, &dstRect) != 0)
 	{
