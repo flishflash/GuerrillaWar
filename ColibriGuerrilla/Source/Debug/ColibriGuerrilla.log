@@ -1,3 +1,6 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: El directorio intermedio (Debug\) contiene archivos compartidos de otro proyecto (Project_2_Handout.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+  ModuleCollisions.cpp
   ModuleRender.cpp
+  Generando código...
+  LINK : no se encontró D:\C++\ColibriGuerrilla\GuerrillaWar\Debug\ColibriGuerrilla.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
   ColibriGuerrilla.vcxproj -> D:\C++\ColibriGuerrilla\GuerrillaWar\Debug\ColibriGuerrilla.exe
