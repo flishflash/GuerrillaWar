@@ -80,6 +80,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="ModuleCamara.h" />
     <ClInclude Include="ModuleCollisions.h" />
     <ClInclude Include="ModuleImatges.h" />
     <ClInclude Include="ModuleInput.h" />
@@ -104,6 +105,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="ModuleCamera.cpp" />
     <ClCompile Include="ModuleCollisions.cpp" />
     <ClCompile Include="ModuleImatges.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
