@@ -8,7 +8,8 @@ class ModuleImatges : public Module {
 		bool CleanUp() override;
 		bool loadIMGs();
 		bool Init() override;
-		bool get(std::string, SDL_Texture*);
+		bool get(std::string, SDL_Texture*&);
+		SDL_Texture* get(std::string);
 	protected:
 		std::map<std::string, SDL_Texture*> mapa;
 };

@@ -6,6 +6,7 @@
 #include "ModuleMusica.h"
 #include "ModuleScene.h"
 #include "ModuleText.h"
+#include "ModuleState.h"
 #include "ModuleCollisions.h"
 
 Application::Application() {
@@ -13,14 +14,16 @@ Application::Application() {
 	modules[1] = input = new ModuleInput();
 	modules[2] = imatges = new ModuleImatges();
 	modules[3] = audio = new ModuleMusica();
+	modules[4] = text = new ModuleText();
 
-	modules[4] = scene = new ModuleScene();
-	modules[5] = player = new ModulePlayer();
+	modules[5] = scene = new ModuleScene();
+	modules[6] = player = new ModulePlayer();
 
-	modules[6] = particles = new ModuleParticles();
-	modules[7] = collisions = new ModuleCollisions();
+	modules[7] = particles = new ModuleParticles();
+	modules[8] = collisions = new ModuleCollisions();
 
-	modules[8] = render = new ModuleRender();
+	modules[9] = render = new ModuleRender();
+	modules[10] = state = new ModuleState();
 }
 
 Application::~Application() {

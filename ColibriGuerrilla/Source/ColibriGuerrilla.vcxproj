@@ -78,15 +78,18 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="ModuleCollisions.h" />
     <ClInclude Include="ModuleImatges.h" />
     <ClInclude Include="ModuleInput.h" />
+    <ClInclude Include="ModuleLines.h" />
     <ClInclude Include="ModuleMusica.h" />
     <ClInclude Include="ModuleParticles.h" />
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModuleRender.h" />
     <ClInclude Include="ModuleScene.h" />
+    <ClInclude Include="ModuleState.h" />
     <ClInclude Include="ModuleText.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="Globals.h" />
@@ -98,16 +101,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="ModuleCollisions.cpp" />
     <ClCompile Include="ModuleImatges.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
+    <ClCompile Include="ModuleLines.cpp" />
     <ClCompile Include="ModuleMusica.cpp" />
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleScene.cpp" />
+    <ClCompile Include="ModuleState.cpp" />
     <ClCompile Include="ModuleText.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="Main.cpp" />

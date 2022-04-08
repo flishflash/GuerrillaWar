@@ -24,7 +24,6 @@ enum class update_status {
 	UPDATE_ERROR
 };
 
-// #define SCREEN_WIDTH 1920
-// #define SCREEN_HEIGHT 1080
+constexpr auto NUM_MODULES = 11;
 
 #endif // __GLOBALS_H__
