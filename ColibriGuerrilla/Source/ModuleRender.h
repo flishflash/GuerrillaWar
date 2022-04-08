@@ -14,7 +14,7 @@ class ModuleRender : public Module {
 		bool DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed = 1.0f);
 		bool CleanUp() override;
 		SDL_Renderer* renderer = nullptr;
-		SDL_Rect camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+		SDL_Rect camera = { 125, 3700, RES_WIDTH, RES_HEIGHT};
 		// The speed at which the camera will be moving
 		int cameraSpeed = 3;
 };
