@@ -22,7 +22,7 @@ Application::Application() {
 	modules[7] = particles = new ModuleParticles();
 	modules[8] = collisions = new ModuleCollisions();
 
-	modules[9] = render = new ModuleRender();
+	modules[9] = render = new ModuleRender(); //Prueba 2
 	modules[10] = state = new ModuleState(); //Prueba
 }
 
