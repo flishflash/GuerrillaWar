@@ -10,11 +10,8 @@ ModuleScene::~ModuleScene() {}
 bool ModuleScene::Start() {
 	bool ret = false;
 	if (!(ret = App->imatges->get("background", bgTexture))) return false;
-	if (!(ret = App->audio->playMusic("stage1", 1.0f))) return false;
-	App->collisions->AddCollider({ 0, 224, 3930, 16 }, Collider::Type::WALL);
+	//if (!(ret = App->audio->playMusic("stage1", 1.0f))) return false;
 	App->player->collider = App->collisions->AddCollider({ App->player->position.x, App->player->position.y, 32, 14 }, Collider::Type::PLAYER, App->player);
-	App->collisions->AddCollider({ 1376, 240 - 96, 112, 96 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 1376, 0, 112, 96 }, Collider::Type::WALL);
 	return ret;
 }
 update_status ModuleScene::Update() {
