@@ -19,7 +19,7 @@ update_status ModuleRender::PreUpdate() {
 	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
-	SDL_RenderSetViewport(renderer, new SDL_Rect({ (int)(RES_WIDTH * 0.9) , 0, RES_WIDTH, RES_HEIGHT }));
+	SDL_RenderSetViewport(renderer, new SDL_Rect({ RES_WIDTH , 0, RES_WIDTH, RES_HEIGHT * 6/4 }));
 	return update_status::UPDATE_CONTINUE;
 }
 update_status ModuleRender::Update() {
