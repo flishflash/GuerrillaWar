@@ -42,7 +42,7 @@ class Text {
 			SDL_DestroyTexture(texture);
 			texture = SDL_CreateTextureFromSurface(App->render->renderer, surface);
 			App->render->Blit(texture, SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3);
-			SDL_FreeSurface(surface);
+			//SDL_FreeSurface(surface);
 		}
 };
 
