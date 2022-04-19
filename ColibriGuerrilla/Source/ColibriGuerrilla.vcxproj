@@ -20,7 +20,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -81,6 +81,9 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Enemy_GreenSoldiers.h" />
+    <ClInclude Include="Enemy_RedSoldiers.h" />
+    <ClInclude Include="Enemy_YellowSoldiers.h" />
     <ClInclude Include="ModuleCollisions.h" />
     <ClInclude Include="ModuleImatges.h" />
     <ClInclude Include="ModuleInput.h" />
@@ -105,6 +108,9 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemy_GreenSoldiers.cpp" />
+    <ClCompile Include="Enemy_RedSoldiers.cpp" />
+    <ClCompile Include="Enemy_YellowSoldiers.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="ModuleCollisions.cpp" />
     <ClCompile Include="ModuleImatges.cpp" />
