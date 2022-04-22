@@ -23,7 +23,7 @@ bool ModuleImatges::loadIMGs() {
 		if (entry.is_regular_file() && !entry.path().extension().compare(".png")) {
 			mapa[entry.path().stem().string()] = SDL_CreateTextureFromSurface(App->render->renderer, IMG_Load(entry.path().string().c_str()));
 			LOG(entry.path().string().c_str());
-			if (mapa[entry.path().stem().string()] == nullptr) {
+			if (mapa[entry.path().stem().string()] == NULL) {
 				LOG(" has not been loaded.\n");
 				LOG(SDL_GetError());
 				LOG("\n");
@@ -34,13 +34,20 @@ bool ModuleImatges::loadIMGs() {
 	}
 	return true;
 }
-bool ModuleImatges::get(std::string name, SDL_Texture* p) {
+bool ModuleImatges::get(std::string name, SDL_Texture*& p) {
+	LOG("Image: ");
+	LOG(name.c_str());
 	if (mapa[name] == nullptr) {
-		LOG("Image: ");
-		LOG(name.c_str());
 		LOG(" cannot be found\n");
 		return false;
 	}
+	LOG(" could be found\n");
 	p = mapa[name];
-	return true;
+	return p == mapa[name];
+}
+SDL_Texture* ModuleImatges::get(std::string name) {
+	LOG("Image: ");
+	LOG(name.c_str());
+	LOG(mapa[name] == nullptr ? " cannot be found\n" : " could be found\n");
+	return mapa[name];
 }

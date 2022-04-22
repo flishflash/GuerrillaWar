@@ -10,7 +10,6 @@ class ModuleText : public Module {
 		update_status Update() override;
 		update_status PostUpdate() override;
 		bool CleanUp() override;
-		bool load(std::string, int);
 		TTF_Font* get(std::string name, int size) { return fonts[name][size]; }
 	protected:
 		std::map<std::string, std::map<int, TTF_Font*>> fonts;

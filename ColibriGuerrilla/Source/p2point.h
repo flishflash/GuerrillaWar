@@ -22,14 +22,12 @@ class p2Point {
 			this->y = y;
 			return(*this);
 		}
-		// Math ------------------------------------------------
 		p2Point operator -(const p2Point& v) const {
 			p2Point r;
 			r.x = x - v.x;
 			r.y = y - v.y;
 			return(r);
 		}
-
 		p2Point operator + (const p2Point& v) const {
 			p2Point r;
 			r.x = x + v.x;
@@ -52,7 +50,6 @@ class p2Point {
 		bool operator !=(const p2Point& v) const {
 			return (x != v.x || y != v.y);
 		}
-		// Utils ------------------------------------------------
 		bool IsZero() const {
 			return (x == 0 && y == 0);
 		}
@@ -65,7 +62,6 @@ class p2Point {
 			y = -y;
 			return(*this);
 		}
-		// Distances ---------------------------------------------
 		TYPE DistanceTo(const p2Point& v) const {
 			TYPE fx = x - v.x;
 			TYPE fy = y - v.y;

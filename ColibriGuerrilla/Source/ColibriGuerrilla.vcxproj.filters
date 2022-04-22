@@ -82,8 +82,24 @@
     <ClInclude Include="Text.h">
       <Filter>Source Files\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleCamara.h">
-      <Filter>Source Files\Modules\Gameplay</Filter>
+    <ClInclude Include="ModuleLines.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleState.h">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Enemy.h">
+      <Filter>Source Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_GreenSoldiers.h">
+      <Filter>Source Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_YellowSoldiers.h">
+      <Filter>Source Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_RedSoldiers.h">
+      <Filter>Source Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -138,8 +154,26 @@
     <ClCompile Include="Text.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleCamera.cpp">
-      <Filter>Source Files\Modules\Gameplay</Filter>
+    <ClCompile Include="ModuleLines.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleState.cpp">
+      <Filter>Source Files\Modules\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_GreenSoldiers.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_YellowSoldiers.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_RedSoldiers.cpp">
+      <Filter>Source Files\Entities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
