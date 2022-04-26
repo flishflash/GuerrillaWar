@@ -15,6 +15,10 @@ bool ModuleScene::Start() {
 	App->collisions->AddCollider({ 88, 4123, 302, 34 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 216, 4044, 81, 161 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 135, 4091, 32, 121 }, Collider::Type::WATER);
+
+
+	//App->enemies->AddEnemy(Enemy_Type::NO_TYPE, 250, 4000);
+
 	return ret;
 }
 update_status ModuleScene::Update() {

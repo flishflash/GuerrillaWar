@@ -13,6 +13,7 @@
 #include "ModuleCollisions.h"
 #include "Module.h"
 #include "ModuleState.h"
+#include "ModuleEnemies.h"
 class Application {
 	public:
 		Application();
@@ -32,6 +33,8 @@ class Application {
 		ModuleCollisions* collisions = nullptr;
 		ModuleMusica* audio = nullptr;
 		ModuleState* state = nullptr;
+		ModuleEnemies* enemies = nullptr;
+
 };
 extern Application* App;
 #endif // __APPLICATION_H__

@@ -11,6 +11,8 @@
 
 Enemy_GreenSoldiers :: Enemy_GreenSoldiers(int x, int y) : Enemy(x, y)
 {
+	bool ret = false;
+	ret = App->imatges->get("sprites caminant", texture);
 	southAnimGreen.PushBack({6, 4, 32, 58});
 	southAnimGreen.PushBack({ 40, 5, 28, 57 });
 	southAnimGreen.PushBack({ 71, 5, 29, 56 });
