@@ -24,6 +24,8 @@ Application::Application() {
 
 	modules[9] = render = new ModuleRender(); //Prueba 2
 	modules[10] = state = new ModuleState(); //Prueba
+
+	modules[11] = enemies = new ModuleEnemies();
 }
 
 Application::~Application() {

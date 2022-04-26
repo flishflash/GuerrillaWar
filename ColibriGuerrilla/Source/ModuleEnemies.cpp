@@ -14,7 +14,7 @@
 #define SPAWN_MARGIN 50
 
 
-ModuleEnemies::ModuleEnemies(bool startEnabled) : Module()
+ModuleEnemies::ModuleEnemies()
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		enemies[i] = nullptr;
@@ -27,8 +27,8 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-	/*texture = App->sprites->Load("Assets/Sprites/enemies.png");
-	enemyDestroyedFx = App->audio->LoadSFX("Assets/Fx/explosion.wav");*/
+
+	texture = App->imatges->get("Prueba_Guerrilla War Enemy Spritesheet");
 
 	return true;
 }

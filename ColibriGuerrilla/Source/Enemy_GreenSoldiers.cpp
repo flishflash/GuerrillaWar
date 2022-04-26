@@ -11,8 +11,7 @@
 
 Enemy_GreenSoldiers :: Enemy_GreenSoldiers(int x, int y) : Enemy(x, y)
 {
-	bool ret = false;
-	ret = App->imatges->get("sprites caminant", texture);
+
 	southAnimGreen.PushBack({6, 4, 32, 58});
 	southAnimGreen.PushBack({ 40, 5, 28, 57 });
 	southAnimGreen.PushBack({ 71, 5, 29, 56 });
@@ -22,9 +21,11 @@ Enemy_GreenSoldiers :: Enemy_GreenSoldiers(int x, int y) : Enemy(x, y)
 	southAnimGreen.speed = 0.1f;
 
 	currentAnim = &southAnimGreen;
-	collider = App->collisions->AddCollider({ spawnPos.x, spawnPos.y, 32, 60 }, Collider::Type::ENEMY);
+	collider = App->collisions->AddCollider({ spawnPos.x, spawnPos.y, 32, 60 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 void Enemy_GreenSoldiers::Update()
 {
-	
+	currentAnimation = &southAnimGreen;
+
+	Enemy::Update();
 }
