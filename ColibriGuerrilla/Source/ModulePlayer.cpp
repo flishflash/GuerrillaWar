@@ -100,39 +100,38 @@ update_status ModulePlayer::Update() {
 		direction = 1;
 		position.y -= speed;
 	}
-	else if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_D]) {
+	if (App->input->keyboard[SDL_SCANCODE_D]) {
+		direction = 3;
+		position.x += speed;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_S]) {
+		direction = 5;
+		position.y += speed;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_A]) {
+		direction = 7;
+		position.x -= speed;
+	}
+	if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_D]) {
 		direction = 2;
 		position.y -= speed / 2;
 		position.x += speed / 2;
 	}
-	else if (App->input->keyboard[SDL_SCANCODE_D]) {
-		direction = 3;
-		position.x += speed;
-	}
-	else if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_D]) {
+	if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_D]) {
 		direction = 4;
 		position.y += speed / 2;
 		position.x += speed / 2;
 	}
-	else if (App->input->keyboard[SDL_SCANCODE_S]) {
-		direction = 5;
-		position.y += speed;
+	if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_A]) {
+		direction = 8;
+		position.y -= speed / 2;
+		position.x -= speed / 2;
 	}
-	else if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_A]) {
+	if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_A]) {
 		direction = 6;
 		position.y += speed / 2;
 		position.x -= speed / 2;
 	}
-	else if (App->input->keyboard[SDL_SCANCODE_A]) {
-		direction = 7;
-		position.x -= speed;
-	}
-	else if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_A]) { 
-		direction = 8; 
-		position.y -= speed / 2;
-		position.x -= speed / 2;
-	}
-	
 
 		switch (direction)
 		{
