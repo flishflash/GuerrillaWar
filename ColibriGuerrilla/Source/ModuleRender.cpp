@@ -23,11 +23,11 @@ update_status ModuleRender::PreUpdate() {
 	return update_status::UPDATE_CONTINUE;
 }
 update_status ModuleRender::Update() {
-	if (App->input->keyboard[SDL_SCANCODE_UP]) /* if (camera.y < 0) */ camera.y -= cameraSpeed;
-	if (App->input->keyboard[SDL_SCANCODE_DOWN]) camera.y += cameraSpeed;
-	if (App->input->keyboard[SDL_SCANCODE_LEFT]) camera.x -= cameraSpeed;
+	if (App->input->keyboard[SDL_SCANCODE_W]) /* if (camera.y < 0) */ camera.y -= cameraSpeed/2;
+	if (App->input->keyboard[SDL_SCANCODE_S]) camera.y += cameraSpeed/2;
+	if (App->input->keyboard[SDL_SCANCODE_A]) camera.x -= cameraSpeed/2;
 	//if (camera.x < 0) camera.x = 0;
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT]) camera.x += cameraSpeed;
+	if (App->input->keyboard[SDL_SCANCODE_D]) camera.x += cameraSpeed/2;
 	return update_status::UPDATE_CONTINUE;
 }
 update_status ModuleRender::PostUpdate() {

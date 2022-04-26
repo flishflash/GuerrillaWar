@@ -31,5 +31,6 @@ class ModulePlayer : public Module {
 		Collider* collider = nullptr;
 		bool destroyed = false;
 		uint destroyedCountdown = 120;
+		int direction;
 };
 #endif //!__MODULE_PLAYER_H__
