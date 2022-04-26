@@ -34,6 +34,14 @@ ModulePlayer::ModulePlayer() {
 	eastAnim.loop = true;
 	eastAnim.speed = 0.1f;
 
+	southEastAnim.PushBack({ 0, 172, 31, 59 });
+	southEastAnim.PushBack({ 31, 172, 32, 57 });
+	southEastAnim.PushBack({ 64, 171, 28, 57 });
+	southEastAnim.PushBack({ 96, 172, 29, 56 });
+	southEastAnim.PushBack({ 127, 172, 31, 56 });
+	southEastAnim.loop = true;
+	southEastAnim.speed = 0.1f;
+
 	southAnim.PushBack({ 0, 233, 28, 59 });
 	southAnim.PushBack({ 28, 233, 31, 59 });
 	southAnim.PushBack({ 60, 232, 29, 56 });
@@ -41,6 +49,30 @@ ModulePlayer::ModulePlayer() {
 	southAnim.PushBack({ 123, 233, 32, 59 });
 	southAnim.loop = true;
 	southAnim.speed = 0.1f;
+
+	southWestAnim.PushBack({ 0, 296, 28, 58 });
+	southWestAnim.PushBack({ 35, 296, 24, 57 });
+	southWestAnim.PushBack({ 67, 295, 23, 58 });
+	southWestAnim.PushBack({ 99, 296, 24, 58 });
+	southWestAnim.PushBack({ 132, 296, 37, 60 });
+	southWestAnim.loop = true;
+	southWestAnim.speed = 0.1f;
+
+	westAnim.PushBack({ 0, 357, 30, 58 });
+	westAnim.PushBack({ 35, 357, 28, 58 });
+	westAnim.PushBack({ 74, 356, 17, 60 });
+	westAnim.PushBack({ 101, 356, 25, 59 });
+	westAnim.PushBack({ 129, 356, 30, 59 });
+	westAnim.loop = true;
+	westAnim.speed = 0.1f;
+
+	northWestAnim.PushBack({ 0, 419, 28, 56 });
+	northWestAnim.PushBack({ 34, 419, 26, 55 });
+	northWestAnim.PushBack({ 68, 418, 23, 55 });
+	northWestAnim.PushBack({ 101, 419, 21, 54 });
+	northWestAnim.PushBack({ 130, 419, 29, 55 });
+	northWestAnim.loop = true;
+	northWestAnim.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer() {}
@@ -49,8 +81,8 @@ bool ModulePlayer::Start() {
 	bool ret = false;
 	ret = App->imatges->get("sprites caminant", texture);
 	currentAnimation = &idleAnim;
-	position.x = 250;
-	position.y = 4000;
+	position.x = 235;
+	position.y = 3950;
 	return ret;
 }
 
@@ -63,7 +95,13 @@ update_status ModulePlayer::Update() {
 	
 	collider->rect.x = position.x;
 	collider->rect.y = position.y;
-	if (App->input->keyboard[SDL_SCANCODE_A]) position.x -= speed;
+	if (App->input->keyboard[SDL_SCANCODE_A]) {
+		position.x -= speed;
+		if (currentAnimation != &westAnim) {
+			westAnim.Reset();
+			currentAnimation = &westAnim;
+		}
+	}
 	if (App->input->keyboard[SDL_SCANCODE_D]) {
 		position.x += speed;
 		if (currentAnimation != &eastAnim) {
@@ -91,6 +129,30 @@ update_status ModulePlayer::Update() {
 		if (currentAnimation != &northEastAnim) {
 			northEastAnim.Reset();
 			currentAnimation = &northEastAnim;
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_D]) {
+		position.y += speed / 2;
+		position.x += speed / 2;
+		if (currentAnimation != &southEastAnim) {
+			southEastAnim.Reset();
+			currentAnimation = &southEastAnim;
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_A]) {
+		position.y += speed / 2;
+		position.x -= speed / 2;
+		if (currentAnimation != &southWestAnim) {
+			southWestAnim.Reset();
+			currentAnimation = &southWestAnim;
+		}
+	}
+	if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_A]) {
+		position.y -= speed / 2;
+		position.x -= speed / 2;
+		if (currentAnimation != &northWestAnim) {
+			northWestAnim.Reset();
+			currentAnimation = &northWestAnim;
 		}
 	}
 	if (!App->input->keyboard[SDL_SCANCODE_S] && !App->input->keyboard[SDL_SCANCODE_W] && !App->input->keyboard[SDL_SCANCODE_D] && !App->input->keyboard[SDL_SCANCODE_A]) currentAnimation = &idleAnim;
