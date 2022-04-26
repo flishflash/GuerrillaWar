@@ -211,11 +211,15 @@ update_status ModulePlayer::PostUpdate() {
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
-	/*if (c1 == Collider::Type::WATER || c2 == Collider::Type::) {
-		
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y - 7);
-		App->render->cameraSpeed = 0;
-		speed = 0;
-		App->audio->playSFX("explosion");
-	}*/
+	if (c1 == collider && destroyed == false && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WIN)
+	{
+		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
+		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
+		App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12, Collider::Type::NONE, 40);
+		App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, Collider::Type::NONE, 28);
+		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);
+
+		destroyed = true;
+	}
+	else if (c1->type == Collider::Type::WIN || c2->type == Collider::Type::WIN) LOG("WIN");
 }

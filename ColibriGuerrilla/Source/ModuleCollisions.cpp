@@ -74,10 +74,13 @@ update_status ModuleCollisions::PreUpdate() {
 	return update_status::UPDATE_CONTINUE;
 }
 update_status ModuleCollisions::Update() {
+	if (App->input->keyboard[SDL_SCANCODE_F1])
+		debug = !debug;
 	return update_status::UPDATE_CONTINUE;
 }
 update_status ModuleCollisions::PostUpdate() {
-	if (App->state->god) DebugDraw();
+	if (!debug)
+		DebugDraw();
 	return update_status::UPDATE_CONTINUE;
 }
 void ModuleCollisions::DebugDraw() {
@@ -102,6 +105,12 @@ void ModuleCollisions::DebugDraw() {
 				break;
 			case Collider::Type::ENEMY_SHOT: // magenta
 				App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
+				break;
+			case Collider::Type::WATER: //black
+				App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
+				break;
+			case Collider::Type::WIN: //pink
+				App->render->DrawQuad(colliders[i]->rect, 248, 12, 181, alpha);
 				break;
 		}
 	}

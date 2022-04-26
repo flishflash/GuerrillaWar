@@ -13,7 +13,7 @@ update_status ModuleInput::PreUpdate() {
 			case SDL_KEYDOWN:
 				if (!event.key.repeat) {
 					if (event.key.keysym.sym == SDLK_ESCAPE){}
-					if (event.key.keysym.sym == SDL_SCANCODE_F1) App->state->god = !App->state->god;
+					/*if (event.key.keysym.sym == SDL_SCANCODE_F1) App->state->god = !App->state->god;*/
 					if (event.key.keysym.sym == SDLK_SPACE) App->player->ShootLasers();
 					//if (event.key.keysym.sym == SDLK_b) App->player->SpawnExplosions();
 				}
