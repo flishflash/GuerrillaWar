@@ -1,28 +1,35 @@
 #pragma once
 #include "Enemy.h"
+#include "Module.h"
+#include "Animation.h"
+#include "p2Point.h"
+struct SDL_Texture;
+struct Collider;
+
 class Enemy_GreenSoldiers : public Enemy
 {
 public:
-	// Constructor
-	// Saves the spawn position for later movement calculations
+	/* Constructor
+	 Saves the spawn position for later movement calculations*/
 	Enemy_GreenSoldiers(int x, int y);
 
+	int speed = 1;
+	void Update() override;
 
-	// Returns the enemy's collider
-	//const Collider* GetCollider() const;
+	Animation* currentAnimation = nullptr;
+	Animation idleAnimGreen;
+	Animation northAnimGreen;
+	Animation southAnimGreen;
+	Animation eastAnimGreen;
+	Animation westAnimGreen;
+	Animation northEastAnimGreen;
+	Animation northWestAnimGreen;
+	Animation southEastAnimGreen;
+	Animation southWestAnimGreen;
+	Animation downAnimGreen;
+	Collider* collider = nullptr;
+	bool destroyed = false;
 
-	//// Called from inhering enemies' Udpate
-	//// Updates animation and collider position
-	//virtual void Update();
-
-	//// Called from ModuleEnemies' Update
-	//virtual void Draw();
-
-	//// Collision response
-	//// Triggers an animation and a sound fx
-	//virtual void OnCollision(Collider* collider);
-
-public:
 	// The current position in the world
 	iPoint position;
 
@@ -33,11 +40,6 @@ public:
 	int destroyedFx = 0;
 
 protected:
-	// A ptr to the current animation
-	Animation* currentAnim = nullptr;
-
-	// The enemy's collider
-	Collider* collider = nullptr;
 
 	// Original spawn position. Stored for movement calculations
 	iPoint spawnPos;

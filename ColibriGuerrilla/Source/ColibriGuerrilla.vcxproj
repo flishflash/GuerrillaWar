@@ -85,6 +85,7 @@
     <ClInclude Include="Enemy_RedSoldiers.h" />
     <ClInclude Include="Enemy_YellowSoldiers.h" />
     <ClInclude Include="ModuleCollisions.h" />
+    <ClInclude Include="ModuleEnemies.h" />
     <ClInclude Include="ModuleImatges.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModuleLines.h" />
@@ -113,6 +114,7 @@
     <ClCompile Include="Enemy_YellowSoldiers.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="ModuleCollisions.cpp" />
+    <ClCompile Include="ModuleEnemies.cpp" />
     <ClCompile Include="ModuleImatges.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModuleLines.cpp" />

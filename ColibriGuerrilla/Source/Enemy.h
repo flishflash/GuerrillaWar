@@ -40,8 +40,9 @@ public:
 
 	// Sound fx when destroyed
 	int destroyedFx = 0;
+	
+	bool pendingToDelete = false;
 
-protected:
 	// A ptr to the current animation
 	Animation* currentAnim = nullptr;
 
