@@ -96,73 +96,97 @@ update_status ModulePlayer::Update() {
 	collider->rect.x = position.x;
 	collider->rect.y = position.y;
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
-	if (App->input->keyboard[SDL_SCANCODE_W]) direction = 1;
-	else if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_D]) direction = 2;
-	else if (App->input->keyboard[SDL_SCANCODE_D]) direction = 3;
-	else if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_D]) direction = 4;
-	else if (App->input->keyboard[SDL_SCANCODE_S]) direction = 5;
-	else if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_A]) direction = 6;
-	else if (App->input->keyboard[SDL_SCANCODE_A]) direction = 7;
-	else if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_A]) direction = 8;
+	if (App->input->keyboard[SDL_SCANCODE_W]) {
+		direction = 1;
+		position.y -= speed;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_D]) {
+		direction = 2;
+		position.y -= speed / 2;
+		position.x += speed / 2;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_D]) {
+		direction = 3;
+		position.x += speed;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_D]) {
+		direction = 4;
+		position.y += speed / 2;
+		position.x += speed / 2;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_S]) {
+		direction = 5;
+		position.y += speed;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_A]) {
+		direction = 6;
+		position.y += speed / 2;
+		position.x -= speed / 2;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_A]) {
+		direction = 7;
+		position.x -= speed;
+	}
+	else if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_A]) { 
+		direction = 8; 
+		position.y -= speed / 2;
+		position.x -= speed / 2;
+	}
 	
 
 		switch (direction)
 		{
 		case 1:
-			position.y -= speed;
+			
 			if (currentAnimation != &northAnim) {
 				northAnim.Reset();
 				currentAnimation = &northAnim;
 			}
 			break;
 		case 2:
-			position.y -= speed / 2;
-			position.x += speed / 2;
+			
 			if (currentAnimation != &northEastAnim) {
 				northEastAnim.Reset();
 				currentAnimation = &northEastAnim;
 			}
 			break;
 		case 3:
-			position.x += speed;
+		
 			if (currentAnimation != &eastAnim) {
 				eastAnim.Reset();
 				currentAnimation = &eastAnim;
 			}
 			break;
 		case 4:
-			position.y += speed / 2;
-			position.x += speed / 2;
+			
 			if (currentAnimation != &southEastAnim) {
 				southEastAnim.Reset();
 				currentAnimation = &southEastAnim;
 			}
 			break;
 		case 5:
-			position.y += speed;
+			
 			if (currentAnimation != &southAnim) {
 				southAnim.Reset();
 				currentAnimation = &southAnim;
 			}
 			break;
 		case 6:
-			position.y += speed / 2;
-			position.x -= speed / 2;
+			
 			if (currentAnimation != &southWestAnim) {
 				southWestAnim.Reset();
 				currentAnimation = &southWestAnim;
 			}
 			break;
 		case 7:
-			position.x -= speed;
+			
 			if (currentAnimation != &westAnim) {
 				westAnim.Reset();
 				currentAnimation = &westAnim;
 			}
 			break;
 		case 8:
-			position.y -= speed / 2;
-			position.x -= speed / 2;
+			
 			if (currentAnimation != &northWestAnim) {
 				northWestAnim.Reset();
 				currentAnimation = &northWestAnim;
