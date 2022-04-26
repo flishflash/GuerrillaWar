@@ -95,66 +95,81 @@ update_status ModulePlayer::Update() {
 	
 	collider->rect.x = position.x;
 	collider->rect.y = position.y;
-	if (App->input->keyboard[SDL_SCANCODE_A]) {
-		position.x -= speed;
-		if (currentAnimation != &westAnim) {
-			westAnim.Reset();
-			currentAnimation = &westAnim;
+	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
+	if (App->input->keyboard[SDL_SCANCODE_W]) direction = 1;
+	else if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_D]) direction = 2;
+	else if (App->input->keyboard[SDL_SCANCODE_D]) direction = 3;
+	else if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_D]) direction = 4;
+	else if (App->input->keyboard[SDL_SCANCODE_S]) direction = 5;
+	else if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_A]) direction = 6;
+	else if (App->input->keyboard[SDL_SCANCODE_A]) direction = 7;
+	else if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_A]) direction = 8;
+	
+
+		switch (direction)
+		{
+		case 1:
+			position.y -= speed;
+			if (currentAnimation != &northAnim) {
+				northAnim.Reset();
+				currentAnimation = &northAnim;
+			}
+			break;
+		case 2:
+			position.y -= speed / 2;
+			position.x += speed / 2;
+			if (currentAnimation != &northEastAnim) {
+				northEastAnim.Reset();
+				currentAnimation = &northEastAnim;
+			}
+			break;
+		case 3:
+			position.x += speed;
+			if (currentAnimation != &eastAnim) {
+				eastAnim.Reset();
+				currentAnimation = &eastAnim;
+			}
+			break;
+		case 4:
+			position.y += speed / 2;
+			position.x += speed / 2;
+			if (currentAnimation != &southEastAnim) {
+				southEastAnim.Reset();
+				currentAnimation = &southEastAnim;
+			}
+			break;
+		case 5:
+			position.y += speed;
+			if (currentAnimation != &southAnim) {
+				southAnim.Reset();
+				currentAnimation = &southAnim;
+			}
+			break;
+		case 6:
+			position.y += speed / 2;
+			position.x -= speed / 2;
+			if (currentAnimation != &southWestAnim) {
+				southWestAnim.Reset();
+				currentAnimation = &southWestAnim;
+			}
+			break;
+		case 7:
+			position.x -= speed;
+			if (currentAnimation != &westAnim) {
+				westAnim.Reset();
+				currentAnimation = &westAnim;
+			}
+			break;
+		case 8:
+			position.y -= speed / 2;
+			position.x -= speed / 2;
+			if (currentAnimation != &northWestAnim) {
+				northWestAnim.Reset();
+				currentAnimation = &northWestAnim;
+			}
+			break;
 		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_D]) {
-		position.x += speed;
-		if (currentAnimation != &eastAnim) {
-			eastAnim.Reset();
-			currentAnimation = &eastAnim;
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_S]) {
-		position.y += speed;
-		if (currentAnimation != &southAnim) {
-			southAnim.Reset();
-			currentAnimation = &southAnim;
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_W]) {
-		position.y -= speed;
-		if (currentAnimation != &northAnim) {
-			northAnim.Reset();
-			currentAnimation = &northAnim;
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_W]&& App->input->keyboard[SDL_SCANCODE_D]) {
-		position.y -= speed/2;
-		position.x += speed/2;
-		if (currentAnimation != &northEastAnim) {
-			northEastAnim.Reset();
-			currentAnimation = &northEastAnim;
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_D]) {
-		position.y += speed / 2;
-		position.x += speed / 2;
-		if (currentAnimation != &southEastAnim) {
-			southEastAnim.Reset();
-			currentAnimation = &southEastAnim;
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_S] && App->input->keyboard[SDL_SCANCODE_A]) {
-		position.y += speed / 2;
-		position.x -= speed / 2;
-		if (currentAnimation != &southWestAnim) {
-			southWestAnim.Reset();
-			currentAnimation = &southWestAnim;
-		}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_W] && App->input->keyboard[SDL_SCANCODE_A]) {
-		position.y -= speed / 2;
-		position.x -= speed / 2;
-		if (currentAnimation != &northWestAnim) {
-			northWestAnim.Reset();
-			currentAnimation = &northWestAnim;
-		}
-	}
+	
 	if (!App->input->keyboard[SDL_SCANCODE_S] && !App->input->keyboard[SDL_SCANCODE_W] && !App->input->keyboard[SDL_SCANCODE_D] && !App->input->keyboard[SDL_SCANCODE_A]) currentAnimation = &idleAnim;
 	currentAnimation->Update();
 	if (destroyed) {
