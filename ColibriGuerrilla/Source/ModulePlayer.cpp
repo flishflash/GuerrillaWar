@@ -74,8 +74,8 @@ update_status ModulePlayer::PostUpdate() {
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
-	if (!destroyed) {
-		destroyed = true;
+	if (c1 == Collider::Type::WATER || c2 == Collider::Type::WATER) {
+		
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y - 7);
 		App->render->cameraSpeed = 0;
 		speed = 0;

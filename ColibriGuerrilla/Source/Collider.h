@@ -12,6 +12,7 @@ struct Collider {
 			ENEMY,
 			PLAYER_SHOT,
 			ENEMY_SHOT,
+			WATER,
 			MAX
 		};
 		//Methods
