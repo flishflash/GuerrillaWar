@@ -19,7 +19,14 @@ class ModulePlayer : public Module {
 		SDL_Texture* texture = nullptr;
 		Animation* currentAnimation = nullptr;
 		Animation idleAnim;
-		Animation upAnim;
+		Animation northAnim;
+		Animation southAnim;
+		Animation eastAnim;
+		Animation westAnim;
+		Animation northEastAnim;
+		Animation northWestAnim;
+		Animation southEastAnim;
+		Animation southWestAnim;
 		Animation downAnim;
 		Collider* collider = nullptr;
 		bool destroyed = false;

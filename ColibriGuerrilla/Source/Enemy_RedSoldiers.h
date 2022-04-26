@@ -9,18 +9,18 @@ public:
 
 
 	// Returns the enemy's collider
-	const Collider* GetCollider() const;
+	//const Collider* GetCollider() const;
 
-	// Called from inhering enemies' Udpate
-	// Updates animation and collider position
-	virtual void Update();
+	//// Called from inhering enemies' Udpate
+	//// Updates animation and collider position
+	//virtual void Update();
 
-	// Called from ModuleEnemies' Update
-	virtual void Draw();
+	//// Called from ModuleEnemies' Update
+	//virtual void Draw();
 
-	// Collision response
-	// Triggers an animation and a sound fx
-	virtual void OnCollision(Collider* collider);
+	//// Collision response
+	//// Triggers an animation and a sound fx
+	//virtual void OnCollision(Collider* collider);
 
 public:
 	// The current position in the world
