@@ -49,7 +49,7 @@ bool ModulePlayer::Start() {
 	bool ret = false;
 	ret = App->imatges->get("sprites caminant", texture);
 	currentAnimation = &idleAnim;
-	position.x = 150;
+	position.x = 250;
 	position.y = 4000;
 	return ret;
 }
@@ -85,7 +85,15 @@ update_status ModulePlayer::Update() {
 			currentAnimation = &northAnim;
 		}
 	}
-	if (!App->input->keyboard[SDL_SCANCODE_S] && !App->input->keyboard[SDL_SCANCODE_W]) currentAnimation = &idleAnim;
+	if (App->input->keyboard[SDL_SCANCODE_W]&& App->input->keyboard[SDL_SCANCODE_D]) {
+		position.y -= speed/2;
+		position.x += speed/2;
+		if (currentAnimation != &northEastAnim) {
+			northEastAnim.Reset();
+			currentAnimation = &northEastAnim;
+		}
+	}
+	if (!App->input->keyboard[SDL_SCANCODE_S] && !App->input->keyboard[SDL_SCANCODE_W] && !App->input->keyboard[SDL_SCANCODE_D] && !App->input->keyboard[SDL_SCANCODE_A]) currentAnimation = &idleAnim;
 	currentAnimation->Update();
 	if (destroyed) {
 		destroyedCountdown--;
@@ -103,7 +111,7 @@ update_status ModulePlayer::PostUpdate() {
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
-	/*if (c1 == Collider::Type::WATER || c2 == Collider::Type::WATER) {
+	/*if (c1 == Collider::Type::WATER || c2 == Collider::Type::) {
 		
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y - 7);
 		App->render->cameraSpeed = 0;
