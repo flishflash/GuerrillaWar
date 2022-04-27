@@ -27,8 +27,8 @@ ModuleEnemies::~ModuleEnemies()
 
 bool ModuleEnemies::Start()
 {
-
-	texture = App->imatges->get("Prueba_Guerrilla War Enemy Spritesheet");
+	bool ret;
+	ret = App->imatges->get("Prueba_Guerrilla War Enemy Spritesheet", texture);
 
 	return true;
 }

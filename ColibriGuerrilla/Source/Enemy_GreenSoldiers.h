@@ -9,38 +9,17 @@ struct Collider;
 class Enemy_GreenSoldiers : public Enemy
 {
 public:
-	/* Constructor
-	 Saves the spawn position for later movement calculations*/
+	// Constructor (x y coordinates in the world)
+	// Creates animation and movement data and the collider
 	Enemy_GreenSoldiers(int x, int y);
 
-	int speed = 1;
+	// The enemy is going to follow the different steps in the path
+	// Position will be updated depending on the speed defined at each step
 	void Update() override;
 
-	Animation* currentAnimation = nullptr;
-	Animation idleAnimGreen;
-	Animation northAnimGreen;
-	Animation southAnimGreen;
-	Animation eastAnimGreen;
-	Animation westAnimGreen;
-	Animation northEastAnimGreen;
-	Animation northWestAnimGreen;
-	Animation southEastAnimGreen;
-	Animation southWestAnimGreen;
-	Animation downAnimGreen;
-	Collider* collider = nullptr;
-	bool destroyed = false;
+private:
+	// The path that will define the position in the world
 
-	// The current position in the world
-	iPoint position;
-
-	// The enemy's texture
-	SDL_Texture* texture = nullptr;
-
-	// Sound fx when destroyed
-	int destroyedFx = 0;
-
-protected:
-
-	// Original spawn position. Stored for movement calculations
-	iPoint spawnPos;
+	// Enemy animations
+	Animation southAnimGreen, back;
 };

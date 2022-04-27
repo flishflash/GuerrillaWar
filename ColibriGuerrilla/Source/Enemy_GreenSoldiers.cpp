@@ -21,11 +21,11 @@ Enemy_GreenSoldiers :: Enemy_GreenSoldiers(int x, int y) : Enemy(x, y)
 	southAnimGreen.speed = 0.1f;
 
 	currentAnim = &southAnimGreen;
-	collider = App->collisions->AddCollider({ spawnPos.x, spawnPos.y, 32, 60 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ 235, 4000, 32, 60 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 void Enemy_GreenSoldiers::Update()
 {
-	currentAnimation = &southAnimGreen;
+	currentAnim = &southAnimGreen;
 
 	Enemy::Update();
 }

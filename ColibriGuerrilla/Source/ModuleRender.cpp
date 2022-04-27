@@ -2,6 +2,7 @@
 #include "ModuleWindow.h"
 #include "Application.h"
 #include "Globals.h"
+#include "ModulePlayer.h"
 bool ModuleRender::Init() {
 	renderer = SDL_CreateRenderer(App->window->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	if (renderer == NULL) {
@@ -13,6 +14,7 @@ bool ModuleRender::Init() {
 	SDL_RenderSetScale(renderer, 1, 1);
 	SDL_RenderSetLogicalSize(renderer, RES_WIDTH, RES_HEIGHT);
 	App->imatges->loadIMGs();
+	
 	return true;
 }
 update_status ModuleRender::PreUpdate() {

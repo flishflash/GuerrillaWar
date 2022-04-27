@@ -40,14 +40,14 @@ void Enemy::Draw()
 void Enemy::OnCollision(Collider* collider)
 {
 	App->particles->AddParticle(App->particles->explosion, position.x, position.y);
-	/*App->audio->PlaySFx(destroyedFx);*/
+	/*App->audio->PlayFx(destroyedFx);*/
 
-	/*SetToDelete();*/
+	SetToDelete();
 }
 
-//void Enemy::SetToDelete()
-//{
-//	pendingToDelete = true;
-//	if (collider != nullptr)
-//		collider->pendingToDelete = true;
-//}
+void Enemy::SetToDelete()
+{
+	pendingToDelete = true;
+	if (collider != nullptr)
+		collider->pendingToDelete = true;
+}

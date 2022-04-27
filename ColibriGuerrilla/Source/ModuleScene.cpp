@@ -12,6 +12,7 @@ bool ModuleScene::Start() {
 	if (!(ret = App->imatges->get("background", bgTexture))) return false;
 	//if (!(ret = App->audio->playMusic("stage1", 1.0f))) return false;
 	App->player->collider = App->collisions->AddCollider({ App->player->position.x-2, App->player->position.y-2, 20, 50 }, Collider::Type::PLAYER, App->player);
+	
 	App->collisions->AddCollider({ 88, 4123, 302, 34 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 216, 4044, 81, 161 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 135, 4091, 32, 121 }, Collider::Type::WATER);
@@ -60,11 +61,9 @@ bool ModuleScene::Start() {
 	App->collisions->AddCollider({ 258, 2291, 131, 25 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 605, 2296, 162, 20 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 451, 2081, 88, 36 }, Collider::Type::WIN);
-
-
-
-
-	App->enemies->AddEnemy(Enemy_Type::SOLDIER, 250, 4000);
+	
+	App->enemies->AddEnemy(Enemy_Type::SOLDIER, 235, 4000);
+	
 
 	return ret;
 }
