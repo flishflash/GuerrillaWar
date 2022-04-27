@@ -222,5 +222,5 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
 		destroyed = true;
 	}
 
-	else if (c1->type == Collider::Type::WIN || c2->type == Collider::Type::WIN) SDL_QUIT;
+	else if (c2->type == Collider::Type::WIN) LOG("WIN") destroyed = true;
 }
