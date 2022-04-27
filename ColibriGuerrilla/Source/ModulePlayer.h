@@ -30,7 +30,7 @@ class ModulePlayer : public Module {
 		Animation downAnim;
 		Collider* collider = nullptr;
 		bool destroyed = false;
-		uint destroyedCountdown = 120;
+		uint destroyedCountdown = 60;
 		int direction;
 };
 #endif //!__MODULE_PLAYER_H__
