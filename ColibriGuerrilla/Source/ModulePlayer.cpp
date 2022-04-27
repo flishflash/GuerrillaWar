@@ -223,4 +223,5 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
 	}
 
 	else if (c2->type == Collider::Type::WIN) LOG("WIN") destroyed = true;
+
 }

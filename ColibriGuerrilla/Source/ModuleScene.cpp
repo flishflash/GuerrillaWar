@@ -10,7 +10,7 @@ ModuleScene::~ModuleScene() {}
 bool ModuleScene::Start() {
 	bool ret = false;
 	if (!(ret = App->imatges->get("background", bgTexture))) return false;
-	//if (!(ret = App->audio->playMusic("stage1", 1.0f))) return false;
+	if (!(ret = App->audio->playMusic("04_Advance-_Area-1_-4_-5_", 1.0f))) return false;
 	App->player->collider = App->collisions->AddCollider({ App->player->position.x-2, App->player->position.y-2, 20, 50 }, Collider::Type::PLAYER, App->player);
 	
 	App->collisions->AddCollider({ 88, 4123, 302, 34 }, Collider::Type::WATER);
