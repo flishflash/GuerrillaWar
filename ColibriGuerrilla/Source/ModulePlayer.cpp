@@ -250,9 +250,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
 		destroyed = true;
 	}
 
-	/*else if (c2->type == Collider::Type::WIN) LOG("WIN") {
+	else if (c2->type == Collider::Type::WIN) LOG("WIN") {
 		destroyed = true;
-	}*/
-	else if(c2->type == Collider::Type::WATER) destroyed = false;
+	}
+	if(c2->type == Collider::Type::WATER) destroyed = false;
 
 }
