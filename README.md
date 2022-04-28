@@ -4,6 +4,7 @@ https://github.com/daniAtalaya/GuerrillaWar
 
 ### List of members
 Andreu Miró Sabaté (https://github.com/AndreuMiroSabate)
+
 Jose Antonio Tur (https://github.com/flishflash)
 
 ### Description
