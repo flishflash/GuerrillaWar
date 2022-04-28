@@ -10,6 +10,12 @@ ModuleScene::~ModuleScene() {}
 bool ModuleScene::Start() {
 	bool ret = false;
 	if (!(ret = App->imatges->get("background", bgTexture))) return false;
+	if (!(ret = App->imatges->get("credits", curScene))) return false;
+	if (!(ret = App->imatges->get("credits", credits))) return false;
+	if (!(ret = App->imatges->get("hailHeroes", hailHeroes))) return false;
+	if (!(ret = App->imatges->get("titleScreen", titleScreen))) return false;
+	if (!(ret = App->imatges->get("winScreen", winScreen))) return false;
+	if (!(ret = App->imatges->get("loseScreen", loseScreen))) return false;
 	if (!(ret = App->imatges->get("palmerasMapaless", palmeras))) return false;
 	if (!(ret = App->audio->playMusic("04_Advance-_Area-1_-4_-5_", 1.0f))) return false;
 	App->player->collider = App->collisions->AddCollider({ App->player->position.x-2, App->player->position.y-2, 20, 50 }, Collider::Type::PLAYER, App->player);
@@ -20,7 +26,7 @@ bool ModuleScene::Start() {
 	App->collisions->AddCollider({ 222, 4001, 104, 55 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 174, 4022, 162, 46 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 125, 4099, 242, 38 }, Collider::Type::WATER);
-	App->collisions->AddCollider({452, 4015, 74, 200}, Collider::Type::WALL);
+	App->collisions->AddCollider({ 452, 4015, 74, 200 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 0, 4005, 54, 155 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 421, 4033, 54, 93 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 41, 4000, 52, 65 }, Collider::Type::WALL);
@@ -69,13 +75,12 @@ bool ModuleScene::Start() {
 	return ret;
 }
 update_status ModuleScene::Update() {
-	
 	return update_status::UPDATE_CONTINUE;
 }
 update_status ModuleScene::PostUpdate() {
-	App->render->Blit(bgTexture, 0, 0, NULL);
+	App->render->Blit(curScene, 0, 0, NULL);
 	return update_status::UPDATE_CONTINUE;
 }
 void ModuleScene::pintarPalmeras() {
-	App->render->Blit(palmeras, 0, 0, NULL);
+	if(curScene == bgTexture) App->render->Blit(palmeras, 0, 0, NULL);
 }

@@ -13,6 +13,12 @@ class ModuleScene : public Module {
 		update_status PostUpdate() override;
 		void pintarPalmeras();
 		SDL_Texture* bgTexture;
+		SDL_Texture* credits;
+		SDL_Texture* hailHeroes;
+		SDL_Texture* titleScreen;
+		SDL_Texture* winScreen;
+		SDL_Texture* curScene;
+		SDL_Texture* loseScreen;
 		SDL_Texture* palmeras;
 };
 #endif

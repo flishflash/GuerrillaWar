@@ -13,12 +13,114 @@ update_status ModuleInput::PreUpdate() {
 			case SDL_KEYDOWN:
 				if (!event.key.repeat) {
 					if (event.key.keysym.sym == SDLK_ESCAPE){}
-					if (event.key.keysym.sym == SDLK_F1) App->state->god = !App->state->god;
+					if (event.key.keysym.sym == SDLK_F1) {
+						App->state->god = !App->state->god;
+					}
 					if (event.key.keysym.sym == SDLK_F2) {
 						App->state->debug = !App->state->debug;
-						LOG("I WANT TO SEE");
 					}
-					if (event.key.keysym.sym == SDLK_SPACE) App->player->ShootLasers();
+					if (event.key.keysym.sym == SDLK_F3) {
+						App->scene->curScene = App->scene->winScreen;
+						App->render->camera.y = 0;
+						App->render->camera.x = 0;
+						App->player->position.x = 0;
+						App->player->position.y = 0;
+						break;
+					}
+					if (event.key.keysym.sym == SDLK_F4) {
+						App->scene->curScene = App->scene->loseScreen;
+						App->render->camera.y = 0;
+						App->render->camera.x = 0;
+						App->player->position.x = 0;
+						App->player->position.y = 0;
+						break;
+					}
+					if (event.key.keysym.sym == SDLK_SPACE) {
+						if(App->scene->curScene == App->scene->bgTexture) App->player->ShootLasers();
+						if (App->scene->curScene == App->scene->credits ) {
+							App->render->camera.y = 0;
+							App->render->camera.x = 0;
+							App->player->position.x = 0;
+							App->player->position.y = 0;
+							App->scene->curScene = App->scene->hailHeroes;
+							break;
+						}
+						if (App->scene->curScene == App->scene->hailHeroes) {
+							App->render->camera.y = 0;
+							App->render->camera.x = 0;
+							App->player->position.x = 0;
+							App->player->position.y = 0;
+							App->scene->curScene = App->scene->titleScreen;
+							break;
+						}
+						if (App->scene->curScene == App->scene->winScreen) {
+							App->render->camera.y = 0;
+							App->render->camera.x = 0;
+							App->player->position.x = 0;
+							App->player->position.y = 0;
+							App->scene->curScene = App->scene->titleScreen;
+							break;
+						}
+						if (App->scene->curScene == App->scene->loseScreen) {
+							App->render->camera.y = 0;
+							App->render->camera.x = 0;
+							App->player->position.x = 0;
+							App->player->position.y = 0;
+							App->scene->curScene = App->scene->titleScreen;
+							break;
+						}
+						if (App->scene->curScene == App->scene->titleScreen) {
+							App->scene->curScene = App->scene->bgTexture;
+							App->render->camera.x = 125;
+							App->render->camera.y = 3700;
+							App->player->position.x = 235;
+							App->player->position.y = 3950;
+							// TO DO
+						}
+					}
+					if (event.key.keysym.sym == SDLK_RETURN) {
+						if (App->scene->curScene == App->scene->credits) {
+							App->render->camera.y = 0;
+							App->render->camera.x = 0;
+							App->player->position.x = 0;
+							App->player->position.y = 0;
+							App->scene->curScene = App->scene->hailHeroes;
+							break;
+						}
+						if (App->scene->curScene == App->scene->hailHeroes) {
+							App->render->camera.y = 0;
+							App->render->camera.x = 0;
+							App->player->position.x = 0;
+							App->player->position.y = 0;
+							App->scene->curScene = App->scene->titleScreen;
+							break;
+						}
+						if (App->scene->curScene == App->scene->winScreen) {
+							App->render->camera.y = 0;
+							App->render->camera.x = 0;
+							App->player->position.x = 0;
+							App->player->position.y = 0;
+							App->scene->curScene = App->scene->titleScreen;
+							break;
+						}
+						if (App->scene->curScene == App->scene->loseScreen) {
+							App->render->camera.y = 0;
+							App->render->camera.x = 0;
+							App->player->position.x = 0;
+							App->player->position.y = 0;
+							App->scene->curScene = App->scene->titleScreen;
+							break;
+						}
+						if (App->scene->curScene == App->scene->titleScreen) {
+							App->scene->curScene = App->scene->bgTexture;
+
+							App->render->camera.x = 125;
+							App->render->camera.y = 3700;
+							App->player->position.x = 235;
+							App->player->position.y = 3950;
+							// TO DO
+						}
+					}
 					//if (event.key.keysym.sym == SDLK_b) App->player->SpawnExplosions();
 				}
 				break;
@@ -30,8 +132,47 @@ update_status ModuleInput::PreUpdate() {
 				//SDL_GetMouseState(&mouse->x, &mouse->y);
 				break;
 			case SDL_MOUSEBUTTONUP:
-				//isClicking = true;
-				break;
+				if (App->scene->curScene == App->scene->credits) {
+					App->render->camera.y = 0;
+					App->render->camera.x = 0;
+					App->player->position.x = 0;
+					App->player->position.y = 0;
+					App->scene->curScene = App->scene->hailHeroes;
+					break;
+				}
+				if (App->scene->curScene == App->scene->hailHeroes) {
+					App->render->camera.y = 0;
+					App->render->camera.x = 0;
+					App->player->position.x = 0;
+					App->player->position.y = 0;
+					App->scene->curScene = App->scene->titleScreen;
+					break;
+				}
+				if (App->scene->curScene == App->scene->winScreen) {
+					App->render->camera.y = 0;
+					App->render->camera.x = 0;
+					App->player->position.x = 0;
+					App->player->position.y = 0;
+					App->scene->curScene = App->scene->titleScreen;
+					break;
+				}
+				if (App->scene->curScene == App->scene->loseScreen) {
+					App->render->camera.y = 0;
+					App->render->camera.x = 0;
+					App->player->position.x = 0;
+					App->player->position.y = 0;
+					App->scene->curScene = App->scene->titleScreen;
+					break;
+				}
+				if (App->scene->curScene == App->scene->titleScreen) {
+					App->scene->curScene = App->scene->bgTexture;
+
+					App->render->camera.x = 125;
+					App->render->camera.y = 3700;
+					App->player->position.x = 235;
+					App->player->position.y = 3950;
+					// TO DO
+				}
 		}
 		if (keyboard[SDL_SCANCODE_ESCAPE]) return update_status::UPDATE_STOP;
 	}
