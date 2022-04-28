@@ -2,16 +2,13 @@
 
 Controles
 
-W-> mover hacia delante
-A-> mover hacia iquierda
-S-> mover hacia abajo
-D-> mover hacia derecha
+W-> move forward
+A-> move left
+S-> move down
+D-> move right
+W+A->move forward and left
+W+D->move forward and right
+S+D->move down and right
+S+A->move down and left
 
-UpArrow-> disparar arriba
-DownArrow-> disparar abajo
-LeftArrow-> disparar izquierda
-RightArrow-> disparar derecha
-
-G-> granada
-
-Enter/Espacio -> skip textos y animaciones
+Space-> Shoot
