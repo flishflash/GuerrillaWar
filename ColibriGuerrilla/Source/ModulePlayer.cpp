@@ -87,7 +87,35 @@ bool ModulePlayer::Start() {
 }
 
 void ModulePlayer::ShootLasers() {
-	App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+
+	switch (direction)
+	{
+	case 1:
+		App->particles->AddParticle(App->particles->bulletN, position.x, position.y-20, Collider::Type::PLAYER_SHOT);
+		break;
+	case 2:
+		App->particles->AddParticle(App->particles->bulletNE, position.x + 10, position.y - 10, Collider::Type::PLAYER_SHOT);
+		break;
+	case 3:
+		App->particles->AddParticle(App->particles->bulletE, position.x +20, position.y, Collider::Type::PLAYER_SHOT);
+		break;
+	case 4:
+		App->particles->AddParticle(App->particles->bulletSE, position.x +10, position.y + 10, Collider::Type::PLAYER_SHOT);
+		break;
+	case 5:
+		App->particles->AddParticle(App->particles->bulletS, position.x, position.y + 20, Collider::Type::PLAYER_SHOT);
+		break;
+	case 6:
+		App->particles->AddParticle(App->particles->bulletSW, position.x - 10, position.y + 10, Collider::Type::PLAYER_SHOT);
+		break;
+	case 7:
+		App->particles->AddParticle(App->particles->bulletW, position.x - 20, position.y, Collider::Type::PLAYER_SHOT);
+		break;
+	case 8:
+		App->particles->AddParticle(App->particles->bulletNW, position.x - 10, position.y - 10, Collider::Type::PLAYER_SHOT);
+		break;
+	}
+	//App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
 	App->audio->playSFX("laser");
 }
 

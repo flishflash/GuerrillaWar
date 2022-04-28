@@ -17,6 +17,9 @@ bool ModuleScene::Start() {
 	App->collisions->AddCollider({ 216, 3964, 81, 161 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 135, 4091, 32, 121 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 153, 4061, 205, 38 }, Collider::Type::WATER);
+	App->collisions->AddCollider({ 222, 4001, 104, 55 }, Collider::Type::WATER);
+	App->collisions->AddCollider({ 174, 4022, 162, 46 }, Collider::Type::WATER);
+	App->collisions->AddCollider({ 125, 4099, 242, 38 }, Collider::Type::WATER);
 
 	App->collisions->AddCollider({452, 4015, 74, 200}, Collider::Type::WALL);
 	App->collisions->AddCollider({ 0, 4005, 54, 155 }, Collider::Type::WALL);
