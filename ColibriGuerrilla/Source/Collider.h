@@ -13,8 +13,8 @@ struct Collider {
 			PLAYER_SHOT,
 			ENEMY_SHOT,
 			WATER,
-			MAX,
-			WIN
+			WIN,
+			MAX
 		};
 		//Methods
 		Collider(SDL_Rect rectangle, Type type, Module* listener = nullptr);

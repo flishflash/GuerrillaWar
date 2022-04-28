@@ -11,7 +11,7 @@ ModuleCollisions::ModuleCollisions() {
 	//SOMETHING
 	matrix[Collider::Type::WALL][Collider::Type::WALL] = false;
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::WALL][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::WALL][Collider::Type::ENEMY] = false;
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::WALL][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::WALL][Collider::Type::WATER] = false;
@@ -23,7 +23,7 @@ ModuleCollisions::ModuleCollisions() {
 	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::WATER] = true;
 
-	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = true;
+	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::ENEMY] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER_SHOT] = true;
@@ -74,13 +74,10 @@ update_status ModuleCollisions::PreUpdate() {
 	return update_status::UPDATE_CONTINUE;
 }
 update_status ModuleCollisions::Update() {
-	if (App->input->keyboard[SDL_SCANCODE_F1])
-		debug = !debug;
 	return update_status::UPDATE_CONTINUE;
 }
 update_status ModuleCollisions::PostUpdate() {
-	if (!debug)
-		DebugDraw();
+	if (App->state->debug) DebugDraw();
 	return update_status::UPDATE_CONTINUE;
 }
 void ModuleCollisions::DebugDraw() {

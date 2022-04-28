@@ -1,51 +1,34 @@
 #include "ModuleEnemies.h"
-
 #include "Application.h"
-
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
 #include "ModuleMusica.h"
-
 #include "Enemy.h"
 #include "Enemy_GreenSoldiers.h"
 #include "Enemy_RedSoldiers.h"
 
-
 #define SPAWN_MARGIN 50
 
-
-ModuleEnemies::ModuleEnemies()
-{
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		enemies[i] = nullptr;
+ModuleEnemies::ModuleEnemies() {
+	for (uint i = 0; i < MAX_ENEMIES; ++i) enemies[i] = nullptr;
 }
 
-ModuleEnemies::~ModuleEnemies()
-{
+ModuleEnemies::~ModuleEnemies() {
 
 }
 
-bool ModuleEnemies::Start()
-{
-	bool ret;
-	ret = App->imatges->get("Prueba_Guerrilla War Enemy Spritesheet", texture);
-
+bool ModuleEnemies::Start() {
 	return true;
 }
 
-
-update_status ModuleEnemies::PreUpdate()
-{
+update_status ModuleEnemies::PreUpdate() {
 	// Remove all enemies scheduled for deletion
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
-	{
-		if (enemies[i] != nullptr && enemies[i]->pendingToDelete)
-		{
+	for (uint i = 0; i < MAX_ENEMIES; ++i) {
+		if (enemies[i] != nullptr && enemies[i]->pendingToDelete) {
 			delete enemies[i];
 			enemies[i] = nullptr;
 		}
 	}
-
 	return update_status::UPDATE_CONTINUE;
 }
 
@@ -121,7 +104,7 @@ void ModuleEnemies::HandleEnemiesSpawn()
 			// Spawn a new enemy if the screen has reached a spawn position
 			if (spawnQueue[i].x * SCREEN_WIDTH < App->render->camera.x + (App->render->camera.w * SCREEN_WIDTH) + SPAWN_MARGIN)
 			{
-				LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_WIDTH);
+				LOG("Spawning enemy at %d", spawnQueue[i].x);
 
 				SpawnEnemy(spawnQueue[i]);
 				spawnQueue[i].type = Enemy_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
@@ -140,7 +123,7 @@ void ModuleEnemies::HandleEnemiesDespawn()
 			// Delete the enemy when it has reached the end of the screen
 			if (enemies[i]->position.x * SCREEN_WIDTH < (App->render->camera.x) - SPAWN_MARGIN)
 			{
-				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_WIDTH);
+				LOG("DeSpawning enemy at %d", enemies[i]->position.x);
 
 				/*enemies[i]->SetToDelete();*/
 			}
@@ -159,10 +142,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 			{
 			case Enemy_Type::SOLDIER:
 				enemies[i] = new Enemy_GreenSoldiers(info.x, info.y);
+				//enemies[i]->destroyedFx = enemyDestroyedFx;
 				break;
 			}
-			enemies[i]->texture = texture;
-			//enemies[i]->destroyedFx = enemyDestroyedFx;
 			break;
 		}
 	}

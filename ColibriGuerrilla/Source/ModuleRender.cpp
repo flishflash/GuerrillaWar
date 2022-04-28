@@ -12,16 +12,16 @@ bool ModuleRender::Init() {
 		return false;
 	}
 	SDL_RenderSetScale(renderer, 1, 1);
+	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	SDL_RenderSetLogicalSize(renderer, RES_WIDTH, RES_HEIGHT);
+	SDL_RenderSetViewport(renderer, new SDL_Rect({ RES_WIDTH , 0, RES_WIDTH, RES_HEIGHT * 6 / 4 }));
 	App->imatges->loadIMGs();
 	
 	return true;
 }
 update_status ModuleRender::PreUpdate() {
-	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
-	SDL_RenderSetViewport(renderer, new SDL_Rect({ RES_WIDTH , 0, RES_WIDTH, RES_HEIGHT * 6/4 }));
 	return update_status::UPDATE_CONTINUE;
 }
 update_status ModuleRender::Update() {
@@ -55,8 +55,6 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section, f
 }
 bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uint8 a, float speed) {
 	bool ret = true;
-
-	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(renderer, r, g, b, a);
 
 	SDL_Rect dstRect{

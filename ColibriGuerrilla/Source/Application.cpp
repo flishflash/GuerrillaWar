@@ -59,6 +59,7 @@ bool Application::CleanUp() {
 	bool ret = true;
 	for (int i = NUM_MODULES - 1; i >= 0 && ret; --i) {
 		ret = modules[i]->CleanUp();
+		LOG("Module stopped");
 	}
 	return ret;
 }

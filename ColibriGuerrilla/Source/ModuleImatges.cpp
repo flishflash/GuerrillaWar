@@ -42,8 +42,7 @@ bool ModuleImatges::get(std::string name, SDL_Texture*& p) {
 		return false;
 	}
 	LOG(" could be found\n");
-	p = mapa[name];
-	return p == mapa[name];
+	return (p = mapa[name]) == mapa[name];
 }
 SDL_Texture* ModuleImatges::get(std::string name) {
 	LOG("Image: ");

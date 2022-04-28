@@ -74,52 +74,53 @@ ModulePlayer::ModulePlayer() {
 	northWestAnim.PushBack({ 130, 419, 29, 55 });
 	northWestAnim.loop = true;
 	northWestAnim.speed = 0.1f;
-
 }
-
 ModulePlayer::~ModulePlayer() {}
-
 bool ModulePlayer::Start() {
 	bool ret = false;
 	ret = App->imatges->get("sprites_caminant", texture);
 	currentAnimation = &idleAnim;
 	position.x = 235;
 	position.y = 3950;
-	return ret;
 	char lookupTable[] = { "0123456789" };
 	scoreFont = App->fonts->Load("Assets/Text/numeros.png", lookupTable, 1);
+	return ret;
 }
 
 void ModulePlayer::ShootLasers() {
-
-	
-	switch (direction)
-	{
-	case 1:
-		App->audio->playSFX("laser");
-		App->particles->AddParticle(App->particles->bulletN, position.x, position.y - 20, Collider::Type::PLAYER_SHOT);
-		break;
-	case 2:
-		App->particles->AddParticle(App->particles->bulletNE, position.x + 10, position.y - 10, Collider::Type::PLAYER_SHOT);
-		break;
-	case 3:
-		App->particles->AddParticle(App->particles->bulletE, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		break;
-	case 4:
-		App->particles->AddParticle(App->particles->bulletSE, position.x + 10, position.y + 10, Collider::Type::PLAYER_SHOT);
-		break;
-	case 5:
-		App->particles->AddParticle(App->particles->bulletS, position.x, position.y + 20, Collider::Type::PLAYER_SHOT);
-		break;
-	case 6:
-		App->particles->AddParticle(App->particles->bulletSW, position.x - 10, position.y + 10, Collider::Type::PLAYER_SHOT);
-		break;
-	case 7:
-		App->particles->AddParticle(App->particles->bulletW, position.x - 20, position.y, Collider::Type::PLAYER_SHOT);
-		break;
-	case 8:
-		App->particles->AddParticle(App->particles->bulletNW, position.x - 10, position.y - 10, Collider::Type::PLAYER_SHOT);
-		break;
+	switch (direction) {
+		case 1:
+			App->audio->playSFX("laser", 2);
+			App->particles->AddParticle(App->particles->bulletN, position.x, position.y - 20, Collider::Type::PLAYER_SHOT);
+			break;
+		case 2:
+			App->audio->playSFX("laser", 2);
+			App->particles->AddParticle(App->particles->bulletNE, position.x + 10, position.y - 10, Collider::Type::PLAYER_SHOT);
+			break;
+		case 3:
+			App->audio->playSFX("laser", 2);
+			App->particles->AddParticle(App->particles->bulletE, position.x + 10, position.y, Collider::Type::PLAYER_SHOT);
+			break;
+		case 4:
+			App->audio->playSFX("laser", 2);
+			App->particles->AddParticle(App->particles->bulletSE, position.x + 10, position.y + 10, Collider::Type::PLAYER_SHOT);
+			break;
+		case 5:
+			App->audio->playSFX("laser", 2);
+			App->particles->AddParticle(App->particles->bulletS, position.x, position.y + 20, Collider::Type::PLAYER_SHOT);
+			break;
+		case 6:
+			App->audio->playSFX("laser", 2);
+			App->particles->AddParticle(App->particles->bulletSW, position.x - 10, position.y + 10, Collider::Type::PLAYER_SHOT);
+			break;
+		case 7:
+			App->audio->playSFX("laser", 2);
+			App->particles->AddParticle(App->particles->bulletW, position.x - 10, position.y, Collider::Type::PLAYER_SHOT);
+			break;
+		case 8:
+			App->audio->playSFX("laser", 2);
+			App->particles->AddParticle(App->particles->bulletNW, position.x - 10, position.y - 10, Collider::Type::PLAYER_SHOT);
+			break;
 	}
 	
 }
@@ -128,9 +129,6 @@ update_status ModulePlayer::Update() {
 	
 	collider->rect.x = position.x;
 	collider->rect.y = position.y;
-
-	
-	
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 
 	if (App->input->keyboard[SDL_SCANCODE_W]) {
@@ -170,66 +168,35 @@ update_status ModulePlayer::Update() {
 		position.x -= speed / 2;
 	}
 
-		switch (direction)
-		{
+	switch (direction) {
 		case 1:
-			if (currentAnimation != &northAnim) {
-				northAnim.Reset();
-				currentAnimation = &northAnim;
-			}
+			currentAnimation = &northAnim;
 			break;
 		case 2:
-			
-			if (currentAnimation != &northEastAnim) {
-				northEastAnim.Reset();
-				currentAnimation = &northEastAnim;
-			}
+			currentAnimation = &northEastAnim;
 			break;
 		case 3:
-		
-			if (currentAnimation != &eastAnim) {
-				eastAnim.Reset();
-				currentAnimation = &eastAnim;
-			}
+			currentAnimation = &eastAnim;
 			break;
 		case 4:
-			
-			if (currentAnimation != &southEastAnim) {
-				southEastAnim.Reset();
-				currentAnimation = &southEastAnim;
-			}
+			currentAnimation = &southEastAnim;
 			break;
 		case 5:
-			
-			if (currentAnimation != &southAnim) {
-				southAnim.Reset();
-				currentAnimation = &southAnim;
-			}
+			currentAnimation = &southAnim;
 			break;
 		case 6:
-			
-			if (currentAnimation != &southWestAnim) {
-				southWestAnim.Reset();
-				currentAnimation = &southWestAnim;
-			}
+			currentAnimation = &southWestAnim;
 			break;
 		case 7:
-			
-			if (currentAnimation != &westAnim) {
-				westAnim.Reset();
-				currentAnimation = &westAnim;
-			}
+			currentAnimation = &westAnim;
 			break;
 		case 8:
-			
-			if (currentAnimation != &northWestAnim) {
-				northWestAnim.Reset();
-				currentAnimation = &northWestAnim;
-			}
+			currentAnimation = &northWestAnim;
 			break;
-		}
+	}
 	
-	if (!App->input->keyboard[SDL_SCANCODE_S] && !App->input->keyboard[SDL_SCANCODE_W] && !App->input->keyboard[SDL_SCANCODE_D] && !App->input->keyboard[SDL_SCANCODE_A]) currentAnimation = &idleAnim;
+	if (!App->input->keyboard[SDL_SCANCODE_S] && !App->input->keyboard[SDL_SCANCODE_W] && !App->input->keyboard[SDL_SCANCODE_D] && !App->input->keyboard[SDL_SCANCODE_A]) currentAnimation->loop = false;
+	else currentAnimation->loop = true;
 	currentAnimation->Update();
 	if (destroyed) {
 		destroyedCountdown--;
@@ -240,8 +207,7 @@ update_status ModulePlayer::Update() {
 
 update_status ModulePlayer::PostUpdate() {
 	if (!destroyed) {
-		SDL_Rect rect = currentAnimation->GetCurrentFrame();
-		App->render->Blit(texture, position.x, position.y, &rect);
+		App->render->Blit(texture, position.x, position.y, &currentAnimation->GetCurrentFrame());
 	}
 
 	sprintf_s(scoreText, 10, "%7d", score);
@@ -250,11 +216,12 @@ update_status ModulePlayer::PostUpdate() {
 	App->fonts->BlitText(250, 4000, scoreFont, scoreText);
 
 	App->fonts->BlitText(250, 4000, scoreFont, "0000");
+	App->scene->pintarPalmeras();
 	return update_status::UPDATE_CONTINUE;
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
-	if (c1 == collider && destroyed == false && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WIN)
+	if (!destroyed && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WIN)
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);

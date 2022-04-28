@@ -8,5 +8,6 @@ enum class Idioma {
 class ModuleState : public Module {
 	public:
 		bool god = false;
+		bool debug = false;
 		Idioma lang = Idioma::ESP;
 };

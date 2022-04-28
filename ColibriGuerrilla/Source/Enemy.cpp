@@ -31,10 +31,14 @@ void Enemy::Update()
 		collider->SetPos(position.x, position.y);
 }
 
-void Enemy::Draw()
-{
-	if (currentAnim != nullptr)
-		App->render->Blit(texture, position.x, position.y, &(currentAnim->GetCurrentFrame()));
+void Enemy::Draw() {
+	if (currentAnim != nullptr) {
+		LOG("ENEMY DRAWN");
+		App->render->Blit(texture, collider->rect.x, collider->rect.y, &currentAnim->GetCurrentFrame());
+	}
+	else {
+		LOG("ENEMY DRAWN'T");
+	}
 }
 
 void Enemy::OnCollision(Collider* collider)

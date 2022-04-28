@@ -16,6 +16,5 @@ class ModuleCollisions : public Module {
 	private:
 		Collider* colliders[MAX_COLLIDERS] = { nullptr };
 		bool matrix[Collider::Type::MAX][Collider::Type::MAX];
-		bool debug = true;
 };
 #endif // __MODULE_COLLISIONS_H__

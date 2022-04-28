@@ -11,6 +11,8 @@ class ModuleScene : public Module {
 		bool Start() override;
 		update_status Update() override;
 		update_status PostUpdate() override;
+		void pintarPalmeras();
 		SDL_Texture* bgTexture;
+		SDL_Texture* palmeras;
 };
 #endif
