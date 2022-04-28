@@ -28,6 +28,16 @@ class ModulePlayer : public Module {
 		Animation southEastAnim;
 		Animation southWestAnim;
 		Animation downAnim;
+		Animation WidleAnim;
+		Animation WnorthAnim;
+		Animation WsouthAnim;
+		Animation WeastAnim;
+		Animation WwestAnim;
+		Animation WnorthEastAnim;
+		Animation WnorthWestAnim;
+		Animation WsouthEastAnim;
+		Animation WsouthWestAnim;
+		Animation WdownAnim;
 		Collider* collider = nullptr;
 		bool destroyed = false;
 		uint destroyedCountdown = 60;

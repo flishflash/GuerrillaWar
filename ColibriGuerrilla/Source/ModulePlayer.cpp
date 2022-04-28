@@ -73,6 +73,7 @@ ModulePlayer::ModulePlayer() {
 	northWestAnim.PushBack({ 130, 419, 29, 55 });
 	northWestAnim.loop = true;
 	northWestAnim.speed = 0.1f;
+
 }
 
 ModulePlayer::~ModulePlayer() {}
@@ -92,8 +93,8 @@ void ModulePlayer::ShootLasers() {
 	switch (direction)
 	{
 	case 1:
+		App->audio->playSFX("laser");
 		App->particles->AddParticle(App->particles->bulletN, position.x, position.y - 20, Collider::Type::PLAYER_SHOT);
-		App->audio->playSFX("SFX GW_Shoot");
 		break;
 	case 2:
 		App->particles->AddParticle(App->particles->bulletNE, position.x + 10, position.y - 10, Collider::Type::PLAYER_SHOT);
@@ -117,7 +118,7 @@ void ModulePlayer::ShootLasers() {
 		App->particles->AddParticle(App->particles->bulletNW, position.x - 10, position.y - 10, Collider::Type::PLAYER_SHOT);
 		break;
 	}
-	App->audio->playSFX("SFX GW_Shoot");
+	
 }
 
 update_status ModulePlayer::Update() {
@@ -169,7 +170,6 @@ update_status ModulePlayer::Update() {
 		switch (direction)
 		{
 		case 1:
-			
 			if (currentAnimation != &northAnim) {
 				northAnim.Reset();
 				currentAnimation = &northAnim;
@@ -258,6 +258,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
 	else if (c2->type == Collider::Type::WIN) LOG("WIN") {
 		destroyed = true;
 	}
-	if(c2->type == Collider::Type::WATER) destroyed = false;
+	if (c2->type == Collider::Type::WATER) {
+		
+		destroyed = false;
+	}
 
 }
