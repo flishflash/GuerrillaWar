@@ -221,7 +221,7 @@ update_status ModulePlayer::PostUpdate() {
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
-	if (!destroyed && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WIN)
+	if (!destroyed && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WIN && App->state->god)
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
