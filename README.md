@@ -3,6 +3,7 @@
 https://github.com/daniAtalaya/GuerrillaWar
 
 ### List of members
+Andreu Miró Sabaté
 
 ### Description
 Guerrilla War is a game produced by SNK at 1987 for arcade. In this shooter you control a rebel commandos that raid an unnamed island controlled by a cruel dictator, with the objective to free that island of the tirany of that dictator. You will have to make your way to the final of the island killing your enemies and saving your allies.
