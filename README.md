@@ -21,3 +21,4 @@ S+A->move down and left
 Space-> Shoot
 
 In this version you only need to arrive to a certain point to win the game and you only have one live.
+If you touch a wall or a bunker you will die.
