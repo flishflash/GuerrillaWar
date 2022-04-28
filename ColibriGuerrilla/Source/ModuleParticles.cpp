@@ -23,7 +23,7 @@ bool ModuleParticles::Start()
 {
 	bool ret = false;
 	LOG("Loading particles");
-	ret = App->imatges->get("shoots ", texture);
+	ret = App->imatges->get("shoots", texture);
 
 	// Explosion particle
 	explosion.anim.PushBack({ 274, 296, 33, 30 });
@@ -44,8 +44,8 @@ bool ModuleParticles::Start()
 
 	bulletNE.anim.PushBack({ 36, 181, 8, 11 });
 	bulletNE.anim.PushBack({ 52, 181, 8, 11 });
-	bulletNE.speed.y = -5/2;
-	bulletNE.speed.x = 5 / 2;
+	bulletNE.speed.y = -5;
+	bulletNE.speed.x = 5;
 	bulletNE.lifetime = 180;
 	bulletNE.anim.speed = 0.2f;
 
@@ -57,8 +57,8 @@ bool ModuleParticles::Start()
 
 	bulletSE.anim.PushBack({ 99, 180, 8, 12 });
 	bulletSE.anim.PushBack({ 115, 180, 8, 12 });
-	bulletSE.speed.x = 5/2;
-	bulletSE.speed.y = 5 / 2;
+	bulletSE.speed.x = 5;
+	bulletSE.speed.y = 5;
 	bulletSE.lifetime = 180;
 	bulletSE.anim.speed = 0.2f;
 
@@ -70,8 +70,8 @@ bool ModuleParticles::Start()
 
 	bulletSW.anim.PushBack({ 165, 180, 7, 12 });
 	bulletSW.anim.PushBack({ 181, 180, 7, 12 });
-	bulletSW.speed.x = -5 / 2;
-	bulletSW.speed.y = 5 / 2;
+	bulletSW.speed.x = -5;
+	bulletSW.speed.y = 5;
 	bulletSW.lifetime = 180;
 	bulletSW.anim.speed = 0.2f;
 
@@ -81,10 +81,10 @@ bool ModuleParticles::Start()
 	bulletW.lifetime = 180;
 	bulletW.anim.speed = 0.2f;
 
-	bulletNW.anim.PushBack({ 203, 181, 8, 11 });
-	bulletNW.anim.PushBack({ 212, 181, 8, 11 });
-	bulletNW.speed.x = -5 / 2;
-	bulletNW.speed.y = - 5 / 2;
+	bulletNW.anim.PushBack({ 228, 181, 8, 11 });
+	bulletNW.anim.PushBack({ 245, 181, 8, 11 });
+	bulletNW.speed.x = -5;
+	bulletNW.speed.y = - 5;
 	bulletNW.lifetime = 180;
 	bulletNW.anim.speed = 0.2f;
 
