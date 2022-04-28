@@ -8,6 +8,8 @@
 #include "ModuleText.h"
 #include "ModuleState.h"
 #include "ModuleCollisions.h"
+#include "ModuleTextures.h"
+#include "ModuleFonts.h"
 
 Application::Application() {
 	modules[0] = window = new ModuleWindow();
@@ -26,6 +28,8 @@ Application::Application() {
 	modules[10] = state = new ModuleState(); //Prueba
 
 	modules[11] = enemies = new ModuleEnemies();
+	modules[12] = textures = new ModuleTextures(true);
+	modules[13] = fonts = new ModuleFonts(true);
 }
 
 Application::~Application() {

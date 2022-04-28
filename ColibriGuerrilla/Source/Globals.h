@@ -26,6 +26,6 @@ enum class update_status {
 	UPDATE_ERROR
 };
 
-constexpr auto NUM_MODULES = 12;
+constexpr auto NUM_MODULES = 14;
 
 #endif // _GLOBALS_H_

@@ -42,5 +42,8 @@ class ModulePlayer : public Module {
 		bool destroyed = false;
 		uint destroyedCountdown = 60;
 		int direction;
+		uint score = 000;
+		int scoreFont = -1;
+		char scoreText[10] = { "\0" };
 };
 #endif //!__MODULE_PLAYER_H__

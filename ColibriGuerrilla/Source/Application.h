@@ -14,6 +14,9 @@
 #include "Module.h"
 #include "ModuleState.h"
 #include "ModuleEnemies.h"
+#include "ModuleTextures.h"
+#include "ModuleFonts.h"
+
 class Application {
 	public:
 		Application();
@@ -34,7 +37,8 @@ class Application {
 		ModuleMusica* audio = nullptr;
 		ModuleState* state = nullptr;
 		ModuleEnemies* enemies = nullptr;
-
+		ModuleTextures* textures = nullptr;
+		ModuleFonts* fonts = nullptr;
 };
 extern Application* App;
 #endif // __APPLICATION_H__

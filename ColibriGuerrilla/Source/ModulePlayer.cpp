@@ -7,6 +7,7 @@
 #include "ModuleMusica.h"
 #include "ModuleCollisions.h"
 #include "SDL/include/SDL_scancode.h"
+#include "ModuleFonts.h"
 
 ModulePlayer::ModulePlayer() {
 	idleAnim.PushBack({ 64, 0, 25, 54 });
@@ -85,6 +86,8 @@ bool ModulePlayer::Start() {
 	position.x = 235;
 	position.y = 3950;
 	return ret;
+	char lookupTable[] = { "0123456789" };
+	scoreFont = App->fonts->Load("Assets/Text/numeros.png", lookupTable, 1);
 }
 
 void ModulePlayer::ShootLasers() {
@@ -240,6 +243,13 @@ update_status ModulePlayer::PostUpdate() {
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		App->render->Blit(texture, position.x, position.y, &rect);
 	}
+
+	sprintf_s(scoreText, 10, "%7d", score);
+
+	// TODO 3: Blit the text of the score in at the bottom of the screen
+	App->fonts->BlitText(250, 4000, scoreFont, scoreText);
+
+	App->fonts->BlitText(250, 4000, scoreFont, "0000");
 	return update_status::UPDATE_CONTINUE;
 }
 
