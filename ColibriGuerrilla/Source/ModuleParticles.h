@@ -18,6 +18,14 @@ class ModuleParticles : public Module {
 		void AddParticle(const Particle& particle, int x, int y, Collider::Type colliderType = Collider::Type::NONE, uint delay = 0);
 		Particle explosion;
 		Particle laser;
+		Particle bulletN;
+		Particle bulletNE;
+		Particle bulletE;
+		Particle bulletSE;
+		Particle bulletS;
+		Particle bulletSW;
+		Particle bulletW;
+		Particle bulletNW;
 	private:
 		SDL_Texture* texture = nullptr;
 		Particle* particles[MAX_ACTIVE_PARTICLES] = { nullptr };

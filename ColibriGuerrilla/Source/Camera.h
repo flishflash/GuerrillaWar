@@ -1,5 +1,4 @@
 #pragma once
-
 #include <SDL/include/SDL_rect.h>
 #include "Globals.h"
 class Camera {
