@@ -79,7 +79,7 @@ ModulePlayer::~ModulePlayer() {}
 
 bool ModulePlayer::Start() {
 	bool ret = false;
-	ret = App->imatges->get("sprites caminant", texture);
+	ret = App->imatges->get("sprites_caminant", texture);
 	currentAnimation = &idleAnim;
 	position.x = 235;
 	position.y = 3950;
@@ -88,41 +88,19 @@ bool ModulePlayer::Start() {
 
 void ModulePlayer::ShootLasers() {
 
-	switch (direction)
-	{
-	case 1:
-		App->particles->AddParticle(App->particles->bulletN, position.x, position.y-20, Collider::Type::PLAYER_SHOT);
-		break;
-	case 2:
-		App->particles->AddParticle(App->particles->bulletNE, position.x + 10, position.y - 10, Collider::Type::PLAYER_SHOT);
-		break;
-	case 3:
-		App->particles->AddParticle(App->particles->bulletE, position.x +20, position.y, Collider::Type::PLAYER_SHOT);
-		break;
-	case 4:
-		App->particles->AddParticle(App->particles->bulletSE, position.x +10, position.y + 10, Collider::Type::PLAYER_SHOT);
-		break;
-	case 5:
-		App->particles->AddParticle(App->particles->bulletS, position.x, position.y + 20, Collider::Type::PLAYER_SHOT);
-		break;
-	case 6:
-		App->particles->AddParticle(App->particles->bulletSW, position.x - 10, position.y + 10, Collider::Type::PLAYER_SHOT);
-		break;
-	case 7:
-		App->particles->AddParticle(App->particles->bulletW, position.x - 20, position.y, Collider::Type::PLAYER_SHOT);
-		break;
-	case 8:
-		App->particles->AddParticle(App->particles->bulletNW, position.x - 10, position.y - 10, Collider::Type::PLAYER_SHOT);
-		break;
-	}
-	//App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-	App->audio->playSFX("laser");
+	
+	App->particles->AddParticle(App->particles->bulletE, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+	App->audio->playSFX("SFX GW_Shoot");
 }
 
 update_status ModulePlayer::Update() {
 	
 	collider->rect.x = position.x;
 	collider->rect.y = position.y;
+	if (App->input->keyboard[SDL_SCANCODE_SPACE])
+	{
+		App->particles->AddParticle(App->particles->bulletE, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+	}
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 	if (App->input->keyboard[SDL_SCANCODE_W]) {
 		direction = 1;
