@@ -213,7 +213,7 @@ update_status ModulePlayer::PostUpdate() {
 	sprintf_s(scoreText, 10, "%7d", score);
 
 	// TODO 3: Blit the text of the score in at the bottom of the screen
-	App->fonts->BlitText(250, 4000, scoreFont, scoreText);
+	App->fonts->BlitText(0, 0, scoreFont, scoreText);
 
 	App->fonts->BlitText(250, 4000, scoreFont, "0000");
 	App->scene->pintarPalmeras();
