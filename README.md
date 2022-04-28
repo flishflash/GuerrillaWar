@@ -10,9 +10,9 @@ Guerrilla War is a game produced by SNK at 1987 for arcade. In this shooter you 
 
 ### Controles
 W-> move forward  
-A-> move left 
-S-> move down 
-D-> move right  
+A-> move left   
+S-> move down   
+D-> move right    
 W+A->move forward and left  
 W+D->move forward and right 
 S+D->move down and right  
