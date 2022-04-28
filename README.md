@@ -3,6 +3,8 @@
 https://github.com/daniAtalaya/GuerrillaWar
 
 ### List of members
+Daniel Atalaya Nina (https://github.com/daniAtalaya)
+
 Andreu Miró Sabaté (https://github.com/AndreuMiroSabate)
 
 Rafael Esquius Pérez (https://github.com/SRRafael8)
