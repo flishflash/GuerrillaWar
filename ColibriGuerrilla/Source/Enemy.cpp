@@ -3,7 +3,7 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModuleParticles.h"
-#include "ModuleMusica.h"
+#include "ModuleAudio.h"
 #include "ModuleRender.h"
 
 Enemy::Enemy(int x, int y) : position(x, y)
@@ -31,20 +31,16 @@ void Enemy::Update()
 		collider->SetPos(position.x, position.y);
 }
 
-void Enemy::Draw() {
-	if (currentAnim != nullptr) {
-		LOG("ENEMY DRAWN");
-		App->render->Blit(texture, collider->rect.x, collider->rect.y, &currentAnim->GetCurrentFrame());
-	}
-	else {
-		LOG("ENEMY DRAWN'T");
-	}
+void Enemy::Draw()
+{
+	if (currentAnim != nullptr)
+		App->render->Blit(texture, position.x, position.y, &(currentAnim->GetCurrentFrame()));
 }
 
 void Enemy::OnCollision(Collider* collider)
 {
 	App->particles->AddParticle(App->particles->explosion, position.x, position.y);
-	/*App->audio->PlayFx(destroyedFx);*/
+	App->audio->PlayFx(destroyedFx);
 
 	SetToDelete();
 }

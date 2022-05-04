@@ -1,44 +1,76 @@
 #ifndef __APPLICATION_H__
 #define __APPLICATION_H__
-#include "Globals.h"
-#include "ModuleRender.h"
-#include "ModuleWindow.h"
-#include "ModuleInput.h"
-#include "ModuleScene.h"
-#include "ModuleImatges.h"
-#include "ModulePlayer.h"
-#include "ModuleMusica.h"
-#include "ModuleText.h"
-#include "ModuleParticles.h"
-#include "ModuleCollisions.h"
-#include "Module.h"
-#include "ModuleState.h"
-#include "ModuleEnemies.h"
-#include "ModuleTextures.h"
-#include "ModuleFonts.h"
 
-class Application {
-	public:
-		Application();
-		~Application();
-		bool Init();
-		update_status Update();
-		bool CleanUp();
-		Module* modules[NUM_MODULES];	
-		ModuleWindow* window = nullptr;
-		ModuleInput* input = nullptr;
-		ModuleImatges* imatges = nullptr;
-		ModulePlayer* player = nullptr;
-		ModuleScene* scene = nullptr;
-		ModuleParticles* particles = nullptr;
-		ModuleRender* render = nullptr;
-		ModuleText* text = nullptr;
-		ModuleCollisions* collisions = nullptr;
-		ModuleMusica* audio = nullptr;
-		ModuleState* state = nullptr;
-		ModuleEnemies* enemies = nullptr;
-		ModuleTextures* textures = nullptr;
-		ModuleFonts* fonts = nullptr;
+#include "Globals.h"
+
+#define NUM_MODULES 15
+
+class Module;
+class ModuleWindow;
+class ModuleInput;
+class ModuleTextures;
+class ModuleAudio;
+class ModulePlayer;
+class SceneIntro;
+class SceneLevel1;
+class SceneLose;
+class SceneWin;
+class ModuleParticles;
+class ModuleCollisions;
+class ModuleEnemies;
+class ModuleFadeToBlack;
+class ModuleFonts;
+class ModuleRender;
+
+
+class Application
+{
+
+public:
+
+	//Constructor. Creates all necessary modules for the application
+	Application();
+
+	//Destructor. Removes all module objects
+	~Application();
+
+	//Initializes all modules
+	bool Init();
+
+	//Updates all modules (PreUpdate, Update and PostUpdate)
+	Update_Status Update();
+
+	//Releases all the application data
+	bool CleanUp();
+
+public:
+	// An array to store all modules
+	Module* modules[NUM_MODULES];
+
+	// All the modules stored individually
+	ModuleWindow* window = nullptr;
+	ModuleInput* input = nullptr;
+	ModuleTextures* textures = nullptr;
+	ModuleAudio* audio = nullptr;
+
+	ModulePlayer* player = nullptr;
+
+	SceneIntro* sceneIntro = nullptr;
+	SceneLevel1* sceneLevel_1 = nullptr;
+	SceneLose* sceneLose = nullptr;
+	SceneWin* sceneWin = nullptr;
+
+	ModuleEnemies* enemies = nullptr;
+	ModuleParticles* particles = nullptr;
+
+	ModuleCollisions* collisions = nullptr;
+	ModuleFadeToBlack* fade = nullptr;
+	ModuleFonts* fonts = nullptr;
+
+	ModuleRender* render = nullptr;
 };
+
+// Global var made extern for Application ---
 extern Application* App;
+
 #endif // __APPLICATION_H__

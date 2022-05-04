@@ -1,4 +1,3 @@
-
 #ifndef __MODULE_ENEMIES_H__
 #define __MODULE_ENEMIES_H__
 
@@ -9,7 +8,9 @@
 enum class Enemy_Type
 {
 	NO_TYPE,
-	SOLDIER
+	GREENSOLDIER,
+	REDSOLDIER,
+	RECLUSO,
 };
 
 struct EnemySpawnpoint
@@ -25,7 +26,7 @@ class ModuleEnemies : public Module
 {
 public:
 	// Constructor
-	ModuleEnemies();
+	ModuleEnemies(bool startEnabled);
 
 	// Destructor
 	~ModuleEnemies();
@@ -36,15 +37,15 @@ public:
 
 	// Called at the beginning of the application loop
 	// Removes all enemies pending to delete
-	update_status PreUpdate() override;
+	Update_Status PreUpdate() override;
 
 	// Called at the middle of the application loop
 	// Handles all enemies logic and spawning/despawning
-	update_status Update() override;
+	Update_Status Update() override;
 
 	// Called at the end of the application loop
 	// Iterates all the enemies and draws them
-	update_status PostUpdate() override;
+	Update_Status PostUpdate() override;
 
 	// Called on application exit
 	// Destroys all active enemies left in the array

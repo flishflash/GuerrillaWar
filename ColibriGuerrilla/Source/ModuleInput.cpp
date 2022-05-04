@@ -1,185 +1,58 @@
-#include "ModuleInput.h"
+#include "Globals.h"
 #include "Application.h"
-#include "ModulePlayer.h"
-bool ModuleInput::Init() {
-    keyboard = SDL_GetKeyboardState(NULL);
-    return true;
-}
-update_status ModuleInput::PreUpdate() {
-	while (SDL_PollEvent(&event) != 0) {
-		switch (event.type) {
-			case SDL_QUIT:
-				return update_status::UPDATE_STOP;
-			case SDL_KEYDOWN:
-				if (!event.key.repeat) {
-					if (event.key.keysym.sym == SDLK_ESCAPE){}
-					if (event.key.keysym.sym == SDLK_F1) {
-						App->state->god = !App->state->god;
-					}
-					if (event.key.keysym.sym == SDLK_F2) {
-						App->state->debug = !App->state->debug;
-					}
-					if (event.key.keysym.sym == SDLK_F3) {
-						App->scene->curScene = App->scene->winScreen;
-						App->render->camera.y = 0;
-						App->render->camera.x = 0;
-						App->player->position.x = 0;
-						App->player->position.y = 0;
-						break;
-					}
-					if (event.key.keysym.sym == SDLK_F4) {
-						App->scene->curScene = App->scene->loseScreen;
-						App->render->camera.y = 0;
-						App->render->camera.x = 0;
-						App->player->position.x = 0;
-						App->player->position.y = 0;
-						break;
-					}
-					if (event.key.keysym.sym == SDLK_SPACE) {
-						if(App->scene->curScene == App->scene->bgTexture) App->player->ShootLasers();
-						if (App->scene->curScene == App->scene->credits ) {
-							App->render->camera.y = 0;
-							App->render->camera.x = 0;
-							App->player->position.x = 0;
-							App->player->position.y = 0;
-							App->scene->curScene = App->scene->hailHeroes;
-							break;
-						}
-						if (App->scene->curScene == App->scene->hailHeroes) {
-							App->render->camera.y = 0;
-							App->render->camera.x = 0;
-							App->player->position.x = 0;
-							App->player->position.y = 0;
-							App->scene->curScene = App->scene->titleScreen;
-							break;
-						}
-						if (App->scene->curScene == App->scene->winScreen) {
-							App->render->camera.y = 0;
-							App->render->camera.x = 0;
-							App->player->position.x = 0;
-							App->player->position.y = 0;
-							App->scene->curScene = App->scene->titleScreen;
-							break;
-						}
-						if (App->scene->curScene == App->scene->loseScreen) {
-							App->render->camera.y = 0;
-							App->render->camera.x = 0;
-							App->player->position.x = 0;
-							App->player->position.y = 0;
-							App->scene->curScene = App->scene->titleScreen;
-							break;
-						}
-						if (App->scene->curScene == App->scene->titleScreen) {
-							App->scene->curScene = App->scene->bgTexture;
-							App->render->camera.x = 125;
-							App->render->camera.y = 3700;
-							App->player->position.x = 235;
-							App->player->position.y = 3950;
-							// TO DO
-						}
-					}
-					if (event.key.keysym.sym == SDLK_RETURN) {
-						if (App->scene->curScene == App->scene->credits) {
-							App->render->camera.y = 0;
-							App->render->camera.x = 0;
-							App->player->position.x = 0;
-							App->player->position.y = 0;
-							App->scene->curScene = App->scene->hailHeroes;
-							break;
-						}
-						if (App->scene->curScene == App->scene->hailHeroes) {
-							App->render->camera.y = 0;
-							App->render->camera.x = 0;
-							App->player->position.x = 0;
-							App->player->position.y = 0;
-							App->scene->curScene = App->scene->titleScreen;
-							break;
-						}
-						if (App->scene->curScene == App->scene->winScreen) {
-							App->render->camera.y = 0;
-							App->render->camera.x = 0;
-							App->player->position.x = 0;
-							App->player->position.y = 0;
-							App->scene->curScene = App->scene->titleScreen;
-							break;
-						}
-						if (App->scene->curScene == App->scene->loseScreen) {
-							App->render->camera.y = 0;
-							App->render->camera.x = 0;
-							App->player->position.x = 0;
-							App->player->position.y = 0;
-							App->scene->curScene = App->scene->titleScreen;
-							break;
-						}
-						if (App->scene->curScene == App->scene->titleScreen) {
-							App->scene->curScene = App->scene->bgTexture;
+#include "ModuleInput.h"
+#include "SDL/include/SDL.h"
 
-							App->render->camera.x = 125;
-							App->render->camera.y = 3700;
-							App->player->position.x = 235;
-							App->player->position.y = 3950;
-							// TO DO
-						}
-					}
-					//if (event.key.keysym.sym == SDLK_b) App->player->SpawnExplosions();
-				}
-				break;
-			case SDL_WINDOWEVENT:
-				if (event.window.event == SDL_WINDOWEVENT_LEAVE) {}
-				if (event.window.event == SDL_WINDOWEVENT_ENTER) {}
-				break;
-			case SDL_MOUSEMOTION:
-				//SDL_GetMouseState(&mouse->x, &mouse->y);
-				break;
-			case SDL_MOUSEBUTTONUP:
-				if (App->scene->curScene == App->scene->credits) {
-					App->render->camera.y = 0;
-					App->render->camera.x = 0;
-					App->player->position.x = 0;
-					App->player->position.y = 0;
-					App->scene->curScene = App->scene->hailHeroes;
-					break;
-				}
-				if (App->scene->curScene == App->scene->hailHeroes) {
-					App->render->camera.y = 0;
-					App->render->camera.x = 0;
-					App->player->position.x = 0;
-					App->player->position.y = 0;
-					App->scene->curScene = App->scene->titleScreen;
-					break;
-				}
-				if (App->scene->curScene == App->scene->winScreen) {
-					App->render->camera.y = 0;
-					App->render->camera.x = 0;
-					App->player->position.x = 0;
-					App->player->position.y = 0;
-					App->scene->curScene = App->scene->titleScreen;
-					break;
-				}
-				if (App->scene->curScene == App->scene->loseScreen) {
-					App->render->camera.y = 0;
-					App->render->camera.x = 0;
-					App->player->position.x = 0;
-					App->player->position.y = 0;
-					App->scene->curScene = App->scene->titleScreen;
-					break;
-				}
-				if (App->scene->curScene == App->scene->titleScreen) {
-					App->scene->curScene = App->scene->bgTexture;
+ModuleInput::ModuleInput(bool startEnabled) : Module(startEnabled)
+{}
 
-					App->render->camera.x = 125;
-					App->render->camera.y = 3700;
-					App->player->position.x = 235;
-					App->player->position.y = 3950;
-					// TO DO
-				}
-		}
-		if (keyboard[SDL_SCANCODE_ESCAPE]) return update_status::UPDATE_STOP;
+ModuleInput::~ModuleInput()
+{}
+
+bool ModuleInput::Init()
+{
+	LOG("Init SDL input event system");
+	bool ret = true;
+	SDL_Init(0);
+
+	if(SDL_InitSubSystem(SDL_INIT_EVENTS) < 0)
+	{
+		LOG("SDL_EVENTS could not initialize! SDL_Error: %s\n", SDL_GetError());
+		ret = false;
 	}
-    return update_status::UPDATE_CONTINUE;
+
+	return ret;
 }
-bool ModuleInput::CleanUp() {
-    keyboard = nullptr;
+
+Update_Status ModuleInput::PreUpdate()
+{
+	//Read new SDL events, mostly from the window
+	SDL_Event event;
+	if (SDL_PollEvent(&event))
+	{
+		if (event.type == SDL_QUIT)	return Update_Status::UPDATE_STOP;
+	}
+
+	//Read all keyboard data and update our custom array
+	SDL_PumpEvents();
+	const Uint8* keyboard = SDL_GetKeyboardState(NULL);
+	for (int i = 0; i < MAX_KEYS; ++i)
+	{
+		if (keyboard[i])
+			keys[i] = (keys[i] == KEY_IDLE) ? KEY_DOWN : KEY_REPEAT;
+		else
+			keys[i] = (keys[i] == KEY_REPEAT || keys[i] == KEY_DOWN) ? KEY_UP : KEY_IDLE;
+	}
+	if (keyboard[SDL_SCANCODE_ESCAPE]) return Update_Status::UPDATE_STOP;
+
+
+	return Update_Status::UPDATE_CONTINUE;
+}
+
+bool ModuleInput::CleanUp()
+{
+	LOG("Quitting SDL input event subsystem");
+
 	SDL_QuitSubSystem(SDL_INIT_EVENTS);
-    return true;
+	return true;
 }
