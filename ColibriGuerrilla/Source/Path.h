@@ -52,5 +52,4 @@ private:
 	// The current step in the path
 	uint currentStep = 0;
 };
-
 #endif // __PATH_H__
