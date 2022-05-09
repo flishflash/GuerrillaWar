@@ -25,7 +25,7 @@ typedef unsigned int uint;
 
 #define RES_WIDTH 227
 #define RES_HEIGHT 366
-#define SCREEN_SIZE 3
+#define SCREEN_SIZE 1
 #define WIN_FULLSCREEN 0
 #define WIN_FULLSCREEN_DESKTOP 0
 #define WIN_BORDERLESS 0

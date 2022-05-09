@@ -36,7 +36,8 @@ bool ModuleRender::Init()
 		LOG("Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
-
+	SDL_RenderSetScale(renderer, 1, 1);
+	SDL_RenderSetLogicalSize(renderer, RES_WIDTH, RES_HEIGHT);
 	return ret;
 }
 
@@ -48,7 +49,7 @@ Update_Status ModuleRender::PreUpdate()
 
 	//Clear rendering target
 	SDL_RenderClear(renderer);
-
+	SDL_RenderSetViewport(renderer, new SDL_Rect({ RES_WIDTH , 0, RES_WIDTH, RES_HEIGHT * 6 / 4 }));
 	return Update_Status::UPDATE_CONTINUE;
 }
 

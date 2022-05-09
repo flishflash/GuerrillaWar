@@ -91,6 +91,9 @@ bool SceneLevel1::Start()
 	// Enemies ---
 
 
+	App->render->camera.x = 135;
+	App->render->camera.y = 3750;
+
 	App->player->Enable();
 	App->enemies->Enable();
 
