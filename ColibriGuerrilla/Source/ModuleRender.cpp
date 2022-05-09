@@ -64,7 +64,7 @@ Update_Status ModuleRender::Update()
 
 	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)
 		camera.x -= cameraSpeed;
-	if (camera.x < 0) camera.x = 0;
+	//if (camera.x < 0) camera.x = 0;
 
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		camera.x += cameraSpeed;
@@ -101,7 +101,8 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* sect
 
 	if (useCamera)
 	{
-	
+		dstRect.x -= (camera.x * speed);
+		dstRect.y -= (camera.y * speed);
 	}
 
 	if (section != nullptr)

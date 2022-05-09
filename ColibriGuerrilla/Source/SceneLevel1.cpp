@@ -91,9 +91,6 @@ bool SceneLevel1::Start()
 	// Enemies ---
 
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
-
 	App->player->Enable();
 	App->enemies->Enable();
 
@@ -102,7 +99,6 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-	App->render->camera.x += 3;
 
 	return Update_Status::UPDATE_CONTINUE;
 }
