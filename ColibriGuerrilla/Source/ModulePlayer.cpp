@@ -16,7 +16,7 @@
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// idle animation - just one sprite
-
+	idleAnim.PushBack({ 66, 1, 32, 14 });
 
 	// move upwards
 
@@ -43,7 +43,7 @@ bool ModulePlayer::Start()
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	position.x = 150;
-	position.y = 120;
+	position.y = 4000;
 
 	destroyed = false;
 
