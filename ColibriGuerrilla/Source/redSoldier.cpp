@@ -11,7 +11,7 @@ redSoldier::redSoldier(int x, int y) : Enemy(x, y)
 void redSoldier::Update()
 {
 	path.Update();
-	position = spawnPos + path.GetRelativePosition();
+	positionenemy = spawnPos + path.GetRelativePosition();
 	currentAnim = path.GetCurrentAnimation();
 
 	// Call to the base class. It must be called at the end

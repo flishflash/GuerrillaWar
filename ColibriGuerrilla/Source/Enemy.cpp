@@ -6,9 +6,9 @@
 #include "ModuleAudio.h"
 #include "ModuleRender.h"
 
-Enemy::Enemy(int x, int y) : position(x, y)
+Enemy::Enemy(int x, int y) : positionenemy(x, y)
 {
-	spawnPos = position;
+	spawnPos = positionenemy;
 }
 
 Enemy::~Enemy()
@@ -28,18 +28,18 @@ void Enemy::Update()
 		currentAnim->Update();
 
 	if (collider != nullptr)
-		collider->SetPos(position.x, position.y);
+		collider->SetPos(positionenemy.x, positionenemy.y);
 }
 
 void Enemy::Draw()
 {
 	if (currentAnim != nullptr)
-		App->render->Blit(texture, position.x, position.y, &(currentAnim->GetCurrentFrame()));
+		App->render->Blit(texture, positionenemy.x, positionenemy.y, &(currentAnim->GetCurrentFrame()));
 }
 
 void Enemy::OnCollision(Collider* collider)
 {
-	App->particles->AddParticle(App->particles->explosion, position.x, position.y);
+	App->particles->AddParticle(App->particles->explosion, positionenemy.x, positionenemy.y);
 	App->audio->PlayFx(destroyedFx);
 
 	SetToDelete();
