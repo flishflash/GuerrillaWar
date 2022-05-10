@@ -55,11 +55,8 @@ public:
 	SDL_Rect camera = { 0, 0, RES_WIDTH, RES_HEIGHT };
 
 	// The speed at which the camera will be moving
-<<<<<<< Updated upstream
-	int cameraSpeed = 3;
-=======
+
 	int cameraSpeed = 1;
->>>>>>> Stashed changes
 
 };
 

@@ -64,12 +64,8 @@ Update_Status ModuleRender::Update()
 
 	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)
 		camera.x -= cameraSpeed;
-<<<<<<< Updated upstream
-	//if (camera.x < 0) camera.x = 0;
-=======
 
 	if (camera.x < 0) camera.x = 0;
->>>>>>> Stashed changes
 
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		camera.x += cameraSpeed;
@@ -103,16 +99,6 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* sect
 	bool ret = true;
 
 	SDL_Rect dstRect{ x * SCREEN_SIZE, y * SCREEN_SIZE, 0, 0 };
-
-<<<<<<< Updated upstream
-	if (useCamera)
-	{
-		dstRect.x -= (camera.x * speed);
-		dstRect.y -= (camera.y * speed);
-	}
-
-=======
->>>>>>> Stashed changes
 	if (section != nullptr)
 	{
 		dstRect.w = section->w;
