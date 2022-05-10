@@ -30,16 +30,16 @@ bool SceneLevel1::Start()
 	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);
 
 	//Player collider
-	App->player->collider = App->collisions->AddCollider({ App->player->position.x - 2, App->player->position.y - 2, 20, 50 }, Collider::Type::PLAYER, App->player);
+	App->player->collider = App->collisions->AddCollider({ App->player->position.x , App->player->position.y , 20, 50 }, Collider::Type::PLAYER, App->player);
 
 	//Water colliders
-	/*App->collisions->AddCollider({ 88, 4123, 302, 34 }, Collider::Type::WATER);
+	App->collisions->AddCollider({ 88, 4123, 302, 34 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 216, 3964, 81, 161 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 135, 4091, 32, 121 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 153, 4061, 205, 38 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 222, 4001, 104, 55 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 174, 4022, 162, 46 }, Collider::Type::WATER);
-	App->collisions->AddCollider({ 125, 4099, 242, 38 }, Collider::Type::WATER);*/
+	App->collisions->AddCollider({ 125, 4099, 242, 38 }, Collider::Type::WATER);
 
 	//Wall colliders
 	App->collisions->AddCollider({ 452, 4015, 74, 200 }, Collider::Type::WALL);

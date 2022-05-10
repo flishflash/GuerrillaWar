@@ -138,10 +138,10 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::ENEMY_SHOT: // magenta
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
-			case Collider::Type::WATER: // magenta
+			case Collider::Type::WATER: // negro
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
 			break;
-			case Collider::Type::WIN: // magenta
+			case Collider::Type::WIN: // rosa
 			App->render->DrawQuad(colliders[i]->rect, 248, 12, 181, alpha);
 			break;
 		}
