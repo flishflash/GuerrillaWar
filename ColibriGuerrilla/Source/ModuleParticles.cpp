@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/particles.png");
+	texture = App->textures->Load("Assets/Sprites/shoots.png");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
@@ -34,12 +34,59 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
-	laser.anim.PushBack({ 232, 103, 16, 12 });
-	laser.anim.PushBack({ 249, 103, 16, 12 });
-	laser.speed.x = 5;
-	laser.lifetime = 180;
-	laser.anim.speed = 0.2f;
 
+	//Normal bullet anims
+	bulletN.anim.PushBack({ 7, 180, 7, 10 });
+	bulletN.anim.PushBack({ 23, 179, 7, 11 });
+	bulletN.speed.y = -5;
+	bulletN.lifetime = 180;
+	bulletN.anim.speed = 0.2f;
+
+	bulletNE.anim.PushBack({ 36, 181, 8, 11 });
+	bulletNE.anim.PushBack({ 52, 181, 8, 11 });
+	bulletNE.speed.y = -5 / 2;
+	bulletNE.speed.x = 5 / 2;
+	bulletNE.lifetime = 180;
+	bulletNE.anim.speed = 0.2f;
+
+	bulletE.anim.PushBack({ 67, 183, 9, 9 });
+	bulletE.anim.PushBack({ 84, 183, 9, 9 });
+	bulletE.speed.x = 5;
+	bulletE.lifetime = 180;
+	bulletE.anim.speed = 0.2f;
+
+	bulletSE.anim.PushBack({ 99, 180, 8, 12 });
+	bulletSE.anim.PushBack({ 115, 180, 8, 12 });
+	bulletSE.speed.x = 5 / 2;
+	bulletSE.speed.y = 5 / 2;
+	bulletSE.lifetime = 180;
+	bulletSE.anim.speed = 0.2f;
+
+	bulletS.anim.PushBack({ 134, 179, 7, 12 });
+	bulletS.anim.PushBack({ 150, 180, 7, 11 });
+	bulletS.speed.y = 5;
+	bulletS.lifetime = 180;
+	bulletS.anim.speed = 0.2f;
+
+	bulletSW.anim.PushBack({ 165, 180, 7, 12 });
+	bulletSW.anim.PushBack({ 181, 180, 7, 12 });
+	bulletSW.speed.x = -5 / 2;
+	bulletSW.speed.y = 5 / 2;
+	bulletSW.lifetime = 180;
+	bulletSW.anim.speed = 0.2f;
+
+	bulletW.anim.PushBack({ 189, 182, 9, 8 });
+	bulletW.anim.PushBack({ 195, 182, 10, 8 });
+	bulletW.speed.x = -5;
+	bulletW.lifetime = 180;
+	bulletW.anim.speed = 0.2f;
+
+	bulletNW.anim.PushBack({ 203, 181, 8, 11 });
+	bulletNW.anim.PushBack({ 212, 181, 8, 11 });
+	bulletNW.speed.x = -5 / 2;
+	bulletNW.speed.y = -5 / 2;
+	bulletNW.lifetime = 180;
+	bulletNW.anim.speed = 0.2f;
 	return true;
 }
 

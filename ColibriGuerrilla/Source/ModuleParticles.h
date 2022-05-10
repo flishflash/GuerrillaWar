@@ -59,6 +59,16 @@ public:
 	//Template particle for a laser
 	Particle laser;
 
+	//Template particles for a normal bullet
+	Particle bulletN;
+	Particle bulletNE;
+	Particle bulletE;
+	Particle bulletSE;
+	Particle bulletS;
+	Particle bulletSW;
+	Particle bulletW;
+	Particle bulletNW;
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;
