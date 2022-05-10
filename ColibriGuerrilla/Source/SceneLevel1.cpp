@@ -30,7 +30,6 @@ bool SceneLevel1::Start()
 	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);
 
 	//Player collider
-	App->player->collider = App->collisions->AddCollider({ App->player->position.x , App->player->position.y , 20, 50 }, Collider::Type::PLAYER, App->player);
 
 	//Water colliders
 	App->collisions->AddCollider({ 88, 4123, 302, 34 }, Collider::Type::WATER);
@@ -89,7 +88,7 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 451, 2081, 88, 36 }, Collider::Type::WIN);
 
 	// Enemies ---
-
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 200, 3600);
 	//camera
 	App->render->camera.x = 135;
 	App->render->camera.y =3800;
