@@ -23,7 +23,6 @@ bool ModuleRender::Init()
 	LOG("Creating Renderer context");
 	bool ret = true;	
 	Uint32 flags = 0;
-
 	if (VSYNC == true)
 	{
 		flags |= SDL_RENDERER_PRESENTVSYNC;
@@ -65,7 +64,12 @@ Update_Status ModuleRender::Update()
 
 	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)
 		camera.x -= cameraSpeed;
+<<<<<<< Updated upstream
 	//if (camera.x < 0) camera.x = 0;
+=======
+
+	if (camera.x < 0) camera.x = 0;
+>>>>>>> Stashed changes
 
 	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
 		camera.x += cameraSpeed;
@@ -100,12 +104,15 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* sect
 
 	SDL_Rect dstRect{ x * SCREEN_SIZE, y * SCREEN_SIZE, 0, 0 };
 
+<<<<<<< Updated upstream
 	if (useCamera)
 	{
 		dstRect.x -= (camera.x * speed);
 		dstRect.y -= (camera.y * speed);
 	}
 
+=======
+>>>>>>> Stashed changes
 	if (section != nullptr)
 	{
 		dstRect.w = section->w;
@@ -137,12 +144,6 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	SDL_SetRenderDrawColor(renderer, r, g, b, a);
 
 	SDL_Rect dstRect { rect.x * SCREEN_SIZE, rect.y * SCREEN_SIZE, rect.w * SCREEN_SIZE, rect.h * SCREEN_SIZE };
-
-	if (useCamera)
-	{
-		dstRect.x -= (camera.x * speed);
-		dstRect.y -= (camera.y * speed);
-	}
 
 	if (SDL_RenderFillRect(renderer, &dstRect) != 0)
 	{
