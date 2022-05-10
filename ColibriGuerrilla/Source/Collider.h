@@ -28,6 +28,8 @@ struct Collider
 
 	void SetPos(int x, int y);
 
+	void CleanUp(Module* listener);
+
 	bool Intersects(const SDL_Rect& r) const;
 
 	void AddListener(Module* listener);

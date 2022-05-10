@@ -34,3 +34,17 @@ void Collider::AddListener(Module* listener)
 			break;
 	}
 }
+
+void Collider::CleanUp(Module* listener)
+{
+	for (int i = 0; i < MAX_LISTENERS; ++i)
+	{
+		if (listeners[i] != nullptr)
+		{
+			delete listeners[i];
+			listeners[i] = nullptr;
+			break;
+		}
+
+	}
+}

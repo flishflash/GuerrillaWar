@@ -113,6 +113,7 @@ bool ModulePlayer::Start()
 	position.y = 4000;
 
 	destroyed = false;
+	destroyedCountdown = 60;
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
 
@@ -200,7 +201,7 @@ Update_Status ModulePlayer::Update()
 	currentAnimation->Update();
 	if (destroyed) {
 		destroyedCountdown--;
-		if (destroyedCountdown <= 0) return Update_Status::UPDATE_STOP;
+		if (destroyedCountdown <= 0) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
 	}
 
 	//change scene
@@ -232,7 +233,7 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider && destroyed == false)
+	if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER)
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
@@ -241,11 +242,12 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);
 
 		App->audio->PlayFx(explosionFx);
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
-
 		destroyed = true;
 	}
-
+	if (c2->type == Collider::Type::WIN)
+	{
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
+	}
 	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 	{
 		score += 23;

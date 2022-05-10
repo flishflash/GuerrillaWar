@@ -5,7 +5,8 @@
 
 greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 {
-
+	//walk forward
+	greenWalk.PushBack({});
 }
 
 void greenSoldier::Update()
