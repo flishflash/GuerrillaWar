@@ -1,5 +1,4 @@
 #include "SceneLevel1.h"
-
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
@@ -7,6 +6,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
+#include "ModuleFonts.h"
 
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)

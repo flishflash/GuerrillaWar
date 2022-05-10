@@ -98,8 +98,7 @@ Update_Status ModulePlayer::Update()
 		position.y += speed / 2;
 		position.x -= speed / 2;
 	}
-	if (App->input->keys[SDL_SCANCODE_F3]) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
-	if (App->input->keys[SDL_SCANCODE_F4]) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+
 
 
 	switch (direction) {
@@ -136,6 +135,12 @@ Update_Status ModulePlayer::Update()
 		destroyedCountdown--;
 		if (destroyedCountdown <= 0) return Update_Status::UPDATE_STOP;
 	}
+
+	//change scene
+
+	if (App->input->keys[SDL_SCANCODE_F3]) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
+	if (App->input->keys[SDL_SCANCODE_F4]) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+
 	return Update_Status::UPDATE_CONTINUE;
 }
 

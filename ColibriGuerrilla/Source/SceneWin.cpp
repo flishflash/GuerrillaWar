@@ -26,8 +26,8 @@ bool SceneWin::Start()
 
 	bgTexture = App->textures->Load("Assets/Sprites/winScreen.png");
 
-	//App->render->camera.x = 0;
-	//App->render->camera.y = 0;
+	App->render->camera.x = 0;
+	App->render->camera.y = 0;
 
 	return ret;
 }

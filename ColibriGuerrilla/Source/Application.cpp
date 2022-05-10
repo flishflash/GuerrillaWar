@@ -29,8 +29,8 @@ Application::Application()
 	modules[3] =	audio =			new ModuleAudio(true);
 
 	modules[4] =	sceneIntro =	new SceneIntro(true);
-	modules[5] =	sceneWin =	new SceneWin(true);
-	modules[6] =	sceneLose =	new SceneLose(true);
+	modules[5] =	sceneWin =		new SceneWin(false);
+	modules[6] =	sceneLose =		new SceneLose(false);
 	modules[7] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
 	modules[8] =	player =		new ModulePlayer(false);	//Player starts disabled
 	modules[9] =	particles =		new ModuleParticles(true);
