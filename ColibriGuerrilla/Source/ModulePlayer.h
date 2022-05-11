@@ -73,6 +73,8 @@ public:
 	// The player's collider
 	Collider* collider = nullptr;
 
+	bool gana = false;
+	bool agua = false;
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
 	uint destroyedCountdown = 60;

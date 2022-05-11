@@ -114,6 +114,8 @@ bool ModulePlayer::Start()
 
 	destroyed = false;
 	destroyedCountdown = 60;
+	gana = false;
+	agua = false;
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
 
@@ -234,6 +236,10 @@ Update_Status ModulePlayer::Update()
 		destroyedCountdown--;
 		if (destroyedCountdown <= 0) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
 	}
+	if (gana)
+	{
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
+	}
 
 	//change scene
 
@@ -277,6 +283,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	}
 	if (c2->type == Collider::Type::WIN)
 	{
+		gana = true;
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
 	}
 	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
