@@ -161,6 +161,9 @@ Update_Status ModulePlayer::Update()
 {
 	collider->rect.x = position.x;
 	collider->rect.y = position.y;
+
+	if (App->input->keys[SDL_SCANCODE_SPACE]) { shootNormalBullet(); }
+
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 
 	if (App->input->keys[SDL_SCANCODE_W]) {
