@@ -46,6 +46,7 @@ public:
 
 	//Print Only the trees of the map
 	SDL_Texture* trees = nullptr;
+
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;

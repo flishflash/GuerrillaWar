@@ -107,6 +107,7 @@ bool ModulePlayer::Start()
 	trees = App->textures->Load("Assets/Sprites/palmerasMapaless.png");
 	currentAnimation = &idleAnim;
 
+
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
@@ -121,8 +122,8 @@ bool ModulePlayer::Start()
 	collider = App->collisions->AddCollider({ position.x, position.y, 22, 55 }, Collider::Type::PLAYER, this);
 
 	
-	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ.@'->    " };
-	scoreFont = App->fonts->Load("Assets/Fonts/UI_font.png", lookupTable, 3);
+	char lookupTable[] = { "! @,_./0123456789$;< ?abcdefghijklmnopqrstuvwxyz" };
+	scoreFont = App->fonts->Load("Assets/Fonts/rtype_font3.png", lookupTable, 2);
 
 	return ret;
 }
@@ -264,12 +265,14 @@ Update_Status ModulePlayer::PostUpdate()
 	// Draw UI (score) --------------------------------------
 	sprintf_s(scoreText, 10, "%7d", score);
 
-	// TODO 3: Blit the text of the score in at the bottom of the screen
-	App->fonts->BlitText(150, 4000, scoreFont, scoreText);
-
-	App->fonts->BlitText(150, 4000, scoreFont, "this is just a font test");
-
 	App->render->Blit(trees, 0, 0, NULL);
+	// TODO 3: Blit the text of the score in at the bottom of the screen
+
+	App->fonts->BlitText(position.x, position.y, scoreFont, scoreText);
+
+	App->fonts->BlitText(SCREEN_WIDTH/3, 4000, scoreFont, "ab");
+
+
 
 	return Update_Status::UPDATE_CONTINUE;
 }

@@ -29,8 +29,6 @@ bool SceneLevel1::Start()
 	bgTexture = App->textures->Load("Assets/Sprites/background.png");
 	//App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);
 
-	//Player collider
-
 	//Water colliders
 	App->collisions->AddCollider({ 88, 4123, 302, 34 },	 Collider::Type::WATER);
 	App->collisions->AddCollider({ 216, 3964, 81, 161 }, Collider::Type::WATER);
@@ -89,6 +87,7 @@ bool SceneLevel1::Start()
 
 	// Enemies ---
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 200, 3600);
+
 	//camera
 	App->render->camera.x = 135;
 	App->render->camera.y = 3800;
