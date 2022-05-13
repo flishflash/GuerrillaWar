@@ -22,6 +22,8 @@ class ModuleFadeToBlack;
 class ModuleFonts;
 class ModuleRender;
 class ModulePickUp;
+class ModuleWeapons;
+
 
 class Application
 {
@@ -69,6 +71,8 @@ public:
 	ModuleFonts* fonts = nullptr;
 
 	ModuleRender* render = nullptr;
+
+	ModuleWeapons* weapon = nullptr;
 };
 
 // Global var made extern for Application ---

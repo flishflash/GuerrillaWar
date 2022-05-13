@@ -84,6 +84,7 @@
     <ClInclude Include="FadeToBlack.h" />
     <ClInclude Include="greenSoldier.h" />
     <ClInclude Include="ModulePickUp.h" />
+    <ClInclude Include="ModuleWeapons.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="pickUp.h" />
     <ClInclude Include="redSoldier.h" />
@@ -116,6 +117,7 @@
     <ClCompile Include="FadeToBlack.cpp" />
     <ClCompile Include="greenSoldier.cpp" />
     <ClCompile Include="ModulePickUp.cpp" />
+    <ClCompile Include="ModuleWeapons.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="pickUp.cpp" />
     <ClCompile Include="redSoldier.cpp" />
