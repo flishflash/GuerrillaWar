@@ -118,7 +118,7 @@ bool ModulePlayer::Start()
 	gana = false;
 	agua = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 22, 55 }, Collider::Type::PLAYER, this);
 
 	
 	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ.'" };
