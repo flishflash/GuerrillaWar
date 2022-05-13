@@ -104,12 +104,13 @@ bool ModulePlayer::Start()
 	bool ret = true;
 
 	texture = App->textures->Load("Assets/Sprites/sprites_caminant.png");
+	trees = App->textures->Load("Assets/Sprites/palmerasMapaless.png");
 	currentAnimation = &idleAnim;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
-	position.x = 150;
+	position.x = 235;
 	position.y = 4000;
 
 	destroyed = false;
@@ -117,7 +118,7 @@ bool ModulePlayer::Start()
 	gana = false;
 	agua = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 22, 55 }, Collider::Type::PLAYER, this);
 
 	
 	char lookupTable[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ.@'->    " };
@@ -161,6 +162,9 @@ Update_Status ModulePlayer::Update()
 {
 	collider->rect.x = position.x;
 	collider->rect.y = position.y;
+
+	
+
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 
 	if (App->input->keys[SDL_SCANCODE_W]) {
@@ -264,6 +268,8 @@ Update_Status ModulePlayer::PostUpdate()
 	App->fonts->BlitText(150, 4000, scoreFont, scoreText);
 
 	App->fonts->BlitText(150, 4000, scoreFont, "this is just a font test");
+
+	App->render->Blit(trees, 0, 0, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
