@@ -104,6 +104,7 @@ bool ModulePlayer::Start()
 	bool ret = true;
 
 	texture = App->textures->Load("Assets/Sprites/sprites_caminant.png");
+	trees = App->textures->Load("Assets/Sprites/palmerasMapaless.png");
 	currentAnimation = &idleAnim;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
@@ -267,6 +268,8 @@ Update_Status ModulePlayer::PostUpdate()
 	App->fonts->BlitText(58, 248, scoreFont, scoreText);
 
 	App->fonts->BlitText(150, 248, scoreFont, "this is just a font test");
+
+	App->render->Blit(trees, 0, 0, NULL);
 
 	return Update_Status::UPDATE_CONTINUE;
 }
