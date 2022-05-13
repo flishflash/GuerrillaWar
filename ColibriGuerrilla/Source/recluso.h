@@ -1,9 +1,9 @@
 #ifndef __ENEMY_REDBIRD_H__
 #define __ENEMY_REDBIRD_H__
 
-#include "Enemy.h"
+#include "pickUp.h"
 
-class recluso : public Enemy
+class recluso : public pickUp
 {
 public:
 

@@ -10,7 +10,6 @@ enum class Enemy_Type
 	NO_TYPE,
 	GREENSOLDIER,
 	REDSOLDIER,
-	RECLUSO,
 };
 
 struct EnemySpawnpoint

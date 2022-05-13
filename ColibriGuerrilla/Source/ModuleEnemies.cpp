@@ -9,7 +9,6 @@
 #include "Enemy.h"
 #include "redSoldier.h"
 #include "greenSoldier.h"
-#include "recluso.h"
 
 #define SPAWN_MARGIN 50
 
@@ -162,9 +161,6 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case Enemy_Type::REDSOLDIER:
 					enemies[i] = new redSoldier(info.x, info.y);
-					break;
-				case Enemy_Type::RECLUSO:
-					enemies[i] = new recluso(info.x, info.y);
 					break;
 			}
 			enemies[i]->texture = texture;

@@ -83,7 +83,9 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FadeToBlack.h" />
     <ClInclude Include="greenSoldier.h" />
+    <ClInclude Include="ModulePickUp.h" />
     <ClInclude Include="Path.h" />
+    <ClInclude Include="pickUp.h" />
     <ClInclude Include="redSoldier.h" />
     <ClInclude Include="Recluso.h" />
     <ClInclude Include="ModuleCollisions.h" />
@@ -113,7 +115,9 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FadeToBlack.cpp" />
     <ClCompile Include="greenSoldier.cpp" />
+    <ClCompile Include="ModulePickUp.cpp" />
     <ClCompile Include="Path.cpp" />
+    <ClCompile Include="pickUp.cpp" />
     <ClCompile Include="redSoldier.cpp" />
     <ClCompile Include="Recluso.cpp" />
     <ClCompile Include="Globals.cpp" />
