@@ -16,6 +16,7 @@
 #include "ModuleRender.h"
 #include "Win.h"
 #include "Lose.h"
+#include "ModuleWeapons.h"
 
 Application::Application()
 {
@@ -40,6 +41,8 @@ Application::Application()
 	modules[12] =	fade =			new ModuleFadeToBlack(true);
 	modules[13] =	fonts =			new ModuleFonts(true);
 	modules[14] =	render =		new ModuleRender(true);
+
+	modules[15] =	weapon =		new ModuleWeapons(true);
 }
 
 Application::~Application()
