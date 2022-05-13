@@ -7,7 +7,7 @@
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
 #include "ModuleFonts.h"
-
+#include "ModuleInput.h"
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
@@ -101,7 +101,10 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	{
+		App->player->shootNormalBullet();
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
 

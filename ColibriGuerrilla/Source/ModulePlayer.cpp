@@ -109,7 +109,7 @@ bool ModulePlayer::Start()
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
-	position.x = 150;
+	position.x = 235;
 	position.y = 4000;
 
 	destroyed = false;
@@ -162,7 +162,7 @@ Update_Status ModulePlayer::Update()
 	collider->rect.x = position.x;
 	collider->rect.y = position.y;
 
-	if (App->input->keys[SDL_SCANCODE_SPACE]) { shootNormalBullet(); }
+	
 
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 
