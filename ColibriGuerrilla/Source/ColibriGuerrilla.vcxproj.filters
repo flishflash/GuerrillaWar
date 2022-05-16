@@ -94,8 +94,6 @@
     <ClInclude Include="ModuleTextures.h">
       <Filter>Source Files\Modules\Core</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleFonts.h">
-      <Filter>Source Files\Modules\Core</Filter>
     </ClInclude>
     <ClInclude Include="FadeToBlack.h">
       <Filter>Source Files\Modules\Core</Filter>
@@ -183,8 +181,6 @@
     <ClCompile Include="ModuleTextures.cpp">
       <Filter>Source Files\Modules\Core</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleFonts.cpp">
-      <Filter>Source Files\Modules\Core</Filter>
     </ClCompile>
     <ClCompile Include="FadeToBlack.cpp">
       <Filter>Source Files\Modules\Core</Filter>
