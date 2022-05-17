@@ -166,60 +166,56 @@ Update_Status ModulePlayer::Update()
 	collider->rect.y = position.y + 25;
 
 	//Camara
-	while (1016 - position.x > RES_WIDTH - 50)
-	{
-		cameraGameplay.x -= speed;
-	}
-	while (1016 - position.x < RES_WIDTH - 150)
-	{
-		cameraGameplay.x += speed;
-	}
-	while (4160 - position.y > RES_HEIGHT - 100)
-	{
-		cameraGameplay.y -= speed;
-	}
-	while ( 4160 - position.y < RES_HEIGHT - 250)
-	{
-		cameraGameplay.y += speed;
-	}
 
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 
 	if (App->input->keys[SDL_SCANCODE_W]) {
 		direction = 1;
 		position.y -= speed;
+		cameraGameplay.y -= speed;
 	}
 	if (App->input->keys[SDL_SCANCODE_D]) {
 		direction = 3;
 		position.x += speed;
+		cameraGameplay.x += speed;
 	}
 	if (App->input->keys[SDL_SCANCODE_S]) {
 		direction = 5;
 		position.y += speed;
+		cameraGameplay.y += speed;
 	}
 	if (App->input->keys[SDL_SCANCODE_A]) {
 		direction = 7;
 		position.x -= speed;
+		cameraGameplay.x -= speed;
 	}
 	if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) {
 		direction = 2;
 		position.y -= speed / 2;
 		position.x += speed / 2;
+		cameraGameplay.y -= speed/2;
+		cameraGameplay.x += speed/2;
 	}
 	if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) {
 		direction = 4;
 		position.y += speed / 2;
 		position.x += speed / 2;
+		cameraGameplay.y += speed/2;
+		cameraGameplay.x += speed/2;
 	}
 	if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) {
 		direction = 8;
 		position.y -= speed / 2;
 		position.x -= speed / 2;
+		cameraGameplay.y -= speed/2;
+		cameraGameplay.x -= speed/2;
 	}
 	if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) {
 		direction = 6;
 		position.y += speed / 2;
 		position.x -= speed / 2;
+		cameraGameplay.y += speed/2;
+		cameraGameplay.x -= speed/2;
 	}
 
 
