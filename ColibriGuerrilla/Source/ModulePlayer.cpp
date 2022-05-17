@@ -94,7 +94,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 ModulePlayer::~ModulePlayer()
 {
-
+	
 }
 
 bool ModulePlayer::Start()
