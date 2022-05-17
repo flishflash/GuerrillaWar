@@ -24,11 +24,17 @@ greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 	greenWalkshot.loop = true;
 	greenWalkshot.speed = 0.1f;
 
+	path.PushBack({ 0, -1.2f }, 150, &greenWalkshot);
+	path.PushBack({ 0, 1.2f }, 150, &greenWalkforward);
+
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY);
 }
 
 void greenSoldier::Update() 
 {
+	path.Update();
+	positionenemy = spawnPos + path.GetRelativePosition();
+	currentAnim = path.GetCurrentAnimation();
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
