@@ -164,6 +164,12 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::WIN: // rosa
 			App->render->DrawQuad(colliders[i]->rect, 248, 12, 181, alpha);
 			break;
+			case Collider::Type::RECLUSO: // naranja
+			App->render->DrawQuad(colliders[i]->rect, 255, 128, 0, alpha);
+			break;
+			case Collider::Type::PICK: // marron
+			App->render->DrawQuad(colliders[i]->rect, 121, 64, 18, alpha);
+			break;
 		}
 	}
 }

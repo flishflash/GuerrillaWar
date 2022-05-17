@@ -24,7 +24,7 @@ ModulePickUp::~ModulePickUp()
 
 bool ModulePickUp::Start()
 {
-	texture = App->textures->Load("Assets/Sprites/EnemiesGW.png");
+	texture = App->textures->Load("Assets/Sprites/Weapons_GW.png");
 	//enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	return true;
