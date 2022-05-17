@@ -44,8 +44,8 @@ bool ModuleParticles::Start()
 
 	bulletNE.anim.PushBack({ 36, 181, 8, 11 });
 	bulletNE.anim.PushBack({ 52, 181, 8, 11 });
-	bulletNE.speed.y = -5 / 2;
-	bulletNE.speed.x = 5 / 2;
+	bulletNE.speed.y = -3 ;
+	bulletNE.speed.x = 3 ;
 	bulletNE.lifetime = 180;
 	bulletNE.anim.speed = 0.2f;
 
@@ -57,8 +57,8 @@ bool ModuleParticles::Start()
 
 	bulletSE.anim.PushBack({ 99, 180, 8, 12 });
 	bulletSE.anim.PushBack({ 115, 180, 8, 12 });
-	bulletSE.speed.x = 5 / 2;
-	bulletSE.speed.y = 5 / 2;
+	bulletSE.speed.x = 3 ;
+	bulletSE.speed.y = 3 ;
 	bulletSE.lifetime = 180;
 	bulletSE.anim.speed = 0.2f;
 
@@ -70,8 +70,8 @@ bool ModuleParticles::Start()
 
 	bulletSW.anim.PushBack({ 165, 180, 7, 12 });
 	bulletSW.anim.PushBack({ 181, 180, 7, 12 });
-	bulletSW.speed.x = -5 / 2;
-	bulletSW.speed.y = 5 / 2;
+	bulletSW.speed.x = -3 ;
+	bulletSW.speed.y = 3 ;
 	bulletSW.lifetime = 180;
 	bulletSW.anim.speed = 0.2f;
 
@@ -83,8 +83,8 @@ bool ModuleParticles::Start()
 
 	bulletNW.anim.PushBack({ 203, 181, 8, 11 });
 	bulletNW.anim.PushBack({ 212, 181, 8, 11 });
-	bulletNW.speed.x = -5 / 2;
-	bulletNW.speed.y = -5 / 2;
+	bulletNW.speed.x = -3 ;
+	bulletNW.speed.y = -3 ;
 	bulletNW.lifetime = 180;
 	bulletNW.anim.speed = 0.2f;
 	return true;
