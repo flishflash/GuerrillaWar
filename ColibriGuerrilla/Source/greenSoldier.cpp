@@ -3,6 +3,8 @@
 #include "ModuleCollisions.h"
 #include "ModuleParticles.h"
 
+
+
 greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 {
 
@@ -36,7 +38,7 @@ void greenSoldier::Update()
 	path.Update();
 	positionenemy = spawnPos + path.GetRelativePosition();
 	currentAnim = path.GetCurrentAnimation();
-	if (currentAnim == &greenWalkforward && cooldown%2==0)
+	if (currentAnim == &greenWalkforward && (cooldown==20 || cooldown<=0))
 	{
 		cooldown--;
 		App->particles->AddParticle(App->particles->bulletS, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT);
