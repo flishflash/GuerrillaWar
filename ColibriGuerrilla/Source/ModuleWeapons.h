@@ -30,7 +30,7 @@ public:
 	SDL_Texture* textureW = nullptr;
 
 
-	Animation* currentAnimation = nullptr;
+	Animation* WcurrentAnimation = nullptr;
 
 	//Animations of the weapon for each direction
 	Animation northWeapon;
