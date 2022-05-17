@@ -282,7 +282,7 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER)
+	if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WALL)
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
@@ -292,6 +292,40 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		App->audio->PlayFx(explosionFx);
 		destroyed = true;
+	}
+	if (c2->type == Collider::Type::WALL)
+	{
+		switch (direction)
+		{
+		case 1:
+			position.y = position.y + 1;
+			break;
+		case 2:
+			position.x = position.x - 1;
+			position.y = position.y + 1;
+			break;
+		case 3:
+			position.x = position.x - 1;
+			break;
+		case 4:
+			position.x = position.x - 1;
+			position.y = position.y - 1;
+			break;
+		case 5:
+			position.y = position.y - 1;
+			break;
+		case 6:
+			position.x = position.x + 1;
+			position.y = position.y - 1;
+			break;
+		case 7:
+			position.x = position.x + 1;
+			break;
+		case 8:
+			position.x = position.x + 1;
+			position.y = position.y + 1;
+			break;
+		}
 	}
 	if (c2->type == Collider::Type::WIN)
 	{
