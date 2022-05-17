@@ -87,8 +87,7 @@ bool SceneLevel1::Start()
 
 	// Enemies ---
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 200, 3600);
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 300, 3500);
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 400, 3700);
+
 
 	//camera
 	/*App->render->camera.x = 135;

@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModuleParticles.h"
-
+#include "ModulePlayer.h"
 
 
 greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
@@ -41,7 +41,8 @@ void greenSoldier::Update()
 	if (currentAnim == &greenWalkforward && (cooldown>=10))
 	{
 		cooldown--;
-		App->particles->AddParticle(App->particles->bulletS, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT);
+		App->particles->AddParticle(App->particles->bulletS, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+
 	}
 	if (currentAnim == &greenWalkshot)
 	{
