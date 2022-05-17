@@ -165,24 +165,6 @@ Update_Status ModulePlayer::Update()
 	collider->rect.x = position.x;
 	collider->rect.y = position.y + 25;
 
-	//Camara
-	while (1016 - position.x > RES_WIDTH - 50)
-	{
-		cameraGameplay.x -= speed;
-	}
-	while (1016 - position.x < RES_WIDTH - 150)
-	{
-		cameraGameplay.x += speed;
-	}
-	while (4160 - position.y > RES_HEIGHT - 100)
-	{
-		cameraGameplay.y -= speed;
-	}
-	while ( 4160 - position.y < RES_HEIGHT - 250)
-	{
-		cameraGameplay.y += speed;
-	}
-
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 
 	if (App->input->keys[SDL_SCANCODE_W]) {
@@ -221,7 +203,6 @@ Update_Status ModulePlayer::Update()
 		position.y += speed / 2;
 		position.x -= speed / 2;
 	}
-
 
 
 	switch (direction) {
