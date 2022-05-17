@@ -166,19 +166,19 @@ Update_Status ModulePlayer::Update()
 	collider->rect.y = position.y + 25;
 
 	//Camara
-	if (1016 - position.x > RES_WIDTH - 50)
+	while (1016 - position.x > RES_WIDTH - 50)
 	{
 		cameraGameplay.x -= speed;
 	}
-	if (1016 - position.x < RES_WIDTH - 50)
+	while (1016 - position.x < RES_WIDTH - 150)
 	{
 		cameraGameplay.x += speed;
 	}
-	if (4160 - position.y > RES_HEIGHT - 100)
+	while (4160 - position.y > RES_HEIGHT - 100)
 	{
 		cameraGameplay.y -= speed;
 	}
-	if ( 4160 - position.y < RES_HEIGHT + 50)
+	while ( 4160 - position.y < RES_HEIGHT - 250)
 	{
 		cameraGameplay.y += speed;
 	}
