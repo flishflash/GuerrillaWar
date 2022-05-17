@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModulePlayer.h"
 
 
 SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
@@ -27,8 +28,8 @@ bool SceneIntro::Start()
 
 	bgTexture = App->textures->Load("Assets/Sprites/titleScreen.png");
 	//App->audio->PlayMusic("Assets/Music/introTitle.ogg", 1.0f);
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
+	App->player->cameraGameplay.x = 0;
+	App->player->cameraGameplay.y = 0;
 
 	return ret;
 }

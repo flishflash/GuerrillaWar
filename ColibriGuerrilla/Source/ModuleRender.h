@@ -52,7 +52,7 @@ public:
 
 	// A rectangle that represents the camera section
 	// Sprites will be rendered to the screen depending on the camera position
-	SDL_Rect camera = { 0, 0, RES_WIDTH, RES_HEIGHT };
+	/*SDL_Rect camera = { 0, 0, RES_WIDTH, RES_HEIGHT };*/
 
 	// The speed at which the camera will be moving
 

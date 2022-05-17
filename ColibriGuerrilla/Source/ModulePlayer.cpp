@@ -120,7 +120,7 @@ bool ModulePlayer::Start()
 	gana = false;
 	agua = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 22, 55 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 22, 30 }, Collider::Type::PLAYER, this);
 
 	
 	char lookupTable[] = { "! @,_./0123456789$;< ?abcdefghijklmnopqrstuvwxyz" };
@@ -163,9 +163,25 @@ void ModulePlayer::shootNormalBullet()
 Update_Status ModulePlayer::Update()
 {
 	collider->rect.x = position.x;
-	collider->rect.y = position.y;
+	collider->rect.y = position.y + 25;
 
-	
+	//Camara
+	if (1016 - position.x > RES_WIDTH - 50)
+	{
+		cameraGameplay.x -= speed;
+	}
+	if (1016 - position.x < RES_WIDTH - 50)
+	{
+		cameraGameplay.x += speed;
+	}
+	if (4160 - position.y > RES_HEIGHT - 100)
+	{
+		cameraGameplay.y -= speed;
+	}
+	if ( 4160 - position.y < RES_HEIGHT + 50)
+	{
+		cameraGameplay.y += speed;
+	}
 
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 

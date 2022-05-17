@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModulePlayer.h"
 
 SceneWin::SceneWin(bool startEnabled) : Module(startEnabled)
 {
@@ -26,8 +27,8 @@ bool SceneWin::Start()
 
 	bgTexture = App->textures->Load("Assets/Sprites/winScreen.png");
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
+	App->player->cameraGameplay.x = 0;
+	App->player->cameraGameplay.y = 0;
 
 	return ret;
 }
