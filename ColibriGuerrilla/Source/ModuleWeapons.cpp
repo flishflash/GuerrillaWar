@@ -57,11 +57,10 @@ bool ModuleWeapons::Start()
 	bool ret = true;
 
 	textureW = App->textures->Load("Assets/Sprites/Weapons_GW.png");
-	currentAnimation = &northWeapon;
+	WcurrentAnimation = &northWeapon;
 
-
-	positionWeapon.x = 235;
-	positionWeapon.y = 4000;
+	positionWeapon.x = 257;
+	positionWeapon.y = 4010;
 
 	destroyed = false;
 	return ret;
@@ -72,35 +71,37 @@ Update_Status ModuleWeapons::Update()
 {
 	
 
-
-
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 
 	if (App->input->keys[SDL_SCANCODE_W]) {
 		direction = 1;
-		positionWeapon.y -= App->player->speed;
+		positionWeapon.x = App->player->position.x + 17;
+		positionWeapon.y = App->player->position.y + 10;
 	}
 	if (App->input->keys[SDL_SCANCODE_D]) {
 		direction = 3;
-		positionWeapon.x += App->player->speed;
+		positionWeapon.x = App->player->position.x + 7;
+		positionWeapon.y = App->player->position.y + 20;
 	}
 	if (App->input->keys[SDL_SCANCODE_S]) {
 		direction = 5;
-		positionWeapon.y += App->player->speed;
+		positionWeapon.x = App->player->position.x + 6;
+		positionWeapon.y = App->player->position.y + 17;
 	}
 	if (App->input->keys[SDL_SCANCODE_A]) {
 		direction = 7;
-		positionWeapon.x -= App->player->speed;
+		positionWeapon.x = App->player->position.x ;
+		positionWeapon.y = App->player->position.y + 23;
 	}
 	if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) {
 		direction = 2;
-		positionWeapon.y -= App->player->speed / 2;
-		positionWeapon.x += App->player->speed / 2;
+		positionWeapon.x = App->player->position.x + 13;
+		positionWeapon.y = App->player->position.y + 10;
 	}
 	if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) {
 		direction = 4;
-		positionWeapon.y += App->player->speed / 2;
-		positionWeapon.x += App->player->speed / 2;
+		positionWeapon.x = App->player->position.x + 0;
+		positionWeapon.y = App->player->position.y + 15;
 	}
 	if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) {
 		direction = 8;
@@ -117,45 +118,40 @@ Update_Status ModuleWeapons::Update()
 
 	switch (direction) {
 	case 1:
-		currentAnimation = &northWeapon;
+		WcurrentAnimation = &northWeapon;
 		break;
 	case 2:
-		currentAnimation = &northEastWeapon;
+		WcurrentAnimation = &northEastWeapon;
 		break;
 	case 3:
-		currentAnimation = &eastWeapon;
+		WcurrentAnimation = &eastWeapon;
 		break;
 	case 4:
-		currentAnimation = &southEastWeapon;
+		WcurrentAnimation = &southEastWeapon;
 		break;
 	case 5:
-		currentAnimation = &southWeapon;
+		WcurrentAnimation = &southWeapon;
 		break;
 	case 6:
-		currentAnimation = &southWestWeapon;
+		WcurrentAnimation = &southWestWeapon;
 		break;
 	case 7:
-		currentAnimation = &westWeapon;
+		WcurrentAnimation = &westWeapon;
 		break;
 	case 8:
-		currentAnimation = &northWestWeapon;
+		WcurrentAnimation = &northWestWeapon;
 		break;
 	}
 
-	if (!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W] && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A]) currentAnimation->loop = false;
-	else currentAnimation->loop = true;
-	currentAnimation->Update();
+	if (!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W] && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A]) WcurrentAnimation->loop = false;
+	else WcurrentAnimation->loop = true;
+	WcurrentAnimation->Update();
 
 	return Update_Status::UPDATE_CONTINUE;
 }
 
 Update_Status ModuleWeapons::PostUpdate()
 {
-	if (!destroyed)
-	{
-		SDL_Rect rect = currentAnimation->GetCurrentFrame();
-		App->render->Blit(textureW, positionWeapon.x, positionWeapon.y, &rect);
-	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }

@@ -9,6 +9,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
+#include "ModuleWeapons.h"
 #include "Lose.h"
 #include "Win.h"
 #include <stdio.h>
@@ -258,6 +259,8 @@ Update_Status ModulePlayer::PostUpdate()
 {
 	if (!destroyed)
 	{
+		SDL_Rect rectW = App->weapon->WcurrentAnimation->GetCurrentFrame();
+		App->render->Blit(App->weapon->textureW, App->weapon->positionWeapon.x, App->weapon->positionWeapon.y, &rectW);
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		App->render->Blit(texture, position.x, position.y, &rect);
 	}
