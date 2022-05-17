@@ -9,7 +9,8 @@
 
 enum class Pick_Type {
 	NO_TYPE,
-	POWER_UP,
+	FUSIL,
+	GRANADA,
 	RECLUSO,
 };
 

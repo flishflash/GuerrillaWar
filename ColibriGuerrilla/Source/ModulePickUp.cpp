@@ -7,6 +7,8 @@
 
 #include "pickUp.h"
 #include "recluso.h"
+#include "Granada.h"
+#include "Fusil.h"
 
 #define SPAWN_MARGIN 50
 
@@ -154,8 +156,11 @@ void ModulePickUp::SpawnpickUp(const PickSpawnpoint& info)
 		{
 			switch (info.type)
 			{
-			case Pick_Type::POWER_UP:
-				//pickUps[i] = new greenSoldier(info.x, info.y);
+			case Pick_Type::FUSIL:
+				pickUps[i] = new Fusil(info.x, info.y);
+				break;
+			case Pick_Type::GRANADA:
+				pickUps[i] = new Granada(info.x, info.y);
 				break;
 			case Pick_Type::RECLUSO:
 				pickUps[i] = new recluso(info.x, info.y);

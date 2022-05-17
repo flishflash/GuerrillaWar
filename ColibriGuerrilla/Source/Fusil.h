@@ -1,15 +1,16 @@
-#ifndef __RECLUSO_H__
-#define __RECLUSO_H__
 
+#ifndef __FUSIL_H__
+#define __FUSIL_H__
 #include "pickUp.h"
 
-class recluso : public pickUp
+class Fusil : public pickUp
 {
+
 public:
 
 	// Constructor (x y coordinates in the world)
 	// Creates animation data and the collider
-	recluso(int x, int y);
+	Fusil(int x, int y);
 
 	// The enemy is going to perform a sinusoidal movement
 	void Update() override;
@@ -29,6 +30,6 @@ private:
 
 	// The enemy animation
 	Animation flyAnim;
-};
 
-#endif // __RECLUSO_H__
+};
+#endif // __FUSIL_H__

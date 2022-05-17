@@ -86,6 +86,12 @@
     <ClCompile Include="Particle.cpp">
       <Filter>General</Filter>
     </ClCompile>
+    <ClCompile Include="Granada.cpp">
+      <Filter>Game\Power ups</Filter>
+    </ClCompile>
+    <ClCompile Include="Fusil.cpp">
+      <Filter>Game\Power ups</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -180,6 +186,12 @@
     </ClInclude>
     <ClInclude Include="Path.h">
       <Filter>General</Filter>
+    </ClInclude>
+    <ClInclude Include="Granada.h">
+      <Filter>Game\Power ups</Filter>
+    </ClInclude>
+    <ClInclude Include="Fusil.h">
+      <Filter>Game\Power ups</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
