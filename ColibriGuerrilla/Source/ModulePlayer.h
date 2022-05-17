@@ -90,7 +90,7 @@ public:
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
 
-	SDL_Rect cameraGameplay = { 0, 0, RES_WIDTH, RES_HEIGHT };
+	SDL_Rect cameraGameplay = { 185, 3700, RES_WIDTH, RES_HEIGHT };
 };
 
 #endif //!__MODULE_PLAYER_H__
