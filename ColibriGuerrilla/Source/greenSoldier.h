@@ -28,6 +28,7 @@ private:
 	Animation greenWalkswimbackward;
 	Animation greenWalkshot;
 	Animation greenWalk;
+	int cooldown = 20;
 };
 
 #endif // __ENEMY_BROWNSHIP_H__

@@ -1,6 +1,7 @@
 #include "greenSoldier.h"
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "ModuleParticles.h"
 
 greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 {
@@ -35,6 +36,16 @@ void greenSoldier::Update()
 	path.Update();
 	positionenemy = spawnPos + path.GetRelativePosition();
 	currentAnim = path.GetCurrentAnimation();
+	if (currentAnim == &greenWalkforward && cooldown%2==0)
+	{
+		cooldown--;
+		App->particles->AddParticle(App->particles->bulletS, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT);
+	}
+	if (currentAnim == &greenWalkshot)
+	{
+		cooldown = 20;
+	}
+
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
