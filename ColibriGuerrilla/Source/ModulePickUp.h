@@ -81,6 +81,7 @@ class ModulePickUp : public Module
 
 		// The audio fx for destroying an enemy
 		int enemyDestroyedFx = 0;
+
 	};
 
 #endif // __MODULE_PICKUP_H__

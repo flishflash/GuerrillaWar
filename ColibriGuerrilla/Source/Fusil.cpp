@@ -5,7 +5,11 @@
 
 Fusil::Fusil(int x, int y) : pickUp(x, y)
 {
+	fusilaso.PushBack({0,152,22,22});
+	fusilaso.PushBack({32,152,22,22});
+	fusilaso.PushBack({64,152,22,22});
 
+	currentAnim = &fusilaso;
 }
 
 void Fusil::Update()

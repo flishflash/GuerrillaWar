@@ -1,5 +1,5 @@
 #include "ModulePlayer.h"
-
+#include "ModuleCollisions.h"
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"

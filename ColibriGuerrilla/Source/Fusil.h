@@ -30,7 +30,7 @@ private:
 	int waveHeight = 15;
 
 	// The enemy animation
-	Animation flyAnim;
+	Animation fusilaso;
 
 };
 #endif // __FUSIL_H__

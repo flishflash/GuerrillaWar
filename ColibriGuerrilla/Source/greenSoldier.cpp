@@ -30,7 +30,7 @@ greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 	path.PushBack({ 0, -1.2f }, 150, &greenWalkshot);
 	path.PushBack({ 0, 1.2f }, 150, &greenWalkforward);
 
-	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY);
+	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 void greenSoldier::Update() 
@@ -38,16 +38,16 @@ void greenSoldier::Update()
 	path.Update();
 	positionenemy = spawnPos + path.GetRelativePosition();
 	currentAnim = path.GetCurrentAnimation();
-	if (currentAnim == &greenWalkforward && (cooldown>=10))
-	{
-		cooldown--;
-		App->particles->AddParticle(App->particles->bulletS, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+	//if (currentAnim == &greenWalkforward && (cooldown>=10))
+	//{
+	//	cooldown--;
+	//	App->particles->AddParticle(App->particles->bulletS, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
 
-	}
-	if (currentAnim == &greenWalkshot)
-	{
-		cooldown = 20;
-	}
+	//}
+	//if (currentAnim == &greenWalkshot)
+	//{
+	//	cooldown = 20;
+	//}
 
 
 	// Call to the base class. It must be called at the end
