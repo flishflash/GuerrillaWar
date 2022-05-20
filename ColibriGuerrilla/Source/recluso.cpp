@@ -6,18 +6,18 @@
 recluso::recluso(int x, int y) : pickUp(x, y)
 {
 	//walk forward
-	normalAnim.PushBack({ 0, 0, 27, 55 });
-	normalAnim.PushBack({ 32, 0, 26, 55 });
-	normalAnim.PushBack({ 64, 0, 26, 55 });
-	normalAnim.PushBack({ 96, 0, 26, 55 });
+	normalAnim.PushBack({ 8, 0, 19, 56 });
+	normalAnim.PushBack({ 40, 0, 19, 56 });
+	normalAnim.PushBack({ 72, 0, 20, 56 });
+	normalAnim.PushBack({ 103, 0, 20, 56 });
 	normalAnim.loop = true;
 	normalAnim.speed = 0.1f;
 
 	currentAnim = &normalAnim;
 
-	rescuedAnim.PushBack({ 0, 237, 27, 55 });
-	rescuedAnim.PushBack({ 32, 237, 26, 55 });
-	rescuedAnim.PushBack({ 64, 237, 26, 55 });
+	rescuedAnim.PushBack({ 5, 74, 26, 45 });
+	rescuedAnim.PushBack({ 38, 69, 24, 50 });
+	rescuedAnim.PushBack({ 65, 63, 31, 58 });
 	rescuedAnim.speed = 0.1f;
 
 	deathAnim.PushBack({ 0, 237, 27, 55 });
