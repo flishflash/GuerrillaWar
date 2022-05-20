@@ -5,7 +5,7 @@
 
 Granada::Granada(int x, int y) : pickUp(x, y)
 {
-
+	currentAnim = &flyAnim;
 }
 
 void Granada::Update()
