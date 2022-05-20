@@ -2,6 +2,11 @@
 #define __RECLUSO_H__
 
 #include "pickUp.h"
+#define MAX_RECLUSOS 100
+struct ReclusoSpawnpoint
+{
+	int x, y;
+};
 
 class recluso : public pickUp
 {
@@ -13,6 +18,8 @@ public:
 
 	// The enemy is going to perform a sinusoidal movement
 	void Update() override;
+	void OnCollision(Collider* c1, Collider* c2);
+	bool AddRecluso(int x, int y);
 
 private:
 	// The position (as ratio) in the wave at a specific moment
@@ -28,7 +35,12 @@ private:
 	int waveHeight = 15;
 
 	// The enemy animation
-	Animation flyAnim;
+	Animation normalAnim;
+	Animation rescuedAnim;
+	Animation deathAnim;
+
+	ReclusoSpawnpoint spawnQueueR[MAX_RECLUSOS];
+
 };
 
 #endif // __RECLUSO_H__
