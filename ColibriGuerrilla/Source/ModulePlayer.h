@@ -81,6 +81,7 @@ public:
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
 	uint destroyedCountdown = 60;
+	bool pendingToDelete = false;
 	// Sound effects indices
 	uint laserFx = 0;
 	uint explosionFx = 0;
