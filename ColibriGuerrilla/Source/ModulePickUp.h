@@ -5,13 +5,12 @@
 
 #include "Module.h"
 
-#define MAX_ENEMIES 100
+#define MAX_PICKS 100
 
 enum class Pick_Type {
 	NO_TYPE,
 	FUSIL,
-	GRANADA,
-	RECLUSO,
+	LANZALLAMAS,
 };
 
 struct PickSpawnpoint
@@ -20,8 +19,8 @@ struct PickSpawnpoint
 		int x, y;
 };
 	
-	class pickUp;
-	struct SDL_Texture;
+class pickUp;
+struct SDL_Texture;
 
 class ModulePickUp : public Module
 	{
@@ -71,10 +70,10 @@ class ModulePickUp : public Module
 
 	private:
 		// A queue with all spawn points information
-		PickSpawnpoint spawnQueue[MAX_ENEMIES];
+		PickSpawnpoint spawnQueue[MAX_PICKS];
 
 		// All spawned enemies in the scene
-		pickUp* pickUps[MAX_ENEMIES] = { nullptr };
+		pickUp* pickUps[MAX_PICKS] = { nullptr };
 
 		// The enemies sprite sheet
 		SDL_Texture* texture = nullptr;

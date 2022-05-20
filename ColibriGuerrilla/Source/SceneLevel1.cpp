@@ -8,6 +8,7 @@
 #include "ModulePlayer.h"
 #include "ModuleFonts.h"
 #include "ModuleInput.h"
+#include "ModulePickUp.h"
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
@@ -85,9 +86,13 @@ bool SceneLevel1::Start()
 	//Win collider
 	App->collisions->AddCollider({ 451, 2081, 88, 36 }, Collider::Type::WIN);
 
+	
 	// Enemies ---
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 200, 3600);
+	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 250, 3600);
 
+	//PowerUps
+	App->picks->AddPick(Pick_Type::FUSIL, 220, 3600);
 
 	//camera
 	/*App->render->camera.x = 135;

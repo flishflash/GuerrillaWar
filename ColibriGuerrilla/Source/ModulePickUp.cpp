@@ -7,7 +7,6 @@
 #include "ModulePlayer.h"
 
 #include "pickUp.h"
-#include "recluso.h"
 #include "Granada.h"
 #include "Fusil.h"
 
@@ -16,7 +15,7 @@
 
 ModulePickUp::ModulePickUp(bool startEnabled) : Module(startEnabled)
 {
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	for (uint i = 0; i < MAX_PICKS; ++i)
 		pickUps[i] = nullptr;
 }
 
@@ -37,7 +36,7 @@ bool ModulePickUp::Start()
 Update_Status ModulePickUp::PreUpdate()
 {
 	// Remove all enemies scheduled for deletion
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	for (uint i = 0; i < MAX_PICKS; ++i)
 	{
 		if (pickUps[i] != nullptr && pickUps[i]->pendingToDelete)
 		{
@@ -53,7 +52,7 @@ Update_Status ModulePickUp::Update()
 {
 	HandlePickUpSpawn();
 
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	for (uint i = 0; i < MAX_PICKS; ++i)
 	{
 		if (pickUps[i] != nullptr)
 			pickUps[i]->Update();
@@ -66,7 +65,7 @@ Update_Status ModulePickUp::Update()
 
 Update_Status ModulePickUp::PostUpdate()
 {
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	for (uint i = 0; i < MAX_PICKS; ++i)
 	{
 		if (pickUps[i] != nullptr)
 			pickUps[i]->Draw();
@@ -78,9 +77,9 @@ Update_Status ModulePickUp::PostUpdate()
 // Called before quitting
 bool ModulePickUp::CleanUp()
 {
-	LOG("Freeing all enemies");
+	LOG("Freeing all picks");
 
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	for (uint i = 0; i < MAX_PICKS; ++i)
 	{
 		if (pickUps[i] != nullptr)
 		{
@@ -96,7 +95,7 @@ bool ModulePickUp::AddPick(Pick_Type type, int x, int y)
 {
 	bool ret = false;
 
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	for (uint i = 0; i < MAX_PICKS; ++i)
 	{
 		if (spawnQueue[i].type == Pick_Type::NO_TYPE)
 		{
@@ -114,7 +113,7 @@ bool ModulePickUp::AddPick(Pick_Type type, int x, int y)
 void ModulePickUp::HandlePickUpSpawn()
 {
 	// Iterate all the enemies queue
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	for (uint i = 0; i < MAX_PICKS; ++i)
 	{
 		if (spawnQueue[i].type != Pick_Type::NO_TYPE)
 		{
@@ -133,14 +132,14 @@ void ModulePickUp::HandlePickUpSpawn()
 void ModulePickUp::HandlePickUpDespawn()
 {
 	// Iterate existing enemies
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	for (uint i = 0; i < MAX_PICKS; ++i)
 	{
 		if (pickUps[i] != nullptr)
 		{
 			// Delete the enemy when it has reached the end of the screen
 			if (pickUps[i]->positionenemy.x * SCREEN_SIZE < (App->player->cameraGameplay.x) - SPAWN_MARGIN)
 			{
-				LOG("DeSpawning enemy at %d", pickUps[i]->positionenemy.x * SCREEN_SIZE);
+				LOG("DeSpawning pick at %d", pickUps[i]->positionenemy.x * SCREEN_SIZE);
 
 				pickUps[i]->SetToDelete();
 			}
@@ -151,7 +150,7 @@ void ModulePickUp::HandlePickUpDespawn()
 void ModulePickUp::SpawnpickUp(const PickSpawnpoint& info)
 {
 	// Find an empty slot in the enemies array
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	for (uint i = 0; i < MAX_PICKS; ++i)
 	{
 		if (pickUps[i] == nullptr)
 		{
@@ -160,15 +159,12 @@ void ModulePickUp::SpawnpickUp(const PickSpawnpoint& info)
 			case Pick_Type::FUSIL:
 				pickUps[i] = new Fusil(info.x, info.y);
 				break;
-			case Pick_Type::GRANADA:
+			case Pick_Type::LANZALLAMAS:
 				pickUps[i] = new Granada(info.x, info.y);
-				break;
-			case Pick_Type::RECLUSO:
-				pickUps[i] = new recluso(info.x, info.y);
 				break;
 			}
 			pickUps[i]->texture = texture;
-			pickUps[i]->destroyedFx = enemyDestroyedFx;
+			//pickUps[i]->destroyedFx = enemyDestroyedFx;
 			break;
 		}
 	}
@@ -176,7 +172,7 @@ void ModulePickUp::SpawnpickUp(const PickSpawnpoint& info)
 
 void ModulePickUp::OnCollision(Collider* c1, Collider* c2)
 {
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
+	for (uint i = 0; i < MAX_PICKS; ++i)
 	{
 		if (pickUps[i] != nullptr && pickUps[i]->GetCollider() == c1)
 		{

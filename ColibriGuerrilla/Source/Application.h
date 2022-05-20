@@ -54,7 +54,7 @@ public:
 	ModuleInput* input = nullptr;
 	ModuleTextures* textures = nullptr;
 	ModuleAudio* audio = nullptr;
-
+	ModuleEnemies* enemies = nullptr;
 	ModulePlayer* player = nullptr;
 
 	SceneIntro* sceneIntro = nullptr;
@@ -62,7 +62,7 @@ public:
 	SceneLose* sceneLose = nullptr;
 	SceneWin* sceneWin = nullptr;
 
-	ModuleEnemies* enemies = nullptr;
+
 	ModulePickUp* picks = nullptr;
 	ModuleParticles* particles = nullptr;
 

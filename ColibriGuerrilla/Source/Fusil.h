@@ -2,6 +2,7 @@
 #ifndef __FUSIL_H__
 #define __FUSIL_H__
 #include "pickUp.h"
+#include "Path.h"
 
 class Fusil : public pickUp
 {
@@ -16,21 +17,11 @@ public:
 	void Update() override;
 
 private:
-	// The position (as ratio) in the wave at a specific moment
-	float waveRatio = 0.0f;
-
-	// The 
-	//at which the wave ratio is increased
-	float waveRatioSpeed = 0.05f;
-
-	// The original spawning position. The wave will be calculated from that
-	int spawn_y = 0;
-
-	// The total height of the wave
-	int waveHeight = 15;
 
 	// The enemy animation
 	Animation fusilaso;
+
+	Path path;
 
 };
 #endif // __FUSIL_H__
