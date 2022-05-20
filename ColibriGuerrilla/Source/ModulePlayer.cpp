@@ -303,6 +303,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, Collider::Type::NONE, 28);
 		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);
 
+		pendingToDelete = true;
+		if (collider != nullptr)
+			collider->pendingToDelete = true;
+
 		App->audio->PlayFx(explosionFx);
 		destroyed = true;
 	}
@@ -343,6 +347,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c2->type == Collider::Type::WIN)
 	{
 		gana = true;
+		pendingToDelete = true;
+		if (collider != nullptr)
+		collider->pendingToDelete = true;
+
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
 	}
 	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
