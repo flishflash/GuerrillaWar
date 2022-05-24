@@ -19,6 +19,10 @@ greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 
 	currentAnim = &greenWalkforward;
 
+	currentAnim = &greenWalkbackward;
+	currentAnim = &greenWalkswimforward;
+	currentAnim = &greenWalkswimbackward;
+
 	greenWalkshot.PushBack({ 0, 237, 27, 55 });
 	greenWalkshot.PushBack({ 32, 237, 26, 55 });
 	greenWalkshot.PushBack({ 64, 237, 26, 55 });
@@ -26,6 +30,10 @@ greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 	greenWalkshot.PushBack({ 126, 237, 26, 55 });
 	greenWalkshot.loop = true;
 	greenWalkshot.speed = 0.1f;
+
+	currentAnim = &greenWalkshot;
+	currentAnim = &greenWalk;
+
 
 	path.PushBack({ 0, -1.2f }, 150, &greenWalkshot);
 	path.PushBack({ 0, 1.2f }, 150, &greenWalkforward);

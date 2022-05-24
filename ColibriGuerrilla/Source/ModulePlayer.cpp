@@ -286,7 +286,21 @@ Update_Status ModulePlayer::PostUpdate()
 
 	App->fonts->BlitText(position.x, position.y, scoreFont, scoreText);
 
-	App->fonts->BlitText(SCREEN_WIDTH/3, 4000, scoreFont, "ab");
+	App->fonts->BlitText(75, 35, scoreFont, "hi");
+
+	//highscore
+	App->fonts->BlitText(125, 35, scoreFont, "3000");
+
+	App->fonts->BlitText(25, 43, scoreFont, "1 up");
+	App->fonts->BlitText(165, 43, scoreFont, "2 up");
+
+	//score player 1
+	App->fonts->BlitText(40, 51, scoreFont, "35");
+	App->fonts->BlitText(64, 51, scoreFont, "0");
+
+	//score player 2
+	App->fonts->BlitText(180, 51, scoreFont, "");
+	App->fonts->BlitText(204, 51, scoreFont, "0");
 
 
 
