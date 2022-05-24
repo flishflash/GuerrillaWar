@@ -7,8 +7,9 @@
 #include "ModulePlayer.h"
 
 #include "pickUp.h"
-#include "Granada.h"
+#include "LanzLlamas.h"
 #include "Fusil.h"
+#include "Recluso.h"
 
 #define SPAWN_MARGIN 50
 
@@ -26,7 +27,7 @@ ModulePickUp::~ModulePickUp()
 
 bool ModulePickUp::Start()
 {
-	texture = App->textures->Load("Assets/Sprites/Weapons_GW.png");
+	texture = App->textures->Load("Assets/Sprites/powerUps.png");
 	//enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	return true;
@@ -160,7 +161,10 @@ void ModulePickUp::SpawnpickUp(const PickSpawnpoint& info)
 				pickUps[i] = new Fusil(info.x, info.y);
 				break;
 			case Pick_Type::LANZALLAMAS:
-				pickUps[i] = new Granada(info.x, info.y);
+				pickUps[i] = new LanzLlamas(info.x, info.y);
+				break;
+			case Pick_Type::RECLUSO:
+				pickUps[i] = new recluso(info.x, info.y);
 				break;
 			}
 			pickUps[i]->texture = texture;

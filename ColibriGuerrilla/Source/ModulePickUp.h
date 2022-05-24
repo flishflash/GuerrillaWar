@@ -11,6 +11,7 @@ enum class Pick_Type {
 	NO_TYPE,
 	FUSIL,
 	LANZALLAMAS,
+	RECLUSO,
 };
 
 struct PickSpawnpoint

@@ -36,29 +36,14 @@ void recluso::Update()
 	
 	pickUp::Update();
 }
-
-bool recluso::AddRecluso(int x, int y)
-{
-	bool ret = false;
-	for (uint i = 0; i < MAX_RECLUSOS; ++i)
-	{
-		spawnQueueR[i].x = x;
-		spawnQueueR[i].y = y;
-		ret = true;
-		break;
-	}
-
-	return ret;
-}
-
-void recluso::OnCollision(Collider* c1, Collider* c2)
-{
-	if (c2->type == Collider::Type::PLAYER)
-	{
-		currentAnim = &rescuedAnim;
-	}
-	if (c2->type == Collider::Type::PLAYER_SHOT || c2->type == Collider::Type::ENEMY_SHOT)
-	{
-		currentAnim = &deathAnim;
-	}
-}
+//void recluso::OnCollision(Collider* c1, Collider* c2)
+//{
+//	if (c2->type == Collider::Type::PLAYER)
+//	{
+//		currentAnim = &rescuedAnim;
+//	}
+//	if (c2->type == Collider::Type::PLAYER_SHOT || c2->type == Collider::Type::ENEMY_SHOT)
+//	{
+//		currentAnim = &deathAnim;
+//	}
+//}
