@@ -92,7 +92,8 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 250, 3600);
 
 	//PowerUps
-	App->picks->AddPick(Pick_Type::FUSIL, 220, 3600);
+	App->picks->AddPick(Pick_Type::LANZALLAMAS, 220, 3600);
+	App->picks->AddPick(Pick_Type::RECLUSO, 220, 3600);
 
 	//camera
 	/*App->render->camera.x = 135;

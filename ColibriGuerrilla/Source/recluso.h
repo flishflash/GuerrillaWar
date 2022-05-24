@@ -19,7 +19,6 @@ public:
 	// The enemy is going to perform a sinusoidal movement
 	void Update() override;
 	void OnCollision(Collider* c1, Collider* c2);
-	bool AddRecluso(int x, int y);
 
 private:
 	// The position (as ratio) in the wave at a specific moment

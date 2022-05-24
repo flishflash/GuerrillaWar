@@ -280,13 +280,34 @@ Update_Status ModulePlayer::PostUpdate()
 
 	// Draw UI (score) --------------------------------------
 	sprintf_s(scoreText, 10, "%7d", score);
+	sprintf_s(HighscoreText, 10, "%7d", highscore);
 
 	App->render->Blit(trees, 0, 0, NULL);
 	// TODO 3: Blit the text of the score in at the bottom of the screen
 
 	App->fonts->BlitText(position.x, position.y, scoreFont, scoreText);
 
-	App->fonts->BlitText(SCREEN_WIDTH/3, 4000, scoreFont, "ab");
+	App->fonts->BlitText(75, 35, scoreFont, "hi");
+
+	//highscore
+	if(score > highscore)
+	{
+		highscore = score;
+	}
+	App->fonts->BlitText(107, 35, scoreFont, HighscoreText);
+
+	App->fonts->BlitText(25, 43, scoreFont, "1 up");
+	App->fonts->BlitText(165, 43, scoreFont, "2 up");
+
+	//score player 1
+	App->fonts->BlitText(40, 51, scoreFont, scoreText);
+
+	//score player 2
+	App->fonts->BlitText(204, 51, scoreFont, "0");
+
+
+	App->fonts->BlitText(115, 315, scoreFont, "insert coin");
+	App->fonts->BlitText(155, 330, scoreFont, "credit 0");
 
 
 
@@ -295,7 +316,7 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WALL && c2->type != Collider::Type::PICK)
+	if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WALL && c2->type != Collider::Type::PICK && c2->type != Collider::Type::RECLUSO)
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
