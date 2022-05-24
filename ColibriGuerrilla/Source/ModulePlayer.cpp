@@ -280,6 +280,7 @@ Update_Status ModulePlayer::PostUpdate()
 
 	// Draw UI (score) --------------------------------------
 	sprintf_s(scoreText, 10, "%7d", score);
+	sprintf_s(HighscoreText, 10, "%7d", highscore);
 
 	App->render->Blit(trees, 0, 0, NULL);
 	// TODO 3: Blit the text of the score in at the bottom of the screen
@@ -289,18 +290,24 @@ Update_Status ModulePlayer::PostUpdate()
 	App->fonts->BlitText(75, 35, scoreFont, "hi");
 
 	//highscore
-	App->fonts->BlitText(125, 35, scoreFont, "3000");
+	if(score > highscore)
+	{
+		highscore = score;
+	}
+	App->fonts->BlitText(107, 35, scoreFont, HighscoreText);
 
 	App->fonts->BlitText(25, 43, scoreFont, "1 up");
 	App->fonts->BlitText(165, 43, scoreFont, "2 up");
 
 	//score player 1
-	App->fonts->BlitText(40, 51, scoreFont, "35");
-	App->fonts->BlitText(64, 51, scoreFont, "0");
+	App->fonts->BlitText(40, 51, scoreFont, scoreText);
 
 	//score player 2
-	App->fonts->BlitText(180, 51, scoreFont, "");
 	App->fonts->BlitText(204, 51, scoreFont, "0");
+
+
+	App->fonts->BlitText(115, 315, scoreFont, "insert coin");
+	App->fonts->BlitText(155, 330, scoreFont, "credit 0");
 
 
 

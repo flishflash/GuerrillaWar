@@ -19,23 +19,19 @@ greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 
 	currentAnim = &greenWalkforward;
 
-	currentAnim = &greenWalkbackward;
-	currentAnim = &greenWalkswimforward;
-	currentAnim = &greenWalkswimbackward;
+	//walk backward
 
-	greenWalkshot.PushBack({ 0, 237, 27, 55 });
-	greenWalkshot.PushBack({ 32, 237, 26, 55 });
-	greenWalkshot.PushBack({ 64, 237, 26, 55 });
-	greenWalkshot.PushBack({ 96, 237, 26, 55 });
-	greenWalkshot.PushBack({ 126, 237, 26, 55 });
-	greenWalkshot.loop = true;
-	greenWalkshot.speed = 0.1f;
-
-	currentAnim = &greenWalkshot;
-	currentAnim = &greenWalk;
+	greenWalkbackward.PushBack({ 0, 237, 27, 55 });
+	greenWalkbackward.PushBack({ 32, 237, 26, 55 });
+	greenWalkbackward.PushBack({ 64, 237, 26, 55 });
+	greenWalkbackward.PushBack({ 96, 237, 26, 55 });
+	greenWalkbackward.PushBack({ 126, 237, 26, 55 });
+	greenWalkbackward.loop = true;
+	greenWalkbackward.speed = 0.1f;
 
 
-	path.PushBack({ 0, -1.2f }, 150, &greenWalkshot);
+
+	path.PushBack({ 0, -1.2f }, 150, &greenWalkbackward);
 	path.PushBack({ 0, 1.2f }, 150, &greenWalkforward);
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);

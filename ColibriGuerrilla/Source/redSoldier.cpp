@@ -13,10 +13,18 @@ redSoldier::redSoldier(int x, int y) : Enemy(x, y)
 	front.speed = 0.1f;
 	currentAnim = &front;
 
-	path.PushBack({ 0, -1.2f }, 150, &front);
+	back.PushBack({ 577,237,27,54 });
+	back.PushBack({ 607,238,30,54 });
+	back.PushBack({ 640,237,28,54 });
+	back.PushBack({ 674,237,25,54 });
+	back.loop = true;
+	back.speed = 0.1f;
+
+	path.PushBack({ 0, -1.2f }, 150, &back);
 	path.PushBack({ 0, 1.2f }, 150, &front);
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
+
 }
 
 void redSoldier::Update()
