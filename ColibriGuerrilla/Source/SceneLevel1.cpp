@@ -92,7 +92,7 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 250, 3600);
 
 	//PowerUps
-	App->picks->AddPick(Pick_Type::LANZALLAMAS, 220, 3600);
+	App->picks->AddPick(Pick_Type::LANZALLAMAS, 220, 2000);
 	App->picks->AddPick(Pick_Type::RECLUSO, 220, 3600);
 
 	//camera
@@ -131,6 +131,7 @@ bool SceneLevel1::CleanUp()
 	App->player->Disable();
 	App->enemies->Disable();
 	App->collisions->CleanUp();
+	App->picks->CleanUp();
 
 	// TODO 5 (old): Remove All Memory Leaks - no solution here guys ;)
 

@@ -181,6 +181,7 @@ void ModulePickUp::OnCollision(Collider* c1, Collider* c2)
 		if (pickUps[i] != nullptr && pickUps[i]->GetCollider() == c1)
 		{
 			pickUps[i]->OnCollision(c2); //Notify the enemy of a collision
+			App->player->score -= 1000;
 			break;
 		}
 	}
