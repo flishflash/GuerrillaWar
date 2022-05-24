@@ -17,6 +17,8 @@ redSoldier::redSoldier(int x, int y) : Enemy(x, y)
 	path.PushBack({ 0, 1.2f }, 150, &front);
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
+
+	currentAnim = &back;
 }
 
 void redSoldier::Update()
