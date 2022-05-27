@@ -1,11 +1,11 @@
-#include "greenSoldier.h"
+#include "greenSoldiergranada.h"
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 
 
-greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
+greenSoldiergranada::greenSoldiergranada(int x, int y) : Enemy(x, y)
 {
 
 	//walk forward
@@ -29,19 +29,19 @@ greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 	greenWalkbackward.loop = true;
 	greenWalkbackward.speed = 0.1f;
 
-
+	currentAnim = &greenWalkbackward;
 
 	//path.PushBack({ 0, -1.2f }, 150, &greenWalkbackward);
-	path.PushBack({ 0, 1.2f }, 10, &greenWalkforward);
+	//path.PushBack({ 0, 1.2f }, 50, &greenWalkforward);
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
-void greenSoldier::Update() 
+void greenSoldiergranada::Update()
 {
-	path.Update();
-	positionenemy = spawnPos + path.GetRelativePosition();
-	currentAnim = path.GetCurrentAnimation();
+	/*path.Update();
+	positionenemy = spawnPos + path.GetRelativePosition();*/
+	//currentAnim = path.GetCurrentAnimation();
 	//if (currentAnim == &greenWalkforward && (cooldown>=10))
 	//{
 	//	cooldown--;

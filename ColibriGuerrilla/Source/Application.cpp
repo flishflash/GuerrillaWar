@@ -37,14 +37,15 @@ Application::Application()
 	modules[8] =	picks =			new ModulePickUp(true);
 	modules[9] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
 	modules[10] =	player =		new ModulePlayer(false);	//Player starts disabled
-	modules[11] =	particles =		new ModuleParticles(true);
+	modules[11] =	weapon =		new ModuleWeapons(true);
+	modules[12] =	particles =		new ModuleParticles(true);
 
-	modules[12] =	collisions =	new ModuleCollisions(true);
-	modules[13] =	fade =			new ModuleFadeToBlack(true);
-	modules[14] =	fonts =			new ModuleFonts(true);
-	modules[15] =	render =		new ModuleRender(true);
+	modules[13] =	collisions =	new ModuleCollisions(true);
+	modules[14] =	fade =			new ModuleFadeToBlack(true);
+	modules[15] =	fonts =			new ModuleFonts(true);
+	modules[16] =	render =		new ModuleRender(true);
 
-	modules[16] =	weapon =		new ModuleWeapons(true);
+	
 
 }
 
@@ -54,6 +55,7 @@ Application::~Application()
 	{
 		//Important: when deleting a pointer, set it to nullptr afterwards
 		//It allows us for null check in other parts of the code
+		LOG("Se elimina el modulo %d", i);
 		delete modules[i];
 		modules[i] = nullptr;
 	}

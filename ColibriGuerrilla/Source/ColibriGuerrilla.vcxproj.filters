@@ -95,6 +95,9 @@
     <ClCompile Include="LanzLlamas.cpp">
       <Filter>Game\Power ups</Filter>
     </ClCompile>
+    <ClCompile Include="greenSoldiergranada.cpp">
+      <Filter>Game\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -198,6 +201,9 @@
     </ClInclude>
     <ClInclude Include="LanzLlamas.h">
       <Filter>Game\Power ups</Filter>
+    </ClInclude>
+    <ClInclude Include="greenSoldiergranada.h">
+      <Filter>Game\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

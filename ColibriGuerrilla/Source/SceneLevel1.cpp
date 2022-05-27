@@ -88,12 +88,43 @@ bool SceneLevel1::Start()
 
 	
 	// Enemies ---
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 200, 3600);
-	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 250, 3600);
+
+	if (App->player->cameraGameplay.y <= 0)
+	{
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3600);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3600);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3600);
+
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3530);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3530);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3530);
+
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3460);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3460);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3460);
+		
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3390);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3390);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3390);
+		
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3320);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3320);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3320);
+	}
+
+	if (App->player->position.y <= 330)
+	{
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 187, 3510);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 227, 3510);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 267, 3510);		
+		
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 152, 3440);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 280, 3440);
+	}
 
 	//PowerUps
-	App->picks->AddPick(Pick_Type::LANZALLAMAS, 220, 2000);
-	App->picks->AddPick(Pick_Type::RECLUSO, 220, 3600);
+	// 
+	//App->picks->AddPick(Pick_Type::RECLUSO, 220, 3600);
 
 	//camera
 	/*App->render->camera.x = 135;

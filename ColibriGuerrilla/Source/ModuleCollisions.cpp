@@ -13,7 +13,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 
 	matrix[Collider::Type::WALL][Collider::Type::WALL] = false;
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::WALL][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::WALL][Collider::Type::ENEMY] = false;
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::WALL][Collider::Type::ENEMY_SHOT] = false;
 
@@ -31,6 +31,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::PICK] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::RECLUSO] = false;
+	matrix[Collider::Type::ENEMY][Collider::Type::WATER] = false;
 
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WALL] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER] = false;
@@ -49,7 +50,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 
 	matrix[Collider::Type::WATER][Collider::Type::WALL] = false;
 	matrix[Collider::Type::WATER][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::WATER][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::WATER][Collider::Type::ENEMY] = false;
 	matrix[Collider::Type::WATER][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::WATER][Collider::Type::ENEMY_SHOT] = false;
 	

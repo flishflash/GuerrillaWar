@@ -9,6 +9,7 @@ enum class Enemy_Type
 {
 	NO_TYPE,
 	GREENSOLDIER,
+	GREENSOLDIERGRAN,
 	REDSOLDIER,
 };
 
