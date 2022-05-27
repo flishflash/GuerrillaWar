@@ -94,7 +94,7 @@ public:
 	uint highscore = 000;
 	char HighscoreText[10] = { "\0" };
 
-	SDL_Rect cameraGameplay = { 185, 3700, RES_WIDTH, RES_HEIGHT };
+	SDL_Rect cameraGameplay;
 };
 
 #endif //!__MODULE_PLAYER_H__

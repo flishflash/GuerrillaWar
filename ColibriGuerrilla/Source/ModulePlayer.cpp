@@ -115,6 +115,8 @@ bool ModulePlayer::Start()
 	position.x = 240;
 	position.y = 4000;
 
+	cameraGameplay = { 135, 3800, RES_WIDTH, RES_HEIGHT };
+
 	destroyed = false;
 	destroyedCountdown = 60;
 	gana = false;
