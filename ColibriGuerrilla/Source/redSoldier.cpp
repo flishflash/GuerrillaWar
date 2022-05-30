@@ -20,8 +20,8 @@ redSoldier::redSoldier(int x, int y) : Enemy(x, y)
 	back.loop = true;
 	back.speed = 0.1f;
 
-	path.PushBack({ 0, -1.2f }, 150, &back);
-	path.PushBack({ 0, 1.2f }, 150, &front);
+	//path.PushBack({ 0, -1.2f }, 150, &back);
+	//path.PushBack({ 0, 1.2f }, 150, &front);
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
 
@@ -30,8 +30,8 @@ redSoldier::redSoldier(int x, int y) : Enemy(x, y)
 void redSoldier::Update()
 {
 	path.Update();
-	positionenemy = spawnPos + path.GetRelativePosition();
-	currentAnim = path.GetCurrentAnimation();
+	//positionenemy = spawnPos + path.GetRelativePosition();
+	//currentAnim = path.GetCurrentAnimation();
 
 	if (cooldown >= 50)
 	{

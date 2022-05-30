@@ -318,70 +318,76 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WALL && c2->type != Collider::Type::PICK && c2->type != Collider::Type::RECLUSO)
+	if(!App->collisions->godmode)
 	{
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
-		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
-		App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12, Collider::Type::NONE, 40);
-		App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, Collider::Type::NONE, 28);
-		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);
 
-		pendingToDelete = true;
-		if (collider != nullptr)
-			collider->pendingToDelete = true;
-
-		App->audio->PlayFx(explosionFx);
-		destroyed = true;
-	}
-	if (c2->type == Collider::Type::WALL)
-	{
-		switch (direction)
+		if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WALL && c2->type != Collider::Type::PICK && c2->type != Collider::Type::RECLUSO)
 		{
-		case 1:
-			position.y = position.y + 1;
-			break;
-		case 2:
-			position.x = position.x - 1;
-			position.y = position.y + 1;
-			break;
-		case 3:
-			position.x = position.x - 1;
-			break;
-		case 4:
-			position.x = position.x - 1;
-			position.y = position.y - 1;
-			break;
-		case 5:
-			position.y = position.y - 1;
-			break;
-		case 6:
-			position.x = position.x + 1;
-			position.y = position.y - 1;
-			break;
-		case 7:
-			position.x = position.x + 1;
-			break;
-		case 8:
-			position.x = position.x + 1;
-			position.y = position.y + 1;
-			break;
+			App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
+			App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
+			App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12, Collider::Type::NONE, 40);
+			App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, Collider::Type::NONE, 28);
+			App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, Collider::Type::NONE, 21);
+
+			pendingToDelete = true;
+			if (collider != nullptr)
+				collider->pendingToDelete = true;
+
+			App->audio->PlayFx(explosionFx);
+			destroyed = true;
 		}
 	}
-	if (c2->type == Collider::Type::WIN)
-	{
-		gana = true;
-		pendingToDelete = true;
-		if (collider != nullptr)
-		collider->pendingToDelete = true;
+		if (c2->type == Collider::Type::WALL)
+		{
+			switch (direction)
+			{
+			case 1:
+				position.y = position.y + 1;
+				break;
+			case 2:
+				position.x = position.x - 1;
+				position.y = position.y + 1;
+				break;
+			case 3:
+				position.x = position.x - 1;
+				break;
+			case 4:
+				position.x = position.x - 1;
+				position.y = position.y - 1;
+				break;
+			case 5:
+				position.y = position.y - 1;
+				break;
+			case 6:
+				position.x = position.x + 1;
+				position.y = position.y - 1;
+				break;
+			case 7:
+				position.x = position.x + 1;
+				break;
+			case 8:
+				position.x = position.x + 1;
+				position.y = position.y + 1;
+				break;
+			}
+		}
+	
+		if (c2->type == Collider::Type::WIN)
+		{
+			gana = true;
+			pendingToDelete = true;
+			if (collider != nullptr)
+				collider->pendingToDelete = true;
 
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
-	}
-	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
-	{
-		score += 23;
-	}
-	if(c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WATER)
-	{
-		App->weapon->options = 2;
-	}
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
+		}
+		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
+		{
+			score += 23;
+		}
+		if (c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WATER)
+		{
+			App->weapon->options = 2;
+		}
+	
 }

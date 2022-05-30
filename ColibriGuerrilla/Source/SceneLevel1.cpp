@@ -143,7 +143,6 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3320);
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3320);
 	}
-		App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 267, 3320);
 
 	if (App->player->position.y <= 330)
 	{
@@ -154,7 +153,10 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 152, 3440);
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 280, 3440);
 	}
+		
+	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 216, 3394);
 
+		
 	//PowerUps
 	// 
 	//App->picks->AddPick(Pick_Type::RECLUSO, 220, 3600);

@@ -97,14 +97,14 @@ bool ModuleParticles::Start()
 	
 	enemyBulletL.anim.PushBack({194, 64, 12, 17});
 	enemyBulletL.anim.PushBack({212, 65, 11, 16});
-	enemyBulletL.speed.x = -3;
+	enemyBulletL.speed.x = -2;
 	enemyBulletL.speed.y = 3;
 	enemyBulletL.lifetime = 100;
 	enemyBulletL.anim.speed = 0.1f;	
 	
 	enemyBulletR.anim.PushBack({194, 64, 12, 17});
 	enemyBulletR.anim.PushBack({212, 65, 11, 16});
-	enemyBulletR.speed.x = 3;
+	enemyBulletR.speed.x = 2;
 	enemyBulletR.speed.y = 3;
 	enemyBulletR.lifetime = 100;
 	enemyBulletR.anim.speed = 0.1f;
