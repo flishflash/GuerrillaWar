@@ -14,10 +14,10 @@ class Destroy
 public:
 	// Constructor
 	// Saves the spawn position for later movement calculations
-	Enemy(int x, int y);
+	Destroy(int x, int y);
 
 	// Destructor
-	virtual ~Enemy();
+	virtual ~Destroy();
 
 	// Returns the enemy's collider
 	const Collider* GetCollider() const;
@@ -37,7 +37,7 @@ public:
 
 public:
 	// The current position in the world
-	iPoint positionenemy;
+	iPoint positiondestroy;
 
 	// The enemy's texture
 	SDL_Texture* texture = nullptr;

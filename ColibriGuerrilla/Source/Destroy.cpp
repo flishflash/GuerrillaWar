@@ -6,46 +6,44 @@
 #include "ModuleAudio.h"
 #include "ModuleRender.h"
 
-Enemy::Enemy(int x, int y) : positionenemy(x, y)
+Destroy::Destroy(int x, int y) : positiondestroy(x, y)
 {
-	spawnPos = positionenemy;
+	spawnPos = positiondestroy;
 }
 
-Enemy::~Enemy()
+Destroy::~Destroy()
 {
 	if (collider != nullptr)
 		collider->pendingToDelete = true;
 }
 
-const Collider* Enemy::GetCollider() const
+const Collider* Destroy::GetCollider() const
 {
 	return collider;
 }
 
-void Enemy::Update()
+void Destroy::Update()
 {
-	if (currentAnim != nullptr)
-		currentAnim->Update();
 
 	if (collider != nullptr)
-		collider->SetPos(positionenemy.x, positionenemy.y);
+		collider->SetPos(positiondestroy.x, positiondestroy.y);
 }
 
-void Enemy::Draw()
+void Destroy::Draw()
 {
 	if (currentAnim != nullptr)
-		App->render->Blit(texture, positionenemy.x, positionenemy.y, &(currentAnim->GetCurrentFrame()));
+		App->render->Blit(texture, positiondestroy.x, positiondestroy.y, &(currentAnim->GetCurrentFrame()));
 }
 
-void Enemy::OnCollision(Collider* collider)
+void Destroy::OnCollision(Collider* collider)
 {
-	App->particles->AddParticle(App->particles->explosion, positionenemy.x, positionenemy.y);
+	App->particles->AddParticle(App->particles->explosion, positiondestroy.x, positiondestroy.y);
 	App->audio->PlayFx(destroyedFx);
 
 	SetToDelete();
 }
 
-void Enemy::SetToDelete()
+void Destroy::SetToDelete()
 {
 	pendingToDelete = true;
 	if (collider != nullptr)

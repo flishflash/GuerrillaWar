@@ -80,6 +80,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="Destroy.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FadeToBlack.h" />
     <ClInclude Include="Fusil.h" />
@@ -87,6 +88,7 @@
     <ClInclude Include="greenSoldier.h" />
     <ClInclude Include="greenSoldiergranada.h" />
     <ClInclude Include="LanzLlamas.h" />
+    <ClInclude Include="ModuleDestroy.h" />
     <ClInclude Include="ModulePickUp.h" />
     <ClInclude Include="ModuleWeapons.h" />
     <ClInclude Include="Path.h" />
@@ -116,6 +118,7 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="Destroy.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FadeToBlack.cpp" />
     <ClCompile Include="Fusil.cpp" />
@@ -123,6 +126,7 @@
     <ClCompile Include="greenSoldier.cpp" />
     <ClCompile Include="greenSoldiergranada.cpp" />
     <ClCompile Include="LanzLlamas.cpp" />
+    <ClCompile Include="ModuleDestroy.cpp" />
     <ClCompile Include="ModulePickUp.cpp" />
     <ClCompile Include="ModuleWeapons.cpp" />
     <ClCompile Include="Path.cpp" />
