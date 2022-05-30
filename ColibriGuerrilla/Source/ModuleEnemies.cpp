@@ -12,7 +12,7 @@
 #include "greenSoldier.h"
 #include "greenSoldiergranada.h"
 
-#define SPAWN_MARGIN 50
+#define SPAWN_MARGIN 200
 
 
 ModuleEnemies::ModuleEnemies(bool startEnabled) : Module(startEnabled)

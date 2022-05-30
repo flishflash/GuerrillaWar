@@ -1,5 +1,5 @@
 #include "redSoldier.h"
-
+#include "ModuleParticles.h"
 #include "Application.h"
 #include "ModuleCollisions.h"
 
@@ -33,6 +33,14 @@ void redSoldier::Update()
 	positionenemy = spawnPos + path.GetRelativePosition();
 	currentAnim = path.GetCurrentAnimation();
 
+	if (cooldown >= 50)
+	{
+		App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+		App->particles->AddParticle(App->particles->enemyBulletL, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+		App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+		cooldown = 0;
+	}
+	cooldown++;
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();

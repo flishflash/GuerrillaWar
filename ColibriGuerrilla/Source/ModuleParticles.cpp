@@ -87,6 +87,28 @@ bool ModuleParticles::Start()
 	bulletNW.speed.y = -3 ;
 	bulletNW.lifetime = 180;
 	bulletNW.anim.speed = 0.2f;
+
+	//Enemy bullets
+	enemyBullet.anim.PushBack({194, 64, 12, 17});
+	enemyBullet.anim.PushBack({212, 65, 11, 16});
+	enemyBullet.speed.y = 5;
+	enemyBullet.lifetime = 100;
+	enemyBullet.anim.speed = 0.1f;	
+	
+	enemyBulletL.anim.PushBack({194, 64, 12, 17});
+	enemyBulletL.anim.PushBack({212, 65, 11, 16});
+	enemyBulletL.speed.x = -3;
+	enemyBulletL.speed.y = 3;
+	enemyBulletL.lifetime = 100;
+	enemyBulletL.anim.speed = 0.1f;	
+	
+	enemyBulletR.anim.PushBack({194, 64, 12, 17});
+	enemyBulletR.anim.PushBack({212, 65, 11, 16});
+	enemyBulletR.speed.x = 3;
+	enemyBulletR.speed.y = 3;
+	enemyBulletR.lifetime = 100;
+	enemyBulletR.anim.speed = 0.1f;
+
 	return true;
 }
 

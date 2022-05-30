@@ -29,7 +29,14 @@ greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 	greenWalkbackward.loop = true;
 	greenWalkbackward.speed = 0.1f;
 
+	//die
 
+	greenDie.PushBack({256, 498, 27, 49});
+	greenDie.PushBack({289, 499, 27, 49});
+	//greenDie.PushBack({});
+	//greenDie.PushBack({});
+	greenDie.loop = false;
+	greenDie.speed = 0.2f;
 
 	//path.PushBack({ 0, -1.2f }, 150, &greenWalkbackward);
 	path.PushBack({ 0, 1.2f }, 10, &greenWalkforward);
@@ -42,17 +49,12 @@ void greenSoldier::Update()
 	path.Update();
 	positionenemy = spawnPos + path.GetRelativePosition();
 	currentAnim = path.GetCurrentAnimation();
-	//if (currentAnim == &greenWalkforward && (cooldown>=10))
-	//{
-	//	cooldown--;
-	//	App->particles->AddParticle(App->particles->bulletS, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
-
-	//}
-	//if (currentAnim == &greenWalkshot)
-	//{
-	//	cooldown = 20;
-	//}
-
+	if (cooldown >= 50)
+	{
+		App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+		cooldown = 0;
+	}
+	cooldown++;
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position

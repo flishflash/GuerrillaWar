@@ -18,7 +18,7 @@ public:
 private:
 	// The path that will define the position in the world
 	Path path;
-
+	int cooldown = 0;
 	// Enemy animations
 	Animation front, back;
 };

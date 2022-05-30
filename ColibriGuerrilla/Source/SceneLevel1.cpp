@@ -143,6 +143,7 @@ bool SceneLevel1::Start()
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3320);
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3320);
 	}
+		App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 267, 3320);
 
 	if (App->player->position.y <= 330)
 	{
