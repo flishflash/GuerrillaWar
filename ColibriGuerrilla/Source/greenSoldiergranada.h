@@ -1,5 +1,5 @@
-#ifndef __GREENSOLDIERGRANADA_H__
-#define __GREENSOLDIERGRANADA_H__
+#ifndef __GREENSOLDIER_GRANADA_H__
+#define __GREENSOLDIER_GRANADA_H__
 
 #include "Enemy.h"
 #include "Path.h"
@@ -31,4 +31,4 @@ private:
 	int cooldown = 20;
 };
 
-#endif // __GREENSOLDIERGRANADA_H__
+#endif // __GREENSOLDIER_GRANADA_H__
