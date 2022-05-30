@@ -16,80 +16,80 @@
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
-	// idle animation - just one sprite
-	idleAnim.PushBack({ 64, 0, 25, 54 });
+	//// idle animation - just one sprite
+	//idleAnim.PushBack({ 64, 0, 25, 54 });
 
-	// north animation
-	northAnim.PushBack({ 0, 1, 26, 56 });
-	northAnim.PushBack({ 33, 1, 26, 56 });
-	northAnim.PushBack({ 64, 0, 25, 54 });
-	northAnim.PushBack({ 94, 1, 28, 56 });
-	northAnim.PushBack({ 128, 1, 26, 56 });
-	northAnim.loop = true;
-	northAnim.speed = 0.1f;
+	//// north animation
+	//northAnim.PushBack({ 0, 1, 26, 56 });
+	//northAnim.PushBack({ 33, 1, 26, 56 });
+	//northAnim.PushBack({ 64, 0, 25, 54 });
+	//northAnim.PushBack({ 94, 1, 28, 56 });
+	//northAnim.PushBack({ 128, 1, 26, 56 });
+	//northAnim.loop = true;
+	//northAnim.speed = 0.1f;
 
-	//northeast animation
-	northEastAnim.PushBack({ 0, 58, 28, 53 });
-	northEastAnim.PushBack({ 35, 58, 25, 53 });
-	northEastAnim.PushBack({ 68, 58, 22, 54 });
-	northEastAnim.PushBack({ 99, 58, 23, 54 });
-	northEastAnim.PushBack({ 130, 58, 22, 54 });
-	northEastAnim.loop = true;
-	northEastAnim.speed = 0.1f;
+	////northeast animation
+	//northEastAnim.PushBack({ 0, 58, 28, 53 });
+	//northEastAnim.PushBack({ 35, 58, 25, 53 });
+	//northEastAnim.PushBack({ 68, 58, 22, 54 });
+	//northEastAnim.PushBack({ 99, 58, 23, 54 });
+	//northEastAnim.PushBack({ 130, 58, 22, 54 });
+	//northEastAnim.loop = true;
+	//northEastAnim.speed = 0.1f;
 
-	// East animation
-	eastAnim.PushBack({ 0, 114, 28, 54 });
-	eastAnim.PushBack({ 32, 114, 28, 54 });
-	eastAnim.PushBack({ 64, 113, 28, 56 });
-	eastAnim.PushBack({ 96, 114, 28, 55 });
-	eastAnim.PushBack({ 127, 114, 29, 54 });
-	eastAnim.loop = true;
-	eastAnim.speed = 0.1f;
+	//// East animation
+	//eastAnim.PushBack({ 0, 114, 28, 54 });
+	//eastAnim.PushBack({ 32, 114, 28, 54 });
+	//eastAnim.PushBack({ 64, 113, 28, 56 });
+	//eastAnim.PushBack({ 96, 114, 28, 55 });
+	//eastAnim.PushBack({ 127, 114, 29, 54 });
+	//eastAnim.loop = true;
+	//eastAnim.speed = 0.1f;
 
-	//southeasst animation
-	southEastAnim.PushBack({ 0, 172, 31, 59 });
-	southEastAnim.PushBack({ 31, 172, 32, 57 });
-	southEastAnim.PushBack({ 64, 171, 28, 57 });
-	southEastAnim.PushBack({ 96, 172, 29, 56 });
-	southEastAnim.PushBack({ 127, 172, 31, 56 });
-	southEastAnim.loop = true;
-	southEastAnim.speed = 0.1f;
+	////southeasst animation
+	//southEastAnim.PushBack({ 0, 172, 31, 59 });
+	//southEastAnim.PushBack({ 31, 172, 32, 57 });
+	//southEastAnim.PushBack({ 64, 171, 28, 57 });
+	//southEastAnim.PushBack({ 96, 172, 29, 56 });
+	//southEastAnim.PushBack({ 127, 172, 31, 56 });
+	//southEastAnim.loop = true;
+	//southEastAnim.speed = 0.1f;
 
-	//south animation
-	southAnim.PushBack({ 0, 233, 28, 59 });
-	southAnim.PushBack({ 28, 233, 31, 59 });
-	southAnim.PushBack({ 60, 232, 29, 56 });
-	southAnim.PushBack({ 92, 233, 31, 55 });
-	southAnim.PushBack({ 123, 233, 32, 59 });
-	southAnim.loop = true;
-	southAnim.speed = 0.1f;
+	////south animation
+	//southAnim.PushBack({ 0, 233, 28, 59 });
+	//southAnim.PushBack({ 28, 233, 31, 59 });
+	//southAnim.PushBack({ 60, 232, 29, 56 });
+	//southAnim.PushBack({ 92, 233, 31, 55 });
+	//southAnim.PushBack({ 123, 233, 32, 59 });
+	//southAnim.loop = true;
+	//southAnim.speed = 0.1f;
 
-	// southwest animation
-	southWestAnim.PushBack({ 0, 296, 28, 58 });
-	southWestAnim.PushBack({ 35, 296, 24, 57 });
-	southWestAnim.PushBack({ 67, 295, 23, 58 });
-	southWestAnim.PushBack({ 99, 296, 24, 58 });
-	southWestAnim.PushBack({ 132, 296, 37, 60 });
-	southWestAnim.loop = true;
-	southWestAnim.speed = 0.1f;
+	//// southwest animation
+	//southWestAnim.PushBack({ 0, 296, 28, 58 });
+	//southWestAnim.PushBack({ 35, 296, 24, 57 });
+	//southWestAnim.PushBack({ 67, 295, 23, 58 });
+	//southWestAnim.PushBack({ 99, 296, 24, 58 });
+	//southWestAnim.PushBack({ 132, 296, 37, 60 });
+	//southWestAnim.loop = true;
+	//southWestAnim.speed = 0.1f;
 
-	// west animation
-	westAnim.PushBack({ 0, 357, 30, 58 });
-	westAnim.PushBack({ 35, 357, 28, 58 });
-	westAnim.PushBack({ 74, 356, 17, 60 });
-	westAnim.PushBack({ 101, 356, 25, 59 });
-	westAnim.PushBack({ 129, 356, 30, 59 });
-	westAnim.loop = true;
-	westAnim.speed = 0.1f;
+	//// west animation
+	//westAnim.PushBack({ 0, 357, 30, 58 });
+	//westAnim.PushBack({ 35, 357, 28, 58 });
+	//westAnim.PushBack({ 74, 356, 17, 60 });
+	//westAnim.PushBack({ 101, 356, 25, 59 });
+	//westAnim.PushBack({ 129, 356, 30, 59 });
+	//westAnim.loop = true;
+	//westAnim.speed = 0.1f;
 
-	//northwest animation
-	northWestAnim.PushBack({ 0, 419, 28, 56 });
-	northWestAnim.PushBack({ 34, 419, 26, 55 });
-	northWestAnim.PushBack({ 68, 418, 23, 55 });
-	northWestAnim.PushBack({ 101, 419, 21, 54 });
-	northWestAnim.PushBack({ 130, 419, 29, 55 });
-	northWestAnim.loop = true;
-	northWestAnim.speed = 0.1f;
+	////northwest animation
+	//northWestAnim.PushBack({ 0, 419, 28, 56 });
+	//northWestAnim.PushBack({ 34, 419, 26, 55 });
+	//northWestAnim.PushBack({ 68, 418, 23, 55 });
+	//northWestAnim.PushBack({ 101, 419, 21, 54 });
+	//northWestAnim.PushBack({ 130, 419, 29, 55 });
+	//northWestAnim.loop = true;
+	//northWestAnim.speed = 0.1f;
 
 }
 
@@ -222,7 +222,7 @@ Update_Status ModulePlayer::Update()
 		position.x -= speed / 2;
 	}
 
-
+	/*
 	switch (direction) {
 	case 1:
 		currentAnimation = &northAnim;
@@ -252,7 +252,7 @@ Update_Status ModulePlayer::Update()
 
 	if (!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W] && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A]) currentAnimation->loop = false;
 	else currentAnimation->loop = true;
-	currentAnimation->Update();
+	currentAnimation->Update();*/
 	if (destroyed) {
 		destroyedCountdown--;
 		if (destroyedCountdown <= 0) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
@@ -275,9 +275,9 @@ Update_Status ModulePlayer::PostUpdate()
 	if (!destroyed)
 	{
 		SDL_Rect rectW = App->weapon->WcurrentAnimation->GetCurrentFrame();
-		App->render->Blit(App->weapon->textureW, App->weapon->positionWeapon.x, App->weapon->positionWeapon.y, &rectW);
-		SDL_Rect rect = currentAnimation->GetCurrentFrame();
-		App->render->Blit(texture, position.x, position.y, &rect);
+		App->render->Blit(App->weapon->textureW, App->weapon->spritep.x, App->weapon->spritep.y, &rectW);
+		/*SDL_Rect rect = currentAnimation->GetCurrentFrame();
+		App->render->Blit(texture, position.x, position.y, &rect);*/
 	}
 
 	// Draw UI (score) --------------------------------------
@@ -379,5 +379,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 	{
 		score += 23;
+	}
+	if(c1->type == Collider::Type::PLAYER && c2->type == Collider::Type::WATER)
+	{
+		App->weapon->options = 2;
 	}
 }
