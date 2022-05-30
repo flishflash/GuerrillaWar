@@ -15,6 +15,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
 #include "ModuleRender.h"
+#include "ModuleDestroy.h"
 #include "Win.h"
 #include "Lose.h"
 #include "ModuleWeapons.h"
@@ -34,16 +35,17 @@ Application::Application()
 	modules[5] =	sceneWin =		new SceneWin(false);
 	modules[6] =	sceneLose =		new SceneLose(false);
 	modules[7] =	sceneLevel_1 =	new SceneLevel1(false);
-	modules[8] =	picks =			new ModulePickUp(true);
-	modules[9] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
-	modules[10] =	player =		new ModulePlayer(false);	//Player starts disabled
-	modules[11] =	weapon =		new ModuleWeapons(true);
-	modules[12] =	particles =		new ModuleParticles(true);
+	modules[8] =	destroys =		new ModuleDestroy(true);
+	modules[9] =	picks =			new ModulePickUp(true);
+	modules[10] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	modules[11] =	player =		new ModulePlayer(false);	//Player starts disabled
+	modules[12] =	weapon =		new ModuleWeapons(true);
+	modules[13] =	particles =		new ModuleParticles(true);
 
-	modules[13] =	collisions =	new ModuleCollisions(true);
-	modules[14] =	fade =			new ModuleFadeToBlack(true);
-	modules[15] =	fonts =			new ModuleFonts(true);
-	modules[16] =	render =		new ModuleRender(true);
+	modules[14] =	collisions =	new ModuleCollisions(true);
+	modules[15] =	fade =			new ModuleFadeToBlack(true);
+	modules[16] =	fonts =			new ModuleFonts(true);
+	modules[17] =	render =		new ModuleRender(true);
 
 	
 

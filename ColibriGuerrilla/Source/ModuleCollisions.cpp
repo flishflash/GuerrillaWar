@@ -178,6 +178,12 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::PICK: // marron
 			App->render->DrawQuad(colliders[i]->rect, 121, 64, 18, alpha);
 			break;
+			case Collider::Type::DESTROY: // redish
+			App->render->DrawQuad(colliders[i]->rect, 247, 95, 94, alpha);
+			break;case 
+			Collider::Type::EXPLOSION: // yellow
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 0, alpha);
+			break;
 		}
 	}
 }

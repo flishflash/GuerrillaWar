@@ -39,7 +39,7 @@ greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 	greenDie.speed = 0.2f;
 
 	//path.PushBack({ 0, -1.2f }, 150, &greenWalkbackward);
-	path.PushBack({ 0, 1.2f }, 10, &greenWalkforward);
+	/*path.PushBack({ 0, 1.2f }, 10, &greenWalkforward);*/
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
@@ -47,8 +47,8 @@ greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 void greenSoldier::Update() 
 {
 	path.Update();
-	positionenemy = spawnPos + path.GetRelativePosition();
-	currentAnim = path.GetCurrentAnimation();
+	//positionenemy = spawnPos + path.GetRelativePosition();
+	//currentAnim = path.GetCurrentAnimation();
 	if (cooldown >= 50)
 	{
 		App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
