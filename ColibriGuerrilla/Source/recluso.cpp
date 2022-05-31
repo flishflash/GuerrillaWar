@@ -26,7 +26,7 @@ recluso::recluso(int x, int y) : pickUp(x, y)
 	deathAnim.PushBack({ 64, 237, 26, 55 });
 	deathAnim.speed = 0.1f;
 
-	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::RECLUSO);
+	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::RECLUSO, (Module*)App->picks);
 }
 
 void recluso::Update()
