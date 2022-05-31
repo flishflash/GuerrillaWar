@@ -1,62 +1,52 @@
 #pragma once
 
-#ifndef __DESTRY_H__
-#define __DESTRY_H__
+#ifndef __DESTROY_H__
+#define __DESTROY_H__
 
-#include "p2Point.h"
 #include "Animation.h"
+#include "p2Point.h"
 
-struct SDL_Texture;
+
 struct Collider;
 
 class Destroy
 {
-public:
-	// Constructor
-	// Saves the spawn position for later movement calculations
-	Destroy(int x, int y);
+	public:
+		// Constructor
+		Destroy();
 
-	// Destructor
-	virtual ~Destroy();
+		// Copy constructor
+		Destroy(const Destroy& d);
 
-	// Returns the enemy's collider
-	const Collider* GetCollider() const;
+		// Destructor
+		~Destroy();
 
-	// Called from inhering enemies' Udpate
-	// Updates animation and collider position
-	virtual void Update();
+		// Called in ModuleParticles' Update
+		// Handles the logic of the particle
+		// Returns false when the particle reaches its lifetime
+		bool Update();
 
-	// Called from ModuleEnemies' Update
-	virtual void Draw();
+		// Sets flag for deletion and for the collider aswell
+		void SetToDelete();
 
-	// Collision response
-	virtual void OnCollision(Collider* collider);
+		void OnCollision(Collider* collider);
 
-	// Sets flag for deletion and for the collider aswell
-	virtual void SetToDelete();
+	public:
+		// Defines the position in the screen
+		iPoint position;
 
-public:
-	// The current position in the world
-	iPoint positiondestroy;
+		// Defines wether the particle is alive or not
+		// Particles will be set to not alive until "spawnTime" is reached
+		bool isAlive = false;
 
-	// The enemy's texture
-	SDL_Texture* texture = nullptr;
+		// The particle's collider
+		Collider* collider = nullptr;
 
-	// Sound fx when destroyed
-	int destroyedFx = 0;
+		Animation anim;
 
-	// A flag for the enemy removal. Important! We do not delete objects instantly
-	bool pendingToDelete = false;
+		// A flag for the particle removal. Important! We do not delete objects instantly
+		bool pendingToDelete = false;
+	};
 
-protected:
-	// A ptr to the current animation
-	Animation* currentAnim = nullptr;
 
-	// The enemy's collider
-	Collider* collider = nullptr;
-
-	// Original spawn position. Stored for movement calculations
-	iPoint spawnPos;
-};
-
-#endif // __ENEMY_H__
+#endif // __DESTRY_H__

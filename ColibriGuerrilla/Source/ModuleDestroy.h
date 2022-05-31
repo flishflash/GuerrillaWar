@@ -2,23 +2,14 @@
 #define __MODULE_DESTROY_H__
 
 #include "Module.h"
+#include "Collider.h"
+#include "Globals.h"
+#include "Destroy.h"
 
 #define MAX_DESTROY 200
 
-enum class Destroy_Type
-{
-	NO_TYPE,
-	ROCK,
-	FENCE,
-};
 
-struct DestroySpawnpoint
-{
-	Destroy_Type type = Destroy_Type::NO_TYPE;
-	int x, y;
-};
-
-class Destroy;
+struct Collider;
 struct SDL_Texture;
 
 class ModuleDestroy : public Module
@@ -55,30 +46,23 @@ public:
 	void OnCollision(Collider* c1, Collider* c2) override;
 
 	// Add an enemy into the queue to be spawned later
-	bool AddDestroy(Destroy_Type type, int x, int y);
+	Destroy* AddDestroy(const Destroy& destroy, int x, int y, Collider::Type colliderType);
 
-	// Iterates the queue and checks for camera position
-	void HandleDestroySpawn();
+public:
 
-	// Destroys any enemies that have moved outside the camera limits
-	void HandleDestroyDespawn();
-
-private:
-	// Spawns a new enemy using the data from the queue
-	void SpawnDestroy(const DestroySpawnpoint& info);
+	Destroy rock;
+	Destroy rockL;
+	Destroy fence;
+	Destroy fence2;
+	Destroy trinch;
 
 private:
-	// A queue with all spawn points information
-	DestroySpawnpoint spawnQueue[MAX_DESTROY];
 
 	// All spawned enemies in the scene
-	Destroy* destroy[MAX_DESTROY] = { nullptr };
+	Destroy* destroys[MAX_DESTROY] = { nullptr };
 
 	// The enemies sprite sheet
 	SDL_Texture* texture = nullptr;
-
-	// The audio fx for destroying an enemy
-	int destroyDestroyedFx = 0;
 };
 
 #endif // __MODULE_ENEMIES_H__

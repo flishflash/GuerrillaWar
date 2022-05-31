@@ -6,9 +6,14 @@
 #include "ModuleAudio.h"
 #include "ModuleRender.h"
 
-Destroy::Destroy(int x, int y) : positiondestroy(x, y)
+Destroy::Destroy()
 {
-	spawnPos = positiondestroy;
+	position.SetToZero();
+}
+
+Destroy::Destroy(const Destroy& d) :  anim(d.anim), position(d.position)
+{
+
 }
 
 Destroy::~Destroy()
@@ -17,30 +22,25 @@ Destroy::~Destroy()
 		collider->pendingToDelete = true;
 }
 
-const Collider* Destroy::GetCollider() const
-{
-	return collider;
-}
 
-void Destroy::Update()
+bool Destroy::Update()
 {
+	bool ret = true;
+
+	anim.Update();
 
 	if (collider != nullptr)
-		collider->SetPos(positiondestroy.x, positiondestroy.y);
-}
+		collider->SetPos(position.x, position.y);
 
-void Destroy::Draw()
-{
-	if (currentAnim != nullptr)
-		App->render->Blit(texture, positiondestroy.x, positiondestroy.y, &(currentAnim->GetCurrentFrame()));
+	return ret;
 }
 
 void Destroy::OnCollision(Collider* collider)
 {
-	App->particles->AddParticle(App->particles->explosion, positiondestroy.x, positiondestroy.y);
-	App->audio->PlayFx(destroyedFx);
-
-	SetToDelete();
+	if (collider->type == Collider::Type::EXPLOSION)
+	{
+		SetToDelete();
+	}
 }
 
 void Destroy::SetToDelete()

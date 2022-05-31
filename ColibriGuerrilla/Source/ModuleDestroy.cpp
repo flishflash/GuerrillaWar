@@ -7,6 +7,7 @@
 #include "ModulePlayer.h"
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
+#include "ModuleCollisions.h"
 #include "ModuleAudio.h"
 
 #define SPAWN_MARGIN 200
@@ -15,7 +16,7 @@
 	ModuleDestroy::ModuleDestroy(bool startEnabled) : Module(startEnabled)
 	{
 		for (uint i = 0; i < MAX_DESTROY; ++i)
-			destroy[i] = nullptr;
+			destroys[i] = nullptr;
 	}
 
 	ModuleDestroy::~ModuleDestroy()
@@ -25,7 +26,7 @@
 
 	bool ModuleDestroy::Start()
 	{
-		texture = App->textures->Load("Assets/Sprites/EnemiesGW.png");
+		texture = App->textures->Load("Assets/Sprites/Guerrilla_Objects.png");
 		//enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 		return true;
@@ -37,10 +38,10 @@
 		// Remove all enemies scheduled for deletion
 		for (uint i = 0; i < MAX_DESTROY; ++i)
 		{
-			if (destroy[i] != nullptr && destroy[i]->pendingToDelete)
+			if (destroys[i] != nullptr && destroys[i]->pendingToDelete)
 			{
-				delete destroy[i];
-				destroy[i] = nullptr;
+				delete destroys[i];
+				destroys[i] = nullptr;
 			}
 		}
 
@@ -49,15 +50,12 @@
 
 	Update_Status ModuleDestroy::Update()
 	{
-		HandleDestroySpawn();
 
 		for (uint i = 0; i < MAX_DESTROY; ++i)
 		{
-			if (destroy[i] != nullptr)
-				destroy[i]->Update();
+			if (destroys[i] != nullptr)
+				destroys[i]->Update();
 		}
-
-		HandleDestroyDespawn();
 
 		return Update_Status::UPDATE_CONTINUE;
 	}
@@ -66,8 +64,10 @@
 	{
 		for (uint i = 0; i < MAX_DESTROY; ++i)
 		{
-			if (destroy[i] != nullptr)
-				destroy[i]->Draw();
+			Destroy* destroy = destroys[i];
+
+			if (destroys[i] != nullptr)
+				App->render->Blit(texture, destroy->position.x, destroy->position.y, &(destroy->anim.GetCurrentFrame()));
 		}
 
 		return Update_Status::UPDATE_CONTINUE;
@@ -80,103 +80,49 @@
 
 		for (uint i = 0; i < MAX_DESTROY; ++i)
 		{
-			if (destroy[i] != nullptr)
+			if (destroys[i] != nullptr)
 			{
-				delete destroy[i];
-				destroy[i] = nullptr;
+				delete destroys[i];
+				destroys[i] = nullptr;
 			}
 		}
 
 		return true;
 	}
 
-	bool ModuleDestroy::AddDestroy(Destroy_Type type, int x, int y)
+	Destroy* ModuleDestroy::AddDestroy(const Destroy& destroy, int x, int y, Collider::Type colliderType)
 	{
-		bool ret = false;
+		Destroy* newDestroy = nullptr;
 
 		for (uint i = 0; i < MAX_DESTROY; ++i)
 		{
-			if (spawnQueue[i].type == Destroy_Type::NO_TYPE)
+			if (destroys[i] == nullptr)
 			{
-				spawnQueue[i].type = type;
-				spawnQueue[i].x = x;
-				spawnQueue[i].y = y;
-				ret = true;
+				newDestroy = new Destroy(destroy);
+				newDestroy->position.x = x;						// so when frameCount reaches 0 the particle will be activated
+				newDestroy->position.y = y;
+
+				//Adding the particle's collider
+				if (colliderType != Collider::Type::NONE)
+					newDestroy->collider = App->collisions->AddCollider(newDestroy->anim.GetCurrentFrame(), colliderType, this);
+
+				destroys[i] = newDestroy;
 				break;
 			}
 		}
 
-		return ret;
-	}
-
-	void ModuleDestroy::HandleDestroySpawn()
-	{
-		// Iterate all the enemies queue
-		for (uint i = 0; i < MAX_DESTROY; ++i)
-		{
-			if (spawnQueue[i].type != Destroy_Type::NO_TYPE)
-			{
-				// Spawn a new enemy if the screen has reached a spawn position
-				if (spawnQueue[i].x * SCREEN_SIZE < App->player->cameraGameplay.x + (App->player->cameraGameplay.w * SCREEN_SIZE) + SPAWN_MARGIN)
-				{
-					LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
-
-					SpawnDestroy(spawnQueue[i]);
-					spawnQueue[i].type = Destroy_Type::NO_TYPE; // Removing the newly spawned enemy from the queue
-				}
-			}
-		}
-	}
-
-	void ModuleDestroy::HandleDestroyDespawn()
-	{
-		// Iterate existing enemies
-		for (uint i = 0; i < MAX_DESTROY; ++i)
-		{
-			if (destroy[i] != nullptr)
-			{
-				// Delete the enemy when it has reached the end of the screen
-				if (destroy[i]->positiondestroy.x * SCREEN_SIZE < (App->player->cameraGameplay.x) - SPAWN_MARGIN)
-				{
-					LOG("DeSpawning enemy at %d", destroy[i]->positiondestroy.x * SCREEN_SIZE);
-
-					destroy[i]->SetToDelete();
-				}
-			}
-		}
-	}
-
-	void ModuleDestroy::SpawnDestroy(const DestroySpawnpoint& info)
-	{
-		// Find an empty slot in the enemies array
-		for (uint i = 0; i < MAX_DESTROY; ++i)
-		{
-			if (destroy[i] == nullptr)
-			{
-				switch (info.type)
-				{
-				case Destroy_Type::ROCK:
-					//destroy[i] = new greenSoldier(info.x, info.y);
-					break;
-				case Destroy_Type::FENCE:
-					//destroy[i] = new greenSoldiergranada(info.x, info.y);
-					break;
-				}
-				destroy[i]->texture = texture;
-				destroy[i]->destroyedFx = destroyDestroyedFx;
-				break;
-			}
-		}
+		return newDestroy;
 	}
 
 	void ModuleDestroy::OnCollision(Collider* c1, Collider* c2)
 	{
 		for (uint i = 0; i < MAX_DESTROY; ++i)
 		{
-			if (destroy[i] != nullptr && destroy[i]->GetCollider() == c1)
+			// Always destroy particles that collide
+			if (destroys[i] != nullptr && destroys[i]->collider == c1)
 			{
-				destroy[i]->OnCollision(c2); //Notify the enemy of a collision
-				App->player->score += 100;
+				destroys[i]->pendingToDelete = true;
+				destroys[i]->collider->pendingToDelete = true;
 				break;
 			}
 		}

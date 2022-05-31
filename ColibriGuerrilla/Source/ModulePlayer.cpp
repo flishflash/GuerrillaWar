@@ -384,7 +384,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			destroyed = true;
 		}
 	}
-		if (c2->type == Collider::Type::WALL)
+		if (c2->type == Collider::Type::WALL || c2->type == Collider::Type::DESTROY)
 		{
 			switch (direction)
 			{
