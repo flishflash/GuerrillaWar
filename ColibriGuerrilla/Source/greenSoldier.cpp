@@ -7,6 +7,7 @@
 
 greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 {
+	cooldown = 0;
 
 	//walk forward
 	greenWalkforward.PushBack({0, 0, 27, 55});

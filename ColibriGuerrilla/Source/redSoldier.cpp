@@ -8,6 +8,10 @@
 
 redSoldier::redSoldier(int x, int y) : Enemy(x, y)
 {
+
+	cooldown = 0;
+	cooldown2 = 0;
+
 	front.PushBack({577,0,27,54});
 	front.PushBack({607,1,30,54});
 	front.PushBack({640,0,28,54});
