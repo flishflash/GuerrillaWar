@@ -33,6 +33,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2) override;
 
 	void shootNormalBullet();
+	void launchGranade();
 
 public:
 	// Position of the player in the map

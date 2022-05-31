@@ -162,6 +162,49 @@ void ModulePlayer::shootNormalBullet()
 	}
 }
 
+void ModulePlayer::launchGranade()
+{
+	switch (direction)
+	{
+	case 1:
+		App->particles->AddParticle(App->particles->granade, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+		App->particles->granade.speed.y = -1;
+		break;
+	case 2:
+		App->particles->AddParticle(App->particles->granade, position.x + 30, position.y, Collider::Type::PLAYER_SHOT);
+		App->particles->granade.speed.y = -1;
+		App->particles->granade.speed.x = 1;
+		break;
+	case 3:
+		App->particles->AddParticle(App->particles->granade, position.x + 20, position.y + 20, Collider::Type::PLAYER_SHOT);
+		App->particles->granade.speed.x = 1;
+		break;
+	case 4:
+		App->particles->AddParticle(App->particles->granade, position.x + 15, position.y + 30, Collider::Type::PLAYER_SHOT);
+		App->particles->granade.speed.y = 1;
+		App->particles->granade.speed.x = 1;
+		break;
+	case 5:
+		App->particles->AddParticle(App->particles->granade, position.x + 5, position.y + 25, Collider::Type::PLAYER_SHOT);
+		App->particles->granade.speed.y = 1;
+		break;
+	case 6:
+		App->particles->AddParticle(App->particles->granade, position.x - 7, position.y + 27, Collider::Type::PLAYER_SHOT);
+		App->particles->granade.speed.y = 1;
+		App->particles->granade.speed.x = -1;
+		break;
+	case 7:
+		App->particles->AddParticle(App->particles->granade, position.x - 20, position.y + 20, Collider::Type::PLAYER_SHOT);
+		App->particles->granade.speed.x = -1;
+		break;
+	case 8:
+		App->particles->AddParticle(App->particles->granade, position.x - 5, position.y, Collider::Type::PLAYER_SHOT);
+		App->particles->granade.speed.y = 1;
+		App->particles->granade.speed.x = -1;
+		break;
+	}
+}
+
 Update_Status ModulePlayer::Update()
 {
 	collider->rect.x = position.x;
@@ -260,6 +303,10 @@ Update_Status ModulePlayer::Update()
 	if (gana)
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
+	}
+	if (App->input->keys[SDL_SCANCODE_G])
+	{
+		launchGranade();
 	}
 
 	//change scene

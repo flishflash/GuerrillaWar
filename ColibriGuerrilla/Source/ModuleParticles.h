@@ -78,6 +78,8 @@ public:
 	Particle deathredAnim;
 	Particle deathgreenAnim;
 
+	Particle granade;
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;
