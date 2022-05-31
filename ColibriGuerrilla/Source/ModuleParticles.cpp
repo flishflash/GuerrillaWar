@@ -34,7 +34,8 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
-	//recluso
+	//
+
 	rescuedAnim.anim.PushBack({ 10, 258, 28, 56 });
 	rescuedAnim.anim.PushBack({ 44, 258, 28, 56 });
 	rescuedAnim.anim.PushBack({ 70, 258, 33, 58 });

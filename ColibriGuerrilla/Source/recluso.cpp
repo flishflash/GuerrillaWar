@@ -17,7 +17,7 @@ recluso::recluso(int x, int y) : pickUp(x, y)
 
 	currentAnim = &normalAnim;
 
-	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::RECLUSO, (Module*)App->picks);
+	collider = App->collisions->AddCollider({ x, y, 24, 55 }, Collider::Type::RECLUSO, (Module*)App->picks);
 }
 
 void recluso::OnCollision(Collider* collider) {

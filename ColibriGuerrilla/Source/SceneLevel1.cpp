@@ -156,13 +156,31 @@ bool SceneLevel1::Start()
 		
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 216, 3394);
 
-	App->picks->AddPick(Pick_Type::RECLUSO, 151, 3370 );
-	App->picks->AddPick(Pick_Type::RECLUSO, 175, 3370 );
-
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 114, 3330);
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 140, 3330);	
+	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 140, 3330);
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 310, 3345);
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 340, 3345);
+
+	//reclusos
+
+	App->picks->AddPick(Pick_Type::RECLUSO, 151, 3370 );
+	App->picks->AddPick(Pick_Type::RECLUSO, 175, 3370 );
+	
+	App->picks->AddPick(Pick_Type::RECLUSO, 247, 2920 );
+	App->picks->AddPick(Pick_Type::RECLUSO, 271, 2920 );
+
+	App->picks->AddPick(Pick_Type::RECLUSO, 548, 2522 );
+	App->picks->AddPick(Pick_Type::RECLUSO, 538, 2332 );
+
+	App->picks->AddPick(Pick_Type::RECLUSO, 423, 1929 );
+
+	App->picks->AddPick(Pick_Type::RECLUSO, 647, 1325);
+	App->picks->AddPick(Pick_Type::RECLUSO, 671, 1325);	
+	
+	App->picks->AddPick(Pick_Type::RECLUSO, 744, 1025);
+	App->picks->AddPick(Pick_Type::RECLUSO, 786, 1025);
+
+
 
 		
 	//PowerUps
