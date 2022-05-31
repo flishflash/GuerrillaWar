@@ -2,6 +2,9 @@
 #include "ModuleParticles.h"
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "ModulePickUp.h"
+
+
 
 redSoldier::redSoldier(int x, int y) : Enemy(x, y)
 {
@@ -27,18 +30,40 @@ redSoldier::redSoldier(int x, int y) : Enemy(x, y)
 
 }
 
+void redSoldier::OnCollision(Collider* collider) {
+
+	if (collider->type == Collider::Type::PLAYER_SHOT) {
+		
+		App->picks->AddPick(Pick_Type::FUSIL, positionenemy.x, positionenemy.y);
+	}
+
+	SetToDelete();
+}
+
 void redSoldier::Update()
 {
 	path.Update();
 	//positionenemy = spawnPos + path.GetRelativePosition();
 	//currentAnim = path.GetCurrentAnimation();
 
-	if (cooldown >= 50)
+	if (cooldown >= 70)
 	{
-		App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
-		App->particles->AddParticle(App->particles->enemyBulletL, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
-		App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
-		cooldown = 0;
+		if (cooldown2 == 5)
+		{
+			App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+		}
+		if (cooldown2 == 7)
+		{
+			App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+		}
+		if (cooldown2 == 9)
+		{
+			App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+			cooldown = 0;
+			cooldown2 = 0;
+		}
+
+		cooldown2++;
 	}
 	cooldown++;
 	// Call to the base class. It must be called at the end

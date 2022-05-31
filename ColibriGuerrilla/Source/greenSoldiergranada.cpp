@@ -9,27 +9,25 @@ greenSoldiergranada::greenSoldiergranada(int x, int y) : Enemy(x, y)
 {
 
 	//walk forward
-	greenWalkforward.PushBack({0, 0, 27, 55});
-	greenWalkforward.PushBack({32, 0, 26, 55});
-	greenWalkforward.PushBack({64, 0, 26, 55});
-	greenWalkforward.PushBack({96, 0, 26, 55});
-	greenWalkforward.PushBack({126, 0, 26, 55});
-	greenWalkforward.loop = true;
-	greenWalkforward.speed = 0.1f;
-
-	currentAnim = &greenWalkforward;
+	granadaWalkforward.PushBack({0, 0, 27, 55});
+	granadaWalkforward.PushBack({32, 0, 26, 55});
+	granadaWalkforward.PushBack({64, 0, 26, 55});
+	granadaWalkforward.PushBack({96, 0, 26, 55});
+	granadaWalkforward.PushBack({126, 0, 26, 55});
+	granadaWalkforward.loop = true;
+	granadaWalkforward.speed = 0.1f;
 
 	//walk backward
 
-	greenWalkbackward.PushBack({ 0, 237, 27, 55 });
-	greenWalkbackward.PushBack({ 32, 237, 26, 55 });
-	greenWalkbackward.PushBack({ 64, 237, 26, 55 });
-	greenWalkbackward.PushBack({ 96, 237, 26, 55 });
-	greenWalkbackward.PushBack({ 126, 237, 26, 55 });
-	greenWalkbackward.loop = true;
-	greenWalkbackward.speed = 0.1f;
+	granadaWalkbackward.PushBack({ 0, 237, 27, 55 });
+	granadaWalkbackward.PushBack({ 32, 237, 26, 55 });
+	granadaWalkbackward.PushBack({ 64, 237, 26, 55 });
+	granadaWalkbackward.PushBack({ 96, 237, 26, 55 });
+	granadaWalkbackward.PushBack({ 126, 237, 26, 55 });
+	granadaWalkbackward.loop = true;
+	granadaWalkbackward.speed = 0.1f;
 
-	currentAnim = &greenWalkbackward;
+	currentAnim = &granadaWalkbackward;
 
 	//path.PushBack({ 0, -1.2f }, 150, &greenWalkbackward);
 	//path.PushBack({ 0, 1.2f }, 50, &greenWalkforward);

@@ -15,6 +15,9 @@ public:
 	// Position will be updated depending on the speed defined at each step
 	void Update() override;
 
+	//colllisions
+	//void OnCollision(Collider* collider) override;
+
 private:
 	// A set of steps that define the position in the screen
 	// And an animation for each step
@@ -22,12 +25,12 @@ private:
 
 	// This enemy has one sprite and one frame
 	// We are keeping it an animation for consistency with other enemies
-	Animation greenWalkforward;
-	Animation greenWalkbackward;
-	Animation greenWalkswimforward;
-	Animation greenWalkswimbackward;
-	Animation greenWalkshot;
-	Animation greenWalk;
+	Animation granadaWalkforward;
+	Animation granadaWalkbackward;
+	Animation granadaWalkswimforward;
+	Animation granadaWalkswimbackward;
+	Animation granadaWalkshot;
+	Animation granadaWalk;
 	int cooldown = 20;
 };
 

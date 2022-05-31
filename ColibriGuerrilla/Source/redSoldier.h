@@ -15,10 +15,15 @@ public:
 	// Position will be updated depending on the speed defined at each step
 	void Update() override;
 
+	//colllisions
+	void OnCollision(Collider* collider) override;
+
+
 private:
 	// The path that will define the position in the world
 	Path path;
 	int cooldown = 0;
+	int cooldown2 = 0;
 	// Enemy animations
 	Animation front, back;
 };
