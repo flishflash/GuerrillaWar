@@ -37,10 +37,10 @@ Application::Application()
 	modules[7] =	sceneLevel_1 =	new SceneLevel1(false);
 	modules[8] =	destroys =		new ModuleDestroy(true);
 	modules[9] =	picks =			new ModulePickUp(true);
-	modules[10] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
-	modules[11] =	player =		new ModulePlayer(false);	//Player starts disabled
-	modules[12] =	weapon =		new ModuleWeapons(true);
-	modules[13] =	particles =		new ModuleParticles(true);
+	modules[10] =	particles =		new ModuleParticles(true);
+	modules[11] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	modules[12] =	player =		new ModulePlayer(false);	//Player starts disabled
+	modules[13] =	weapon =		new ModuleWeapons(true);
 
 	modules[14] =	collisions =	new ModuleCollisions(true);
 	modules[15] =	fade =			new ModuleFadeToBlack(true);
