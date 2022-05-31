@@ -73,6 +73,9 @@ public:
 	Particle enemyBulletL;
 	Particle enemyBulletR;
 
+	Particle deathAnim;
+	Particle rescuedAnim;
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;

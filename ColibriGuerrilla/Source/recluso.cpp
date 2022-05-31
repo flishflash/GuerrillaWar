@@ -2,6 +2,8 @@
 
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "ModulePickUp.h"
+#include "ModuleParticles.h"
 
 recluso::recluso(int x, int y) : pickUp(x, y)
 {
@@ -15,35 +17,29 @@ recluso::recluso(int x, int y) : pickUp(x, y)
 
 	currentAnim = &normalAnim;
 
-	rescuedAnim.PushBack({ 5, 74, 26, 45 });
-	rescuedAnim.PushBack({ 38, 69, 24, 50 });
-	rescuedAnim.PushBack({ 65, 63, 31, 58 });
-	rescuedAnim.speed = 0.1f;
-
-	deathAnim.PushBack({ 0, 237, 27, 55 });
-	deathAnim.PushBack({ 32, 237, 26, 55 });
-	deathAnim.PushBack({ 64, 237, 26, 55 });
-	deathAnim.PushBack({ 64, 237, 26, 55 });
-	deathAnim.speed = 0.1f;
-
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::RECLUSO, (Module*)App->picks);
+}
+
+void recluso::OnCollision(Collider* collider) {
+	path.Update();
+
+	if (collider->type == Collider::Type::PLAYER_SHOT || collider->type == Collider::Type::ENEMY_SHOT) {
+
+		App->particles->AddParticle(App->particles->deathAnim, positionenemy.x, positionenemy.y, Collider::Type::NONE);
+	}
+	else
+	{
+		App->particles->AddParticle(App->particles->rescuedAnim, positionenemy.x, positionenemy.y, Collider::Type::NONE);
+	}
+
+		SetToDelete();
+
 }
 
 void recluso::Update()
 {
 	if (currentAnim != nullptr)
 		currentAnim->Update();
-	
+
 	pickUp::Update();
 }
-//void recluso::OnCollision(Collider* c1, Collider* c2)
-//{
-//	if (c2->type == Collider::Type::PLAYER)
-//	{
-//		currentAnim = &rescuedAnim;
-//	}
-//	if (c2->type == Collider::Type::PLAYER_SHOT || c2->type == Collider::Type::ENEMY_SHOT)
-//	{
-//		currentAnim = &deathAnim;
-//	}
-//}

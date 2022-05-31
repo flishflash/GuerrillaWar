@@ -22,7 +22,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	texture = App->textures->Load("Assets/Sprites/shoots.png");
+	texture = App->textures->Load("Assets/Sprites/particles.png");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
@@ -34,6 +34,20 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
+	//recluso
+	rescuedAnim.anim.PushBack({ 10, 258, 28, 56 });
+	rescuedAnim.anim.PushBack({ 44, 258, 28, 56 });
+	rescuedAnim.anim.PushBack({ 70, 258, 33, 58 });
+	rescuedAnim.anim.loop = false;
+	rescuedAnim.anim.speed = 0.1f;
+
+
+	deathAnim.anim.PushBack({ 10, 322, 27, 58 });
+	deathAnim.anim.PushBack({ 44, 322, 24, 55 });
+	deathAnim.anim.PushBack({ 75, 322, 25, 54 });
+	deathAnim.anim.PushBack({ 108, 322, 24, 46 });
+	deathAnim.anim.loop = false;
+	deathAnim.anim.speed = 0.1f;
 
 	//Normal bullet anims
 	bulletN.anim.PushBack({ 7, 180, 7, 10 });

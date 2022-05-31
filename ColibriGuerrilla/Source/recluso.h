@@ -2,6 +2,7 @@
 #define __RECLUSO_H__
 
 #include "pickUp.h"
+#include "path.h"
 #define MAX_RECLUSOS 100
 struct ReclusoSpawnpoint
 {
@@ -18,28 +19,18 @@ public:
 
 	// The enemy is going to perform a sinusoidal movement
 	void Update() override;
-	void OnCollision(Collider* c1, Collider* c2);
+	void OnCollision(Collider* c1);
 
 private:
-	// The position (as ratio) in the wave at a specific moment
-	float waveRatio = 0.0f;
-
-	// The speed at which the wave ratio is increased
-	float waveRatioSpeed = 0.05f;
-
 	// The original spawning position. The wave will be calculated from that
-	int spawn_y = 0;
-
-	// The total height of the wave
-	int waveHeight = 15;
-
+	Path path;
 	// The enemy animation
 	Animation normalAnim;
 	Animation rescuedAnim;
 	Animation deathAnim;
 
 	ReclusoSpawnpoint spawnQueueR[MAX_RECLUSOS];
-
+	int deletecooldown;
 };
 
 #endif // __RECLUSO_H__

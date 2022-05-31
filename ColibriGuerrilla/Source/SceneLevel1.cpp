@@ -146,12 +146,12 @@ bool SceneLevel1::Start()
 
 	if (App->player->position.y <= 330)
 	{
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 187, 3510);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 227, 3510);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 267, 3510);		
-		
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 152, 3440);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 280, 3440);
+		//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 187, 3510);
+		//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 227, 3510);
+		//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 267, 3510);		
+		//
+		//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 152, 3440);
+		//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 280, 3440);
 	}
 		
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 216, 3394);
