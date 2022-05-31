@@ -56,6 +56,27 @@ public:
 	Animation WsouthEastAnim;
 	Animation WsouthWestAnim;
 	Animation WdownAnim;
+
+	Animation TidleAnim;
+	Animation TnorthAnim;
+	Animation TsouthAnim;
+	Animation TeastAnim;
+	Animation TwestAnim;
+	Animation TnorthEastAnim;
+	Animation TnorthWestAnim;
+	Animation TsouthEastAnim;
+	Animation TsouthWestAnim;
+	Animation TdownAnim;
+	Animation TWidleAnim;
+	Animation TWnorthAnim;
+	Animation TWsouthAnim;
+	Animation TWeastAnim;
+	Animation TWwestAnim;
+	Animation TWnorthEastAnim;
+	Animation TWnorthWestAnim;
+	Animation TWsouthEastAnim;
+	Animation TWsouthWestAnim;
+	Animation TWdownAnim;
 	int direction;
 
 	bool destroyed = false;
