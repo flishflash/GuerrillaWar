@@ -60,6 +60,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::RECLUSO] = true;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PICK] = false;
+	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::EXPLOSION] = false;
 
 	matrix[Collider::Type::WATER][Collider::Type::WALL] = false;
 	matrix[Collider::Type::WATER][Collider::Type::PLAYER] = true;
