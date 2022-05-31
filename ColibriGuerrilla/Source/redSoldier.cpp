@@ -37,6 +37,8 @@ void redSoldier::OnCollision(Collider* collider) {
 		App->picks->AddPick(Pick_Type::FUSIL, positionenemy.x, positionenemy.y);
 	}
 
+	App->particles->AddParticle(App->particles->deathredAnim, positionenemy.x, positionenemy.y, Collider::Type::NONE);
+
 	SetToDelete();
 }
 

@@ -49,6 +49,24 @@ bool ModuleParticles::Start()
 	deathAnim.anim.loop = false;
 	deathAnim.anim.speed = 0.1f;
 
+	//soldier death
+	deathgreenAnim.anim.PushBack({ 177, 326, 29, 49 });
+	deathgreenAnim.anim.PushBack({ 211, 326, 29, 49 });
+	deathgreenAnim.anim.PushBack({ 244, 326, 25, 46 });
+	deathgreenAnim.anim.PushBack({ 276, 326, 25, 48 });
+	deathgreenAnim.anim.PushBack({ 307, 326, 26, 48 });
+	deathgreenAnim.anim.loop = false;
+	deathgreenAnim.anim.speed = 0.1f;
+
+
+	deathredAnim.anim.PushBack({ 177, 266, 29, 49 });
+	deathredAnim.anim.PushBack({ 211, 266, 29, 49 });
+	deathredAnim.anim.PushBack({ 244, 266, 25, 46 });
+	deathredAnim.anim.PushBack({ 276, 267, 25, 48 });
+	deathredAnim.anim.PushBack({ 307, 267, 26, 48 });
+	deathredAnim.anim.loop = false;
+	deathredAnim.anim.speed = 0.1f;
+
 	//Normal bullet anims
 	bulletN.anim.PushBack({ 7, 180, 7, 10 });
 	bulletN.anim.PushBack({ 23, 179, 7, 11 });

@@ -34,7 +34,12 @@ greenSoldiergranada::greenSoldiergranada(int x, int y) : Enemy(x, y)
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
+void greenSoldiergranada::OnCollision(Collider* collider) {
 
+	App->particles->AddParticle(App->particles->deathgreenAnim, positionenemy.x, positionenemy.y, Collider::Type::NONE);
+
+	SetToDelete();
+}
 void greenSoldiergranada::Update()
 {
 	/*path.Update();

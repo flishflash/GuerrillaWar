@@ -75,6 +75,8 @@ public:
 
 	Particle deathAnim;
 	Particle rescuedAnim;
+	Particle deathredAnim;
+	Particle deathgreenAnim;
 
 private:
 	// Particles spritesheet loaded into an SDL Texture

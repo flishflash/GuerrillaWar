@@ -16,7 +16,7 @@ public:
 	void Update() override;
 
 	//colllisions
-	//void OnCollision(Collider* collider) override;
+	void OnCollision(Collider* collider) override;
 
 private:
 	// A set of steps that define the position in the screen
