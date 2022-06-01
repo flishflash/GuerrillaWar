@@ -13,8 +13,7 @@ pickUp::pickUp(int x, int y) : positionenemy(x, y)
 
 pickUp::~pickUp()
 {
-	if (collider != nullptr)
-		collider->pendingToDelete = true;
+
 }
 
 const Collider* pickUp::GetCollider() const

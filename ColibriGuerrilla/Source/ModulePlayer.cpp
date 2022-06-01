@@ -13,6 +13,7 @@
 #include "Lose.h"
 #include "Win.h"
 #include <stdio.h>
+#include <math.h>
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
@@ -124,11 +125,6 @@ bool ModulePlayer::Start()
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 22, 30 }, Collider::Type::PLAYER, this);
 
-	App->input->num_controllers = SDL_NumJoysticks();
-	for (int i = 0; i < App->input->num_controllers; ++i)
-		if (SDL_IsGameController(i))
-			App->input->sdl_controllers[i] = SDL_GameControllerOpen(i);
-
 	char lookupTable[] = { "0123456789abcdefghijklmnopqrstuvwxyz. @'&-" };
 	scoreFont = App->fonts->Load("Assets/Fonts/ui_font_.png", lookupTable, 1);
 
@@ -211,6 +207,7 @@ void ModulePlayer::launchGranade()
 
 Update_Status ModulePlayer::Update()
 {
+
 	collider->rect.x = position.x;
 	collider->rect.y = position.y + 25;
 	//Camara
@@ -230,6 +227,7 @@ Update_Status ModulePlayer::Update()
 	{
 		cameraGameplay.y -= speed;
 	}
+
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 
 	if (App->input->keys[SDL_SCANCODE_W]) {

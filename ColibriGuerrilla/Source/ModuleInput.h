@@ -2,6 +2,7 @@
 #define __MODULE_INPUT_H__
 
 #include "Module.h"
+#include <math.h>
 #include "Globals.h"
 #include "SDL/include/SDL_scancode.h"
 #include "SDL/include/SDL_gamecontroller.h"
@@ -44,6 +45,14 @@ public:
 	bool CleanUp() override;
 
 	Application* App;
+
+	float reduce_val(float v1, float min, float clamp_to) {
+		float sign = v1 / fabs(v1);
+		float reduced = v1 - ((fabs(v1) > min) ? sign * min : v1);
+		float to_1 = reduced / (float)(SDL_MAX_SINT16);
+		float reclamped = to_1 * clamp_to;
+		return reclamped;
+	}
 
 public:
 	// An array to fill in the state of all the keyboard keys

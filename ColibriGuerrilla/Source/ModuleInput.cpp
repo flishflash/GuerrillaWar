@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "SDL/include/SDL.h"
+#include <math.h>
 
 ModuleInput::ModuleInput(bool startEnabled) : Module(startEnabled)
 {}
@@ -15,7 +16,7 @@ bool ModuleInput::Init()
 	bool ret = true;
 	SDL_Init(0);
 
-	if(SDL_InitSubSystem(SDL_INIT_EVENTS) < 0)
+	if(SDL_InitSubSystem(SDL_INIT_EVENTS | SDL_INIT_GAMECONTROLLER) < 0)
 	{
 		LOG("SDL_EVENTS could not initialize! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
@@ -66,6 +67,7 @@ Update_Status ModuleInput::PreUpdate()
 		}
 
 		controllers[i].j1_x = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_LEFTX);
+		//if (controllers[i].j1_x > 10000 || controllers[i].j1_x < -10000) controllers[i].j1_x = 0; else controllers[i].j1_x = controllers[i].j1_x / (-controllers[i].j1_x);
 		controllers[i].j1_y = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_LEFTY);
 		controllers[i].j2_x = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_RIGHTX);
 		controllers[i].j2_y = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_RIGHTY);
@@ -76,18 +78,12 @@ Update_Status ModuleInput::PreUpdate()
 	return Update_Status::UPDATE_CONTINUE;
 }
 
-float reduce_val(float v1, float min, float clamp_to) {
-	float sign = v1 / fabs(v1);
-	float reduced = v1 - ((fabs(v1) > min) ? sign * min : v1);
-	float to_1 = reduced / (float)(SDL_MAX_SINT16);
-	float reclamped = to_1 * clamp_to;
-	return reclamped;
-}
-
 bool ModuleInput::CleanUp()
 {
 	LOG("Quitting SDL input event subsystem");
 
 	SDL_QuitSubSystem(SDL_INIT_EVENTS);
+	SDL_QuitSubSystem(SDL_INIT_GAMECONTROLLER);
+
 	return true;
 }

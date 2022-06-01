@@ -36,7 +36,7 @@ bool SceneIntro::Start()
 
 Update_Status SceneIntro::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A])
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 60);
 		
