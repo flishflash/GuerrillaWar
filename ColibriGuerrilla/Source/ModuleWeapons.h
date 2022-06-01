@@ -28,7 +28,7 @@ public:
 	iPoint spritep;
 	int speed = 1;
 
-	int options = 1;
+	int options;
 	// The weapon spritesheet loaded into an SDL_Texture
 	SDL_Texture* textureW = nullptr;
 

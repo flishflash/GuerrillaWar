@@ -151,19 +151,19 @@ ModuleWeapons::ModuleWeapons(bool startEnabled) : Module(startEnabled)
 
 	// west animation
 	WwestAnim.PushBack({ 310, 583, 37, 43 });
-	WwestAnim.PushBack({ 371, 583, 39, 42 });
-	WwestAnim.PushBack({ 434, 583, 36, 43 });
-	WwestAnim.PushBack({ 494, 583, 39, 43 });
-	WwestAnim.PushBack({ 557, 583, 39, 43 });
+	WwestAnim.PushBack({ 370, 583, 39, 42 });
+	WwestAnim.PushBack({ 429, 583, 36, 43 });
+	WwestAnim.PushBack({ 489, 583, 39, 43 });
+	WwestAnim.PushBack({ 550, 583, 39, 43 });
 	WwestAnim.loop = true;
 	WwestAnim.speed = 0.1f;
 
 	//northwest animation
-	WnorthWestAnim.PushBack({ 261, 677, 30, 42 });
-	WnorthWestAnim.PushBack({ 315, 677, 29, 43 });
-	WnorthWestAnim.PushBack({ 368, 677, 28, 42 });
-	WnorthWestAnim.PushBack({ 420, 677, 29, 43 });
-	WnorthWestAnim.PushBack({ 473, 677, 28, 42 });
+	WnorthWestAnim.PushBack({ 258, 677, 30, 42 });
+	WnorthWestAnim.PushBack({ 313, 677, 29, 43 });
+	WnorthWestAnim.PushBack({ 367, 677, 28, 42 });
+	WnorthWestAnim.PushBack({ 418, 677, 29, 43 });
+	WnorthWestAnim.PushBack({ 469, 677, 28, 42 });
 	WnorthWestAnim.loop = true;
 	WnorthWestAnim.speed = 0.1f;
 
@@ -200,19 +200,19 @@ ModuleWeapons::ModuleWeapons(bool startEnabled) : Module(startEnabled)
 
 	//southeasst animation
 	TsouthEastAnim.PushBack({ 749, 290, 29, 57 });
-	TsouthEastAnim.PushBack({ 802, 290, 29, 56 });
-	TsouthEastAnim.PushBack({ 855, 290, 25, 55 });
-	TsouthEastAnim.PushBack({ 904, 290, 25, 55 });
-	TsouthEastAnim.PushBack({ 953, 290, 26, 56 });
+	TsouthEastAnim.PushBack({ 800, 290, 29, 56 });
+	TsouthEastAnim.PushBack({ 850, 290, 25, 55 });
+	TsouthEastAnim.PushBack({ 898, 290, 25, 55 });
+	TsouthEastAnim.PushBack({ 944, 290, 26, 56 });
 	TsouthEastAnim.loop = true;
 	TsouthEastAnim.speed = 0.1f;
 
 	//south animation
 	TsouthAnim.PushBack({ 806, 379, 29, 58 });
-	TsouthAnim.PushBack({ 859, 379, 28, 58 });
-	TsouthAnim.PushBack({ 911, 379, 26, 55 });
-	TsouthAnim.PushBack({ 961, 379, 27, 57 });
-	TsouthAnim.PushBack({ 1012, 379, 28, 58 });
+	TsouthAnim.PushBack({ 857, 379, 28, 58 });
+	TsouthAnim.PushBack({ 906, 379, 26, 55 });
+	TsouthAnim.PushBack({ 956, 379, 27, 57 });
+	TsouthAnim.PushBack({ 1007, 379, 28, 58 });
 	TsouthAnim.loop = true;
 	TsouthAnim.speed = 0.1f;
 
@@ -226,11 +226,11 @@ ModuleWeapons::ModuleWeapons(bool startEnabled) : Module(startEnabled)
 	TsouthWestAnim.speed = 0.1f;
 
 	// west animation
-	TwestAnim.PushBack({ 848, 583, 43, 56 });
-	TwestAnim.PushBack({ 915, 583, 45, 55 });
-	TwestAnim.PushBack({ 948, 583, 43, 57 });
-	TwestAnim.PushBack({ 1051, 583, 43, 56 });
-	TwestAnim.PushBack({ 1118, 583, 45, 55 });
+	TwestAnim.PushBack({ 958, 583, 43, 56 });
+	TwestAnim.PushBack({ 1025, 583, 45, 55 });
+	TwestAnim.PushBack({ 1094, 583, 43, 57 });
+	TwestAnim.PushBack({ 1161, 583, 43, 56 });
+	TwestAnim.PushBack({ 1228, 583, 45, 55 });
 	TwestAnim.loop = true;
 	TwestAnim.speed = 0.1f;
 
@@ -276,20 +276,20 @@ ModuleWeapons::ModuleWeapons(bool startEnabled) : Module(startEnabled)
 	TWeastAnim.speed = 0.1f;
 
 	//southeasst animation
-	TWsouthEastAnim.PushBack({ 1003, 290, 26, 43 });
-	TWsouthEastAnim.PushBack({ 1053, 290, 27, 43 });
-	TWsouthEastAnim.PushBack({ 1104, 290, 25, 43 });
-	TWsouthEastAnim.PushBack({ 1153, 290, 25, 44 });
-	TWsouthEastAnim.PushBack({ 1202, 290, 24, 44 });
+	TWsouthEastAnim.PushBack({ 992,  290, 26, 43 });
+	TWsouthEastAnim.PushBack({ 1041, 290, 27, 43 });
+	TWsouthEastAnim.PushBack({ 1091, 290, 25, 43 });
+	TWsouthEastAnim.PushBack({ 1138, 290, 25, 44 });
+	TWsouthEastAnim.PushBack({ 1186, 290, 24, 44 });
 	TWsouthEastAnim.loop = true;
 	TWsouthEastAnim.speed = 0.1f;
 
 	//south animation
-	TWsouthAnim.PushBack({ 1064, 379, 26, 46 });
-	TWsouthAnim.PushBack({ 1114, 379, 25, 46 });
-	TWsouthAnim.PushBack({ 1163, 379, 26, 46 });
-	TWsouthAnim.PushBack({ 1213, 379, 27, 46 });
-	TWsouthAnim.PushBack({ 1264, 379, 28, 46 });
+	TWsouthAnim.PushBack({ 1059, 379, 26, 46 });
+	TWsouthAnim.PushBack({ 1109, 379, 25, 46 });
+	TWsouthAnim.PushBack({ 1158, 379, 26, 46 });
+	TWsouthAnim.PushBack({ 1208, 379, 27, 46 });
+	TWsouthAnim.PushBack({ 1259, 379, 28, 46 });
 	TWsouthAnim.loop = true;
 	TWsouthAnim.speed = 0.1f;
 
@@ -303,20 +303,20 @@ ModuleWeapons::ModuleWeapons(bool startEnabled) : Module(startEnabled)
 	TWsouthWestAnim.speed = 0.1f;
 
 	// west animation
-	TWwestAnim.PushBack({ 1187, 583, 43, 43 });
-	TWwestAnim.PushBack({ 1254, 583, 43, 42 });
-	TWwestAnim.PushBack({ 1321, 583, 44, 43 });
-	TWwestAnim.PushBack({ 1389, 583, 42, 43 });
-	TWwestAnim.PushBack({ 1455, 583, 43, 43 });
+	TWwestAnim.PushBack({ 1297, 583, 43, 43 });
+	TWwestAnim.PushBack({ 1364, 583, 43, 42 });
+	TWwestAnim.PushBack({ 1431, 583, 44, 43 });
+	TWwestAnim.PushBack({ 1499, 583, 42, 43 });
+	TWwestAnim.PushBack({ 1565, 583, 43, 43 });
 	TWwestAnim.loop = true;
 	TWwestAnim.speed = 0.1f;
 
 	//northwest animation
-	TWnorthWestAnim.PushBack({ 261, 677, 33, 42 });
-	TWnorthWestAnim.PushBack({ 315, 677, 32, 43 });
-	TWnorthWestAnim.PushBack({ 368, 677, 31, 42 });
-	TWnorthWestAnim.PushBack({ 420, 677, 32, 43 });
-	TWnorthWestAnim.PushBack({ 473, 677, 32, 42 });
+	TWnorthWestAnim.PushBack({ 1094, 677, 33, 42 });
+	TWnorthWestAnim.PushBack({ 1149, 677, 32, 43 });
+	TWnorthWestAnim.PushBack({ 1205, 677, 31, 42 });
+	TWnorthWestAnim.PushBack({ 1260, 677, 32, 43 });
+	TWnorthWestAnim.PushBack({ 1316, 677, 32, 42 });
 	TWnorthWestAnim.loop = true;
 	TWnorthWestAnim.speed = 0.1f;
 
