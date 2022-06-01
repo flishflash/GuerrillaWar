@@ -28,7 +28,7 @@ public:
 	iPoint spritep;
 	int speed = 1;
 
-	int options;
+	int options = 1;
 	// The weapon spritesheet loaded into an SDL_Texture
 	SDL_Texture* textureW = nullptr;
 
@@ -77,7 +77,7 @@ public:
 	Animation TWsouthEastAnim;
 	Animation TWsouthWestAnim;
 	Animation TWdownAnim;
-	int direction;
+	int direction = 1;
 
 	bool destroyed = false;
 };

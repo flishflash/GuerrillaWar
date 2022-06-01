@@ -350,7 +350,7 @@ Update_Status ModuleWeapons::Update()
 { 
 	switch (options)
 	{
-	case  1:
+		case  1:
 			if (App->input->keys[SDL_SCANCODE_W]) {
 				direction = 1;
 				spritep.y = App->player->position.y;
@@ -419,7 +419,8 @@ Update_Status ModuleWeapons::Update()
 			else WcurrentAnimation->loop = true;
 			WcurrentAnimation->Update();
 		//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
-	case 2:
+			break;
+		case 2:
 		
 			if (App->input->keys[SDL_SCANCODE_W]) {
 				direction = 1;
@@ -488,7 +489,8 @@ Update_Status ModuleWeapons::Update()
 			if (!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W] && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A]) WcurrentAnimation->loop = false;
 			else WcurrentAnimation->loop = true;
 			WcurrentAnimation->Update();
-	case  3:
+			break;
+		case  3:
 		if (App->input->keys[SDL_SCANCODE_W]) {
 			direction = 1;
 			spritep.y = App->player->position.y;
@@ -557,7 +559,8 @@ Update_Status ModuleWeapons::Update()
 		else WcurrentAnimation->loop = true;
 		WcurrentAnimation->Update();
 		//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
-	case 4:
+		break;
+		case 4:
 
 		if (App->input->keys[SDL_SCANCODE_W]) {
 			direction = 1;

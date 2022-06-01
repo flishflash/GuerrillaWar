@@ -124,22 +124,22 @@ bool ModuleParticles::Start()
 	//Enemy bullets
 	enemyBullet.anim.PushBack({194, 64, 12, 17});
 	enemyBullet.anim.PushBack({212, 65, 11, 16});
-	enemyBullet.speed.y = 5;
-	enemyBullet.lifetime = 100;
+	enemyBullet.speed.y = 3;
+	enemyBullet.lifetime = 40;
 	enemyBullet.anim.speed = 0.1f;	
 	
 	enemyBulletL.anim.PushBack({194, 64, 12, 17});
 	enemyBulletL.anim.PushBack({212, 65, 11, 16});
-	enemyBulletL.speed.x = -2;
-	enemyBulletL.speed.y = 3;
-	enemyBulletL.lifetime = 100;
+	enemyBulletL.speed.x = -1;
+	enemyBulletL.speed.y = 2;
+	enemyBulletL.lifetime = 40;
 	enemyBulletL.anim.speed = 0.1f;	
 	
 	enemyBulletR.anim.PushBack({194, 64, 12, 17});
 	enemyBulletR.anim.PushBack({212, 65, 11, 16});
-	enemyBulletR.speed.x = 2;
-	enemyBulletR.speed.y = 3;
-	enemyBulletR.lifetime = 100;
+	enemyBulletR.speed.x = 1;
+	enemyBulletR.speed.y = 2;
+	enemyBulletR.lifetime = 40;
 	enemyBulletR.anim.speed = 0.1f;
 
 	granade.anim.PushBack({ 0, 160, 15, 16 });
