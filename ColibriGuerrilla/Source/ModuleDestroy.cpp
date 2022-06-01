@@ -29,6 +29,24 @@
 		texture = App->textures->Load("Assets/Sprites/Guerrilla_Objects.png");
 		//enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
+		//Rock
+		rock.anim.PushBack({0,0,33,26});
+		rock.anim.loop = true;
+		
+		rockL.anim.PushBack({93,0,24,32});
+		rockL.anim.loop = true;
+
+		trinch.anim.PushBack({ 95,60,69,24 });
+		trinch.anim.loop = true;
+
+		//Fence
+		fence.anim.PushBack({44,35,42,65});
+		fence.anim.loop = true;
+		
+		fence2.anim.PushBack({0,50,39,49});
+		fence2.anim.loop = true;
+
+
 		return true;
 	}
 
@@ -116,14 +134,20 @@
 
 	void ModuleDestroy::OnCollision(Collider* c1, Collider* c2)
 	{
-		for (uint i = 0; i < MAX_DESTROY; ++i)
+		if (c2->type == Collider::Type::EXPLOSION)
 		{
-			// Always destroy particles that collide
-			if (destroys[i] != nullptr && destroys[i]->collider == c1)
+			for (uint i = 0; i < MAX_DESTROY; ++i)
 			{
-				destroys[i]->pendingToDelete = true;
-				destroys[i]->collider->pendingToDelete = true;
-				break;
+				// Always destroy particles that collide
+
+				if (destroys[i] != nullptr && destroys[i]->collider == c1)
+				{
+					destroys[i]->pendingToDelete = true;
+					destroys[i]->collider->pendingToDelete = true;
+					break;
+				}
+
+
 			}
 		}
 	}

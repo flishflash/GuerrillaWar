@@ -9,6 +9,8 @@
 #include "ModuleFonts.h"
 #include "ModuleInput.h"
 #include "ModulePickUp.h"
+#include "ModuleDestroy.h"
+#include "ModuleParticles.h"
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
@@ -180,16 +182,123 @@ bool SceneLevel1::Start()
 	App->picks->AddPick(Pick_Type::RECLUSO, 744, 1025);
 	App->picks->AddPick(Pick_Type::RECLUSO, 786, 1025);
 
+	//destrible
 
+	App->destroys->AddDestroy(App->destroys->rock, 127, 3494, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 161, 3494, Collider::Type::DESTROY);
 
+	App->destroys->AddDestroy(App->destroys->rock, 256, 3494, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 290, 3494, Collider::Type::DESTROY);
+	
+	App->destroys->AddDestroy(App->destroys->rock, 288, 3078, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 322, 3078, Collider::Type::DESTROY);
+	
+	App->destroys->AddDestroy(App->destroys->rock, 128, 2998, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 162, 3078, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 196, 3078, Collider::Type::DESTROY);	
+	
+	App->destroys->AddDestroy(App->destroys->rock, 416, 2501, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 450, 2501, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->rockL, 487, 2462, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rockL, 552, 1471, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->rock, 256, 2104, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 290, 2104, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 324, 2104, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 358, 2104, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 392, 2104, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 426, 2104, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->rock, 544, 2104, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 578, 2104, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 612, 2104, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 646, 2104, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 680, 2104, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 714, 2104, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->fence, 256, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 285, 2033, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 310, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 339, 2033, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 365, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 394, 2033, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 419, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 448, 2033, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 473, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 502, 2033, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 527, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 556, 2033, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 581, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 610, 2033, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 635, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 664, 2033, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 689, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 718, 2033, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 743, 2033, Collider::Type::DESTROY);
 		
-	//PowerUps
-	// 
-	//App->picks->AddPick(Pick_Type::RECLUSO, 220, 3600);
+	App->destroys->AddDestroy(App->destroys->rock, 415, 1495, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 512, 1495, Collider::Type::DESTROY);
 
-	//camera
-	/*App->render->camera.x = 135;
-	App->render->camera.y = 3800;*/
+	App->destroys->AddDestroy(App->destroys->rock, 512, 1399, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 546, 1399, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 580, 1399, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 614, 1399, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 648, 1399, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 682, 1399, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->rock, 703, 1175, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 737, 1175, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 771, 1175, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 805, 1175, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->rock, 640, 1063, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 674, 1063, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 708, 1063, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->rock, 800, 1063, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 834, 1063, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 868, 1063, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->rock, 639, 551, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 673, 551, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 707, 551, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->rock, 800, 551, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 834, 551, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->rock, 673, 503, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 707, 503, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 741, 503, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 775, 503, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rock, 809, 503, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->rockL, 614, 511, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->rockL, 614, 544, Collider::Type::DESTROY);
+
+
+	App->destroys->AddDestroy(App->destroys->fence, 256, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 285, 1645, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 310, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 339, 1645, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 365, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 394, 1630, Collider::Type::DESTROY);
+
+	App->destroys->AddDestroy(App->destroys->fence, 521, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 550, 1645, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 575, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 604, 1645, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 629, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 659, 1645, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 683, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 712, 1645, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 737, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 766, 1645, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 791, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence2, 820, 1645, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 845, 1630, Collider::Type::DESTROY);
+
+	//camara
 
 	App->player->cameraGameplay.x = 135;
 	App->player->cameraGameplay.y = 3800;
@@ -224,8 +333,8 @@ bool SceneLevel1::CleanUp()
 	App->enemies->Disable();
 	App->collisions->CleanUp();
 	App->picks->CleanUp();
-
-	// TODO 5 (old): Remove All Memory Leaks - no solution here guys ;)
+	App->destroys->CleanUp();
+	App->particles->CleanUp();
 
 	return true;
 }
