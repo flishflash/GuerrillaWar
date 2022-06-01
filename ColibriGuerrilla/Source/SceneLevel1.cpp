@@ -89,40 +89,39 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 254, 1695, 29, 318 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 671, 1695, 32, 315 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 642, 1983, 124, 32 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 254, 1950, 64, 64 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 642, 1953, 58, 29 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 256, 1696, 61, 62 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 256, 1600, 94, 30 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 254, 1950, 64, 64 },  Collider::Type::WALL);
+	App->collisions->AddCollider({ 642, 1953, 58, 29 },  Collider::Type::WALL);
+	App->collisions->AddCollider({ 256, 1696, 61, 62 },  Collider::Type::WALL);
+	App->collisions->AddCollider({ 256, 1600, 94, 30 },  Collider::Type::WALL);
 	App->collisions->AddCollider({ 670, 1600, 194, 30 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 667, 1523, 265, 57 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 246, 1534, 148, 45 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 312, 1450, 52, 65 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 312, 1450, 52, 65 },  Collider::Type::WALL);
 	App->collisions->AddCollider({ 737, 1489, 145, 30 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 340, 1150, 170, 270 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 483, 1146, 134, 193 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 606, 1245, 31, 95 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 828, 1454, 53, 35 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 340, 1150, 170, 270 },Collider::Type::WALL);
+	App->collisions->AddCollider({ 483, 1146, 134, 193 },Collider::Type::WALL);
+	App->collisions->AddCollider({ 606, 1245, 31, 95 },  Collider::Type::WALL);
+	App->collisions->AddCollider({ 828, 1454, 53, 35 },  Collider::Type::WALL);
 	App->collisions->AddCollider({ 856, 1150, 70, 313 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 883, 1123, 109, 159 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 930, 1070, 31, 64 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 511, 1070, 36, 67 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 479, 3, 153, 373 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 905, 3, 111, 401 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 887, 227, 34, 109 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 883, 1123, 109, 159 },Collider::Type::WALL);
+	App->collisions->AddCollider({ 930, 1070, 31, 64 },  Collider::Type::WALL);
+	App->collisions->AddCollider({ 511, 1070, 36, 67 },  Collider::Type::WALL);
+	App->collisions->AddCollider({ 479, 3, 153, 373 },   Collider::Type::WALL);
+	App->collisions->AddCollider({ 905, 3, 111, 401 },   Collider::Type::WALL);
+	App->collisions->AddCollider({ 887, 227, 34, 109 },  Collider::Type::WALL);
 	App->collisions->AddCollider({ 484, 363, 121, 116 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 890, 281, 126, 304 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 862, 415, 69, 32 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 481, 486, 112, 70 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 481, 549, 80, 34 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 600, 0, 104, 189 }, Collider::Type::WALL);
-	App->collisions->AddCollider({ 829, 0, 99, 189 }, Collider::Type::WALL);
+	App->collisions->AddCollider({ 862, 415, 69, 32 },   Collider::Type::WALL);
+	App->collisions->AddCollider({ 481, 486, 112, 70 },  Collider::Type::WALL);
+	App->collisions->AddCollider({ 481, 549, 80, 34 },   Collider::Type::WALL);
+	App->collisions->AddCollider({ 600, 0, 104, 189 },   Collider::Type::WALL);
+	App->collisions->AddCollider({ 829, 0, 99, 189 },    Collider::Type::WALL);
 
 	//Win collider
 	App->collisions->AddCollider({ 729, 128, 71, 52 }, Collider::Type::WIN);
 
 	
 	// Enemies ---
-
 	if (App->player->cameraGameplay.y <= 0)
 	{
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3600);
@@ -148,12 +147,12 @@ bool SceneLevel1::Start()
 
 	if (App->player->position.y <= 330)
 	{
-		//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 187, 3510);
-		//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 227, 3510);
-		//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 267, 3510);		
-		//
-		//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 152, 3440);
-		//App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 280, 3440);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 187, 3510);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 227, 3510);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 267, 3510);		
+		
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 152, 3440);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 280, 3440);
 	}
 		
 	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 216, 3394);
@@ -164,7 +163,6 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 340, 3345);
 
 	//reclusos
-
 	App->picks->AddPick(Pick_Type::RECLUSO, 151, 3370 );
 	App->picks->AddPick(Pick_Type::RECLUSO, 175, 3370 );
 	
@@ -183,7 +181,6 @@ bool SceneLevel1::Start()
 	App->picks->AddPick(Pick_Type::RECLUSO, 786, 1025);
 
 	//destrible
-
 	App->destroys->AddDestroy(App->destroys->rock, 127, 3494, Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->rock, 161, 3494, Collider::Type::DESTROY);
 
@@ -217,25 +214,25 @@ bool SceneLevel1::Start()
 	App->destroys->AddDestroy(App->destroys->rock, 680, 2104, Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->rock, 714, 2104, Collider::Type::DESTROY);
 
-	App->destroys->AddDestroy(App->destroys->fence, 256, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 256, 2018,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 285, 2033, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 310, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 310, 2018,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 339, 2033, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 365, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 365, 2018,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 394, 2033, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 419, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 419, 2018,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 448, 2033, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 473, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 473, 2018,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 502, 2033, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 527, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 527, 2018,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 556, 2033, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 581, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 581, 2018,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 610, 2033, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 635, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 635, 2018,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 664, 2033, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 689, 2018, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 689, 2018,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 718, 2033, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 743, 2033, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 743, 2033,  Collider::Type::DESTROY);
 		
 	App->destroys->AddDestroy(App->destroys->rock, 415, 1495, Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->rock, 512, 1495, Collider::Type::DESTROY);
@@ -277,29 +274,28 @@ bool SceneLevel1::Start()
 	App->destroys->AddDestroy(App->destroys->rockL, 614, 544, Collider::Type::DESTROY);
 
 
-	App->destroys->AddDestroy(App->destroys->fence, 256, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 256, 1630,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 285, 1645, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 310, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 310, 1630,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 339, 1645, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 365, 1630, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 394, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 365, 1630,  Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 394, 1630,  Collider::Type::DESTROY);
 
-	App->destroys->AddDestroy(App->destroys->fence, 521, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 521, 1630,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 550, 1645, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 575, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 575, 1630,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 604, 1645, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 629, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 629, 1630,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 659, 1645, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 683, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 683, 1630,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 712, 1645, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 737, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 737, 1630,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 766, 1645, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 791, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 791, 1630,  Collider::Type::DESTROY);
 	App->destroys->AddDestroy(App->destroys->fence2, 820, 1645, Collider::Type::DESTROY);
-	App->destroys->AddDestroy(App->destroys->fence, 845, 1630, Collider::Type::DESTROY);
+	App->destroys->AddDestroy(App->destroys->fence, 845, 1630,  Collider::Type::DESTROY);
 
 	//camara
-
 	App->player->cameraGameplay.x = 135;
 	App->player->cameraGameplay.y = 3800;
 
