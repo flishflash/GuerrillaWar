@@ -420,7 +420,16 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 		}
-	
+		
+		if (c2->type == Collider::Type::RECLUSO)
+		{
+			score += 1000;
+
+		}
+		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::RECLUSO)
+		{
+			score -= 500;
+		}
 		if (c2->type == Collider::Type::WIN)
 		{
 			gana = true;
@@ -432,6 +441,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 		{
-			score += 23;
+			score += 100;
 		}
+		
 }
