@@ -17,6 +17,7 @@
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
+
 	//// idle animation - just one sprite
 	//idleAnim.PushBack({ 64, 0, 25, 54 });
 
@@ -297,10 +298,12 @@ Update_Status ModulePlayer::Update()
 
 	if (!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W] && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A]) currentAnimation->loop = false;
 	else currentAnimation->loop = true;
-	currentAnimation->Update();*/
+	currentAnimation->Update();
+	*/
+
 	if (destroyed) {
 		destroyedCountdown--;
-		if (destroyedCountdown <= 0) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+			if (destroyedCountdown <= 0) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 	}
 	if (gana)
 	{

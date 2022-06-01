@@ -76,7 +76,6 @@ public:
 
 	ModuleRender* render = nullptr;
 
-
 };
 
 // Global var made extern for Application ---
