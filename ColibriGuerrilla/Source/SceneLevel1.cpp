@@ -43,6 +43,14 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 477, 633, 260, 403 }, Collider::Type::WATER);
 	App->collisions->AddCollider({ 798, 627, 191, 409 }, Collider::Type::WATER);
 
+	//Ground colliders
+	App->collisions->AddCollider({ 157, 3921, 147, 34 }, Collider::Type::GROUND);
+	App->collisions->AddCollider({ 157, 3946, 45, 58 }, Collider::Type::GROUND);
+	App->collisions->AddCollider({ 560, 2266, 40, 74 }, Collider::Type::GROUND);
+	App->collisions->AddCollider({ 405, 2266, 40, 74 }, Collider::Type::GROUND);
+	App->collisions->AddCollider({ 264, 3921, 163, 21 }, Collider::Type::GROUND);
+	App->collisions->AddCollider({ 560, 3921, 163, 21 }, Collider::Type::GROUND);
+
 	//Wall colliders
 	App->collisions->AddCollider({ 452, 4015, 74, 200 }, Collider::Type::WALL);
 	App->collisions->AddCollider({ 0, 4005, 54, 155 },	 Collider::Type::WALL);
