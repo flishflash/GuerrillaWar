@@ -23,7 +23,7 @@ recluso::recluso(int x, int y) : pickUp(x, y)
 void recluso::OnCollision(Collider* collider) {
 	path.Update();
 
-	if (collider->type == Collider::Type::PLAYER_SHOT || collider->type == Collider::Type::ENEMY_SHOT) {
+	if (collider->type == Collider::Type::PLAYER_SHOT || collider->type == Collider::Type::ENEMY_SHOT || collider->type == Collider::Type::EXPLOSION) {
 
 		App->particles->AddParticle(App->particles->deathAnim, positionenemy.x, positionenemy.y, Collider::Type::NONE);
 	}
