@@ -370,7 +370,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if(!App->collisions->godmode)
 	{
 
-		if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WALL && c2->type != Collider::Type::PICK && c2->type != Collider::Type::RECLUSO)
+		if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WALL && c2->type != Collider::Type::PICK && c2->type != Collider::Type::RECLUSO && c2->type != Collider::Type::GROUND)
 		{
 		/*	App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 			App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
@@ -442,6 +442,30 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 		{
 			score += 100;
+		}
+		if (c2->type == Collider::Type::WATER && App->weapon->options != 3)
+		{
+			App->weapon->options = 2;
+		}
+		if (c2->type == Collider::Type::WATER && App->weapon->options == 3)
+		{
+			App->weapon->options = 4;
+		}
+		if (c2->type == Collider::Type::GROUND && App->weapon->options != 4)
+		{
+			App->weapon->options = 1;
+		}
+		if (c2->type == Collider::Type::GROUND && App->weapon->options == 4)
+		{
+			App->weapon->options = 3;
+		}
+		if (c2->type == Collider::Type::PICK)
+		{
+			App->weapon->options = 3;
+			if (App->input->keys[SDL_SCANCODE_SPACE])
+			{
+				App->weapon->options = 1;
+			}
 		}
 		
 }
