@@ -18,8 +18,8 @@ Destroy::Destroy(const Destroy& d) :  anim(d.anim), position(d.position)
 
 Destroy::~Destroy()
 {
-	if (collider != nullptr)
-		collider->pendingToDelete = true;
+	/*if (collider != nullptr)
+		collider->pendingToDelete = true;*/
 }
 
 
