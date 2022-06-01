@@ -21,6 +21,7 @@ public:
 
 private:
 	// The path that will define the position in the world
+	int compo;
 	Path path;
 	int cooldown = 0;
 	int cooldown2 = 0;

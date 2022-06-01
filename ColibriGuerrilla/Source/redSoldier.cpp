@@ -8,7 +8,7 @@
 
 redSoldier::redSoldier(int x, int y) : Enemy(x, y)
 {
-
+	compo = 0;
 	cooldown = 0;
 	cooldown2 = 0;
 
@@ -51,27 +51,79 @@ void redSoldier::Update()
 	path.Update();
 	//positionenemy = spawnPos + path.GetRelativePosition();
 	//currentAnim = path.GetCurrentAnimation();
-
-	if (cooldown >= 70)
+	switch (compo)
 	{
-		if (cooldown2 == 5)
-		{
-			App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
-		}
-		if (cooldown2 == 7)
-		{
-			App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
-		}
-		if (cooldown2 == 9)
-		{
-			App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
-			cooldown = 0;
-			cooldown2 = 0;
-		}
+		case 0:
+			if (cooldown >= 70)
+			{
+				if (cooldown2 == 5)
+				{
+					App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+				}
+				if (cooldown2 == 8)
+				{
+					App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+				}
+				if (cooldown2 == 10)
+				{
+					App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+					cooldown = 0;
+					cooldown2 = 0;
+					compo = 1;
+				}
 
-		cooldown2++;
+				cooldown2++;
+			}
+			cooldown++;
+			
+			break;
+		case 1:
+			if (cooldown >= 70)
+			{
+				if (cooldown2 == 5)
+				{
+					App->particles->AddParticle(App->particles->enemyBulletL, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+				}
+				if (cooldown2 == 8)
+				{
+					App->particles->AddParticle(App->particles->enemyBulletL, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+				}
+				if (cooldown2 == 10)
+				{
+					App->particles->AddParticle(App->particles->enemyBulletL, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+					cooldown = 0;
+					cooldown2 = 0;
+					compo = 2;
+				}
+
+				cooldown2++;
+			}
+			cooldown++;
+			break;
+		case 2:
+			if (cooldown >= 70)
+			{
+				if (cooldown2 == 5)
+				{
+					App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+				}
+				if (cooldown2 == 8)
+				{
+					App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+				}
+				if (cooldown2 == 10)
+				{
+					App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+					cooldown = 0;
+					cooldown2 = 0;
+					compo = 0;
+				}
+
+				cooldown2++;
+			}
+			cooldown++;
+			break;
 	}
-	cooldown++;
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();
