@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModulePlayer.h"
+#include "Collider.h"
 
 #include "Enemy.h"
 #include "redSoldier.h"
@@ -99,8 +100,6 @@ bool ModuleEnemies::AddEnemy(Enemy_Type type, int x, int y)
 
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (y+25 <= App->player->cameraGameplay.y)
-		{
 			if (spawnQueue[i].type == Enemy_Type::NO_TYPE)
 			{
 				spawnQueue[i].type = type;
@@ -109,7 +108,6 @@ bool ModuleEnemies::AddEnemy(Enemy_Type type, int x, int y)
 				ret = true;
 				break;
 			}
-		}
 	}
 
 	return ret;
@@ -182,13 +180,16 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
+		if (c2->type == Collider::Type::ENEMY_SHOT || c2->type == Collider::Type::EXPLOSION || c2->type == Collider::Type::PLAYER)
 		{
-			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
-			App->player->score += 100;
-			App->audio->PlayFx(enemyDestroyedFx);
+			if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
+			{
+				enemies[i]->OnCollision(c2); //Notify the enemy of a collision
+				App->player->score += 100;
+				App->audio->PlayFx(enemyDestroyedFx);
 
-			break;
+				break;
+			}
 		}
 	}
 }

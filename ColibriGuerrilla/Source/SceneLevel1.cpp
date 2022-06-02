@@ -32,6 +32,9 @@ bool SceneLevel1::Start()
 	bgTexture = App->textures->Load("Assets/Sprites/Guerrilla_Map_Without_Objects.png");
 	App->audio->PlayMusic("Assets/Music/04_Advance-_Area-1_-4_-5_.ogg", 1.0f);
 
+	//player
+	App->player->Enable();
+	appear = 0;
 	//Water colliders
 	App->collisions->AddCollider({ 88, 4123, 302, 34 },	 Collider::Type::WATER);
 	App->collisions->AddCollider({ 216, 3964, 81, 161 }, Collider::Type::WATER);
@@ -127,48 +130,6 @@ bool SceneLevel1::Start()
 
 	//Win collider
 	App->collisions->AddCollider({ 729, 128, 71, 52 }, Collider::Type::WIN);
-
-	
-	// Enemies ---
-	if (App->player->cameraGameplay.y <= 0)
-	{
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3600);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3600);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3600);
-
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3530);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3530);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3530);
-
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3460);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3460);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3460);
-		
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3390);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3390);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3390);
-		
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3320);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3320);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3320);
-	}
-
-	if (App->player->position.y <= 330)
-	{
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 187, 3510);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 227, 3510);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 267, 3510);		
-		
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 152, 3440);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 280, 3440);
-	}
-		
-	App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 216, 3394);
-
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 114, 3330);
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 140, 3330);
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 310, 3345);
-	App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 340, 3345);
 
 	//reclusos
 	App->picks->AddPick(Pick_Type::RECLUSO, 151, 3370 );
@@ -307,7 +268,6 @@ bool SceneLevel1::Start()
 	App->player->cameraGameplay.x = 135;
 	App->player->cameraGameplay.y = 3800;
 
-	App->player->Enable();
 	App->enemies->Enable();
 
 	return ret;
@@ -315,6 +275,66 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
+	//enemies
+	if (App->player->position.y == 3800 && appear == 0)
+	{
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3600);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3600);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3600);
+
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3530);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3530);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3530);
+
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3460);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3460);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3460);
+
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3390);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3390);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3390);
+
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3320);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3320);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3320);
+		appear=1;
+		LOG("spawn 1");
+	}
+	if (App->player->position.y == 3710 && appear == 1)
+	{
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 187, 3510);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 227, 3510);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 267, 3510);
+
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 152, 3440);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIERGRAN, 280, 3440);
+		appear++;
+		LOG("spawn 2");
+	}
+	if (App->player->position.y == 3594 && appear ==2)
+	{
+		App->enemies->AddEnemy(Enemy_Type::REDSOLDIER, 216, 3394);
+
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 114, 3330);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 140, 3330);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 310, 3345);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 340, 3345);
+		appear++;
+		LOG("spawn 3");
+	}
+	if (App->player->position.y == 3500 && appear == 3)
+	{
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3238);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3238);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3238);
+
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3168);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3168);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3168);
+		appear++;
+		LOG("spawn 4");
+	}
+
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A])
 	{
 		App->player->shootNormalBullet();
