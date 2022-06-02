@@ -29,7 +29,7 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	texture = App->textures->Load("Assets/Sprites/EnemiesGW.png");
-	//enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
+	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/enemydead.wav");
 
 	return true;
 }
@@ -183,6 +183,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		{
 			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
 			App->player->score += 100;
+			App->audio->PlayFx(enemyDestroyedFx);
+
 			break;
 		}
 	}

@@ -84,7 +84,7 @@ public:
 	uint destroyedCountdown = 60;
 	bool pendingToDelete = false;
 	// Sound effects indices
-	uint laserFx = 0;
+	uint NormalBulFx = 0;
 	uint explosionFx = 0;
 
 	// Font score index

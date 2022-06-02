@@ -30,7 +30,7 @@ bool SceneLevel1::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/Guerrilla_Map_Without_Objects.png");
-	//App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Music/04_Advance-_Area-1_-4_-5_.ogg", 1.0f);
 
 	//Water colliders
 	App->collisions->AddCollider({ 88, 4123, 302, 34 },	 Collider::Type::WATER);
