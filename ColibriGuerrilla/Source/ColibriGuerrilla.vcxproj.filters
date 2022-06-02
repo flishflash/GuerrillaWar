@@ -104,6 +104,15 @@
     <ClCompile Include="Destroy.cpp">
       <Filter>Game\Destructibles</Filter>
     </ClCompile>
+    <ClCompile Include="Boss_F1.cpp">
+      <Filter>Game\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Soldiers.cpp">
+      <Filter>Game\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_F2.cpp">
+      <Filter>Game\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -216,6 +225,15 @@
     </ClInclude>
     <ClInclude Include="Destroy.h">
       <Filter>Game\Destructibles</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_F1.h">
+      <Filter>Game\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Soldiers.h">
+      <Filter>Game\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_F2.h">
+      <Filter>Game\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

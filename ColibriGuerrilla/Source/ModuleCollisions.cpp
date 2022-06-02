@@ -36,6 +36,14 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY][Collider::Type::WATER] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::GROUND] = true;
 
+	matrix[Collider::Type::BOSS][Collider::Type::WALL] = false;
+	matrix[Collider::Type::BOSS][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::BOSS][Collider::Type::ENEMY] = false;
+	matrix[Collider::Type::BOSS][Collider::Type::PLAYER_SHOT] = true;
+	matrix[Collider::Type::BOSS][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::BOSS][Collider::Type::PICK] = false;
+	matrix[Collider::Type::BOSS][Collider::Type::EXPLOSION] = true;
+
 	matrix[Collider::Type::EXPLOSION][Collider::Type::WALL] = false;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::PLAYER] = false;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::ENEMY] = true;
@@ -194,6 +202,9 @@ void ModuleCollisions::DebugDraw()
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
 			case Collider::Type::WATER: // negro
+			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
+			break;
+			case Collider::Type::BOSS: // negro
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
 			break;
 			case Collider::Type::WIN: // rosa

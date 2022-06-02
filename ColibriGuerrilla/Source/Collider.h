@@ -3,7 +3,7 @@
 
 #include "SDL/include/SDL_Rect.h"
 
-#define MAX_LISTENERS 13
+#define MAX_LISTENERS 14
 
 class Module;
 
@@ -24,6 +24,7 @@ struct Collider
 		RECLUSO,
 		DESTROY,
 		GROUND,
+		BOSS,
 
 		MAX
 	};
