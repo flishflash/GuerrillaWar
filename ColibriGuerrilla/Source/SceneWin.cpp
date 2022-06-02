@@ -26,7 +26,7 @@ bool SceneWin::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/winScreen.png");
-
+	App->audio->PlayMusic("Assets/Music/12_Continue.ogg", 1.0f);
 	App->player->cameraGameplay.x = 0;
 	App->player->cameraGameplay.y = 0;
 
