@@ -192,7 +192,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if ((c2->type == Collider::Type::PLAYER_SHOT || c2->type == Collider::Type::EXPLOSION || c2->type == Collider::Type::PLAYER) && (c1->type == Collider::Type::BOSS && c2->type == Collider::Type::PLAYER_SHOT || c1->type == Collider::Type::BOSS && c2->type == Collider::Type::EXPLOSION || c1->type == Collider::Type::BOSS && c2->type == Collider::Type::PLAYER))
+		if ((c2->type == Collider::Type::PLAYER_SHOT || c2->type == Collider::Type::EXPLOSION || c2->type == Collider::Type::PLAYER))
 		{
 			if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 			{

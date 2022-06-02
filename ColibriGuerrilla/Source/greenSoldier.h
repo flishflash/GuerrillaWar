@@ -25,14 +25,13 @@ private:
 	Path path;
 	// This enemy has one sprite and one frame
 	// We are keeping it an animation for consistency with other enemies
-	Animation greenWalkforward;
 	Animation greenWalkbackward;
-	Animation greenWalkswimforward;
-	Animation greenWalkswimbackward;
 	Animation greenWalkshot;
 	Animation greenWalk;
-	Animation greenDie;
 	int cooldown = 0;
+	int cooldown2 = 0;
+	int cooldown3 = 0;
+	int comp;
 };
 
-#endif // __ENEMY_BROWNSHIP_H__
+#endif // __GREENSOLDIER_H__

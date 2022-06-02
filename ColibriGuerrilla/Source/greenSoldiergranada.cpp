@@ -18,7 +18,6 @@ greenSoldiergranada::greenSoldiergranada(int x, int y) : Enemy(x, y)
 	granadaWalkforward.speed = 0.1f;
 
 	//walk backward
-
 	granadaWalkbackward.PushBack({ 0, 237, 27, 55 });
 	granadaWalkbackward.PushBack({ 32, 237, 26, 55 });
 	granadaWalkbackward.PushBack({ 64, 237, 26, 55 });
@@ -56,8 +55,5 @@ void greenSoldiergranada::Update()
 	//	cooldown = 20;
 	//}
 
-
-	// Call to the base class. It must be called at the end
-	// It will update the collider depending on the position
 	Enemy::Update();
 }

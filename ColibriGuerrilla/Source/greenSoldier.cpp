@@ -8,19 +8,31 @@
 greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 {
 	cooldown = 0;
+	cooldown2 = 0;
+	cooldown3 = 0;
 
 	//walk forward
-	greenWalkforward.PushBack({0, 0, 27, 55});
-	greenWalkforward.PushBack({32, 0, 26, 55});
-	greenWalkforward.PushBack({64, 0, 26, 55});
-	greenWalkforward.PushBack({96, 0, 26, 55});
-	greenWalkforward.PushBack({126, 0, 26, 55});
-	greenWalkforward.loop = true;
-	greenWalkforward.speed = 0.1f;
+	greenWalk.PushBack({0, 0, 27, 55});
+	greenWalk.PushBack({32, 0, 26, 55});
+	greenWalk.PushBack({64, 0, 26, 55});
+	greenWalk.PushBack({96, 0, 26, 55});
+	greenWalk.PushBack({126, 0, 26, 55});
+	greenWalk.loop = true;
+	greenWalk.speed = 0.1f;
 
-	currentAnim = &greenWalkforward;
+	currentAnim = &greenWalk;
 
 	//walk backward
+
+	greenWalkshot.PushBack({ 493, 932, 25, 48 });
+	greenWalkshot.PushBack({ 493, 932, 25, 48 });
+	greenWalkshot.PushBack({ 493, 932, 25, 48 });
+	greenWalkshot.PushBack({ 493, 932, 25, 48 });
+	greenWalkshot.PushBack({ 493, 932, 25, 48 });
+	greenWalkshot.PushBack({ 409, 864, 27, 46});
+	greenWalkshot.loop = true;
+	greenWalkshot.speed = 0.2f;
+
 
 	greenWalkbackward.PushBack({ 0, 237, 27, 55 });
 	greenWalkbackward.PushBack({ 32, 237, 26, 55 });
@@ -30,17 +42,7 @@ greenSoldier::greenSoldier(int x, int y) : Enemy(x, y)
 	greenWalkbackward.loop = true;
 	greenWalkbackward.speed = 0.1f;
 
-	//die
-
-	greenDie.PushBack({256, 498, 27, 49});
-	greenDie.PushBack({289, 499, 27, 49});
-	//greenDie.PushBack({});
-	//greenDie.PushBack({});
-	greenDie.loop = false;
-	greenDie.speed = 0.2f;
-
-	//path.PushBack({ 0, -1.2f }, 150, &greenWalkbackward);
-	/*path.PushBack({ 0, 1.2f }, 10, &greenWalkforward);*/
+	comp = rand() % 2;
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
@@ -55,16 +57,63 @@ void greenSoldier::OnCollision(Collider* collider) {
 void greenSoldier::Update() 
 {
 	path.Update();
-	//positionenemy = spawnPos + path.GetRelativePosition();
-	//currentAnim = path.GetCurrentAnimation();
-	if (cooldown >= 50)
+	switch (comp)
 	{
-		App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
-		cooldown = 0;
-	}
-	cooldown++;
+	case 0:
+		if (cooldown < 50)
+		{
+			currentAnim = &greenWalk;
+			positionenemy.y += 1;
+			cooldown++;
+		}
+		else if (cooldown >= 50 && cooldown <= 150)
+		{
+			currentAnim = &greenWalkshot;
+			if (cooldown2 == 13)
+			{
+				App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+				cooldown2 = 0;
+			}
+			cooldown++;
+			cooldown2++;
+		}
+		else
+		{
+			cooldown = 0;
+		}
+		break;
 
-	// Call to the base class. It must be called at the end
-	// It will update the collider depending on the position
+	case 1:
+		if (cooldown3 < 300)
+		{
+			if (cooldown < 50)
+			{
+				currentAnim = &greenWalk;
+				positionenemy.y += 1;
+				cooldown++;
+			}
+			else if (cooldown >= 50 && cooldown <= 150)
+			{
+				currentAnim = &greenWalkshot;
+				if (cooldown2 == 13)
+				{
+					App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+					cooldown2 = 0;
+				}
+				cooldown++;
+				cooldown2++;
+			}
+			else
+			{
+				cooldown = 0;
+			}
+		}else
+		{
+			currentAnim = &greenWalkbackward;
+			positionenemy.y -= 1;
+		}
+		cooldown3++;
+		break;
+	}
 	Enemy::Update();
 }
