@@ -99,13 +99,16 @@ bool ModuleEnemies::AddEnemy(Enemy_Type type, int x, int y)
 
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if(spawnQueue[i].type == Enemy_Type::NO_TYPE)
+		if (y+25 <= App->player->cameraGameplay.y)
 		{
-			spawnQueue[i].type = type;
-			spawnQueue[i].x = x;
-			spawnQueue[i].y = y;
-			ret = true;
-			break;
+			if (spawnQueue[i].type == Enemy_Type::NO_TYPE)
+			{
+				spawnQueue[i].type = type;
+				spawnQueue[i].x = x;
+				spawnQueue[i].y = y;
+				ret = true;
+				break;
+			}
 		}
 	}
 
