@@ -2,6 +2,7 @@
 #define __BOSS_SOLDIER_H__
 
 #include "Enemy.h"
+#include "Boss_F1.h"
 #include "Path.h"
 
 class Boss_Soldiers : public Enemy
@@ -29,8 +30,8 @@ private:
 	Animation greenshot;
 	Animation greenWalkL;
 	Animation greenWalkR;
-	Animation greenDie;
 	int cooldown = 0;
+	int cooldown2 = 0;
 };
 
 #endif // __BOSS_SOLDIER_H__

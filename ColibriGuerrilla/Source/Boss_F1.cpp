@@ -3,16 +3,17 @@
 #include "ModuleCollisions.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
+#include "ModuleEnemies.h"
 
 
 Boss_F1::Boss_F1(int x, int y) : Enemy(x, y)
 {
-	cooldown=0;
-	walkforward.PushBack({0, 573, 28, 59});
-	walkforward.PushBack({30, 573, 30, 59});
-	walkforward.PushBack({65, 573, 27, 55});
-	walkforward.PushBack({97, 573, 27, 58});
-	walkforward.PushBack({128, 573, 28, 59});
+	cooldown = 0;
+	walkforward.PushBack({ 0, 573, 28, 59 });
+	walkforward.PushBack({ 30, 573, 30, 59 });
+	walkforward.PushBack({ 65, 573, 27, 55 });
+	walkforward.PushBack({ 97, 573, 27, 58 });
+	walkforward.PushBack({ 128, 573, 28, 59 });
 	walkforward.loop = true;
 	walkforward.speed = 0.1f;
 	currentAnim = &walkforward;
@@ -52,7 +53,7 @@ void Boss_F1::Update()
 
 	if (cooldown<120)
 	{
-		positionenemy.y += 1;
+		positionenemy.y += 1; 
 		cooldown++;
 	}	
 	else if (cooldown < 270)

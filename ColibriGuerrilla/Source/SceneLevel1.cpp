@@ -277,14 +277,14 @@ bool SceneLevel1::Start()
 Update_Status SceneLevel1::Update()
 {
 	//enemies
-	//if (App->player->position.y == 341 && appear == 0)
-	//{
-	//	App->enemies->AddEnemy(Enemy_Type::BOSSF2, 737, 40); //bossf1 65
-	//	appear++;
-	//}
+	if (App->player->position.y == 341 && appear == 0)
+	{
+		App->enemies->AddEnemy(Enemy_Type::BOSSF2, 737, 40); //bossf1 65
+		appear++;
+	}
 	//if (Boss_F1::bossdied)
 
-	if (App->player->position.y == 3800 && appear == 0)
+	/*if (App->player->position.y == 3800 && appear == 0)
 	{
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3600);
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3600);
@@ -342,7 +342,7 @@ Update_Status SceneLevel1::Update()
 		appear++;
 		LOG("spawn 4");
 	}
-
+	*/
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A])
 	{
 		App->player->shootNormalBullet();

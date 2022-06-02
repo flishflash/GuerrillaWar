@@ -18,13 +18,13 @@ Boss_F2::Boss_F2(int x, int y) : Enemy(x, y)
 	fase1.PushBack({0, 853, 59, 128});
 	fase1.PushBack({61, 853, 65, 128 });
 	fase1.loop = true;
-	fase1.speed = 0.1f;
+	fase1.speed = 0.3f;
 	currentAnim = &fase1;
 
 	dead.PushBack({125, 853, 64, 128});
 	dead.PushBack({192, 853, 59, 128 });
 	dead.loop = true;
-	dead.speed = 0.1f;
+	dead.speed = 0.3f;
 
 	collider = App->collisions->AddCollider({ x, y, 59, 120 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
@@ -54,22 +54,25 @@ void Boss_F2::Update()
 		positionenemy.y += 1;
 		cooldown++;
 	}
-	if (App->player->position.x < 678 && App->player->position.x > 666 && positionenemy.x < 678 && positionenemy.x > 666)
+	if (App->player->position.x < 678 && App->player->position.x > 640 && positionenemy.x > 666)
 	{
 		positionenemy.x -= 2;
 	}
-	else if (App->player->position.x < 750 && App->player->position.x > 720 && positionenemy.x < 750 && positionenemy.x > 720)
+	else if (App->player->position.x < 777 && App->player->position.x > 745/* && positionenemy.x > 777 && positionenemy.x < 745*/)
 	{
-		if (positionenemy.x > 750)
+		if (positionenemy.x != 749 || positionenemy.x != 748)
 		{
-			positionenemy.x -= 1;
-		}
-		else
-		{
-			positionenemy.x += 1;
+			if (positionenemy.x > 777)
+			{
+				positionenemy.x -= 2;
+			}
+			else
+			{
+				positionenemy.x += 2;
+			}
 		}
 	}
-	else if (App->player->position.x == 830 && App->player->position.x > 800 && positionenemy.x < 830 && positionenemy.x > 800)
+	else if (App->player->position.x < 840 && App->player->position.x > 790 && positionenemy.x < 840)
 	{
 		positionenemy.x += 1;
 	}

@@ -56,6 +56,7 @@ void greenSoldier::OnCollision(Collider* collider) {
 
 void greenSoldier::Update() 
 {
+
 	path.Update();
 	switch (comp)
 	{
