@@ -96,6 +96,22 @@ void ModulePlayer::shootNormalBullet()
 		App->audio->PlayFx(NormalBulFx);
 		break;
 	}
+	if (App->weapon->options == 3 || App->weapon->options == 4)
+	{
+		if (App->input->keys[SDL_SCANCODE_SPACE])
+		{
+			balitas -= 1;
+		}
+		if (balitas == 0 && App->weapon->options == 3)
+		{
+			App->weapon->options = 1;
+		}
+		else if (balitas == 0 && App->weapon->options == 4)
+		{
+			App->weapon->options = 2;
+		}
+
+	}
 }
 
 void ModulePlayer::launchGranade()
@@ -400,10 +416,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (c2->type == Collider::Type::PICK)
 		{
 			App->weapon->options = 3;
-			if (App->input->keys[SDL_SCANCODE_SPACE])
-			{
-				App->weapon->options = 1;
-			}
+			balitas = 50;
 		}
 		
 }

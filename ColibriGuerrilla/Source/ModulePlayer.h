@@ -96,6 +96,8 @@ public:
 	uint highscore = 000;
 	char HighscoreText[10] = { "\0" };
 
+	int balitas;
+
 	SDL_Rect cameraGameplay;
 };
 
