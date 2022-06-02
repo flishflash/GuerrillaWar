@@ -126,8 +126,8 @@ bool ModulePlayer::Start()
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 22, 30 }, Collider::Type::PLAYER, this);
 
-	char lookupTable[] = { "0123456789abcdefghijklmnopqrstuvwxyz. @'&-" };
-	scoreFont = App->fonts->Load("Assets/Fonts/ui_font_.png", lookupTable, 1);
+	char lookupTable[] = { "0123456789abcdefghijklmnopqrstuvwxyz.@'&- " };
+	scoreFont = App->fonts->Load("Assets/Fonts/ui_font.png", lookupTable, 1);
 
 	return ret;
 }
