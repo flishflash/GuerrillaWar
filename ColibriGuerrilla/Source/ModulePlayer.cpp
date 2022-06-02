@@ -38,6 +38,7 @@ bool ModulePlayer::Start()
 
 
 	NormalBulFx = App->audio->LoadFx("Assets/Fx/SFX_GWShoot.wav");
+	Dead = App->audio->LoadFx("Assets/Fx/dead_player.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
 	position.x = 240;
@@ -319,7 +320,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			if (collider != nullptr)
 				collider->pendingToDelete = true;
 
-			App->audio->PlayFx(explosionFx);
+			App->audio->PlayFx(Dead);
 			destroyed = true;
 		}
 	}
