@@ -157,6 +157,30 @@ bool ModuleParticles::Start()
 	granade.lifetime = 100;
 	granade.anim.speed = 0.1f;
 
+	BulletBoss.anim.PushBack({0, 382, 12, 17});
+	BulletBoss.anim.PushBack({18, 382, 8, 17 });
+	BulletBoss.anim.loop = true;
+	BulletBoss.speed.y = 3;
+	BulletBoss.lifetime = 40;
+	BulletBoss.anim.speed = 0.1f;
+
+	BulletBossL.anim.PushBack({222, 382, 16, 16});
+	BulletBossL.anim.PushBack({238, 382, 15, 16});
+	BulletBossL.anim.loop = true;
+	BulletBossL.speed.y = 3;
+	BulletBossL.speed.x = -3;
+	BulletBossL.lifetime = 40;
+	BulletBossL.anim.speed = 0.1f;
+
+	BulletBossR.anim.PushBack({31, 382, 15, 17});
+	BulletBossR.anim.PushBack({47, 382, 15, 16 });
+	BulletBossR.anim.loop = true;
+	BulletBossR.speed.y = 3;
+	BulletBossR.speed.x = 3;
+	BulletBossR.lifetime = 40;
+	BulletBossR.anim.speed = 0.1f;
+
+
 	return true;
 }
 

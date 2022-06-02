@@ -78,6 +78,10 @@ public:
 	Particle deathredAnim;
 	Particle deathgreenAnim;
 
+	Particle BulletBoss;
+	Particle BulletBossR;
+	Particle BulletBossL;
+
 	Particle granade;
 
 private:

@@ -11,6 +11,9 @@ enum class Enemy_Type
 	GREENSOLDIER,
 	GREENSOLDIERGRAN,
 	REDSOLDIER,
+	BOSSF1,
+	BOSSF2,
+	SOLDIERSBOSS,
 };
 
 struct EnemySpawnpoint

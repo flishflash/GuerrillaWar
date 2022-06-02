@@ -3,6 +3,7 @@
 #include "Application.h"
 
 #include "ModuleRender.h"
+#include "ModulePlayer.h"
 #include "ModuleInput.h"
 #include "SDL/include/SDL_Scancode.h"
 
@@ -161,6 +162,9 @@ Update_Status ModuleCollisions::Update()
 
 	if (App->input->keys[SDL_SCANCODE_F2] == KEY_DOWN)
 		debug = !debug;
+
+	if (App->input->keys[SDL_SCANCODE_F5]) { App->player->position.x = 731; App->player->position.y = 341; App->player->cameraGameplay.x = 731; App->player->cameraGameplay.y = 341;
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }

@@ -11,6 +11,9 @@
 #include "Enemy.h"
 #include "redSoldier.h"
 #include "greenSoldier.h"
+#include "Boss_F1.h"
+#include "Boss_F2.h"
+#include "Boss_Soldiers.h"
 #include "greenSoldiergranada.h"
 
 #define SPAWN_MARGIN 200
@@ -168,6 +171,15 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 				case Enemy_Type::REDSOLDIER:
 					enemies[i] = new redSoldier(info.x, info.y);
 					break;
+				case Enemy_Type::BOSSF1:
+					enemies[i] = new Boss_F1(info.x, info.y);
+					break;
+				case Enemy_Type::BOSSF2:
+					enemies[i] = new Boss_F2(info.x, info.y);
+					break;
+				case Enemy_Type::SOLDIERSBOSS:
+					enemies[i] = new Boss_Soldiers(info.x, info.y);
+					break;
 			}
 			enemies[i]->texture = texture;
 			enemies[i]->destroyedFx = enemyDestroyedFx;
@@ -180,7 +192,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if (c2->type == Collider::Type::PLAYER_SHOT || c2->type == Collider::Type::EXPLOSION || c2->type == Collider::Type::PLAYER)
+		if ((c2->type == Collider::Type::PLAYER_SHOT || c2->type == Collider::Type::EXPLOSION || c2->type == Collider::Type::PLAYER) && (c1->type == Collider::Type::BOSS && c2->type == Collider::Type::PLAYER_SHOT || c1->type == Collider::Type::BOSS && c2->type == Collider::Type::EXPLOSION || c1->type == Collider::Type::BOSS && c2->type == Collider::Type::PLAYER))
 		{
 			if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 			{
