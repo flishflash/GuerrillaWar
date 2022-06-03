@@ -40,6 +40,14 @@ public:
 	// Position of the player in the map
 	iPoint position;
 
+	float reduce_val(float v1, float min, float clamp_to) {
+		float sign = v1 / fabs(v1);
+		float reduced = v1 - ((fabs(v1) > min) ? sign * min : v1);
+		float to_1 = reduced / (float)(SDL_MAX_SINT16);
+		float reclamped = to_1 * clamp_to;
+		return reclamped;
+	}
+
 	// The speed in which we move the player (pixels per frame)
 	int speed = 1;
 

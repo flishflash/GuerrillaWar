@@ -163,7 +163,7 @@ void ModulePlayer::shootNormalBullet()
 	}
 	if (App->weapon->options == 3 || App->weapon->options == 4)
 	{
-		if (App->input->keys[SDL_SCANCODE_SPACE])
+		if (App->input->keys[SDL_SCANCODE_SPACE] || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A] == Key_State::KEY_DOWN)
 		{
 			balitas -= 1;
 		}
@@ -219,8 +219,16 @@ void ModulePlayer::launchGranade()
 	}
 }
 
+
+
 Update_Status ModulePlayer::Update()
 {
+	float fx = 0, fy = 0;
+
+	fx += reduce_val(App->input->controllers[0].j1_x, 10000, 2);
+	fy += reduce_val(App->input->controllers[0].j1_y, 10000, 2);
+	fx += reduce_val(App->input->controllers[0].j2_x, 10000, 2);
+	fy += reduce_val(App->input->controllers[0].j2_y, 10000, 2);
 
 	collider->rect.x = position.x;
 	collider->rect.y = position.y + 25;
@@ -242,9 +250,29 @@ Update_Status ModulePlayer::Update()
 		cameraGameplay.y -= speed;
 	}
 
+	// GAMEPAD: Triggers Count as axis, have specific values
+	if (App->input->controllers[0].LT > SDL_MAX_SINT16 / 2) {
+		fx *= 2;
+		fy *= 2;
+	}
+	if (App->input->controllers[0].RT > SDL_MAX_SINT16 / 2) {
+		fx *= 3;
+		fy *= 3;
+	}
+
+	// GAMEPAD: Fire with any button for now to check they all work
+	bool button_press = false;
+	for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i)
+	{
+		if (App->input->controllers[0].buttons[i] == KEY_DOWN)
+		{
+			button_press = true; break;
+		}
+	}
+
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 
-	if (App->input->keys[SDL_SCANCODE_W]) {
+	if (App->input->keys[SDL_SCANCODE_W] || reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0) {
 		direction = 1;
 		position.y -= speed;
 	}
