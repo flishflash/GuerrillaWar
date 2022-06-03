@@ -71,7 +71,7 @@ void ModulePlayer::shootNormalBullet()
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
-			App->particles->AddParticle(App->particles->TbulletN, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->TbulletN, position.x + 20, position.y, Collider::Type::EXPLOSION);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		
@@ -84,7 +84,7 @@ void ModulePlayer::shootNormalBullet()
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
-			App->particles->AddParticle(App->particles->TbulletNE, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->TbulletNE, position.x + 20, position.y, Collider::Type::EXPLOSION);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		break;
@@ -96,7 +96,7 @@ void ModulePlayer::shootNormalBullet()
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
-			App->particles->AddParticle(App->particles->TbulletE, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->TbulletE, position.x + 20, position.y, Collider::Type::EXPLOSION);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		break;
@@ -108,7 +108,7 @@ void ModulePlayer::shootNormalBullet()
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
-			App->particles->AddParticle(App->particles->TbulletSE, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->TbulletSE, position.x + 20, position.y, Collider::Type::EXPLOSION);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		break;
@@ -120,7 +120,7 @@ void ModulePlayer::shootNormalBullet()
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
-			App->particles->AddParticle(App->particles->TbulletS, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->TbulletS, position.x + 20, position.y, Collider::Type::EXPLOSION);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		break;
@@ -132,7 +132,7 @@ void ModulePlayer::shootNormalBullet()
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
-			App->particles->AddParticle(App->particles->TbulletSW, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->TbulletSW, position.x + 20, position.y, Collider::Type::EXPLOSION);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		break;
@@ -144,7 +144,7 @@ void ModulePlayer::shootNormalBullet()
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
-			App->particles->AddParticle(App->particles->TbulletW, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->TbulletW, position.x + 20, position.y, Collider::Type::EXPLOSION);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		break;
@@ -156,7 +156,7 @@ void ModulePlayer::shootNormalBullet()
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
-			App->particles->AddParticle(App->particles->TbulletNW, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->TbulletNW, position.x + 20, position.y, Collider::Type::EXPLOSION);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		break;
