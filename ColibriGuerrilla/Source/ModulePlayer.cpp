@@ -119,40 +119,28 @@ void ModulePlayer::launchGranade()
 	switch (direction)
 	{
 	case 1:
-		App->particles->AddParticle(App->particles->granade, position.x + 20, position.y, Collider::Type::EXPLOSION);
-		App->particles->granade.speed.y = -1;
+		App->particles->AddParticle(App->particles->granadeN, position.x + 20, position.y - 20, Collider::Type::EXPLOSION);
 		break;
 	case 2:
-		App->particles->AddParticle(App->particles->granade, position.x + 30, position.y, Collider::Type::EXPLOSION);
-		App->particles->granade.speed.y = -1;
-		App->particles->granade.speed.x = 1;
+		App->particles->AddParticle(App->particles->granadeNE, position.x + 30, position.y, Collider::Type::EXPLOSION);
 		break;
 	case 3:
-		App->particles->AddParticle(App->particles->granade, position.x + 20, position.y + 20, Collider::Type::EXPLOSION);
-		App->particles->granade.speed.x = 1;
+		App->particles->AddParticle(App->particles->granadeE, position.x + 20, position.y + 20, Collider::Type::EXPLOSION);
 		break;
 	case 4:
-		App->particles->AddParticle(App->particles->granade, position.x + 15, position.y + 30, Collider::Type::EXPLOSION);
-		App->particles->granade.speed.y = 1;
-		App->particles->granade.speed.x = 1;
+		App->particles->AddParticle(App->particles->granadeSE, position.x + 15, position.y + 30, Collider::Type::EXPLOSION);
 		break;
 	case 5:
-		App->particles->AddParticle(App->particles->granade, position.x + 5, position.y + 25, Collider::Type::EXPLOSION);
-		App->particles->granade.speed.y = 1;
+		App->particles->AddParticle(App->particles->granadeS, position.x + 5, position.y + 25, Collider::Type::EXPLOSION);
 		break;
 	case 6:
-		App->particles->AddParticle(App->particles->granade, position.x - 7, position.y + 27, Collider::Type::EXPLOSION);
-		App->particles->granade.speed.y = 1;
-		App->particles->granade.speed.x = -1;
+		App->particles->AddParticle(App->particles->granadeSW, position.x - 7, position.y + 27, Collider::Type::EXPLOSION);
 		break;
 	case 7:
-		App->particles->AddParticle(App->particles->granade, position.x - 20, position.y + 20, Collider::Type::EXPLOSION);
-		App->particles->granade.speed.x = -1;
+		App->particles->AddParticle(App->particles->granadeW, position.x - 20, position.y + 20, Collider::Type::EXPLOSION);
 		break;
 	case 8:
-		App->particles->AddParticle(App->particles->granade, position.x - 5, position.y, Collider::Type::EXPLOSION);
-		App->particles->granade.speed.y = 1;
-		App->particles->granade.speed.x = -1;
+		App->particles->AddParticle(App->particles->granadeNW, position.x - 5, position.y, Collider::Type::EXPLOSION);
 		break;
 	}
 }
@@ -260,11 +248,6 @@ Update_Status ModulePlayer::Update()
 	{
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
 	}
-	if (App->input->keys[SDL_SCANCODE_G])
-	{
-		launchGranade();
-	}
-
 	//change scene
 
 	if (App->input->keys[SDL_SCANCODE_F3]) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);

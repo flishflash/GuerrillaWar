@@ -82,7 +82,14 @@ public:
 	Particle BulletBossR;
 	Particle BulletBossL;
 
-	Particle granade;
+	Particle granadeN;
+	Particle granadeNE;
+	Particle granadeE;
+	Particle granadeSE;
+	Particle granadeS;
+	Particle granadeSW;
+	Particle granadeW;
+	Particle granadeNW;
 
 private:
 	// Particles spritesheet loaded into an SDL Texture
