@@ -90,6 +90,7 @@
     <ClInclude Include="Granada.h" />
     <ClInclude Include="greenSoldier.h" />
     <ClInclude Include="greenSoldiergranada.h" />
+    <ClInclude Include="IntroAnimation.h" />
     <ClInclude Include="LanzLlamas.h" />
     <ClInclude Include="ModuleDestroy.h" />
     <ClInclude Include="ModulePickUp.h" />
@@ -131,6 +132,7 @@
     <ClCompile Include="Granada.cpp" />
     <ClCompile Include="greenSoldier.cpp" />
     <ClCompile Include="greenSoldiergranada.cpp" />
+    <ClCompile Include="IntroAnimation.cpp" />
     <ClCompile Include="LanzLlamas.cpp" />
     <ClCompile Include="ModuleDestroy.cpp" />
     <ClCompile Include="ModulePickUp.cpp" />
