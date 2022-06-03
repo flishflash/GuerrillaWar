@@ -79,6 +79,9 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PICK] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::EXPLOSION] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::GROUND] = false;
+	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::DESTROY] = false;
+
+	matrix[Collider::Type::DESTROY][Collider::Type::ENEMY_SHOT] = false;
 
 	matrix[Collider::Type::WIN][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::WIN][Collider::Type::ENEMY] = false;
