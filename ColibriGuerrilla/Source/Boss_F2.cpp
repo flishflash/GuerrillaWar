@@ -61,6 +61,7 @@ void Boss_F2::Update()
 {
 	spawn = rand() % 2;
 	path.Update();
+
 	if (cooldownspawn==230)
 	{
 		switch (spawn)
@@ -88,7 +89,7 @@ void Boss_F2::Update()
 	{
 		positionenemy.x -= 2;
 	}
-	else if (App->player->position.x < 777 && App->player->position.x > 745/* && positionenemy.x > 777 && positionenemy.x < 745*/)
+	else if (App->player->position.x < 777 && App->player->position.x > 745)
 	{
 		if (positionenemy.x != 749 || positionenemy.x != 748)
 		{

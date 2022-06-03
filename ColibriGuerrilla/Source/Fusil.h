@@ -1,5 +1,5 @@
 
-#ifndef __FUSIL_H__
+#ifndef ___H__
 #define __FUSIL_H__
 #include "pickUp.h"
 #include "Path.h"

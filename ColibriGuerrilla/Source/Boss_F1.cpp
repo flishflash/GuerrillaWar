@@ -103,7 +103,7 @@ void Boss_F1::Update()
 			currentAnim = &walkbackward;
 			positionenemy.y -= 1;
 		}
-		if (cooldownmor > 1500)
+		if (cooldownmor > 1200)
 		{
 			App->enemies->AddEnemy(Enemy_Type::BOSSF2, 765, 40);
 			SetToDelete();
