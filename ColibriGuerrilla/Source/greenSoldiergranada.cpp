@@ -52,9 +52,10 @@ greenSoldiergranada::greenSoldiergranada(int x, int y) : Enemy(x, y)
 }
 void greenSoldiergranada::OnCollision(Collider* collider) {
 
-	App->particles->AddParticle(App->particles->deathgreenAnim, positionenemy.x, positionenemy.y, Collider::Type::NONE);
+		App->particles->AddParticle(App->particles->deathgreenAnim, positionenemy.x, positionenemy.y, Collider::Type::NONE);
 
-	SetToDelete();
+		SetToDelete();
+
 }
 void greenSoldiergranada::Update()
 {
@@ -70,7 +71,7 @@ void greenSoldiergranada::Update()
 
 			if (cooldown2 == 26)
 			{
-				App->particles->AddParticle(App->particles->granadeS, positionenemy.x, positionenemy.y + 20, Collider::Type::EXPLOSION, 20);
+				App->particles->AddParticle(App->particles->granadeS, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
 				cooldown2 = 0;
 			}
 				cooldown2++;

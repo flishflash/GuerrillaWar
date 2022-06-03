@@ -295,6 +295,15 @@ bool ModuleParticles::Start()
 	BulletBossR.lifetime = 40;
 	BulletBossR.anim.speed = 0.1f;
 
+	playerdies.anim.PushBack({ 194, 121, 27, 49 });
+	playerdies.anim.PushBack({ 224, 125, 29, 45 });
+	playerdies.anim.PushBack({ 257, 130, 28, 41 });
+	playerdies.anim.PushBack({ 286, 128, 29, 43 });
+	playerdies.anim.PushBack({ 318, 128, 31, 44 });
+	playerdies.anim.PushBack({ 352, 127, 34, 44 });
+	playerdies.anim.loop = false;
+	playerdies.anim.speed = 0.1f;
+
 
 	return true;
 }

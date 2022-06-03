@@ -91,6 +91,8 @@ public:
 	Particle granadeW;
 	Particle granadeNW;
 
+	Particle playerdies;
+
 
 private:
 	// Particles spritesheet loaded into an SDL Texture
