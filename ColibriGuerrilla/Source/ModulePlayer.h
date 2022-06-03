@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
+#include "SDL\include\SDL.h"
 
 struct SDL_Texture;
 struct Collider;
@@ -33,6 +34,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2) override;
 
 	void shootNormalBullet();
+	void launchGranade();
 
 public:
 	// Position of the player in the map
@@ -81,16 +83,23 @@ public:
 	// A flag to detect when the player has been destroyed
 	bool destroyed = false;
 	uint destroyedCountdown = 60;
+	bool pendingToDelete = false;
 	// Sound effects indices
-	uint laserFx = 0;
+	uint NormalBulFx = 0;
 	uint explosionFx = 0;
+	uint Dead = 0;
 
 	// Font score index
 	uint score = 000;
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
 
-	SDL_Rect cameraGameplay = { 185, 3700, RES_WIDTH, RES_HEIGHT };
+	uint highscore = 000;
+	char HighscoreText[10] = { "\0" };
+
+	int balitas;
+
+	SDL_Rect cameraGameplay;
 };
 
 #endif //!__MODULE_PLAYER_H__

@@ -25,7 +25,10 @@ public:
 public:
 	// Position of the weapon in the map
 	iPoint positionWeapon;
+	iPoint spritep;
+	int speed = 1;
 
+	int options;
 	// The weapon spritesheet loaded into an SDL_Texture
 	SDL_Texture* textureW = nullptr;
 
@@ -33,15 +36,48 @@ public:
 	Animation* WcurrentAnimation = nullptr;
 
 	//Animations of the weapon for each direction
-	Animation northWeapon;
-	Animation southWeapon;
-	Animation eastWeapon;
-	Animation westWeapon;
-	Animation northEastWeapon;
-	Animation northWestWeapon;
-	Animation southEastWeapon;
-	Animation southWestWeapon;
-	int direction;
+	Animation idleAnim;
+	Animation northAnim;
+	Animation southAnim;
+	Animation eastAnim;
+	Animation westAnim;
+	Animation northEastAnim;
+	Animation northWestAnim;
+	Animation southEastAnim;
+	Animation southWestAnim;
+	Animation downAnim;
+	Animation WidleAnim;
+	Animation WnorthAnim;
+	Animation WsouthAnim;
+	Animation WeastAnim;
+	Animation WwestAnim;
+	Animation WnorthEastAnim;
+	Animation WnorthWestAnim;
+	Animation WsouthEastAnim;
+	Animation WsouthWestAnim;
+	Animation WdownAnim;
+
+	Animation TidleAnim;
+	Animation TnorthAnim;
+	Animation TsouthAnim;
+	Animation TeastAnim;
+	Animation TwestAnim;
+	Animation TnorthEastAnim;
+	Animation TnorthWestAnim;
+	Animation TsouthEastAnim;
+	Animation TsouthWestAnim;
+	Animation TdownAnim;
+	Animation TWidleAnim;
+	Animation TWnorthAnim;
+	Animation TWsouthAnim;
+	Animation TWeastAnim;
+	Animation TWwestAnim;
+	Animation TWnorthEastAnim;
+	Animation TWnorthWestAnim;
+	Animation TWsouthEastAnim;
+	Animation TWsouthWestAnim;
+	Animation TWdownAnim;
+	int direction = 1;
 
 	bool destroyed = false;
 };

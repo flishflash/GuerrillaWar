@@ -3,7 +3,7 @@
 
 #include "SDL/include/SDL_Rect.h"
 
-#define MAX_LISTENERS 10
+#define MAX_LISTENERS 14
 
 class Module;
 
@@ -16,11 +16,15 @@ struct Collider
 		PLAYER,
 		ENEMY,
 		PLAYER_SHOT,
+		EXPLOSION,
 		ENEMY_SHOT,
 		WATER,
 		WIN,
 		PICK,
 		RECLUSO,
+		DESTROY,
+		GROUND,
+		BOSS,
 
 		MAX
 	};

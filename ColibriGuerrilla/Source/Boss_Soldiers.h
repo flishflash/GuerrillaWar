@@ -1,15 +1,16 @@
-#ifndef __REDSOLDIER_H__
-#define __REDSOLDIER_H__
+#ifndef __BOSS_SOLDIER_H__
+#define __BOSS_SOLDIER_H__
 
 #include "Enemy.h"
+#include "Boss_F1.h"
 #include "Path.h"
 
-class redSoldier : public Enemy
+class Boss_Soldiers : public Enemy
 {
 public:
 	// Constructor (x y coordinates in the world)
 	// Creates animation and movement data and the collider
-	redSoldier(int x, int y);
+	Boss_Soldiers(int x, int y);
 
 	// The enemy is going to follow the different steps in the path
 	// Position will be updated depending on the speed defined at each step
@@ -18,15 +19,19 @@ public:
 	//colllisions
 	void OnCollision(Collider* collider) override;
 
-
 private:
-	// The path that will define the position in the world
-	int compo;
+	// A set of steps that define the position in the screen
+	// And an animation for each step
+
 	Path path;
+	// This enemy has one sprite and one frame
+	// We are keeping it an animation for consistency with other enemies
+
+	Animation greenshot;
+	Animation greenWalkL;
+	Animation greenWalkR;
 	int cooldown = 0;
 	int cooldown2 = 0;
-	// Enemy animations
-	Animation front, right, left;
 };
 
-#endif // __ENEMY_MECH_H__
+#endif // __BOSS_SOLDIER_H__

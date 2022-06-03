@@ -27,7 +27,7 @@ bool SceneIntro::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/titleScreen.png");
-	//App->audio->PlayMusic("Assets/Music/introTitle.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Music/01_Demo.ogg", 1.0f);
 	App->player->cameraGameplay.x = 0;
 	App->player->cameraGameplay.y = 0;
 
@@ -36,7 +36,7 @@ bool SceneIntro::Start()
 
 Update_Status SceneIntro::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A])
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 60);
 		

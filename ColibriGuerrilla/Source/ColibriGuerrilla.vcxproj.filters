@@ -92,6 +92,27 @@
     <ClCompile Include="Fusil.cpp">
       <Filter>Game\Power ups</Filter>
     </ClCompile>
+    <ClCompile Include="LanzLlamas.cpp">
+      <Filter>Game\Power ups</Filter>
+    </ClCompile>
+    <ClCompile Include="greenSoldiergranada.cpp">
+      <Filter>Game\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleDestroy.cpp">
+      <Filter>Game\Destructibles</Filter>
+    </ClCompile>
+    <ClCompile Include="Destroy.cpp">
+      <Filter>Game\Destructibles</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_F1.cpp">
+      <Filter>Game\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Soldiers.cpp">
+      <Filter>Game\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_F2.cpp">
+      <Filter>Game\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -193,6 +214,27 @@
     <ClInclude Include="Fusil.h">
       <Filter>Game\Power ups</Filter>
     </ClInclude>
+    <ClInclude Include="LanzLlamas.h">
+      <Filter>Game\Power ups</Filter>
+    </ClInclude>
+    <ClInclude Include="greenSoldiergranada.h">
+      <Filter>Game\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleDestroy.h">
+      <Filter>Game\Destructibles</Filter>
+    </ClInclude>
+    <ClInclude Include="Destroy.h">
+      <Filter>Game\Destructibles</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_F1.h">
+      <Filter>Game\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Soldiers.h">
+      <Filter>Game\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_F2.h">
+      <Filter>Game\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -218,6 +260,9 @@
     </Filter>
     <Filter Include="General">
       <UniqueIdentifier>{61715b2d-86a0-49d3-808e-0d4cb029e5bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Destructibles">
+      <UniqueIdentifier>{efbb05da-45e4-4de4-b108-5efba8468e26}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

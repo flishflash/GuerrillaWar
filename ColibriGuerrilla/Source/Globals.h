@@ -32,4 +32,7 @@ typedef unsigned int uint;
 #define WIN_RESIZABLE 0
 #define VSYNC 1
 
+
+//vidas
+
 #endif // __GLOBALS_H__

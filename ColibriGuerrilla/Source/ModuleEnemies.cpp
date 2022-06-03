@@ -6,12 +6,17 @@
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModulePlayer.h"
+#include "Collider.h"
 
 #include "Enemy.h"
 #include "redSoldier.h"
 #include "greenSoldier.h"
+#include "Boss_F1.h"
+#include "Boss_F2.h"
+#include "Boss_Soldiers.h"
+#include "greenSoldiergranada.h"
 
-#define SPAWN_MARGIN 50
+#define SPAWN_MARGIN 200
 
 
 ModuleEnemies::ModuleEnemies(bool startEnabled) : Module(startEnabled)
@@ -28,7 +33,7 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	texture = App->textures->Load("Assets/Sprites/EnemiesGW.png");
-	//enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
+	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/enemydead.wav");
 
 	return true;
 }
@@ -98,14 +103,14 @@ bool ModuleEnemies::AddEnemy(Enemy_Type type, int x, int y)
 
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if(spawnQueue[i].type == Enemy_Type::NO_TYPE)
-		{
-			spawnQueue[i].type = type;
-			spawnQueue[i].x = x;
-			spawnQueue[i].y = y;
-			ret = true;
-			break;
-		}
+			if (spawnQueue[i].type == Enemy_Type::NO_TYPE)
+			{
+				spawnQueue[i].type = type;
+				spawnQueue[i].x = x;
+				spawnQueue[i].y = y;
+				ret = true;
+				break;
+			}
 	}
 
 	return ret;
@@ -160,8 +165,20 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 				case Enemy_Type::GREENSOLDIER:
 					enemies[i] = new greenSoldier(info.x, info.y);
 					break;
+				case Enemy_Type::GREENSOLDIERGRAN:
+					enemies[i] = new greenSoldiergranada(info.x, info.y);
+					break;
 				case Enemy_Type::REDSOLDIER:
 					enemies[i] = new redSoldier(info.x, info.y);
+					break;
+				case Enemy_Type::BOSSF1:
+					enemies[i] = new Boss_F1(info.x, info.y);
+					break;
+				case Enemy_Type::BOSSF2:
+					enemies[i] = new Boss_F2(info.x, info.y);
+					break;
+				case Enemy_Type::SOLDIERSBOSS:
+					enemies[i] = new Boss_Soldiers(info.x, info.y);
 					break;
 			}
 			enemies[i]->texture = texture;
@@ -175,10 +192,16 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
+		if ((c2->type == Collider::Type::PLAYER_SHOT || c2->type == Collider::Type::EXPLOSION || c2->type == Collider::Type::PLAYER))
 		{
-			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
-			break;
+			if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
+			{
+				enemies[i]->OnCollision(c2); //Notify the enemy of a collision
+				App->player->score += 100;
+				App->audio->PlayFx(enemyDestroyedFx);
+
+				break;
+			}
 		}
 	}
 }

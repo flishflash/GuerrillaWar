@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "SDL/include/SDL.h"
+#include <math.h>
 
 ModuleInput::ModuleInput(bool startEnabled) : Module(startEnabled)
 {}
@@ -15,7 +16,7 @@ bool ModuleInput::Init()
 	bool ret = true;
 	SDL_Init(0);
 
-	if(SDL_InitSubSystem(SDL_INIT_EVENTS) < 0)
+	if(SDL_InitSubSystem(SDL_INIT_EVENTS | SDL_INIT_GAMECONTROLLER) < 0)
 	{
 		LOG("SDL_EVENTS could not initialize! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
@@ -45,8 +46,34 @@ Update_Status ModuleInput::PreUpdate()
 	}
 	if (keyboard[SDL_SCANCODE_ESCAPE]) return Update_Status::UPDATE_STOP;
 
-	//scene change
+	//scene changeç
+	
+	// Initialize Controller
+	num_controllers = SDL_NumJoysticks();
+	for (int i = 0; i < num_controllers; ++i)
+		if (SDL_IsGameController(i))
+			sdl_controllers[i] = SDL_GameControllerOpen(i);
 
+	//Imput Controller
+	SDL_GameControllerUpdate();
+	for (int i = 0; i < num_controllers; ++i)
+	{
+		for (int j = 0; j < SDL_CONTROLLER_BUTTON_MAX; ++j)
+		{
+			if (SDL_GameControllerGetButton(sdl_controllers[i], (SDL_GameControllerButton)j))
+				controllers[i].buttons[j] = (controllers[i].buttons[j] == KEY_IDLE) ? KEY_DOWN : KEY_REPEAT;
+			else
+				controllers[i].buttons[j] = (controllers[i].buttons[j] == KEY_REPEAT || controllers[i].buttons[j] == KEY_DOWN) ? KEY_UP : KEY_IDLE;
+		}
+
+		controllers[i].j1_x = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_LEFTX);
+		//if (controllers[i].j1_x > 10000 || controllers[i].j1_x < -10000) controllers[i].j1_x = 0; else controllers[i].j1_x = controllers[i].j1_x / (-controllers[i].j1_x);
+		controllers[i].j1_y = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_LEFTY);
+		controllers[i].j2_x = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_RIGHTX);
+		controllers[i].j2_y = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_RIGHTY);
+		controllers[i].RT = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_TRIGGERRIGHT);
+		controllers[i].LT = SDL_GameControllerGetAxis(sdl_controllers[i], SDL_CONTROLLER_AXIS_TRIGGERLEFT);
+	}
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -56,5 +83,7 @@ bool ModuleInput::CleanUp()
 	LOG("Quitting SDL input event subsystem");
 
 	SDL_QuitSubSystem(SDL_INIT_EVENTS);
+	SDL_QuitSubSystem(SDL_INIT_GAMECONTROLLER);
+
 	return true;
 }

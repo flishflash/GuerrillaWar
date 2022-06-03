@@ -1,7 +1,7 @@
 #ifndef __MODULE_COLLISIONS_H__
 #define __MODULE_COLLISIONS_H__
 
-#define MAX_COLLIDERS 10000
+#define MAX_COLLIDERS 1000
 
 #include "Module.h"
 #include "Collider.h"
@@ -40,6 +40,8 @@ public:
 
 	// Draws all existing colliders with some transparency
 	void DebugDraw();
+
+	bool godmode = false;
 
 private:
 	// All existing colliders in the scene

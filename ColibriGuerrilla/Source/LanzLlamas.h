@@ -1,17 +1,17 @@
 
-#ifndef __FUSIL_H__
-#define __FUSIL_H__
+#ifndef __LANZALLAMAS_H__
+#define __LANZALLAMAS_H__
 #include "pickUp.h"
 #include "Path.h"
 
-class Fusil : public pickUp
+class LanzLlamas : public pickUp
 {
 
 public:
 
 	// Constructor (x y coordinates in the world)
 	// Creates animation data and the collider
-	Fusil(int x, int y);
+	LanzLlamas(int x, int y);
 
 	// The enemy is going to perform a sinusoidal movement
 	void Update() override;

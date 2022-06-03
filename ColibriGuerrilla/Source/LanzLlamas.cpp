@@ -1,14 +1,13 @@
-#include "Fusil.h"
+#include "LanzLlamas.h"
 
 #include "Application.h"
 #include "ModuleCollisions.h"
 
 
-Fusil::Fusil(int x, int y) : pickUp(x, y)
+LanzLlamas::LanzLlamas(int x, int y) : pickUp(x, y)
 {
-	fusilaso.PushBack({13,196,22,22});
-	fusilaso.PushBack({45,196,22,22});
-	fusilaso.PushBack({77,196,22,22});
+	fusilaso.PushBack({ 32,152,22,22 });
+	fusilaso.PushBack({ 64,152,22,22 });
 	fusilaso.loop = true;
 	fusilaso.speed = 0.1f;
 	currentAnim = &fusilaso;
@@ -16,7 +15,7 @@ Fusil::Fusil(int x, int y) : pickUp(x, y)
 
 }
 
-void Fusil::Update()
+void LanzLlamas::Update()
 {
 	path.Update();
 	currentAnim = &fusilaso;

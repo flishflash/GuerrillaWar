@@ -26,7 +26,7 @@ bool SceneWin::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/winScreen.png");
-
+	App->audio->PlayMusic("Assets/Music/12_Continue.ogg", 1.0f);
 	App->player->cameraGameplay.x = 0;
 	App->player->cameraGameplay.y = 0;
 
@@ -35,7 +35,7 @@ bool SceneWin::Start()
 
 Update_Status SceneWin::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A])
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
 	}

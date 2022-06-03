@@ -1,4 +1,4 @@
-#include "Lose.h"
+#include "SceneLose.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -26,7 +26,7 @@ bool SceneLose::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/Sprites/loseScreen.png");
-
+	App->audio->PlayMusic("Assets/Music/11_Game-Over.ogg", 1.0f);
 	App->player->cameraGameplay.x = 0;
 	App->player->cameraGameplay.y = 0;
 
@@ -35,10 +35,12 @@ bool SceneLose::Start()
 
 Update_Status SceneLose::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
-	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 90);
-	}
+
+		if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A])
+		{
+			App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
+
+		}
 
 	return Update_Status::UPDATE_CONTINUE;
 }

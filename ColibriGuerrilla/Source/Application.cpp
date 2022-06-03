@@ -15,6 +15,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleFonts.h"
 #include "ModuleRender.h"
+#include "ModuleDestroy.h"
 #include "Win.h"
 #include "Lose.h"
 #include "ModuleWeapons.h"
@@ -33,18 +34,20 @@ Application::Application()
 	modules[4] =	sceneIntro =	new SceneIntro(true);
 	modules[5] =	sceneWin =		new SceneWin(false);
 	modules[6] =	sceneLose =		new SceneLose(false);
-	modules[7] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
-	modules[8] =	player =		new ModulePlayer(false);	//Player starts disabled
-	modules[9] =	particles =		new ModuleParticles(true);
-	modules[10] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
-	modules[11] =	picks =			new ModulePickUp(false);	//Picks start disabled
+	modules[7] =	sceneLevel_1 =	new SceneLevel1(false);
+	modules[8] =	destroys =		new ModuleDestroy(true);
+	modules[9] =	picks =			new ModulePickUp(true);
+	modules[10] =	particles =		new ModuleParticles(true);
+	modules[11] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	modules[12] =	player =		new ModulePlayer(false);	//Player starts disabled
+	modules[13] =	weapon =		new ModuleWeapons(true);
 
-	modules[12] =	collisions =	new ModuleCollisions(true);
-	modules[13] =	fade =			new ModuleFadeToBlack(true);
-	modules[14] =	fonts =			new ModuleFonts(true);
-	modules[15] =	render =		new ModuleRender(true);
+	modules[14] =	collisions =	new ModuleCollisions(true);
+	modules[15] =	fade =			new ModuleFadeToBlack(true);
+	modules[16] =	fonts =			new ModuleFonts(true);
+	modules[17] =	render =		new ModuleRender(true);
 
-	modules[16] =	weapon =		new ModuleWeapons(true);
+	
 
 }
 
@@ -54,6 +57,7 @@ Application::~Application()
 	{
 		//Important: when deleting a pointer, set it to nullptr afterwards
 		//It allows us for null check in other parts of the code
+		LOG("Se elimina el modulo %d", i);
 		delete modules[i];
 		modules[i] = nullptr;
 	}

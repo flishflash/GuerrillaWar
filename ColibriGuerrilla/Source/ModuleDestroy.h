@@ -1,38 +1,25 @@
-#ifndef __MODULE_ENEMIES_H__
-#define __MODULE_ENEMIES_H__
+#ifndef __MODULE_DESTROY_H__
+#define __MODULE_DESTROY_H__
 
 #include "Module.h"
+#include "Collider.h"
+#include "Globals.h"
+#include "Destroy.h"
 
-#define MAX_ENEMIES 200
+#define MAX_DESTROY 200
 
-enum class Enemy_Type
-{
-	NO_TYPE,
-	GREENSOLDIER,
-	GREENSOLDIERGRAN,
-	REDSOLDIER,
-	BOSSF1,
-	BOSSF2,
-	SOLDIERSBOSS,
-};
 
-struct EnemySpawnpoint
-{
-	Enemy_Type type = Enemy_Type::NO_TYPE;
-	int x, y;
-};
-
-class Enemy;
+struct Collider;
 struct SDL_Texture;
 
-class ModuleEnemies : public Module
+class ModuleDestroy : public Module
 {
 public:
 	// Constructor
-	ModuleEnemies(bool startEnabled);
+	ModuleDestroy(bool startEnabled);
 
 	// Destructor
-	~ModuleEnemies();
+	~ModuleDestroy();
 
 	// Called when the module is activated
 	// Loads the necessary textures for the enemies
@@ -59,30 +46,23 @@ public:
 	void OnCollision(Collider* c1, Collider* c2) override;
 
 	// Add an enemy into the queue to be spawned later
-	bool AddEnemy(Enemy_Type type, int x, int y);
+	Destroy* AddDestroy(const Destroy& destroy, int x, int y, Collider::Type colliderType);
 
-	// Iterates the queue and checks for camera position
-	void HandleEnemiesSpawn();
+public:
 
-	// Destroys any enemies that have moved outside the camera limits
-	void HandleEnemiesDespawn();
-
-private:
-	// Spawns a new enemy using the data from the queue
-	void SpawnEnemy(const EnemySpawnpoint& info);
+	Destroy rock;
+	Destroy rockL;
+	Destroy fence;
+	Destroy fence2;
+	Destroy trinch;
 
 private:
-	// A queue with all spawn points information
-	EnemySpawnpoint spawnQueue[MAX_ENEMIES];
 
 	// All spawned enemies in the scene
-	Enemy* enemies[MAX_ENEMIES] = { nullptr };
+	Destroy* destroys[MAX_DESTROY] = { nullptr };
 
 	// The enemies sprite sheet
 	SDL_Texture* texture = nullptr;
-
-	// The audio fx for destroying an enemy
-	int enemyDestroyedFx = 0;
 };
 
 #endif // __MODULE_ENEMIES_H__

@@ -1,37 +1,37 @@
-#ifndef __GREENSOLDIER_H__
-#define __GREENSOLDIER_H__
+#ifndef __BOSS_F2_H__
+#define __BOSS_F2_H__
 
 #include "Enemy.h"
 #include "Path.h"
-
-class greenSoldier : public Enemy
+class Boss_F2 : public Enemy
 {
 public:
 	// Constructor (x y coordinates in the world)
 	// Creates animation and movement data and the collider
-	greenSoldier(int x, int y);
+	Boss_F2(int x, int y);
 
 	// The enemy is going to follow the different steps in the path
 	// Position will be updated depending on the speed defined at each step
 	void Update() override;
 
-	//colllisions
 	void OnCollision(Collider* collider) override;
 
 private:
 	// A set of steps that define the position in the screen
 	// And an animation for each step
-
+	int hits;
 	Path path;
 	// This enemy has one sprite and one frame
 	// We are keeping it an animation for consistency with other enemies
-	Animation greenWalkbackward;
-	Animation greenWalkshot;
-	Animation greenWalk;
+	Animation fase1;
+	Animation dead;
+
 	int cooldown = 0;
 	int cooldown2 = 0;
-	int cooldown3 = 0;
-	int comp;
+	int cooldownshot = 0;
+	int cooldownspawn = 0;
+
+	int spawn;
 };
 
-#endif // __GREENSOLDIER_H__
+#endif // __BOSS_F2_H__
