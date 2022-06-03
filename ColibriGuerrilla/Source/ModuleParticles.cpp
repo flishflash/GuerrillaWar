@@ -25,12 +25,10 @@ bool ModuleParticles::Start()
 	texture = App->textures->Load("Assets/Sprites/particles.png");
 
 	// Explosion particle
-	explosion.anim.PushBack({274, 296, 33, 30});
-	explosion.anim.PushBack({313, 296, 33, 30});
-	explosion.anim.PushBack({346, 296, 33, 30});
-	explosion.anim.PushBack({382, 296, 33, 30});
-	explosion.anim.PushBack({419, 296, 33, 30});
-	explosion.anim.PushBack({457, 296, 33, 30});
+	explosion.anim.PushBack({246, 87, 27, 28});
+	explosion.anim.PushBack({276, 86, 31, 33});
+	explosion.anim.PushBack({310, 86, 28, 32});
+	explosion.anim.PushBack({342, 87, 29, 29});
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
@@ -155,6 +153,7 @@ bool ModuleParticles::Start()
 	granade.anim.PushBack({ 161, 160, 13, 16 });
 	granade.anim.PushBack({ 177, 160, 14, 16 });
 	granade.lifetime = 100;
+	granade.anim.loop = false;
 	granade.anim.speed = 0.1f;
 
 	BulletBoss.anim.PushBack({0, 382, 12, 17});

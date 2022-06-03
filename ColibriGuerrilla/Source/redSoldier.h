@@ -26,7 +26,7 @@ private:
 	int cooldown = 0;
 	int cooldown2 = 0;
 	// Enemy animations
-	Animation front, back;
+	Animation front, right, left;
 };
 
 #endif // __ENEMY_MECH_H__

@@ -7,29 +7,46 @@
 
 greenSoldiergranada::greenSoldiergranada(int x, int y) : Enemy(x, y)
 {
+	cooldown = 0;
+	cooldown2 = 0;
 
 	//walk forward
-	granadaWalkforward.PushBack({0, 0, 27, 55});
-	granadaWalkforward.PushBack({32, 0, 26, 55});
-	granadaWalkforward.PushBack({64, 0, 26, 55});
-	granadaWalkforward.PushBack({96, 0, 26, 55});
-	granadaWalkforward.PushBack({126, 0, 26, 55});
-	granadaWalkforward.loop = true;
-	granadaWalkforward.speed = 0.1f;
+	granadeidle.PushBack({ 494, 934, 25, 47 });
+	granadeidle.loop = true;
+	granadeidle.speed = 0.1f;
+
+	granadashot.PushBack({494, 934, 25, 47});
+	granadashot.PushBack({494, 934, 25, 47});
+	granadashot.PushBack({494, 934, 25, 47});
+	granadashot.PushBack({494, 934, 25, 47});
+	granadashot.PushBack({829, 853, 27, 54});
+	granadashot.PushBack({737, 854, 28, 52});
+	granadashot.PushBack({784, 859, 25, 44});
+	granadashot.loop = true;
+	granadashot.speed = 0.1f;
 
 	//walk backward
-	granadaWalkbackward.PushBack({ 0, 237, 27, 55 });
-	granadaWalkbackward.PushBack({ 32, 237, 26, 55 });
-	granadaWalkbackward.PushBack({ 64, 237, 26, 55 });
-	granadaWalkbackward.PushBack({ 96, 237, 26, 55 });
-	granadaWalkbackward.PushBack({ 126, 237, 26, 55 });
-	granadaWalkbackward.loop = true;
-	granadaWalkbackward.speed = 0.1f;
+	granadashotL.PushBack({ 532, 936, 28, 44 });
+	granadashotL.PushBack({ 532, 936, 28, 44 });
+	granadashotL.PushBack({ 532, 936, 28, 44 });
+	granadashotL.PushBack({ 532, 936, 28, 44 });
+	granadashotL.PushBack({ 687, 856, 31, 53 });
+	granadashotL.PushBack({ 687, 856, 31, 53 });
+	granadashotL.PushBack({ 874, 931, 28, 50 });
+	granadashotL.loop = true;
+	granadashotL.speed = 0.1f;
 
-	currentAnim = &granadaWalkbackward;
+	granadashotR.PushBack({ 453, 935, 25, 44 });
+	granadashotR.PushBack({ 453, 935, 25, 44 });
+	granadashotR.PushBack({ 453, 935, 25, 44 });
+	granadashotR.PushBack({ 453, 935, 25, 44 });
+	granadashotR.PushBack({ 739, 926, 29, 47 });
+	granadashotR.PushBack({ 793, 930, 25, 44 });
+	granadashotR.PushBack({ 931, 933, 27, 38 });
+	granadashotR.loop = true;
+	granadashotR.speed = 0.1f;
 
-	//path.PushBack({ 0, -1.2f }, 150, &greenWalkbackward);
-	//path.PushBack({ 0, 1.2f }, 50, &greenWalkforward);
+	currentAnim = &granadeidle;
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
@@ -41,19 +58,36 @@ void greenSoldiergranada::OnCollision(Collider* collider) {
 }
 void greenSoldiergranada::Update()
 {
-	/*path.Update();
-	positionenemy = spawnPos + path.GetRelativePosition();*/
-	//currentAnim = path.GetCurrentAnimation();
-	//if (currentAnim == &greenWalkforward && (cooldown>=10))
-	//{
-	//	cooldown--;
-	//	App->particles->AddParticle(App->particles->bulletS, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+	path.Update();
 
-	//}
-	//if (currentAnim == &greenWalkshot)
-	//{
-	//	cooldown = 20;
-	//}
+
+	if (cooldown > 0 && cooldown < 90)
+	{
+
+		if (cooldown < 33)
+		{
+				currentAnim = &granadashot;
+
+			if (cooldown2 == 26)
+			{
+				App->particles->AddParticle(App->particles->granade, positionenemy.x, positionenemy.y + 10, Collider::Type::ENEMY_SHOT, 20);
+				cooldown2 = 0;
+			}
+				cooldown2++;
+		}
+		else
+		{
+			currentAnim = &granadeidle;
+		}
+			
+	}
+	else
+	{
+		cooldown = 0;
+		cooldown2 = 0;
+	}
+
+	cooldown++;
 
 	Enemy::Update();
 }

@@ -25,13 +25,14 @@ private:
 
 	// This enemy has one sprite and one frame
 	// We are keeping it an animation for consistency with other enemies
-	Animation granadaWalkforward;
-	Animation granadaWalkbackward;
-	Animation granadaWalkswimforward;
-	Animation granadaWalkswimbackward;
-	Animation granadaWalkshot;
-	Animation granadaWalk;
-	int cooldown = 20;
+
+	Animation granadashot;
+	Animation granadashotL;
+	Animation granadashotR;
+	Animation granadeidle;
+
+	int cooldown = 0;
+	int cooldown2 = 0;
 };
 
 #endif // __GREENSOLDIER_GRANADA_H__

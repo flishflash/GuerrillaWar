@@ -12,23 +12,25 @@ redSoldier::redSoldier(int x, int y) : Enemy(x, y)
 	cooldown = 0;
 	cooldown2 = 0;
 
-	front.PushBack({577,0,27,54});
-	front.PushBack({607,1,30,54});
-	front.PushBack({640,0,28,54});
-	front.PushBack({674,0,25,54});
+	front.PushBack({631, 628, 25, 46});
+	front.PushBack({631, 628, 25, 46});
+	front.PushBack({634, 566, 25, 46});
 	front.loop = true;
 	front.speed = 0.1f;
 	currentAnim = &front;
 
-	back.PushBack({ 577,237,27,54 });
-	back.PushBack({ 607,238,30,54 });
-	back.PushBack({ 640,237,28,54 });
-	back.PushBack({ 674,237,25,54 });
-	back.loop = true;
-	back.speed = 0.1f;
+	right.PushBack({ 582, 629, 26, 45 });
+	right.PushBack({ 582, 629, 26, 45 });
+	right.PushBack({ 581, 567, 28, 42 });
+	right.loop = true;
+	right.speed = 0.1f;
 
-	//path.PushBack({ 0, -1.2f }, 150, &back);
-	//path.PushBack({ 0, 1.2f }, 150, &front);
+
+	left.PushBack({ 685, 630, 27, 45 });
+	left.PushBack({ 685, 630, 27, 45 });
+	left.PushBack({ 681, 567, 29, 43 });
+	left.loop = true;
+	left.speed = 0.1f;
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
 
@@ -49,24 +51,27 @@ void redSoldier::OnCollision(Collider* collider) {
 void redSoldier::Update()
 {
 	path.Update();
-	//positionenemy = spawnPos + path.GetRelativePosition();
-	//currentAnim = path.GetCurrentAnimation();
+
+
 	switch (compo)
 	{
 		case 0:
+
+			currentAnim = &left;
+
 			if (cooldown >= 70)
 			{
 				if (cooldown2 == 5)
 				{
-					App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+					App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 10, Collider::Type::ENEMY_SHOT, 20);
 				}
 				if (cooldown2 == 8)
 				{
-					App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+					App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 10, Collider::Type::ENEMY_SHOT, 20);
 				}
-				if (cooldown2 == 10)
+				if (cooldown2 == 11)
 				{
-					App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+					App->particles->AddParticle(App->particles->enemyBullet, positionenemy.x, positionenemy.y + 10, Collider::Type::ENEMY_SHOT, 20);
 					cooldown = 0;
 					cooldown2 = 0;
 					compo = 1;
@@ -78,6 +83,9 @@ void redSoldier::Update()
 			
 			break;
 		case 1:
+
+			currentAnim = &front;
+
 			if (cooldown >= 70)
 			{
 				if (cooldown2 == 5)
@@ -88,7 +96,7 @@ void redSoldier::Update()
 				{
 					App->particles->AddParticle(App->particles->enemyBulletL, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
 				}
-				if (cooldown2 == 10)
+				if (cooldown2 == 11)
 				{
 					App->particles->AddParticle(App->particles->enemyBulletL, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
 					cooldown = 0;
@@ -101,19 +109,22 @@ void redSoldier::Update()
 			cooldown++;
 			break;
 		case 2:
+
+			currentAnim = &right;
+
 			if (cooldown >= 70)
 			{
 				if (cooldown2 == 5)
 				{
-					App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+					App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x + 10, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
 				}
 				if (cooldown2 == 8)
 				{
-					App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+					App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x + 10, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
 				}
-				if (cooldown2 == 10)
+				if (cooldown2 == 11)
 				{
-					App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+					App->particles->AddParticle(App->particles->enemyBulletR, positionenemy.x + 10, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
 					cooldown = 0;
 					cooldown2 = 0;
 					compo = 0;
@@ -124,7 +135,7 @@ void redSoldier::Update()
 			cooldown++;
 			break;
 	}
-	// Call to the base class. It must be called at the end
-	// It will update the collider depending on the position
+
+
 	Enemy::Update();
 }

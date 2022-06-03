@@ -5,6 +5,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
+#include "ModuleEnemies.h"
 
 
 Boss_F2::Boss_F2(int x, int y) : Enemy(x, y)
@@ -12,6 +13,7 @@ Boss_F2::Boss_F2(int x, int y) : Enemy(x, y)
 	cooldown = 0;
 	cooldownshot = 0;
 	cooldown2 = 0;
+	cooldownspawn = 0;
 
 	hits = 0;
 
@@ -37,6 +39,13 @@ void Boss_F2::OnCollision(Collider* collider)
 	}
 	if (hits == 30)
 	{
+		App->particles->AddParticle(App->particles->explosion, positionenemy.x + 20, positionenemy.y + 50);
+		App->particles->AddParticle(App->particles->explosion, positionenemy.x + 60, positionenemy.y - 20);
+		App->particles->AddParticle(App->particles->explosion, positionenemy.x - 10, positionenemy.y + 30);
+		App->particles->AddParticle(App->particles->explosion, positionenemy.x + 50, positionenemy.y + 10);
+		App->particles->AddParticle(App->particles->explosion, positionenemy.x + 30, positionenemy.y);
+		App->particles->AddParticle(App->particles->explosion, positionenemy.x, positionenemy.y + 70);
+
 		SetToDelete();
 	}
 	if (hits == 15)
@@ -48,7 +57,17 @@ void Boss_F2::OnCollision(Collider* collider)
 void Boss_F2::Update()
 {
 	path.Update();
-
+	if (cooldownspawn==200)
+	{
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x + 30, positionenemy.y + 100);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x - 40, positionenemy.y + 50);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x - 80, positionenemy.y + 120);
+		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x + 100, positionenemy.y + 80);
+	}
+	else if (cooldownspawn>200)
+	{
+		cooldownspawn = 0;
+	}
 	if (cooldown <= 40)
 	{
 		positionenemy.y += 1;
@@ -93,14 +112,14 @@ void Boss_F2::Update()
 
 	if (cooldownshot >= 120)
 	{
-			App->particles->AddParticle(App->particles->BulletBoss, positionenemy.x, positionenemy.y + 50, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->BulletBoss, positionenemy.x + 30, positionenemy.y + 70, Collider::Type::ENEMY_SHOT);
 	
-			App->particles->AddParticle(App->particles->BulletBossL, positionenemy.x, positionenemy.y + 50, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->BulletBossL, positionenemy.x + 40, positionenemy.y + 70, Collider::Type::ENEMY_SHOT);
 	
-			App->particles->AddParticle(App->particles->BulletBossR, positionenemy.x, positionenemy.y + 50, Collider::Type::ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->BulletBossR, positionenemy.x , positionenemy.y + 70, Collider::Type::ENEMY_SHOT);
 			cooldownshot = 0;			
 	}
 	cooldownshot++;
-
+	cooldownspawn++;
 	Enemy::Update();
 }
