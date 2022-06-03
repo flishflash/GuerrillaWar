@@ -287,7 +287,7 @@ Update_Status SceneLevel1::Update()
 
 	if (App->player->position.y == 341 && appear == 17)
 	{
-		App->enemies->AddEnemy(Enemy_Type::BOSSF2, 737, 65); 
+		App->enemies->AddEnemy(Enemy_Type::BOSSF1, 737, 65); 
 		appear++;
 	}
 
