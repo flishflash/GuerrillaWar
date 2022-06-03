@@ -31,7 +31,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 
 	bool ret = true;
-
+	vidas = 3;
 	texture = App->textures->Load("Assets/Sprites/sprites_caminant.png");
 	trees = App->textures->Load("Assets/Sprites/palmerasMapaless.png");
 	currentAnimation = &idleAnim;
@@ -79,7 +79,7 @@ void ModulePlayer::shootNormalBullet()
 	case 2:
 		if (App->weapon->options == 1 || App->weapon->options == 2)
 		{
-			App->particles->AddParticle(App->particles->bulletNE, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletNE, position.x + 25, position.y + 5, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
@@ -91,7 +91,7 @@ void ModulePlayer::shootNormalBullet()
 	case 3:
 		if (App->weapon->options == 1 || App->weapon->options == 2)
 		{
-			App->particles->AddParticle(App->particles->bulletE, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletE, position.x + 20, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
@@ -103,7 +103,7 @@ void ModulePlayer::shootNormalBullet()
 	case 4:
 		if (App->weapon->options == 1 || App->weapon->options == 2)
 		{
-			App->particles->AddParticle(App->particles->bulletSE, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletSE, position.x + 17, position.y + 30, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
@@ -115,7 +115,7 @@ void ModulePlayer::shootNormalBullet()
 	case 5:
 		if (App->weapon->options == 1 || App->weapon->options == 2)
 		{
-			App->particles->AddParticle(App->particles->bulletS, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletS, position.x + 5, position.y +40, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
@@ -127,7 +127,7 @@ void ModulePlayer::shootNormalBullet()
 	case 6:
 		if (App->weapon->options == 1 || App->weapon->options == 2)
 		{
-			App->particles->AddParticle(App->particles->bulletSW, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletSW, position.x + -5, position.y + 30, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
@@ -139,7 +139,7 @@ void ModulePlayer::shootNormalBullet()
 	case 7:
 		if (App->weapon->options == 1 || App->weapon->options == 2)
 		{
-			App->particles->AddParticle(App->particles->bulletW, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletW, position.x -7, position.y + 20, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
@@ -151,7 +151,7 @@ void ModulePlayer::shootNormalBullet()
 	case 8:
 		if (App->weapon->options == 1 || App->weapon->options == 2)
 		{
-			App->particles->AddParticle(App->particles->bulletNW, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->bulletNW, position.x -5, position.y, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(NormalBulFx);
 		}
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
@@ -163,7 +163,7 @@ void ModulePlayer::shootNormalBullet()
 	}
 	if (App->weapon->options == 3 || App->weapon->options == 4)
 	{
-		if (App->input->keys[SDL_SCANCODE_SPACE])
+		if (App->input->keys[SDL_SCANCODE_SPACE] || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A] == Key_State::KEY_DOWN)
 		{
 			balitas -= 1;
 		}
@@ -219,8 +219,16 @@ void ModulePlayer::launchGranade()
 	}
 }
 
+
+
 Update_Status ModulePlayer::Update()
 {
+	float fx = 0, fy = 0;
+
+	fx += reduce_val(App->input->controllers[0].j1_x, 10000, 2);
+	fy += reduce_val(App->input->controllers[0].j1_y, 10000, 2);
+	fx += reduce_val(App->input->controllers[0].j2_x, 10000, 2);
+	fy += reduce_val(App->input->controllers[0].j2_y, 10000, 2);
 
 	collider->rect.x = position.x;
 	collider->rect.y = position.y + 25;
@@ -242,9 +250,29 @@ Update_Status ModulePlayer::Update()
 		cameraGameplay.y -= speed;
 	}
 
+	// GAMEPAD: Triggers Count as axis, have specific values
+	if (App->input->controllers[0].LT > SDL_MAX_SINT16 / 2) {
+		fx *= 2;
+		fy *= 2;
+	}
+	if (App->input->controllers[0].RT > SDL_MAX_SINT16 / 2) {
+		fx *= 3;
+		fy *= 3;
+	}
+
+	// GAMEPAD: Fire with any button for now to check they all work
+	bool button_press = false;
+	for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; ++i)
+	{
+		if (App->input->controllers[0].buttons[i] == KEY_DOWN)
+		{
+			button_press = true; break;
+		}
+	}
+
 	//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 
-	if (App->input->keys[SDL_SCANCODE_W]) {
+	if (App->input->keys[SDL_SCANCODE_W] || reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0) {
 		direction = 1;
 		position.y -= speed;
 	}
@@ -281,38 +309,7 @@ Update_Status ModulePlayer::Update()
 		position.x -= speed / 2;
 	}
 
-	/*
-	switch (direction) {
-	case 1:
-		currentAnimation = &northAnim;
-		break;
-	case 2:
-		currentAnimation = &northEastAnim;
-		break;
-	case 3:
-		currentAnimation = &eastAnim;
-		break;
-	case 4:
-		currentAnimation = &southEastAnim;
-		break;
-	case 5:
-		currentAnimation = &southAnim;
-		break;
-	case 6:
-		currentAnimation = &southWestAnim;
-		break;
-	case 7:
-		currentAnimation = &westAnim;
-		break;
-	case 8:
-		currentAnimation = &northWestAnim;
-		break;
-	}
-
-	if (!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W] && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A]) currentAnimation->loop = false;
-	else currentAnimation->loop = true;
-	currentAnimation->Update();
-	*/
+	
 
 	if (destroyed) {
 		destroyedCountdown--;
@@ -383,15 +380,19 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WALL && c2->type != Collider::Type::PICK && c2->type != Collider::Type::RECLUSO && c2->type != Collider::Type::GROUND && c2->type != Collider::Type::DESTROY)
 		{
-
-			App->particles->AddParticle(App->particles->playerdies, position.x, position.y, Collider::Type::NONE);
-
-			pendingToDelete = true;
-			if (collider != nullptr)
-				collider->pendingToDelete = true;
-
 			App->audio->PlayFx(Dead);
-			destroyed = true;
+
+			if (vidas == 0)
+			{
+				App->particles->AddParticle(App->particles->playerdies, position.x, position.y, Collider::Type::NONE);
+
+				pendingToDelete = true;
+				if (collider != nullptr)
+					collider->pendingToDelete = true;
+
+				destroyed = true;
+			}
+			vidas--;
 		}
 	}
 		if (c2->type == Collider::Type::WALL || c2->type == Collider::Type::DESTROY)
@@ -448,7 +449,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		{
 			score += 100;
 		}
-		if (c2->type == Collider::Type::WATER && App->weapon->options != 3)
+		if (c2->type == Collider::Type::WATER && App->weapon->options == 1)
 		{
 			App->weapon->options = 2;
 		}
@@ -456,7 +457,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		{
 			App->weapon->options = 4;
 		}
-		if (c2->type == Collider::Type::GROUND && App->weapon->options != 4)
+		if (c2->type == Collider::Type::GROUND && App->weapon->options == 2)
 		{
 			App->weapon->options = 1;
 		}

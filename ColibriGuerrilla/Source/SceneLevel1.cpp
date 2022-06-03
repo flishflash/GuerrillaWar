@@ -442,11 +442,11 @@ Update_Status SceneLevel1::Update()
 
 
 	//imputs
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A])
+	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A] == Key_State::KEY_DOWN)
 	{
 		App->player->shootNormalBullet();
 	}
-	if (App->input->keys[SDL_SCANCODE_G] == Key_State::KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_G] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_B] == Key_State::KEY_DOWN)
 	{
 		App->player->launchGranade();
 	}

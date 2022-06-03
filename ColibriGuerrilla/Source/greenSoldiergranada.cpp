@@ -71,7 +71,8 @@ void greenSoldiergranada::Update()
 
 			if (cooldown2 == 26)
 			{
-				App->particles->AddParticle(App->particles->granadeS, positionenemy.x, positionenemy.y + 20, Collider::Type::ENEMY_SHOT, 20);
+				App->particles->AddParticle(App->particles->granadeS, positionenemy.x, positionenemy.y + 25, Collider::Type::NONE, 20);
+				App->particles->AddParticle(App->particles->explosionG, positionenemy.x-16, positionenemy.y + 65, Collider::Type::ENEMY_SHOT, 70);
 				cooldown2 = 0;
 			}
 				cooldown2++;
