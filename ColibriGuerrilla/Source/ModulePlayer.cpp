@@ -116,10 +116,14 @@ void ModulePlayer::shootNormalBullet()
 
 void ModulePlayer::launchGranade()
 {
+
 	switch (direction)
 	{
 	case 1:
-		App->particles->AddParticle(App->particles->granadeN, position.x + 20, position.y - 20, Collider::Type::EXPLOSION);
+		App->particles->AddParticle(App->particles->granadeN, position.x + 20, position.y - 20, Collider::Type::NONE);
+		if (App->particles->granadeN.position.y >= position.y - 50) {
+			App->particles->AddParticle(App->particles->explosion, position.x - 5, position.y - 100, Collider::Type::EXPLOSION);
+		}
 		break;
 	case 2:
 		App->particles->AddParticle(App->particles->granadeNE, position.x + 30, position.y, Collider::Type::EXPLOSION);
