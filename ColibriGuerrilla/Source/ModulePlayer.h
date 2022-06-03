@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
+#include "SDL\include\SDL.h"
 
 struct SDL_Texture;
 struct Collider;
