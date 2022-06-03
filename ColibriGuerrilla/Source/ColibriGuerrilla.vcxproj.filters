@@ -113,7 +113,9 @@
     <ClCompile Include="Boss_F2.cpp">
       <Filter>Game\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="IntroAnimation.cpp" />
+    <ClCompile Include="IntroAnimation.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -236,7 +238,9 @@
     <ClInclude Include="Boss_F2.h">
       <Filter>Game\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="IntroAnimation.h" />
+    <ClInclude Include="IntroAnimation.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">

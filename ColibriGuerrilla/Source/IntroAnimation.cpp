@@ -11,10 +11,15 @@
 #include "ModuleWindow.h"
 
 
-IntroAnimation::IntroAnimation(bool startEnabled) : Module(startEnabled) {
+IntroAnimation::IntroAnimation(bool startEnabled) : Module(startEnabled) 
+{
+
 }
 
-IntroAnimation::~IntroAnimation() {}
+IntroAnimation::~IntroAnimation() 
+{
+
+}
 
 // Load assets
 bool IntroAnimation::Start()
@@ -114,12 +119,12 @@ Update_Status IntroAnimation::Update() {
 			button_press = true; break;
 		}
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || duration >= 500 || button_press)
+	if (App->input->keys[SDL_SCANCODE_SPACE]|| duration >= 500 || button_press)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 0);
+		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 0);
 	}
 
-	if (App->input->keys[SDL_SCANCODE_ESCAPE] == Key_State::KEY_DOWN) {
+	if (App->input->keys[SDL_SCANCODE_ESCAPE]) {
 		return Update_Status::UPDATE_STOP;
 	}
 
@@ -218,7 +223,7 @@ Update_Status IntroAnimation::Update() {
 // Update: draw background
 Update_Status IntroAnimation::PostUpdate()
 {
-	App->render->Blit(bgTexture, SCREEN_WIDTH - 112, SCREEN_HEIGHT - 1904, NULL);
+	App->render->Blit(bgTexture, SCREEN_WIDTH/2 - 112, SCREEN_HEIGHT - 1904, NULL);
 
 	for (int i = 0; i < MAX_ASSETS_TITLE; ++i) {
 		SDL_Rect rect = assetsAnim[i].GetCurrentFrame();

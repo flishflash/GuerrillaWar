@@ -7,6 +7,7 @@
 #include "ModuleAudio.h"
 #include "ModulePlayer.h"
 #include "SceneIntro.h"
+#include "IntroAnimation.h"
 #include "SceneLevel1.h"
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
@@ -31,21 +32,22 @@ Application::Application()
 	modules[2] =	textures =		new ModuleTextures(true);
 	modules[3] =	audio =			new ModuleAudio(true);
 
-	modules[4] =	sceneIntro =	new SceneIntro(true);
-	modules[5] =	sceneWin =		new SceneWin(false);
-	modules[6] =	sceneLose =		new SceneLose(false);
-	modules[7] =	sceneLevel_1 =	new SceneLevel1(false);
-	modules[8] =	destroys =		new ModuleDestroy(true);
-	modules[9] =	picks =			new ModulePickUp(true);
-	modules[10] =	particles =		new ModuleParticles(true);
-	modules[11] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
-	modules[12] =	player =		new ModulePlayer(false);	//Player starts disabled
-	modules[13] =	weapon =		new ModuleWeapons(true);
+	modules[4] =	introAnim =		new IntroAnimation(true);
+	modules[5] =	sceneIntro =	new SceneIntro(false);
+	modules[6] =	sceneWin =		new SceneWin(false);
+	modules[7] =	sceneLose =		new SceneLose(false);
+	modules[8] =	sceneLevel_1 =	new SceneLevel1(false);
+	modules[9] =	destroys =		new ModuleDestroy(true);
+	modules[10] =	picks =			new ModulePickUp(true);
+	modules[11] =	particles =		new ModuleParticles(true);
+	modules[12] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	modules[13] =	player =		new ModulePlayer(false);	//Player starts disabled
+	modules[14] =	weapon =		new ModuleWeapons(true);
 
-	modules[14] =	collisions =	new ModuleCollisions(true);
-	modules[15] =	fade =			new ModuleFadeToBlack(true);
-	modules[16] =	fonts =			new ModuleFonts(true);
-	modules[17] =	render =		new ModuleRender(true);
+	modules[15] =	collisions =	new ModuleCollisions(true);
+	modules[16] =	fade =			new ModuleFadeToBlack(true);
+	modules[17] =	fonts =			new ModuleFonts(true);
+	modules[18] =	render =		new ModuleRender(true);
 
 	
 
