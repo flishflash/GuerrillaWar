@@ -15,6 +15,8 @@ public:
 	// Position will be updated depending on the speed defined at each step
 	void Update() override;
 
+	void OnCollision(Collider* collider) override;
+
 	bool bossdied;
 
 private:
@@ -31,6 +33,10 @@ private:
 	Animation walkright;
 
 	int cooldown = 0;
+	int cooldownspawn = 0;
+	int cooldownmor = 0;
+
+	int random;
 };
 
 #endif // __BOSS_F1_H__

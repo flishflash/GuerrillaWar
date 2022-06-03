@@ -9,6 +9,10 @@
 Boss_F1::Boss_F1(int x, int y) : Enemy(x, y)
 {
 	cooldown = 0;
+	cooldownspawn = 0;
+	cooldownmor = 0;
+	random = 0;
+
 	walkforward.PushBack({ 0, 573, 28, 59 });
 	walkforward.PushBack({ 30, 573, 30, 59 });
 	walkforward.PushBack({ 65, 573, 27, 55 });
@@ -46,39 +50,98 @@ Boss_F1::Boss_F1(int x, int y) : Enemy(x, y)
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::BOSS, (Module*)App->enemies);
 }
+void Boss_F1::OnCollision(Collider* collider)
+{
+
+}
 
 void Boss_F1::Update()
 {
 	path.Update();
+	random = rand() % 3;
 
-	if (cooldown<120)
+	if (cooldownspawn > 120)
 	{
-		positionenemy.y += 1; 
-		cooldown++;
-	}	
-	else if (cooldown < 270)
-	{
-		currentAnim = &walkright;
-		positionenemy.x += 1;
-		cooldown++;
-	}
-	else if (cooldown < 570)
-	{
-		currentAnim = &walkleft;
-		positionenemy.x -= 1;
-		cooldown++;
+		switch (random)
+		{
+		case 0:
+			App->enemies->AddEnemy(Enemy_Type::SOLDIERSBOSS, 745, positionenemy.y + 50);
+			App->enemies->AddEnemy(Enemy_Type::SOLDIERSBOSS, 765, positionenemy.y + 100);
 
-	}else if (cooldown < 850)
-	{
-		currentAnim = &walkright;
-		positionenemy.x += 1;
-		cooldown++;
-	}
-	else
-	{
-		cooldown = 270;
+			break;
+		case 1:
+			App->enemies->AddEnemy(Enemy_Type::SOLDIERSBOSS, 720, positionenemy.y + 50);
+			App->enemies->AddEnemy(Enemy_Type::SOLDIERSBOSS, 780, positionenemy.y + 80);
+			App->enemies->AddEnemy(Enemy_Type::SOLDIERSBOSS, 765, positionenemy.y + 120);
+
+			break;
+		case 2:
+			App->enemies->AddEnemy(Enemy_Type::SOLDIERSBOSS, 765, positionenemy.y + 50);
+
+			break;
+		}
+		cooldownspawn = 0;
 	}
 
+	if (cooldownmor > 1000)
+	{
+		if (positionenemy.x != 765)
+		{
+			if (positionenemy.x < 765)
+			{
+				currentAnim = &walkright;
+				positionenemy.x += 1;
+
+			}else
+			{
+				currentAnim = &walkleft;
+				positionenemy.x -= 1;
+			}
+		}
+		else
+		{
+			currentAnim = &walkbackward;
+			positionenemy.y -= 1;
+		}
+		if (cooldownmor > 1500)
+		{
+			App->enemies->AddEnemy(Enemy_Type::BOSSF2, 765, 40);
+			SetToDelete();
+		}
+	}
+	else {
+
+		if (cooldown < 120)
+		{
+			positionenemy.y += 1;
+			cooldown++;
+		}
+		else if (cooldown < 270)
+		{
+			currentAnim = &walkright;
+			positionenemy.x += 1;
+			cooldown++;
+		}
+		else if (cooldown < 570)
+		{
+			currentAnim = &walkleft;
+			positionenemy.x -= 1;
+			cooldown++;
+
+		}
+		else if (cooldown < 850)
+		{
+			currentAnim = &walkright;
+			positionenemy.x += 1;
+			cooldown++;
+		}
+		else
+		{
+			cooldown = 270;
+		}
+	}
+	cooldownspawn++;
+	cooldownmor++;
 
 	Enemy::Update();
 }

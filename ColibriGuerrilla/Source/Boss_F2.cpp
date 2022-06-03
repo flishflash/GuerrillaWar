@@ -3,6 +3,7 @@
 
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "Collider.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 #include "ModuleEnemies.h"
@@ -46,7 +47,8 @@ void Boss_F2::OnCollision(Collider* collider)
 		App->particles->AddParticle(App->particles->explosion, positionenemy.x + 50, positionenemy.y + 10);
 		App->particles->AddParticle(App->particles->explosion, positionenemy.x + 30, positionenemy.y);
 		App->particles->AddParticle(App->particles->explosion, positionenemy.x, positionenemy.y + 70);
-
+		//Win collider
+		App->collisions->AddCollider({ 705, 128, 167, 64 }, Collider::Type::WIN);
 		SetToDelete();
 	}
 	if (hits == 15)

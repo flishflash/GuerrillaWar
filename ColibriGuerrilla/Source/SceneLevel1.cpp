@@ -129,8 +129,7 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 600, 0, 104, 189 },   Collider::Type::WALL);
 	App->collisions->AddCollider({ 829, 0, 99, 189 },    Collider::Type::WALL);
 
-	//Win collider
-	App->collisions->AddCollider({ 729, 128, 71, 52 }, Collider::Type::WIN);
+
 
 	//reclusos
 	App->picks->AddPick(Pick_Type::RECLUSO, 151, 3370 );
@@ -278,12 +277,6 @@ bool SceneLevel1::Start()
 
 Update_Status SceneLevel1::Update()
 {
-	//enemies
-	//if (App->player->position.y == 341 && appear == 0)
-	//{
-	//	App->enemies->AddEnemy(Enemy_Type::BOSSF2, 737, 40); //bossf1 65
-	//	appear++;
-	//}
 
 	if (App->player->position.y == 341 && appear == 17)
 	{
@@ -304,10 +297,6 @@ Update_Status SceneLevel1::Update()
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3460);
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3460);
 		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3460);
-
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 215, 3390);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 241, 3390);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, 267, 3390);
 
 		appear=1;
 		LOG("spawn 1");

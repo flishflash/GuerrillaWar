@@ -16,7 +16,7 @@ Boss_Soldiers::Boss_Soldiers(int x, int y) : Enemy(x, y)
 	greenWalkL.PushBack({ 67, 368, 25, 52 });
 	greenWalkL.PushBack({ 99, 368, 27, 52 });
 	greenWalkL.PushBack({ 129, 367, 30, 51 });
-	greenWalkL.loop = false;
+	greenWalkL.loop = true;
 	greenWalkL.speed = 0.2f;
 	
 	greenWalkR.PushBack({ 0, 115, 29, 52 });
@@ -24,7 +24,7 @@ Boss_Soldiers::Boss_Soldiers(int x, int y) : Enemy(x, y)
 	greenWalkR.PushBack({ 68, 115, 23, 53 });
 	greenWalkR.PushBack({ 99, 116, 25, 52 });
 	greenWalkR.PushBack({ 129, 117, 27, 50 });
-	greenWalkR.loop = false;
+	greenWalkR.loop = true;
 	greenWalkR.speed = 0.2f;
 
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
@@ -49,6 +49,7 @@ void Boss_Soldiers::Update()
 		cooldown2 = 0;
 	}
 	cooldown++;
+	cooldown2++;
 	if (cooldown < 150)
 	{
 		currentAnim = &greenWalkR;
@@ -70,7 +71,7 @@ void Boss_Soldiers::Update()
 	}
 	else
 	{
-		cooldown2 = 150;
+		cooldown = 150;
 	}
 
 	Enemy::Update();
