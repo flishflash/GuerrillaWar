@@ -116,14 +116,14 @@ bool ModuleParticles::Start()
 	bulletSW.lifetime = 180;
 	bulletSW.anim.speed = 0.2f;
 
-	bulletW.anim.PushBack({ 189, 182, 9, 8 });
-	bulletW.anim.PushBack({ 195, 182, 10, 8 });
+	bulletW.anim.PushBack({ 196, 182, 9, 8 });
+	bulletW.anim.PushBack({ 211, 182, 10, 8 });
 	bulletW.speed.x = -5;
 	bulletW.lifetime = 180;
 	bulletW.anim.speed = 0.2f;
 
-	bulletNW.anim.PushBack({ 203, 181, 8, 11 });
-	bulletNW.anim.PushBack({ 212, 181, 8, 11 });
+	bulletNW.anim.PushBack({ 228, 181, 8, 11 });
+	bulletNW.anim.PushBack({ 245, 181, 8, 11 });
 	bulletNW.speed.x = -3 ;
 	bulletNW.speed.y = -3 ;
 	bulletNW.lifetime = 180;
@@ -175,12 +175,12 @@ bool ModuleParticles::Start()
 	TbulletW.lifetime = 180;
 	TbulletW.anim.speed = 0.2f;
 
-	bulletNW.anim.PushBack({ 204, 212, 24, 26 });
-	bulletNW.anim.PushBack({ 228, 212, 24, 25 });
-	bulletNW.speed.x = -3;
-	bulletNW.speed.y = -3;
-	bulletNW.lifetime = 180;
-	bulletNW.anim.speed = 0.2f;
+	TbulletNW.anim.PushBack({ 204, 212, 24, 26 });
+	TbulletNW.anim.PushBack({ 228, 212, 24, 25 });
+	TbulletNW.speed.x = -3;
+	TbulletNW.speed.y = -3;
+	TbulletNW.lifetime = 180;
+	TbulletNW.anim.speed = 0.2f;
 
 	//Enemy bullets
 	enemyBullet.anim.PushBack({194, 64, 12, 17});
