@@ -129,6 +129,59 @@ bool ModuleParticles::Start()
 	bulletNW.lifetime = 180;
 	bulletNW.anim.speed = 0.2f;
 
+	//Fusil bullet anims
+	TbulletN.anim.PushBack({ 6, 209, 6, 27 });
+	TbulletN.anim.PushBack({ 22, 209, 7, 28 });
+	TbulletN.speed.y = -5;
+	TbulletN.lifetime = 180;
+	TbulletN.anim.speed = 0.2f;
+
+	TbulletNE.anim.PushBack({ 34, 212, 26, 23 });
+	TbulletNE.anim.PushBack({ 60, 212, 24, 24 });
+	TbulletNE.speed.y = -3;
+	TbulletNE.speed.x = 3;
+	TbulletNE.lifetime = 180;
+	TbulletNE.anim.speed = 0.2f;
+
+	TbulletE.anim.PushBack({ 4, 246, 27, 6 });
+	TbulletE.anim.PushBack({ 35, 246, 28, 7 });
+	TbulletE.speed.x = 5;
+	TbulletE.lifetime = 180;
+	TbulletE.anim.speed = 0.2f;
+
+	TbulletSE.anim.PushBack({ 92, 210, 24, 26 });
+	TbulletSE.anim.PushBack({ 116, 210, 24, 25 });
+	TbulletSE.speed.x = 3;
+	TbulletSE.speed.y = 3;
+	TbulletSE.lifetime = 180;
+	TbulletSE.anim.speed = 0.2f;
+
+	TbulletS.anim.PushBack({ 6, 209, 6, 27 });
+	TbulletS.anim.PushBack({ 22, 209, 7, 28 });
+	TbulletS.speed.y = 5;
+	TbulletS.lifetime = 180;
+	TbulletS.anim.speed = 0.2f;
+
+	TbulletSW.anim.PushBack({ 148, 212, 24, 24 });
+	TbulletSW.anim.PushBack({ 172, 212, 25, 24 });
+	TbulletSW.speed.x = -3;
+	TbulletSW.speed.y = 3;
+	TbulletSW.lifetime = 180;
+	TbulletSW.anim.speed = 0.2f;
+
+	TbulletW.anim.PushBack({ 65, 246, 27, 6 });
+	TbulletW.anim.PushBack({ 97, 246, 28, 7 });
+	TbulletW.speed.x = -5;
+	TbulletW.lifetime = 180;
+	TbulletW.anim.speed = 0.2f;
+
+	bulletNW.anim.PushBack({ 204, 212, 24, 26 });
+	bulletNW.anim.PushBack({ 228, 212, 24, 25 });
+	bulletNW.speed.x = -3;
+	bulletNW.speed.y = -3;
+	bulletNW.lifetime = 180;
+	bulletNW.anim.speed = 0.2f;
+
 	//Enemy bullets
 	enemyBullet.anim.PushBack({194, 64, 12, 17});
 	enemyBullet.anim.PushBack({212, 65, 11, 16});
