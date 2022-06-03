@@ -18,6 +18,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL][Collider::Type::RECLUSO] = false;
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::WALL][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::WALL][Collider::Type::EXPLOSION] = false;
 
 	matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
@@ -26,6 +27,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::RECLUSO] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::GROUND] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::EXPLOSION] = false;
 
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::WIN] = false;
@@ -55,6 +57,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::EXPLOSION][Collider::Type::RECLUSO] = true;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::WATER] = false;
 	matrix[Collider::Type::EXPLOSION][Collider::Type::DESTROY] = true;
+	matrix[Collider::Type::EXPLOSION][Collider::Type::GROUND] = false;
 
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WALL] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER] = false;
@@ -87,6 +90,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WATER][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::WATER][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::WATER][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::WATER][Collider::Type::EXPLOSION] = false;
 	
 	matrix[Collider::Type::PICK][Collider::Type::WALL] = false;
 	matrix[Collider::Type::PICK][Collider::Type::PLAYER] = true;
@@ -106,6 +110,8 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::GROUND][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::GROUND][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::GROUND][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::GROUND][Collider::Type::EXPLOSION] = false;
+
 
 }
 

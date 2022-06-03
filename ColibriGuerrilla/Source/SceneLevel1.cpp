@@ -347,6 +347,10 @@ Update_Status SceneLevel1::Update()
 	{
 		App->player->shootNormalBullet();
 	}
+	if (App->input->keys[SDL_SCANCODE_G] == Key_State::KEY_DOWN)
+	{
+		App->player->launchGranade();
+	}
 	return Update_Status::UPDATE_CONTINUE;
 }
 
