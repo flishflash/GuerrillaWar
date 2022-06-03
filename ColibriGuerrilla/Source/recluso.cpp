@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModulePickUp.h"
+#include "ModulePlayer.h"
 #include "ModuleParticles.h"
 
 recluso::recluso(int x, int y) : pickUp(x, y)
@@ -21,11 +22,20 @@ recluso::recluso(int x, int y) : pickUp(x, y)
 }
 
 void recluso::OnCollision(Collider* collider) {
-	path.Update();
 
 	if (collider->type == Collider::Type::PLAYER_SHOT || collider->type == Collider::Type::ENEMY_SHOT || collider->type == Collider::Type::EXPLOSION) {
 
 		App->particles->AddParticle(App->particles->deathAnim, positionenemy.x, positionenemy.y, Collider::Type::NONE);
+		
+		if (App->player->score > 500)
+		{
+			App->player->score -= 500;
+		}
+		else
+		{
+			App->player->score = 0;
+
+		}
 	}
 	else
 	{
@@ -38,6 +48,8 @@ void recluso::OnCollision(Collider* collider) {
 
 void recluso::Update()
 {
+	path.Update();
+
 	if (currentAnim != nullptr)
 		currentAnim->Update();
 
