@@ -30,6 +30,8 @@ private:
 	int cooldown2 = 0;
 	int cooldownshot = 0;
 	int cooldownspawn = 0;
+
+	int spawn;
 };
 
 #endif // __BOSS_F2_H__

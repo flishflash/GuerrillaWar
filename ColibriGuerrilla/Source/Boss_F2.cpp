@@ -17,6 +17,7 @@ Boss_F2::Boss_F2(int x, int y) : Enemy(x, y)
 
 	hits = 0;
 
+
 	fase1.PushBack({0, 853, 59, 128});
 	fase1.PushBack({61, 853, 65, 128 });
 	fase1.loop = true;
@@ -56,15 +57,23 @@ void Boss_F2::OnCollision(Collider* collider)
 
 void Boss_F2::Update()
 {
+	spawn = rand() % 2;
 	path.Update();
-	if (cooldownspawn==200)
+	if (cooldownspawn==230)
 	{
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x + 30, positionenemy.y + 100);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x - 40, positionenemy.y + 50);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x - 80, positionenemy.y + 120);
-		App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x + 100, positionenemy.y + 80);
+		switch (spawn)
+		{
+		case 0:
+			App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x + 80, positionenemy.y + 50);
+			App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x - 40, positionenemy.y + 50);
+			break;
+		case 1:
+			App->enemies->AddEnemy(Enemy_Type::GREENSOLDIER, positionenemy.x + 80, positionenemy.y + 50);
+			break;
+		}
+		
 	}
-	else if (cooldownspawn>200)
+	else if (cooldownspawn>230)
 	{
 		cooldownspawn = 0;
 	}
