@@ -99,6 +99,8 @@ public:
 
 	int balitas;
 
+	int vidas;
+
 	SDL_Rect cameraGameplay;
 };
 

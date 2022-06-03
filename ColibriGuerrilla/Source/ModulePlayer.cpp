@@ -31,7 +31,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 
 	bool ret = true;
-
+	vidas = 3;
 	texture = App->textures->Load("Assets/Sprites/sprites_caminant.png");
 	trees = App->textures->Load("Assets/Sprites/palmerasMapaless.png");
 	currentAnimation = &idleAnim;
@@ -318,15 +318,19 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		if (c1 == collider && destroyed == false && c2->type != Collider::Type::WIN && c2->type != Collider::Type::WATER && c2->type != Collider::Type::WALL && c2->type != Collider::Type::PICK && c2->type != Collider::Type::RECLUSO && c2->type != Collider::Type::GROUND && c2->type != Collider::Type::DESTROY)
 		{
-
-			App->particles->AddParticle(App->particles->playerdies, position.x, position.y, Collider::Type::NONE);
-
-			pendingToDelete = true;
-			if (collider != nullptr)
-				collider->pendingToDelete = true;
-
 			App->audio->PlayFx(Dead);
-			destroyed = true;
+
+			if (vidas == 0)
+			{
+				App->particles->AddParticle(App->particles->playerdies, position.x, position.y, Collider::Type::NONE);
+
+				pendingToDelete = true;
+				if (collider != nullptr)
+					collider->pendingToDelete = true;
+
+				destroyed = true;
+			}
+			vidas--;
 		}
 	}
 		if (c2->type == Collider::Type::WALL || c2->type == Collider::Type::DESTROY)
