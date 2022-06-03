@@ -70,6 +70,15 @@ public:
 	Particle bulletW;
 	Particle bulletNW;
 
+	Particle TbulletN;
+	Particle TbulletNE;
+	Particle TbulletE;
+	Particle TbulletSE;
+	Particle TbulletS;
+	Particle TbulletSW;
+	Particle TbulletW;
+	Particle TbulletNW;
+
 	Particle enemyBullet;
 	Particle enemyBulletL;
 	Particle enemyBulletR;
