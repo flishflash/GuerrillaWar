@@ -281,38 +281,7 @@ Update_Status ModulePlayer::Update()
 		position.x -= speed / 2;
 	}
 
-	/*
-	switch (direction) {
-	case 1:
-		currentAnimation = &northAnim;
-		break;
-	case 2:
-		currentAnimation = &northEastAnim;
-		break;
-	case 3:
-		currentAnimation = &eastAnim;
-		break;
-	case 4:
-		currentAnimation = &southEastAnim;
-		break;
-	case 5:
-		currentAnimation = &southAnim;
-		break;
-	case 6:
-		currentAnimation = &southWestAnim;
-		break;
-	case 7:
-		currentAnimation = &westAnim;
-		break;
-	case 8:
-		currentAnimation = &northWestAnim;
-		break;
-	}
-
-	if (!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W] && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A]) currentAnimation->loop = false;
-	else currentAnimation->loop = true;
-	currentAnimation->Update();
-	*/
+	
 
 	if (destroyed) {
 		destroyedCountdown--;
@@ -452,7 +421,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		{
 			score += 100;
 		}
-		if (c2->type == Collider::Type::WATER && App->weapon->options != 3)
+		if (c2->type == Collider::Type::WATER && App->weapon->options == 1)
 		{
 			App->weapon->options = 2;
 		}
@@ -460,7 +429,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		{
 			App->weapon->options = 4;
 		}
-		if (c2->type == Collider::Type::GROUND && App->weapon->options != 4)
+		if (c2->type == Collider::Type::GROUND && App->weapon->options == 2)
 		{
 			App->weapon->options = 1;
 		}
