@@ -116,7 +116,7 @@ bool IntroAnimation::Start() {
 	assetsAnim[13] = titleAnim;
 
 	boat.x = (RES_WIDTH / 2) - 8;
-	boat.y = 260;
+	boat.y = 240;
 
 	planes[0].x = (RES_WIDTH / 2) - 64;
 	planes[0].y = RES_HEIGHT + 96;
@@ -136,7 +136,7 @@ bool IntroAnimation::Start() {
 	bombs[7].x = -32;
 
 	title.x = 8;
-	title.y = 70;
+	title.y = 50;
 
 	return ret;
 }
@@ -161,7 +161,7 @@ Update_Status IntroAnimation::Update() {
 		boat.y -= 2;
 		title.y -= 2;
 	}
-	if (duration < 405 && duration >= 360) {
+	if (duration < 395 && duration >= 360) {
 		boat.y -= 2;
 		title.y -= 2;
 	}

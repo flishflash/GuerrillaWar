@@ -172,7 +172,7 @@ Update_Status ModuleCollisions::PreUpdate()
 
 Update_Status ModuleCollisions::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_F1] == KEY_DOWN) godmode = true;
+	if (App->input->keys[SDL_SCANCODE_F1] == KEY_DOWN) godmode = !godmode;
 
 	if (App->input->keys[SDL_SCANCODE_F2] == KEY_DOWN)
 		debug = !debug;
