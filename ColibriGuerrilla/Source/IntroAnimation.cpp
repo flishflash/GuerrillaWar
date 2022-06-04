@@ -29,7 +29,7 @@ bool IntroAnimation::Start() {
 	bgTexture = App->textures->Load("Assets/Sprites/title_map.png");
 	introAssets = App->textures->Load("Assets/Sprites/Guerrilla_War_Intro_Spritesheet.png");
 
-	App->audio->PlayMusic("Assets/Music/introTitle.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Music/01_Demo.ogg", 1.0f);
 	duration = 0;
 
 	bombsAnim.FullReset();
