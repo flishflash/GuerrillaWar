@@ -36,6 +36,7 @@ bool SceneLevel1::Start()
 	//player
 	App->player->Enable();
 	appear = 0;
+	appear2 = 0;
 	//Water colliders
 	App->collisions->AddCollider({ 88, 4123, 302, 34 },	 Collider::Type::WATER);
 	App->collisions->AddCollider({ 216, 3964, 81, 161 }, Collider::Type::WATER);
@@ -281,11 +282,11 @@ bool SceneLevel1::Start()
 Update_Status SceneLevel1::Update()
 {
 
-	if (App->player->position.y == 341 && appear == 17)
+	if (App->player->position.y == 341 && appear2 == 0)
 	{
 		App->enemies->AddEnemy(Enemy_Type::BOSSF1, 737, 65); 
 		App->audio->PlayMusic("Assets/Music/05_Boss", 1.0f);
-		appear++;
+		appear2++;
 	}
 
 	if (App->player->position.y == 3800 && appear == 0)

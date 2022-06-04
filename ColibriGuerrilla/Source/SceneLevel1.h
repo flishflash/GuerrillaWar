@@ -37,6 +37,7 @@ public:
 
 private:
 	int appear;
+	int appear2;
 };
 
 #endif
