@@ -32,6 +32,9 @@ typedef unsigned int uint;
 #define WIN_RESIZABLE 0
 #define VSYNC 1
 
+#define SCENE_DURATION 500
+
+
 
 //vidas
 

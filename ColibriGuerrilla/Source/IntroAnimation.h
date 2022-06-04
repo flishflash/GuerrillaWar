@@ -5,7 +5,7 @@
 #include "Animation.h"
 #include "p2Point.h"
 
-#define MAX_ASSETS_TITLE 13
+#define MAX_ASSETS_TITLE 14
 
 struct SDL_Texture;
 
@@ -52,6 +52,9 @@ public:
 
 	iPoint playerMini;
 	Animation playerMiniAnim;
+
+	iPoint title;
+	Animation titleAnim;
 
 	iPoint* assetsPoint[MAX_ASSETS_TITLE];
 	Animation assetsAnim[MAX_ASSETS_TITLE];

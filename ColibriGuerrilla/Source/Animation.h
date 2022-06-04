@@ -36,6 +36,13 @@ public:
 		return !loop && !pingpong && loopCount > 0;
 	}
 
+	void FullReset() {
+		this->currentFrame = 0;
+		this->totalFrames = 0;
+		this->loopCount = 0;
+		this->pingpongDirection = 1;
+	}
+
 	void Update()
 	{
 		currentFrame += speed;
@@ -56,6 +63,10 @@ public:
 			actualFrame = totalFrames - currentFrame;
 
 		return frames[actualFrame];
+	}
+
+	int GetCurrentFrameNum() {
+		return (int)currentFrame;
 	}
 };
 
