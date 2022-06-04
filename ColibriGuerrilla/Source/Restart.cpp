@@ -37,7 +37,7 @@ Update_Status Restart::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A])
 	{
-		App->fade->FadeToBlack(this, (Module*)App->introAnim, 60);
+		App->fade->FadeToBlack(this, (Module*)App->hail, 60);
 
 	}
 

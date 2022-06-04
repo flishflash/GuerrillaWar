@@ -34,13 +34,13 @@ Application::Application()
 	modules[2] =	textures =		new ModuleTextures(true);
 	modules[3] =	audio =			new ModuleAudio(true);
 
-	modules[4] =	hail =			new hailHeros(true);
+	modules[4] =	hail =			new hailHeros(false);
 	modules[5] =	introAnim =		new IntroAnimation(false);
 	modules[6] =	sceneIntro =	new SceneIntro(false);
 	modules[7] =	sceneWin =		new SceneWin(false);
 	modules[8] =	sceneLose =		new SceneLose(false);
 	modules[9] =	sceneLevel_1 =	new SceneLevel1(false);
-	modules[10] =	restart =		new Restart(false);
+	modules[10] =	restart =		new Restart(true);
 	modules[11] =	destroys =		new ModuleDestroy(true);
 	modules[12] =	picks =			new ModulePickUp(true);
 	modules[13] =	particles =		new ModuleParticles(true);
