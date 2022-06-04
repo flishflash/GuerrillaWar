@@ -97,6 +97,7 @@ public:
 	uint explosionFx = 0;
 	uint Dead = 0;
 	uint LaunchG = 0 ;
+	uint DisparoF = 0;
 
 	// Font score index
 	uint score = 000;

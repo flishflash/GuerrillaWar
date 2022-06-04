@@ -41,7 +41,7 @@ bool ModulePlayer::Start()
 	Dead = App->audio->LoadFx("Assets/Fx/dead_player.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/Explosion_granade_1.wav");
 	LaunchG = App->audio->LoadFx("Assets/Fx/Throw_of_a_granade.wav");
-
+	DisparoF = App->audio->LoadFx("Assets/Fx/Shoot_3.wav");
 
 	position.x = 240;
 	position.y = 4000;
@@ -74,7 +74,7 @@ void ModulePlayer::shootNormalBullet()
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
 			App->particles->AddParticle(App->particles->TbulletN, position.x + 20, position.y, Collider::Type::EXPLOSION);
-			App->audio->PlayFx(NormalBulFx);
+			App->audio->PlayFx(DisparoF);
 		}
 		
 		break;
@@ -87,7 +87,7 @@ void ModulePlayer::shootNormalBullet()
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
 			App->particles->AddParticle(App->particles->TbulletNE, position.x + 20, position.y, Collider::Type::EXPLOSION);
-			App->audio->PlayFx(NormalBulFx);
+			App->audio->PlayFx(DisparoF);
 		}
 		break;
 	case 3:
@@ -99,7 +99,7 @@ void ModulePlayer::shootNormalBullet()
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
 			App->particles->AddParticle(App->particles->TbulletE, position.x + 20, position.y, Collider::Type::EXPLOSION);
-			App->audio->PlayFx(NormalBulFx);
+			App->audio->PlayFx(DisparoF);
 		}
 		break;
 	case 4:
@@ -111,7 +111,7 @@ void ModulePlayer::shootNormalBullet()
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
 			App->particles->AddParticle(App->particles->TbulletSE, position.x + 20, position.y, Collider::Type::EXPLOSION);
-			App->audio->PlayFx(NormalBulFx);
+			App->audio->PlayFx(DisparoF);
 		}
 		break;
 	case 5:
@@ -123,7 +123,7 @@ void ModulePlayer::shootNormalBullet()
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
 			App->particles->AddParticle(App->particles->TbulletS, position.x + 20, position.y, Collider::Type::EXPLOSION);
-			App->audio->PlayFx(NormalBulFx);
+			App->audio->PlayFx(DisparoF);
 		}
 		break;
 	case 6:
@@ -135,7 +135,7 @@ void ModulePlayer::shootNormalBullet()
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
 			App->particles->AddParticle(App->particles->TbulletSW, position.x + 20, position.y, Collider::Type::EXPLOSION);
-			App->audio->PlayFx(NormalBulFx);
+			App->audio->PlayFx(DisparoF);
 		}
 		break;
 	case 7:
@@ -147,7 +147,7 @@ void ModulePlayer::shootNormalBullet()
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
 			App->particles->AddParticle(App->particles->TbulletW, position.x + 20, position.y, Collider::Type::EXPLOSION);
-			App->audio->PlayFx(NormalBulFx);
+			App->audio->PlayFx(DisparoF);
 		}
 		break;
 	case 8:
@@ -159,7 +159,7 @@ void ModulePlayer::shootNormalBullet()
 		else if (App->weapon->options == 3 || App->weapon->options == 4)
 		{
 			App->particles->AddParticle(App->particles->TbulletNW, position.x + 20, position.y, Collider::Type::EXPLOSION);
-			App->audio->PlayFx(NormalBulFx);
+			App->audio->PlayFx(DisparoF);
 		}
 		break;
 	}
