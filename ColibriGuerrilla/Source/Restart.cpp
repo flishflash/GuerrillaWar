@@ -25,7 +25,7 @@ bool Restart::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/Sprites/titleScreen.png");
+	bgTexture = App->textures->Load("Assets/Sprites/credits.png");
 	App->audio->PlayMusic("Assets/Music/01_Demo.ogg", 1.0f);
 	App->player->cameraGameplay.x = 0;
 	App->player->cameraGameplay.y = 0;
@@ -37,7 +37,7 @@ Update_Status Restart::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A])
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 60);
+		App->fade->FadeToBlack(this, (Module*)App->introAnim, 60);
 
 	}
 

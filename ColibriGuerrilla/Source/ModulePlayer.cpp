@@ -322,7 +322,7 @@ Update_Status ModulePlayer::Update()
 
 	if (destroyed) {
 		destroyedCountdown--;
-			if (destroyedCountdown <= 0) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->restart, 30);
+			if (destroyedCountdown <= 0) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->introAnim, 30);
 	}
 	if (gana)
 	{
