@@ -355,34 +355,34 @@ Update_Status ModuleWeapons::Update()
 				direction = 1;
 				spritep.y = App->player->position.y;
 			}
-			if (App->input->keys[SDL_SCANCODE_D]) {
+			if (App->input->keys[SDL_SCANCODE_D] || App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0) {
 				direction = 3;
 				spritep.x = App->player->position.x;
 			}
-			if (App->input->keys[SDL_SCANCODE_S]) {
+			if (App->input->keys[SDL_SCANCODE_S] || App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0) {
 				direction = 5;
 				spritep.y = App->player->position.y;
 			}
-			if (App->input->keys[SDL_SCANCODE_A]) {
+			if (App->input->keys[SDL_SCANCODE_A] || App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0) {
 				direction = 7;
 				spritep.x = App->player->position.x;
 			}
-			if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) {
+			if ((App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0)) {
 				direction = 2;
 				spritep.y = App->player->position.y;
 				spritep.x = App->player->position.x;
 			}
-			if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) {
+			if ((App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0)) {
 				direction = 4;
 				spritep.y = App->player->position.y;
 				spritep.x = App->player->position.x;
 			}
-			if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) {
+			if ((App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0)) {
 				direction = 8;
 				spritep.y = App->player->position.y;
 				spritep.x = App->player->position.x;
 			}
-			if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) {
+			if ((App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0)) {
 				direction = 6;
 				spritep.y = App->player->position.y;
 				spritep.x = App->player->position.x;
@@ -416,7 +416,6 @@ Update_Status ModuleWeapons::Update()
 				break;
 			}
 			if (!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W] && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A] ) WcurrentAnimation->loop = false;
-			else if ((App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) == 0) && (App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) == 0)) WcurrentAnimation->loop = true;
 			else WcurrentAnimation->loop = true;
 			WcurrentAnimation->Update();
 		//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
@@ -427,34 +426,34 @@ Update_Status ModuleWeapons::Update()
 				direction = 1;
 				spritep.y = App->player->position.y;
 			}
-			if (App->input->keys[SDL_SCANCODE_D]) {
+			if (App->input->keys[SDL_SCANCODE_D] || App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0) {
 				direction = 3;
 				spritep.x = App->player->position.x;
 			}
-			if (App->input->keys[SDL_SCANCODE_S]) {
+			if (App->input->keys[SDL_SCANCODE_S] || App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0) {
 				direction = 5;
 				spritep.y = App->player->position.y;
 			}
-			if (App->input->keys[SDL_SCANCODE_A]) {
+			if (App->input->keys[SDL_SCANCODE_A] || App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0) {
 				direction = 7;
 				spritep.x = App->player->position.x;
 			}
-			if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) {
+			if ((App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0)) {
 				direction = 2;
 				spritep.y = App->player->position.y;
 				spritep.x = App->player->position.x;
 			}
-			if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) {
+			if ((App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0)) {
 				direction = 4;
 				spritep.y = App->player->position.y;
 				spritep.x = App->player->position.x;
 			}
-			if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) {
+			if ((App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0)) {
 				direction = 8;
 				spritep.y = App->player->position.y;
 				spritep.x = App->player->position.x;
 			}
-			if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) {
+			if ((App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0)) {
 				direction = 6;
 				spritep.y = App->player->position.y;
 				spritep.x = App->player->position.x;
@@ -488,47 +487,46 @@ Update_Status ModuleWeapons::Update()
 				break;
 			}
 			if ((!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W]  && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A])) WcurrentAnimation->loop = false;
-			else if ((App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) == 0) && (App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) == 0)) WcurrentAnimation->loop = true;
 			else WcurrentAnimation->loop = true;
 			WcurrentAnimation->Update();
 			break;
 		case  3:
-		if (App->input->keys[SDL_SCANCODE_W] || App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0) {
-			direction = 1;
-			spritep.y = App->player->position.y;
-		}
-		if (App->input->keys[SDL_SCANCODE_D]) {
-			direction = 3;
-			spritep.x = App->player->position.x;
-		}
-		if (App->input->keys[SDL_SCANCODE_S]) {
-			direction = 5;
-			spritep.y = App->player->position.y;
-		}
-		if (App->input->keys[SDL_SCANCODE_A]) {
-			direction = 7;
-			spritep.x = App->player->position.x;
-		}
-		if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) {
-			direction = 2;
-			spritep.y = App->player->position.y;
-			spritep.x = App->player->position.x;
-		}
-		if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) {
-			direction = 4;
-			spritep.y = App->player->position.y;
-			spritep.x = App->player->position.x;
-		}
-		if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) {
-			direction = 8;
-			spritep.y = App->player->position.y;
-			spritep.x = App->player->position.x;
-		}
-		if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) {
-			direction = 6;
-			spritep.y = App->player->position.y;
-			spritep.x = App->player->position.x;
-		}
+			if (App->input->keys[SDL_SCANCODE_W] || App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0) {
+				direction = 1;
+				spritep.y = App->player->position.y;
+			}
+			if (App->input->keys[SDL_SCANCODE_D] || App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0) {
+				direction = 3;
+				spritep.x = App->player->position.x;
+			}
+			if (App->input->keys[SDL_SCANCODE_S] || App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0) {
+				direction = 5;
+				spritep.y = App->player->position.y;
+			}
+			if (App->input->keys[SDL_SCANCODE_A] || App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0) {
+				direction = 7;
+				spritep.x = App->player->position.x;
+			}
+			if ((App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0)) {
+				direction = 2;
+				spritep.y = App->player->position.y;
+				spritep.x = App->player->position.x;
+			}
+			if ((App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0)) {
+				direction = 4;
+				spritep.y = App->player->position.y;
+				spritep.x = App->player->position.x;
+			}
+			if ((App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0)) {
+				direction = 8;
+				spritep.y = App->player->position.y;
+				spritep.x = App->player->position.x;
+			}
+			if ((App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0)) {
+				direction = 6;
+				spritep.y = App->player->position.y;
+				spritep.x = App->player->position.x;
+			}
 
 
 		switch (direction) {
@@ -558,49 +556,48 @@ Update_Status ModuleWeapons::Update()
 			break;
 		}
 		if (!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W] && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A]) WcurrentAnimation->loop = false;
-		else if ((App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) == 0) && (App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) == 0)) WcurrentAnimation->loop = true;
 		else WcurrentAnimation->loop = true;
 		WcurrentAnimation->Update();
 		//Como hay 8 direcciones les pondremos las numeraremos en sentido del reloj, siendo el norte 1 hasta el noroeste 8.
 		break;
 		case 4:
 
-		if (App->input->keys[SDL_SCANCODE_W] || App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0) {
-			direction = 1;
-			spritep.y = App->player->position.y;
-		}
-		if (App->input->keys[SDL_SCANCODE_D]) {
-			direction = 3;
-			spritep.x = App->player->position.x;
-		}
-		if (App->input->keys[SDL_SCANCODE_S]) {
-			direction = 5;
-			spritep.y = App->player->position.y;
-		}
-		if (App->input->keys[SDL_SCANCODE_A]) {
-			direction = 7;
-			spritep.x = App->player->position.x;
-		}
-		if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) {
-			direction = 2;
-			spritep.y = App->player->position.y;
-			spritep.x = App->player->position.x;
-		}
-		if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) {
-			direction = 4;
-			spritep.y = App->player->position.y;
-			spritep.x = App->player->position.x;
-		}
-		if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) {
-			direction = 8;
-			spritep.y = App->player->position.y;
-			spritep.x = App->player->position.x;
-		}
-		if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) {
-			direction = 6;
-			spritep.y = App->player->position.y;
-			spritep.x = App->player->position.x;
-		}
+			if (App->input->keys[SDL_SCANCODE_W] || App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0) {
+				direction = 1;
+				spritep.y = App->player->position.y;
+			}
+			if (App->input->keys[SDL_SCANCODE_D] || App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0) {
+				direction = 3;
+				spritep.x = App->player->position.x;
+			}
+			if (App->input->keys[SDL_SCANCODE_S] || App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0) {
+				direction = 5;
+				spritep.y = App->player->position.y;
+			}
+			if (App->input->keys[SDL_SCANCODE_A] || App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0) {
+				direction = 7;
+				spritep.x = App->player->position.x;
+			}
+			if ((App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0)) {
+				direction = 2;
+				spritep.y = App->player->position.y;
+				spritep.x = App->player->position.x;
+			}
+			if ((App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0)) {
+				direction = 4;
+				spritep.y = App->player->position.y;
+				spritep.x = App->player->position.x;
+			}
+			if ((App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0)) {
+				direction = 8;
+				spritep.y = App->player->position.y;
+				spritep.x = App->player->position.x;
+			}
+			if ((App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0)) {
+				direction = 6;
+				spritep.y = App->player->position.y;
+				spritep.x = App->player->position.x;
+			}
 
 
 		switch (direction) {
@@ -630,7 +627,6 @@ Update_Status ModuleWeapons::Update()
 			break;
 		}
 		if (!App->input->keys[SDL_SCANCODE_S] && !App->input->keys[SDL_SCANCODE_W] && !App->input->keys[SDL_SCANCODE_D] && !App->input->keys[SDL_SCANCODE_A] ) WcurrentAnimation->loop = false;
-		else if ((App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) == 0) && (App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) == 0)) WcurrentAnimation->loop = true;
 		else WcurrentAnimation->loop = true;
 		WcurrentAnimation->Update();
 

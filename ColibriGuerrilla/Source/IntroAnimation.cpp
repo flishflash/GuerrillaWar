@@ -143,7 +143,7 @@ bool IntroAnimation::Start() {
 
 Update_Status IntroAnimation::Update() {
 
-	if (App->input->keys[SDL_SCANCODE_SPACE]|| duration >= SCENE_DURATION) {
+	if (App->input->keys[SDL_SCANCODE_SPACE] || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A] == Key_State::KEY_DOWN || duration >= SCENE_DURATION) {
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 0);
 	}
 

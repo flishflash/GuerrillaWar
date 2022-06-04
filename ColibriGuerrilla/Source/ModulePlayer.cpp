@@ -276,34 +276,34 @@ Update_Status ModulePlayer::Update()
 		direction = 1;
 		position.y -= speed;
 	}
-	if (App->input->keys[SDL_SCANCODE_D]) {
+	if (App->input->keys[SDL_SCANCODE_D] || App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0) {
 		direction = 3;
 		position.x += speed;
 	}
-	if (App->input->keys[SDL_SCANCODE_S]) {
+	if (App->input->keys[SDL_SCANCODE_S] || App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0) {
 		direction = 5;
 		position.y += speed;
 	}
-	if (App->input->keys[SDL_SCANCODE_A]) {
+	if (App->input->keys[SDL_SCANCODE_A] || App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0) {
 		direction = 7;
 		position.x -= speed;
 	}
-	if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) {
+	if ((App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_D]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0)) {
 		direction = 2;
 		position.y -= speed / 2;
 		position.x += speed / 2;
 	}
-	if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) {
+	if ((App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_D]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) > 0)) {
 		direction = 4;
 		position.y += speed / 2;
 		position.x += speed / 2;
 	}
-	if (App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) {
+	if ((App->input->keys[SDL_SCANCODE_W] && App->input->keys[SDL_SCANCODE_A]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) < 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0)) {
 		direction = 8;
 		position.y -= speed / 2;
 		position.x -= speed / 2;
 	}
-	if (App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) {
+	if ((App->input->keys[SDL_SCANCODE_S] && App->input->keys[SDL_SCANCODE_A]) || (App->player->reduce_val(App->input->controllers[0].j1_y, 10000, 2) > 0 && App->player->reduce_val(App->input->controllers[0].j1_x, 10000, 2) < 0)) {
 		direction = 6;
 		position.y += speed / 2;
 		position.x -= speed / 2;
@@ -313,7 +313,7 @@ Update_Status ModulePlayer::Update()
 
 	if (destroyed) {
 		destroyedCountdown--;
-			if (destroyedCountdown <= 0) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+			if (destroyedCountdown <= 0) App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->restart, 30);
 	}
 	if (gana)
 	{

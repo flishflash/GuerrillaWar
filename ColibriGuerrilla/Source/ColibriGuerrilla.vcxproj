@@ -90,6 +90,7 @@
     <ClInclude Include="Granada.h" />
     <ClInclude Include="greenSoldier.h" />
     <ClInclude Include="greenSoldiergranada.h" />
+    <ClInclude Include="hailHeros.h" />
     <ClInclude Include="IntroAnimation.h" />
     <ClInclude Include="LanzLlamas.h" />
     <ClInclude Include="ModuleDestroy.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="ModuleParticles.h" />
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModuleRender.h" />
+    <ClInclude Include="Restart.h" />
     <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="Scenelevel1.h" />
     <ClInclude Include="ModuleTextures.h" />
@@ -132,6 +134,7 @@
     <ClCompile Include="Granada.cpp" />
     <ClCompile Include="greenSoldier.cpp" />
     <ClCompile Include="greenSoldiergranada.cpp" />
+    <ClCompile Include="hailHeros.cpp" />
     <ClCompile Include="IntroAnimation.cpp" />
     <ClCompile Include="LanzLlamas.cpp" />
     <ClCompile Include="ModuleDestroy.cpp" />
@@ -150,6 +153,7 @@
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
+    <ClCompile Include="Restart.cpp" />
     <ClCompile Include="SceneIntro.cpp" />
     <ClCompile Include="Scenelevel1.cpp" />
     <ClCompile Include="ModuleTextures.cpp" />

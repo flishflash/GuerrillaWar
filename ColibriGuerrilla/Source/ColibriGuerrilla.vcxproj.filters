@@ -116,6 +116,12 @@
     <ClCompile Include="IntroAnimation.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="hailHeros.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Restart.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h">
@@ -239,6 +245,12 @@
       <Filter>Game\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="IntroAnimation.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="hailHeros.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Restart.h">
       <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>

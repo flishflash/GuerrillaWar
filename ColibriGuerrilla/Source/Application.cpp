@@ -19,6 +19,8 @@
 #include "ModuleDestroy.h"
 #include "Win.h"
 #include "Lose.h"
+#include "Restart.h"
+#include "hailHeros.h"
 #include "ModuleWeapons.h"
 
 Application::Application()
@@ -32,22 +34,24 @@ Application::Application()
 	modules[2] =	textures =		new ModuleTextures(true);
 	modules[3] =	audio =			new ModuleAudio(true);
 
-	modules[4] =	introAnim =		new IntroAnimation(true);
-	modules[5] =	sceneIntro =	new SceneIntro(false);
-	modules[6] =	sceneWin =		new SceneWin(false);
-	modules[7] =	sceneLose =		new SceneLose(false);
-	modules[8] =	sceneLevel_1 =	new SceneLevel1(false);
-	modules[9] =	destroys =		new ModuleDestroy(true);
-	modules[10] =	picks =			new ModulePickUp(true);
-	modules[11] =	particles =		new ModuleParticles(true);
-	modules[12] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
-	modules[13] =	player =		new ModulePlayer(false);	//Player starts disabled
-	modules[14] =	weapon =		new ModuleWeapons(true);
+	modules[4] =	hail =			new hailHeros(true);
+	modules[5] =	introAnim =		new IntroAnimation(false);
+	modules[6] =	sceneIntro =	new SceneIntro(false);
+	modules[7] =	sceneWin =		new SceneWin(false);
+	modules[8] =	sceneLose =		new SceneLose(false);
+	modules[9] =	sceneLevel_1 =	new SceneLevel1(false);
+	modules[10] =	restart =		new Restart(false);
+	modules[11] =	destroys =		new ModuleDestroy(true);
+	modules[12] =	picks =			new ModulePickUp(true);
+	modules[13] =	particles =		new ModuleParticles(true);
+	modules[14] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	modules[15] =	player =		new ModulePlayer(false);	//Player starts disabled
+	modules[16] =	weapon =		new ModuleWeapons(true);
 
-	modules[15] =	collisions =	new ModuleCollisions(true);
-	modules[16] =	fade =			new ModuleFadeToBlack(true);
-	modules[17] =	fonts =			new ModuleFonts(true);
-	modules[18] =	render =		new ModuleRender(true);
+	modules[17] =	collisions =	new ModuleCollisions(true);
+	modules[18] =	fade =			new ModuleFadeToBlack(true);
+	modules[19] =	fonts =			new ModuleFonts(true);
+	modules[20] =	render =		new ModuleRender(true);
 
 	
 
