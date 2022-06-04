@@ -54,6 +54,9 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 405, 2266, 40, 74 }, Collider::Type::GROUND);
 	App->collisions->AddCollider({ 264, 3921, 163, 21 }, Collider::Type::GROUND);
 	App->collisions->AddCollider({ 560, 3921, 163, 21 }, Collider::Type::GROUND);
+	App->collisions->AddCollider({ 477, 602, 523, 26 }, Collider::Type::GROUND);
+	App->collisions->AddCollider({ 477, 1039, 523, 26}, Collider::Type::GROUND);
+	App->collisions->AddCollider({ 735, 602, 61, 426 }, Collider::Type::GROUND);
 
 	//Wall colliders
 	App->collisions->AddCollider({ 452, 4015, 74, 200 }, Collider::Type::WALL);
@@ -281,6 +284,7 @@ Update_Status SceneLevel1::Update()
 	if (App->player->position.y == 341 && appear == 17)
 	{
 		App->enemies->AddEnemy(Enemy_Type::BOSSF1, 737, 65); 
+		App->audio->PlayMusic("Assets/Music/05_Boss", 1.0f);
 		appear++;
 	}
 
