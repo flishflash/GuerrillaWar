@@ -32,6 +32,8 @@ private:
 	Animation walkleft;
 	Animation walkright;
 
+	uint risa = 0;
+
 	int cooldown = 0;
 	int cooldownspawn = 0;
 	int cooldownmor = 0;

@@ -7,6 +7,7 @@
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
 #include "ModuleEnemies.h"
+#include "ModuleAudio.h"
 
 
 Boss_F2::Boss_F2(int x, int y) : Enemy(x, y)
@@ -30,6 +31,9 @@ Boss_F2::Boss_F2(int x, int y) : Enemy(x, y)
 	dead.loop = true;
 	dead.speed = 0.3f;
 
+	shoot = App->audio->LoadFx("Assets / Fx / Shoot_2.wav");
+	explosion = App->audio->LoadFx("Assets / Fx / Helicopter_explosion.wav");
+
 	collider = App->collisions->AddCollider({ x, y, 59, 120 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
@@ -47,6 +51,7 @@ void Boss_F2::OnCollision(Collider* collider)
 		App->particles->AddParticle(App->particles->explosion, positionenemy.x + 50, positionenemy.y + 10);
 		App->particles->AddParticle(App->particles->explosion, positionenemy.x + 30, positionenemy.y);
 		App->particles->AddParticle(App->particles->explosion, positionenemy.x, positionenemy.y + 70);
+		App->audio->PlayFx(explosion);
 		//Win collider
 		App->collisions->AddCollider({ 705, 128, 167, 64 }, Collider::Type::WIN);
 		SetToDelete();
@@ -129,7 +134,8 @@ void Boss_F2::Update()
 			App->particles->AddParticle(App->particles->BulletBossL, positionenemy.x + 40, positionenemy.y + 70, Collider::Type::ENEMY_SHOT);
 	
 			App->particles->AddParticle(App->particles->BulletBossR, positionenemy.x , positionenemy.y + 70, Collider::Type::ENEMY_SHOT);
-			cooldownshot = 0;			
+			cooldownshot = 0;	
+			App->audio->PlayFx(shoot);
 	}
 	cooldownshot++;
 	cooldownspawn++;

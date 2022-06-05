@@ -49,7 +49,7 @@ Boss_F1::Boss_F1(int x, int y) : Enemy(x, y)
 	walkleft.loop = true;
 	walkleft.speed = 0.1f;
 
-	App->audio->PlayMusic("Assets/Music/05_Boss", 1.0f);
+	App->audio->LoadFx("Assets/Fx/Laugh.wav");
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::BOSS, (Module*)App->enemies);
 }
 void Boss_F1::OnCollision(Collider* collider)
@@ -93,7 +93,6 @@ void Boss_F1::Update()
 			{
 				currentAnim = &walkright;
 				positionenemy.x += 1;
-
 			}else
 			{
 				currentAnim = &walkleft;

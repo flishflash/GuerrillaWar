@@ -285,7 +285,7 @@ Update_Status SceneLevel1::Update()
 	if (App->player->position.y == 341 && appear2 == 0)
 	{
 		App->enemies->AddEnemy(Enemy_Type::BOSSF1, 737, 65); 
-		App->audio->PlayMusic("Assets/Music/05_Boss", 1.0f);
+		App->audio->PlayMusic("Assets/Music/05_Boss.ogg", 1.0f);
 		appear2++;
 	}
 
@@ -450,6 +450,7 @@ Update_Status SceneLevel1::Update()
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_A] == Key_State::KEY_DOWN)
 	{
 		App->player->shootNormalBullet();
+
 	}
 	if (App->input->keys[SDL_SCANCODE_G] == Key_State::KEY_DOWN || App->input->controllers[0].buttons[SDL_CONTROLLER_BUTTON_B] == Key_State::KEY_DOWN)
 	{

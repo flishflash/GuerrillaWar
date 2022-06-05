@@ -31,6 +31,9 @@ private:
 	int cooldownshot = 0;
 	int cooldownspawn = 0;
 
+	uint shoot = 0;
+	uint explosion = 0;
+
 	int spawn;
 };
 
