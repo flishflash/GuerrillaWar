@@ -189,7 +189,7 @@ void ModulePlayer::launchGranade()
 	case 1:
 		App->particles->AddParticle(App->particles->granadeN, position.x + 20, position.y - 20, Collider::Type::NONE);
 		App->particles->AddParticle(App->particles->explosionG, position.x - 5, position.y - 100, Collider::Type::EXPLOSION, 50);
-
+		App->particles->AddParticle(App->particles->explosionG, position.x - 5, position.y - 100, Collider::Type::NONE, 50);
 		break;
 	case 2:
 		App->particles->AddParticle(App->particles->granadeNE, position.x + 30, position.y, Collider::Type::NONE);
