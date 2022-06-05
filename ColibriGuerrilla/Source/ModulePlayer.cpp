@@ -194,35 +194,38 @@ void ModulePlayer::launchGranade()
 	case 2:
 		App->particles->AddParticle(App->particles->granadeNE, position.x + 30, position.y, Collider::Type::NONE);
 		App->particles->AddParticle(App->particles->explosionG, position.x + 55, position.y -75, Collider::Type::EXPLOSION, 50);
-
+		App->particles->AddParticle(App->particles->explosionG, position.x + 55, position.y - 75, Collider::Type::NONE, 50);
 		break;
 	case 3:
 		App->particles->AddParticle(App->particles->granadeE, position.x + 20, position.y + 20, Collider::Type::NONE);
 		App->particles->AddParticle(App->particles->explosionG, position.x + 70, position.y , Collider::Type::EXPLOSION, 50);
+		App->particles->AddParticle(App->particles->explosionG, position.x + 70, position.y, Collider::Type::NONE, 50);
 
 		break;
 	case 4:
 		App->particles->AddParticle(App->particles->granadeSE, position.x + 15, position.y + 30, Collider::Type::NONE);
 		App->particles->AddParticle(App->particles->explosionG, position.x + 55, position.y + 75, Collider::Type::EXPLOSION, 50);
-
+		App->particles->AddParticle(App->particles->explosionG, position.x + 55, position.y + 75, Collider::Type::NONE, 50);
 		break;
 	case 5:
 		App->particles->AddParticle(App->particles->granadeS, position.x + 5, position.y + 30, Collider::Type::NONE);
 		App->particles->AddParticle(App->particles->explosionG, position.x - 15, position.y + 55, Collider::Type::EXPLOSION, 50);
-
+		App->particles->AddParticle(App->particles->explosionG, position.x - 15, position.y + 55, Collider::Type::NONE, 50);
 		break;
 	case 6:
 		App->particles->AddParticle(App->particles->granadeSW, position.x - 7, position.y + 27, Collider::Type::NONE);
 		App->particles->AddParticle(App->particles->explosionG, position.x - 70, position.y + 65, Collider::Type::EXPLOSION, 50);
+		App->particles->AddParticle(App->particles->explosionG, position.x - 70, position.y + 65, Collider::Type::NONE, 50);
 		break;
 	case 7:
 		App->particles->AddParticle(App->particles->granadeW, position.x - 20, position.y + 20, Collider::Type::NONE);
 		App->particles->AddParticle(App->particles->explosionG, position.x - 80, position.y, Collider::Type::EXPLOSION, 50);
-
+		App->particles->AddParticle(App->particles->explosionG, position.x - 80, position.y, Collider::Type::NONE, 50);
 		break;
 	case 8:
 		App->particles->AddParticle(App->particles->granadeNW, position.x - 5, position.y, Collider::Type::NONE);
 		App->particles->AddParticle(App->particles->explosionG, position.x - 70, position.y - 75, Collider::Type::EXPLOSION, 50);
+		App->particles->AddParticle(App->particles->explosionG, position.x - 70, position.y - 75, Collider::Type::NONE, 50);
 		break;
 	}
 	App->audio->PlayFx(LaunchG);
