@@ -3,6 +3,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
+#include "ModuleAudio.h"
 
 
 greenSoldiergranada::greenSoldiergranada(int x, int y) : Enemy(x, y)
@@ -47,7 +48,7 @@ greenSoldiergranada::greenSoldiergranada(int x, int y) : Enemy(x, y)
 	granadashotR.speed = 0.1f;
 
 	currentAnim = &granadeidle;
-
+	LaunchG = App->audio->LoadFx("Assets/Fx/Throw_of_a_granade.wav");
 	collider = App->collisions->AddCollider({ x, y, 28, 55 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 void greenSoldiergranada::OnCollision(Collider* collider) {
@@ -73,6 +74,7 @@ void greenSoldiergranada::Update()
 			{
 				App->particles->AddParticle(App->particles->granadeS, positionenemy.x, positionenemy.y + 25, Collider::Type::NONE, 20);
 				App->particles->AddParticle(App->particles->explosionG, positionenemy.x-16, positionenemy.y + 65, Collider::Type::ENEMY_SHOT, 70);
+				App->audio->PlayFx(LaunchG);
 				cooldown2 = 0;
 			}
 				cooldown2++;

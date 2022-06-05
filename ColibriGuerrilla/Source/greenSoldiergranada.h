@@ -31,6 +31,8 @@ private:
 	Animation granadashotR;
 	Animation granadeidle;
 
+	uint LaunchG = 0;
+
 	int cooldown = 0;
 	int cooldown2 = 0;
 };
