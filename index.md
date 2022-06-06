@@ -53,8 +53,7 @@ G-> grenade
 
 ## Trailer
 
-<iframe width="740" height="590" src="https://www.youtube.com/watch?v=TbLepWnHUWs&t=70s&ab_channel=JoseAntonioTurIzquierdo" frameborder="0" allowfullscreen></iframe>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TbLepWnHUWs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ### Shortcuts
 
 F1-> God Mode
