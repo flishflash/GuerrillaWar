@@ -34,6 +34,9 @@ Guerrilla War is a game produced by SNK at 1987 for arcade. In this shooter you 
 ## Andreu Miro
 ### Audio and OST Compositor
 
+## Trailer
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TbLepWnHUWs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Keyboard Controls
 Space/Enter/Left Click-> skip scene
@@ -51,9 +54,6 @@ Space-> Shoot
 
 G-> grenade
 
-## Trailer
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TbLepWnHUWs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ### Shortcuts
 
 F1-> God Mode
