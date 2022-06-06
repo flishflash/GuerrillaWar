@@ -34,7 +34,7 @@ Guerrilla War is a game produced by SNK at 1987 for arcade. In this shooter you 
 ## Andreu Miro
 ### Audio and OST Compositor
 
-
+## Disclaimer
 Besides the current responsibility, each team member has worked on the game's code.
 
 
